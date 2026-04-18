@@ -1,0 +1,14 @@
+{
+  "tracking_frame_count": 2405,
+  "tracking_time_seconds": 1.8419574999948054,
+  "tracking_time_per_frame_ms": 0.7658866943845345,
+  "tracking_fps": 1305.676162455856,
+  "tracking_timing_scope": "Per-frame tracking computation only; excludes frame disk I/O, MOT writing, rendering, rendered output writes, and MOT evaluation.",
+  "tracking_includes_input_adaptation": true,
+  "tracking_includes_frame_io": false,
+  "tracking_includes_mot_writing": false,
+  "tracking_includes_rendering": false,
+  "tracking_includes_output_writes": false,
+  "tracking_includes_evaluation": false,
+  "tracking_includes_process_startup": false
+}
