@@ -1,18 +1,3 @@
-[
-  {
-    "index": "sequence",
-    "num_frames": 346,
-    "idf1": 0.9897810218978103,
-    "idp": 1.0,
-    "idr": 0.9797687861271677,
-    "precision": 1.0,
-    "recall": 0.9797687861271677,
-    "mota": 0.9797687861271677,
-    "motp": 0.04740811327546804,
-    "num_switches": 0,
-    "num_false_positives": 0,
-    "num_misses": 14,
-    "mostly_tracked": 2,
-    "mostly_lost": 0
-  }
-]
+version https://git-lfs.github.com/spec/v1
+oid sha256:cb0cf9dd83bbd64920426ef6292c22165b029e54d0f1ce77831d8c8d61d66a87
+size 397

@@ -1,14 +1,3 @@
-{
-  "tracking_frame_count": 3315,
-  "tracking_time_seconds": 163.80402409998987,
-  "tracking_time_per_frame_ms": 49.412978612364974,
-  "tracking_fps": 20.237598057886814,
-  "tracking_timing_scope": "Per-frame tracking computation only; excludes frame disk I/O, MOT writing, rendering, rendered output writes, and MOT evaluation.",
-  "tracking_includes_input_adaptation": true,
-  "tracking_includes_frame_io": false,
-  "tracking_includes_mot_writing": false,
-  "tracking_includes_rendering": false,
-  "tracking_includes_output_writes": false,
-  "tracking_includes_evaluation": false,
-  "tracking_includes_process_startup": false
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:596ff04de98293ee3d6ac24574b162b698800eddaa0a19f956ac093658325e80
+size 642
