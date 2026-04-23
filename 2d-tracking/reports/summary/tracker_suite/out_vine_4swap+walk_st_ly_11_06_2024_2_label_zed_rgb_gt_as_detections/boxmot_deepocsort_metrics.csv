@@ -1,2 +1,3 @@
-,num_frames,idf1,idp,idr,precision,recall,mota,motp,num_switches,num_false_positives,num_misses,mostly_tracked,mostly_lost
-sequence,361,0.46024770275669197,0.47097301717089124,0.4482490272373541,1.0,0.9478599221789883,0.9315175097276265,1.1511677823663636e-07,21,0,67,4,0
+version https://git-lfs.github.com/spec/v1
+oid sha256:7abe08392b49c3e47fb9ec730aeacb89ed4c03059cde1abfbe884e33222676ff
+size 274
