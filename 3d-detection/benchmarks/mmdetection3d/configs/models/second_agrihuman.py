@@ -1,6 +1,8 @@
 _base_ = [
-    'mmdet3d::second/second_hv_secfpn_8xb6-80e_kitti-3d-3class.py',
+    'mmdet3d::_base_/models/second_hv_secfpn_kitti.py',
     '../datasets/agrihuman_lidar_detection.py',
+    'mmdet3d::_base_/schedules/cyclic-40e.py',
+    'mmdet3d::_base_/default_runtime.py',
 ]
 
 point_cloud_range = [-24.0, -28.0, -1.0, 30.0, 28.0, 15.0]

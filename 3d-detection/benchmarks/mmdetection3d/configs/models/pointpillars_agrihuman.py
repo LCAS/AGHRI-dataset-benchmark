@@ -1,6 +1,7 @@
 _base_ = [
-    'mmdet3d::pointpillars/pointpillars_hv_secfpn_8xb6-160e_kitti-3d-3class.py',
+    'mmdet3d::_base_/models/pointpillars_hv_secfpn_kitti.py',
     '../datasets/agrihuman_lidar_detection.py',
+    'mmdet3d::_base_/default_runtime.py',
 ]
 
 point_cloud_range = [-24.0, -28.0, -1.0, 30.0, 28.0, 15.0]
@@ -76,5 +77,52 @@ model = dict(
         max_num=100,
     ),
 )
+
+lr = 0.001
+epoch_num = 80
+optim_wrapper = dict(
+    optimizer=dict(lr=lr),
+    clip_grad=dict(max_norm=35, norm_type=2),
+)
+param_scheduler = [
+    dict(
+        type='CosineAnnealingLR',
+        T_max=epoch_num * 0.4,
+        eta_min=lr * 10,
+        begin=0,
+        end=epoch_num * 0.4,
+        by_epoch=True,
+        convert_to_iter_based=True,
+    ),
+    dict(
+        type='CosineAnnealingLR',
+        T_max=epoch_num * 0.6,
+        eta_min=lr * 1e-4,
+        begin=epoch_num * 0.4,
+        end=epoch_num * 1,
+        by_epoch=True,
+        convert_to_iter_based=True,
+    ),
+    dict(
+        type='CosineAnnealingMomentum',
+        T_max=epoch_num * 0.4,
+        eta_min=0.85 / 0.95,
+        begin=0,
+        end=epoch_num * 0.4,
+        by_epoch=True,
+        convert_to_iter_based=True,
+    ),
+    dict(
+        type='CosineAnnealingMomentum',
+        T_max=epoch_num * 0.6,
+        eta_min=1,
+        begin=epoch_num * 0.4,
+        end=epoch_num * 1,
+        convert_to_iter_based=True,
+    ),
+]
+train_cfg = dict(by_epoch=True, max_epochs=epoch_num, val_interval=2)
+val_cfg = dict()
+test_cfg = dict()
 
 load_from = None
