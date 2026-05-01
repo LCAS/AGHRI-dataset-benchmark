@@ -229,7 +229,7 @@ def _disable_visualization(cfg: Any) -> None:
 
     if 'default_hooks' not in cfg or cfg.default_hooks is None:
         cfg.default_hooks = {}
-    cfg.default_hooks['visualization'] = None
+    cfg.default_hooks.pop('visualization', None)
     if 'custom_hooks' in cfg and isinstance(cfg.custom_hooks, list):
         cfg.custom_hooks = [
             hook for hook in cfg.custom_hooks
