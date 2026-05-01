@@ -203,11 +203,7 @@ def _disable_visualization(cfg: Any) -> None:
     if 'default_hooks' not in cfg or cfg.default_hooks is None:
         cfg.default_hooks = {}
     cfg.default_hooks['visualization'] = None
-    cfg.visualizer = dict(
-        type='Visualizer',
-        vis_backends=[dict(type='LocalVisBackend')],
-        name='visualizer',
-    )
+    cfg.visualizer = None
 
 
 def _join_dataset_path(dataset_cfg: Dict[str, Any]) -> Optional[str]:
