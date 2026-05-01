@@ -14,18 +14,15 @@ This module extends the repository benchmark pattern to LiDAR-based 3D person de
 - `src/prepare_agrihuman_lidar_dataset.py`: optional raw dataset to MMDetection3D conversion
 - `src/run_benchmark.py`: train/evaluate configured models and export summaries
 - `configs/datasets/`: dataset and dataloader config
-- `configs/models/`: PointPillars, SECOND, and TANet configs
+- `configs/models/`: PointPillars and SECOND configs
 - `configs/benchmark_mmdetection3d_agrihuman.yaml`: benchmark manifest
-- `agrihuman3d/`: custom dataset, metric, and TANet voxel encoder
+- `agrihuman3d/`: custom dataset and metric
 - `scripts/*.sbatch`: cluster launchers
 
 ## Supported Models
 
 - `pointpillars_agrihuman.py`
 - `second_agrihuman.py`
-- `tanet_agrihuman.py`
-
-The TANet entry is implemented as an MMDetection3D-native PointPillars variant with a stacked triple-attention pillar encoder. It stays inside the MMDetection3D runtime instead of relying on the original legacy SECOND codebase.
 
 ## Dataset Expectations
 

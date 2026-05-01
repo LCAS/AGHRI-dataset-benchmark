@@ -16,6 +16,4 @@ models:
     config: 3d-detection/benchmarks/mmdetection3d/configs/models/pointpillars_agrihuman.py
   - name: second_agrihuman
     config: 3d-detection/benchmarks/mmdetection3d/configs/models/second_agrihuman.py
-  - name: tanet_agrihuman
-    config: 3d-detection/benchmarks/mmdetection3d/configs/models/tanet_agrihuman.py
-notes: "Benchmark settings for agri-human LiDAR 3D detection with PointPillars, SECOND, and TANet. Reports IoU 0.25, 0.50, 0.75 and selects checkpoints by mean 3D AP across reported thresholds."
+notes: "Benchmark settings for agri-human LiDAR 3D detection with PointPillars and SECOND. Reports IoU 0.25, 0.50, 0.75 and selects checkpoints by mean 3D AP across reported thresholds."
