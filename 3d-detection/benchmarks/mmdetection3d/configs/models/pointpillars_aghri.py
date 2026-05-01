@@ -1,6 +1,6 @@
 _base_ = [
     'mmdet3d::_base_/models/pointpillars_hv_secfpn_kitti.py',
-    '../datasets/agrihuman_lidar_detection.py',
+    '../datasets/aghri_lidar_detection.py',
     'mmdet3d::_base_/default_runtime.py',
 ]
 

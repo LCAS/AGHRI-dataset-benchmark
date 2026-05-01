@@ -6,7 +6,7 @@ from mmdet3d.structures import LiDARInstance3DBoxes
 
 
 @DATASETS.register_module()
-class AgriHumanLidarDataset(Det3DDataset):
+class AghriLidarDataset(Det3DDataset):
     METAINFO = {
         'classes': ('person', ),
         'palette': [(220, 20, 60)],

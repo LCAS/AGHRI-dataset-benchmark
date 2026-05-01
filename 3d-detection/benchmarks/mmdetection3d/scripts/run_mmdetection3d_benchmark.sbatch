@@ -29,8 +29,8 @@ export OUT_DIR=$REPO_ROOT/3d-detection/reports/benchmarks/summary/mmdetection3d
 export RAW_DATA_ROOT=${RAW_DATA_ROOT:-/workspace/datasets/agri-human-sensing/labelled_dataset}
 export DATA_ROOT=${DATA_ROOT:-/workspace/datasets/agri-human-sensing/mmdet3d_person}
 export PREPARE_DATASET=${PREPARE_DATASET:-0}
-export CONFIG_FILE=${CONFIG_FILE:-benchmark_mmdetection3d_agrihuman.yaml}
-export OUT_FILE=${OUT_FILE:-summary_mmdetection3d_agrihuman.csv}
+export CONFIG_FILE=${CONFIG_FILE:-benchmark_mmdetection3d_aghri.yaml}
+export OUT_FILE=${OUT_FILE:-summary_mmdetection3d_aghri.csv}
 
 srun bash -c "
     set -e
@@ -56,10 +56,10 @@ srun bash -c "
         source \$VENV_PATH/bin/activate
     fi
 
-    export AGRIHUMAN_3D_DATA_ROOT=\$DATA_ROOT
+    export AGHRI_3D_DATA_ROOT=\$DATA_ROOT
 
     if [ \"\$PREPARE_DATASET\" = \"1\" ]; then
-        python src/prepare_agrihuman_lidar_dataset.py \
+        python src/prepare_aghri_lidar_dataset.py \
             --raw-root \$RAW_DATA_ROOT \
             --out-root \$DATA_ROOT \
             --workers ${SLURM_CPUS_PER_TASK:-8}

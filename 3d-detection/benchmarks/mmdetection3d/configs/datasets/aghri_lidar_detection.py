@@ -1,6 +1,6 @@
-custom_imports = dict(imports=['agrihuman3d'], allow_failed_imports=False)
+custom_imports = dict(imports=['aghri3d'], allow_failed_imports=False)
 
-dataset_type = 'AgriHumanLidarDataset'
+dataset_type = 'AghriLidarDataset'
 data_root = '/workspace/datasets/agri-human-sensing/mmdet3d_person'
 class_names = ['person']
 metainfo = dict(classes=class_names)
@@ -115,14 +115,14 @@ test_dataloader = dict(
 )
 
 val_evaluator = dict(
-    type='AgriHuman3DMetric',
+    type='Aghri3DMetric',
     ann_file=data_root + '/infos/agri_person_infos_val.pkl',
     iou_thresholds=[0.25, 0.5, 0.75],
     score_thr=0.0,
 )
 
 test_evaluator = dict(
-    type='AgriHuman3DMetric',
+    type='Aghri3DMetric',
     ann_file=data_root + '/infos/agri_person_infos_test.pkl',
     iou_thresholds=[0.25, 0.5, 0.75],
     score_thr=0.0,

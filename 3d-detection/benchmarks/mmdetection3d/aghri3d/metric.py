@@ -189,8 +189,8 @@ def _evaluate_predictions(
 
 
 @METRICS.register_module()
-class AgriHuman3DMetric(BaseMetric):
-    default_prefix = None
+class Aghri3DMetric(BaseMetric):
+    default_prefix = 'aghri'
 
     def __init__(
         self,

@@ -188,7 +188,7 @@ def _override_evaluator_ann_file(evaluator_cfg: Any, data_root: str) -> None:
 
 
 def _apply_dataset_root_override(cfg: Any) -> None:
-    data_root_override = os.environ.get('AGRIHUMAN_3D_DATA_ROOT')
+    data_root_override = os.environ.get('AGHRI_3D_DATA_ROOT') or os.environ.get('AGRIHUMAN_3D_DATA_ROOT')
     if not data_root_override:
         return
     for dataloader_name in ('train_dataloader', 'val_dataloader', 'test_dataloader'):
@@ -201,7 +201,7 @@ def _apply_dataset_root_override(cfg: Any) -> None:
 
 
 def _install_open3d_stub() -> None:
-    if os.environ.get('AGRIHUMAN_DISABLE_OPEN3D_STUB', '0') == '1':
+    if os.environ.get('AGHRI_DISABLE_OPEN3D_STUB', os.environ.get('AGRIHUMAN_DISABLE_OPEN3D_STUB', '0')) == '1':
         return
     if 'open3d' in sys.modules:
         return
@@ -625,14 +625,14 @@ def write_csv(path: Path, rows: Sequence[Dict[str, Any]]) -> None:
 
 
 def main() -> None:
-    default_config = ROOT_3D / 'benchmarks' / 'mmdetection3d' / 'configs' / 'benchmark_mmdetection3d_agrihuman.yaml'
+    default_config = ROOT_3D / 'benchmarks' / 'mmdetection3d' / 'configs' / 'benchmark_mmdetection3d_aghri.yaml'
     default_out = (
         ROOT_3D
         / 'reports'
         / 'benchmarks'
         / 'summary'
         / 'mmdetection3d'
-        / 'summary_mmdetection3d_agrihuman.csv'
+        / 'summary_mmdetection3d_aghri.csv'
     )
 
     parser = argparse.ArgumentParser(

@@ -7,7 +7,7 @@ Its structure:
 - `benchmarks/mmdetection3d`: MMDetection3D-based training, evaluation, and data preparation
 - `reports/benchmarks`: run artifacts and benchmark summaries
 
-The current implementation targets the agri-human LiDAR dataset and provides two benchmarked models:
+The current implementation targets the AGHRI LiDAR dataset and provides two benchmarked models:
 
 - PointPillars
 - SECOND

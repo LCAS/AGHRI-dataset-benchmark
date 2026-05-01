@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --job-name=agri3d_prep
-#SBATCH --output=/home/users/%u/logs/agri3d_prep_%j.out
+#SBATCH --job-name=aghri3d_prep
+#SBATCH --output=/home/users/%u/logs/aghri3d_prep_%j.out
 #SBATCH --time=1-00:00:00
 #SBATCH --mem=32G
 #SBATCH --ntasks=1
@@ -24,7 +24,7 @@ export BENCH_ROOT=$REPO_ROOT/3d-detection/benchmarks/mmdetection3d
 export VENV_PATH=$BENCH_ROOT/.venv
 export CACHE_ROOT=$BENCH_ROOT/.cache
 export RAW_DATA_ROOT=${RAW_DATA_ROOT:-/workspace/datasets/agri-human-sensing/labelled_dataset}
-export DATA_ROOT=${DATA_ROOT:-/workspace/datasets/agri-human-sensing/mmdet3d_lidar_agrihuman}
+export DATA_ROOT=${DATA_ROOT:-/workspace/datasets/agri-human-sensing/mmdet3d_lidar_aghri}
 
 srun bash -c "
     set -e
@@ -50,9 +50,9 @@ srun bash -c "
         source \$VENV_PATH/bin/activate
     fi
 
-    export AGRIHUMAN_3D_DATA_ROOT=\$DATA_ROOT
+    export AGHRI_3D_DATA_ROOT=\$DATA_ROOT
 
-    python src/prepare_agrihuman_lidar_dataset.py \
+    python src/prepare_aghri_lidar_dataset.py \
         --raw-root \$RAW_DATA_ROOT \
         --out-root \$DATA_ROOT \
         --workers ${SLURM_CPUS_PER_TASK:-8}

@@ -234,7 +234,7 @@ def _write_split_files(image_sets_dir: Path, split_to_scenes: Dict[str, List[str
 def _write_infos(path: Path, data_list: List[dict]) -> None:
     payload = dict(
         metainfo=dict(
-            dataset='agrihuman_lidar',
+            dataset='aghri_lidar',
             info_version='1.0',
             classes=[CLASS_NAME],
         ),
@@ -324,9 +324,12 @@ def prepare_dataset(
                 split_to_infos[split_name].append(info)
                 split_to_samples[split_name].append(info['sample_idx'])
 
-    _write_infos(out_root / 'agrihuman_infos_train.pkl', split_to_infos['train'])
-    _write_infos(out_root / 'agrihuman_infos_val.pkl', split_to_infos['val'])
-    _write_infos(out_root / 'agrihuman_infos_test.pkl', split_to_infos['test'])
+    _write_infos(out_root / 'aghri_infos_train.pkl', split_to_infos['train'])
+    _write_infos(out_root / 'aghri_infos_val.pkl', split_to_infos['val'])
+    _write_infos(out_root / 'aghri_infos_test.pkl', split_to_infos['test'])
+    _write_infos(out_root / 'agri_person_infos_train.pkl', split_to_infos['train'])
+    _write_infos(out_root / 'agri_person_infos_val.pkl', split_to_infos['val'])
+    _write_infos(out_root / 'agri_person_infos_test.pkl', split_to_infos['test'])
     _write_split_files(out_root / 'ImageSets', split_to_scenes, split_to_samples)
 
     summary = _summarize_infos(split_to_infos, split_to_scenes)
@@ -347,7 +350,7 @@ def build_argparser() -> argparse.ArgumentParser:
     )
     parser.add_argument(
         '--out-root',
-        default=r'D:\AOC\datasets\agri-human-sensing\mmdet3d_lidar_agrihuman',
+        default=r'D:\AOC\datasets\agri-human-sensing\mmdet3d_lidar_aghri',
         help='Output directory for processed points, ImageSets, and info pickles.',
     )
     parser.add_argument('--train-ratio', type=float, default=0.7)

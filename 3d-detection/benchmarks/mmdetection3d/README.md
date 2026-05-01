@@ -11,18 +11,18 @@ This module extends the repository benchmark pattern to LiDAR-based 3D person de
 
 ## Structure
 
-- `src/prepare_agrihuman_lidar_dataset.py`: optional raw dataset to MMDetection3D conversion
+- `src/prepare_aghri_lidar_dataset.py`: optional raw dataset to MMDetection3D conversion
 - `src/run_benchmark.py`: train/evaluate configured models and export summaries
 - `configs/datasets/`: dataset and dataloader config
 - `configs/models/`: PointPillars and SECOND configs
-- `configs/benchmark_mmdetection3d_agrihuman.yaml`: benchmark manifest
-- `agrihuman3d/`: custom dataset and metric
+- `configs/benchmark_mmdetection3d_aghri.yaml`: benchmark manifest
+- `aghri3d/`: custom dataset and metric
 - `scripts/*.sbatch`: cluster launchers
 
 ## Supported Models
 
-- `pointpillars_agrihuman.py`
-- `second_agrihuman.py`
+- `pointpillars_aghri.py`
+- `second_aghri.py`
 
 ## Dataset Expectations
 
@@ -53,7 +53,7 @@ This benchmark expects MMDetection3D as an external dependency. The cluster scri
 
 Install order and exact commands are documented in:
 
-- `scripts/prepare_agrihuman_lidar_dataset.sbatch`
+- `scripts/prepare_aghri_lidar_dataset.sbatch`
 - `scripts/run_mmdetection3d_benchmark.sbatch`
 
 ## Typical Workflow
@@ -61,21 +61,21 @@ Install order and exact commands are documented in:
 1. Export the processed dataset root:
 
 ```bash
-export AGRIHUMAN_3D_DATA_ROOT=/workspace/datasets/agri-human-sensing/mmdet3d_person
+export AGHRI_3D_DATA_ROOT=/workspace/datasets/agri-human-sensing/mmdet3d_person
 ```
 
 2. Run the benchmark:
 
 ```bash
 python src/run_benchmark.py \
-  --config configs/benchmark_mmdetection3d_agrihuman.yaml \
-  --out ../../reports/benchmarks/summary/mmdetection3d/summary_mmdetection3d_agrihuman.csv
+  --config configs/benchmark_mmdetection3d_aghri.yaml \
+  --out ../../reports/benchmarks/summary/mmdetection3d/summary_mmdetection3d_aghri.csv
 ```
 
 3. Optional: if you need to regenerate the processed dataset from raw labelled scenes, use:
 
 ```bash
-python src/prepare_agrihuman_lidar_dataset.py \
+python src/prepare_aghri_lidar_dataset.py \
   --raw-root /workspace/datasets/agri-human-sensing/labelled_dataset \
   --out-root /workspace/datasets/agri-human-sensing/mmdet3d_person
 ```
