@@ -1,0 +1,6 @@
+mmdet==3.3.0
+mmdet3d==1.4.0
+mmengine>=0.8.0,<1.0.0
+numpy<2
+pyyaml>=6.0.1
+shapely>=2.0.0,<3.0.0
