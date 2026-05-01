@@ -130,7 +130,7 @@ test_evaluator = dict(
 
 vis_backends = [dict(type='LocalVisBackend')]
 visualizer = dict(
-    type='Det3DLocalVisualizer',
+    type='Visualizer',
     vis_backends=vis_backends,
     name='visualizer',
 )

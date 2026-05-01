@@ -199,6 +199,17 @@ def _apply_dataset_root_override(cfg: Any) -> None:
     _override_evaluator_ann_file(cfg.get('test_evaluator'), data_root_override)
 
 
+def _disable_visualization(cfg: Any) -> None:
+    if 'default_hooks' not in cfg or cfg.default_hooks is None:
+        cfg.default_hooks = {}
+    cfg.default_hooks['visualization'] = None
+    cfg.visualizer = dict(
+        type='Visualizer',
+        vis_backends=[dict(type='LocalVisBackend')],
+        name='visualizer',
+    )
+
+
 def _join_dataset_path(dataset_cfg: Dict[str, Any]) -> Optional[str]:
     ann_file = dataset_cfg.get('ann_file')
     if ann_file is None:
@@ -392,6 +403,7 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
     cfg = Config.fromfile(str(cfg_path))
     cfg.launcher = 'none'
     _apply_dataset_root_override(cfg)
+    _disable_visualization(cfg)
 
     if bench_cfg.get('cfg_options'):
         cfg.merge_from_dict(bench_cfg['cfg_options'])
