@@ -81,7 +81,13 @@ model = dict(
 lr = 0.001
 epoch_num = 80
 optim_wrapper = dict(
-    optimizer=dict(lr=lr),
+    type='OptimWrapper',
+    optimizer=dict(
+        type='AdamW',
+        lr=lr,
+        betas=(0.95, 0.99),
+        weight_decay=0.01,
+    ),
     clip_grad=dict(max_norm=35, norm_type=2),
 )
 param_scheduler = [
