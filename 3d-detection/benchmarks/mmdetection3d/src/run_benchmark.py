@@ -199,7 +199,9 @@ def _apply_dataset_root_override(cfg: Any) -> None:
     _override_evaluator_ann_file(cfg.get('test_evaluator'), data_root_override)
 
 
-def _disable_visualization(cfg: Any) -> None:
+def _disable_visualization(cfg: Any, visualizer_name: str = 'visualizer') -> None:
+    from mmengine.visualization import Visualizer
+
     if 'default_hooks' not in cfg or cfg.default_hooks is None:
         cfg.default_hooks = {}
     cfg.default_hooks['visualization'] = None
@@ -211,8 +213,9 @@ def _disable_visualization(cfg: Any) -> None:
                 and 'Visualization' in str(hook.get('type', ''))
             )
         ]
-    cfg['visualizer'] = None
-    cfg.visualizer = None
+    headless_visualizer = Visualizer(name=visualizer_name, vis_backends=[])
+    cfg['visualizer'] = headless_visualizer
+    cfg.visualizer = headless_visualizer
     if 'vis_backends' in cfg:
         cfg['vis_backends'] = []
 
@@ -410,13 +413,13 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
     cfg = Config.fromfile(str(cfg_path))
     cfg.launcher = 'none'
     _apply_dataset_root_override(cfg)
-    _disable_visualization(cfg)
+    _disable_visualization(cfg, f'{model_name}_train_visualizer')
 
     if bench_cfg.get('cfg_options'):
         cfg.merge_from_dict(bench_cfg['cfg_options'])
     if model_item.get('cfg_options'):
         cfg.merge_from_dict(model_item['cfg_options'])
-    _disable_visualization(cfg)
+    _disable_visualization(cfg, f'{model_name}_train_visualizer')
 
     seed = model_item.get('seed', bench_cfg.get('seed'))
     if seed is not None:
@@ -432,7 +435,7 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
     cfg.work_dir = str(work_dir)
 
     _configure_checkpoint_hook(cfg, bench_cfg)
-    _disable_visualization(cfg)
+    _disable_visualization(cfg, f'{model_name}_train_visualizer')
 
     train_enabled = bool(model_item.get('train', True))
     checkpoint = model_item.get('checkpoint')
@@ -471,7 +474,7 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
 
     cfg.load_from = str(checkpoint)
     cfg.resume = False
-    _disable_visualization(cfg)
+    _disable_visualization(cfg, f'{model_name}_eval_visualizer')
     if 'runner_type' not in cfg:
         eval_runner = Runner.from_cfg(cfg)
     else:
