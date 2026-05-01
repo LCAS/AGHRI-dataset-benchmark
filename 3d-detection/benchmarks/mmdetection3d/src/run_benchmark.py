@@ -203,7 +203,18 @@ def _disable_visualization(cfg: Any) -> None:
     if 'default_hooks' not in cfg or cfg.default_hooks is None:
         cfg.default_hooks = {}
     cfg.default_hooks['visualization'] = None
+    if 'custom_hooks' in cfg and isinstance(cfg.custom_hooks, list):
+        cfg.custom_hooks = [
+            hook for hook in cfg.custom_hooks
+            if not (
+                isinstance(hook, dict)
+                and 'Visualization' in str(hook.get('type', ''))
+            )
+        ]
+    cfg['visualizer'] = None
     cfg.visualizer = None
+    if 'vis_backends' in cfg:
+        cfg['vis_backends'] = []
 
 
 def _join_dataset_path(dataset_cfg: Dict[str, Any]) -> Optional[str]:
@@ -405,6 +416,7 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
         cfg.merge_from_dict(bench_cfg['cfg_options'])
     if model_item.get('cfg_options'):
         cfg.merge_from_dict(model_item['cfg_options'])
+    _disable_visualization(cfg)
 
     seed = model_item.get('seed', bench_cfg.get('seed'))
     if seed is not None:
@@ -420,6 +432,7 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
     cfg.work_dir = str(work_dir)
 
     _configure_checkpoint_hook(cfg, bench_cfg)
+    _disable_visualization(cfg)
 
     train_enabled = bool(model_item.get('train', True))
     checkpoint = model_item.get('checkpoint')
@@ -458,6 +471,7 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
 
     cfg.load_from = str(checkpoint)
     cfg.resume = False
+    _disable_visualization(cfg)
     if 'runner_type' not in cfg:
         eval_runner = Runner.from_cfg(cfg)
     else:
