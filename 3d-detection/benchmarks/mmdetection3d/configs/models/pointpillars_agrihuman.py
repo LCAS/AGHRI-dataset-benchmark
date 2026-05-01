@@ -4,7 +4,7 @@ _base_ = [
     'mmdet3d::_base_/default_runtime.py',
 ]
 
-point_cloud_range = [-24.0, -28.0, -1.0, 30.0, 28.0, 15.0]
+point_cloud_range = [-24.0, -28.0, -1.0, 30.4, 28.0, 15.0]
 voxel_size = [0.2, 0.2, 16.0]
 anchor_bottom_height = 0.34
 anchor_size = [0.46, 0.57, 1.50]
@@ -31,7 +31,7 @@ model = dict(
     middle_encoder=dict(
         type='PointPillarsScatter',
         in_channels=64,
-        output_shape=[280, 270],
+        output_shape=[280, 272],
     ),
     bbox_head=dict(
         num_classes=1,

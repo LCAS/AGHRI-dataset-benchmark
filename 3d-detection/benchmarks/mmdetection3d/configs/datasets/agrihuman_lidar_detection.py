@@ -4,9 +4,9 @@ dataset_type = 'AgriHumanLidarDataset'
 data_root = '/workspace/datasets/agri-human-sensing/mmdet3d_person'
 class_names = ['person']
 metainfo = dict(classes=class_names)
-# Match the processed export's robust spatial extent while keeping
-# round bounds that produce simple voxel grid sizes.
-point_cloud_range = [-24.0, -28.0, -1.0, 30.0, 28.0, 15.0]
+# Match the processed export's spatial extent while ensuring grid sizes
+# stay aligned with backbone/FPN downsampling in both PointPillars and SECOND.
+point_cloud_range = [-24.0, -28.0, -1.0, 30.4, 28.0, 15.0]
 input_modality = dict(use_lidar=True, use_camera=False)
 backend_args = None
 
