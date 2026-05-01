@@ -31,6 +31,29 @@ def _to_numpy(value):
     return np.asarray(value)
 
 
+def _normalize_sample_id(value) -> str:
+    if value is None:
+        return ''
+    text = str(value).replace('\\', '/').strip()
+    if not text:
+        return ''
+
+    suffix = Path(text).suffix.lower()
+    if suffix in {'.bin', '.pcd', '.npy'}:
+        parts = [part for part in text.split('/') if part]
+        if 'points' in parts:
+            points_idx = parts.index('points')
+            rel_parts = parts[points_idx + 1:]
+            if len(rel_parts) >= 2:
+                rel_parts[-1] = Path(rel_parts[-1]).stem
+                return '/'.join(rel_parts)
+            if len(rel_parts) == 1:
+                return Path(rel_parts[0]).stem
+        return Path(text).stem
+
+    return text
+
+
 def _box_to_bev_polygon(box: np.ndarray) -> Polygon:
     x, y, z, length, width, height, yaw = [float(v) for v in box[:7]]
     half_l = length / 2.0
@@ -188,6 +211,7 @@ class AgriHuman3DMetric(BaseMetric):
             sample_idx = metainfo.get('sample_idx', metainfo.get('lidar_path'))
             if sample_idx is None:
                 sample_idx = _get_field(data_sample, 'sample_idx')
+            sample_idx = _normalize_sample_id(sample_idx)
             pred_instances = _get_field(data_sample, 'pred_instances_3d', {}) or {}
             boxes = _to_numpy(_get_field(pred_instances, 'bboxes_3d'))
             scores = _to_numpy(_get_field(pred_instances, 'scores_3d'))
@@ -201,7 +225,7 @@ class AgriHuman3DMetric(BaseMetric):
                     continue
                 self.results.append(
                     dict(
-                        sample_idx=str(sample_idx),
+                        sample_idx=sample_idx,
                         bbox=np.asarray(box, dtype=np.float32),
                         score=float(score),
                         label=int(label),
@@ -214,13 +238,24 @@ class AgriHuman3DMetric(BaseMetric):
 
         data_list = raw_infos['data_list']
         ground_truth = {
-            str(item['sample_idx']): item
+            _normalize_sample_id(item.get('sample_idx') or item.get('lidar_points', {}).get('lidar_path')): item
             for item in data_list
         }
 
         classes = tuple(self.dataset_meta.get('classes', ('person', )))
         metrics: Dict[str, float] = {}
         per_class_summary = defaultdict(dict)
+        gt_sample_ids = set(ground_truth.keys())
+        pred_sample_ids = {
+            _normalize_sample_id(item.get('sample_idx'))
+            for item in results
+            if _normalize_sample_id(item.get('sample_idx'))
+        }
+        metrics['num_predictions'] = len(results)
+        metrics['num_pred_samples'] = len(pred_sample_ids)
+        metrics['num_gt_samples'] = len(gt_sample_ids)
+        metrics['num_pred_sample_matches'] = len(pred_sample_ids & gt_sample_ids)
+        metrics['num_gt_instances'] = int(sum(len(item['instances']) for item in data_list))
 
         for class_id, class_name in enumerate(classes):
             for threshold in self.iou_thresholds:
