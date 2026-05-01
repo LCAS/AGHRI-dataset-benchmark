@@ -11,6 +11,26 @@ from shapely.geometry import Polygon
 from mmdet3d.registry import METRICS
 
 
+def _get_field(container, key, default=None):
+    if isinstance(container, dict):
+        return container.get(key, default)
+    return getattr(container, key, default)
+
+
+def _to_numpy(value):
+    if value is None:
+        return None
+    if hasattr(value, 'tensor'):
+        value = value.tensor
+    if hasattr(value, 'detach'):
+        value = value.detach()
+    if hasattr(value, 'cpu'):
+        value = value.cpu()
+    if hasattr(value, 'numpy'):
+        return value.numpy()
+    return np.asarray(value)
+
+
 def _box_to_bev_polygon(box: np.ndarray) -> Polygon:
     x, y, z, length, width, height, yaw = [float(v) for v in box[:7]]
     half_l = length / 2.0
@@ -164,12 +184,17 @@ class AgriHuman3DMetric(BaseMetric):
 
     def process(self, data_batch, data_samples) -> None:
         for data_sample in data_samples:
-            metainfo = getattr(data_sample, 'metainfo', {})
+            metainfo = _get_field(data_sample, 'metainfo', {}) or {}
             sample_idx = metainfo.get('sample_idx', metainfo.get('lidar_path'))
-            pred_instances = data_sample.pred_instances_3d
-            boxes = pred_instances.bboxes_3d.tensor.detach().cpu().numpy()
-            scores = pred_instances.scores_3d.detach().cpu().numpy()
-            labels = pred_instances.labels_3d.detach().cpu().numpy()
+            if sample_idx is None:
+                sample_idx = _get_field(data_sample, 'sample_idx')
+            pred_instances = _get_field(data_sample, 'pred_instances_3d', {}) or {}
+            boxes = _to_numpy(_get_field(pred_instances, 'bboxes_3d'))
+            scores = _to_numpy(_get_field(pred_instances, 'scores_3d'))
+            labels = _to_numpy(_get_field(pred_instances, 'labels_3d'))
+
+            if boxes is None or scores is None or labels is None:
+                continue
 
             for box, score, label in zip(boxes, scores, labels):
                 if float(score) < self.score_thr:
