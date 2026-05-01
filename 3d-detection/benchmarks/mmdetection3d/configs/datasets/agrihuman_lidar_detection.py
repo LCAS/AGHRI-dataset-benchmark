@@ -1,17 +1,7 @@
-import os
-
 custom_imports = dict(imports=['agrihuman3d'], allow_failed_imports=False)
 
 dataset_type = 'AgriHumanLidarDataset'
-default_data_root = (
-    r'D:\AOC\datasets\agri-human-sensing\mmdet3d_person'
-    if os.name == 'nt'
-    else '/workspace/datasets/agri-human-sensing/mmdet3d_person'
-)
-data_root = os.getenv(
-    'AGRIHUMAN_3D_DATA_ROOT',
-    default_data_root,
-)
+data_root = '/workspace/datasets/agri-human-sensing/mmdet3d_person'
 class_names = ['person']
 metainfo = dict(classes=class_names)
 # Match the processed export's robust spatial extent while keeping
@@ -126,14 +116,14 @@ test_dataloader = dict(
 
 val_evaluator = dict(
     type='AgriHuman3DMetric',
-    ann_file=os.path.join(data_root, 'infos', 'agri_person_infos_val.pkl'),
+    ann_file=data_root + '/infos/agri_person_infos_val.pkl',
     iou_thresholds=[0.25, 0.5, 0.75],
     score_thr=0.0,
 )
 
 test_evaluator = dict(
     type='AgriHuman3DMetric',
-    ann_file=os.path.join(data_root, 'infos', 'agri_person_infos_test.pkl'),
+    ann_file=data_root + '/infos/agri_person_infos_test.pkl',
     iou_thresholds=[0.25, 0.5, 0.75],
     score_thr=0.0,
 )

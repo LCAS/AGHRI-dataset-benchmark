@@ -163,6 +163,42 @@ def _unwrap_dataset(dataset_cfg: Dict[str, Any]) -> Dict[str, Any]:
     return current
 
 
+def _set_nested_data_root(dataset_cfg: Dict[str, Any], data_root: str) -> None:
+    current = dataset_cfg
+    while isinstance(current, dict):
+        current['data_root'] = data_root
+        if 'dataset' not in current:
+            break
+        current = current['dataset']
+
+
+def _override_evaluator_ann_file(evaluator_cfg: Any, data_root: str) -> None:
+    if isinstance(evaluator_cfg, list):
+        for item in evaluator_cfg:
+            _override_evaluator_ann_file(item, data_root)
+        return
+    if not isinstance(evaluator_cfg, dict):
+        return
+    ann_file = evaluator_cfg.get('ann_file')
+    if not ann_file:
+        return
+    ann_name = Path(str(ann_file)).name
+    evaluator_cfg['ann_file'] = f'{data_root}/infos/{ann_name}'
+
+
+def _apply_dataset_root_override(cfg: Any) -> None:
+    data_root_override = os.environ.get('AGRIHUMAN_3D_DATA_ROOT')
+    if not data_root_override:
+        return
+    for dataloader_name in ('train_dataloader', 'val_dataloader', 'test_dataloader'):
+        dataloader_cfg = cfg.get(dataloader_name)
+        if not dataloader_cfg or 'dataset' not in dataloader_cfg:
+            continue
+        _set_nested_data_root(dataloader_cfg['dataset'], data_root_override)
+    _override_evaluator_ann_file(cfg.get('val_evaluator'), data_root_override)
+    _override_evaluator_ann_file(cfg.get('test_evaluator'), data_root_override)
+
+
 def _join_dataset_path(dataset_cfg: Dict[str, Any]) -> Optional[str]:
     ann_file = dataset_cfg.get('ann_file')
     if ann_file is None:
@@ -355,6 +391,7 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
     model_name = model_item.get('name', cfg_path.stem)
     cfg = Config.fromfile(str(cfg_path))
     cfg.launcher = 'none'
+    _apply_dataset_root_override(cfg)
 
     if bench_cfg.get('cfg_options'):
         cfg.merge_from_dict(bench_cfg['cfg_options'])
