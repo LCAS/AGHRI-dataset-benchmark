@@ -3,6 +3,7 @@ import csv
 import json
 import os
 import pickle
+import types
 import sys
 import time
 from pathlib import Path
@@ -199,8 +200,32 @@ def _apply_dataset_root_override(cfg: Any) -> None:
     _override_evaluator_ann_file(cfg.get('test_evaluator'), data_root_override)
 
 
-def _disable_visualization(cfg: Any, visualizer_name: str = 'visualizer') -> None:
-    from mmengine.visualization import Visualizer
+def _install_open3d_stub() -> None:
+    if os.environ.get('AGRIHUMAN_DISABLE_OPEN3D_STUB', '0') == '1':
+        return
+    if 'open3d' in sys.modules:
+        return
+
+    open3d_module = types.ModuleType('open3d')
+    geometry_module = types.ModuleType('open3d.geometry')
+    utility_module = types.ModuleType('open3d.utility')
+    visualization_module = types.ModuleType('open3d.visualization')
+
+    class _Open3DPlaceholder:
+        pass
+
+    visualization_module.Visualizer = _Open3DPlaceholder
+    open3d_module.geometry = geometry_module
+    open3d_module.utility = utility_module
+    open3d_module.visualization = visualization_module
+
+    sys.modules['open3d'] = open3d_module
+    sys.modules['open3d.geometry'] = geometry_module
+    sys.modules['open3d.utility'] = utility_module
+    sys.modules['open3d.visualization'] = visualization_module
+
+
+def _disable_visualization(cfg: Any) -> None:
 
     if 'default_hooks' not in cfg or cfg.default_hooks is None:
         cfg.default_hooks = {}
@@ -213,9 +238,8 @@ def _disable_visualization(cfg: Any, visualizer_name: str = 'visualizer') -> Non
                 and 'Visualization' in str(hook.get('type', ''))
             )
         ]
-    headless_visualizer = Visualizer(name=visualizer_name, vis_backends=[])
-    cfg['visualizer'] = headless_visualizer
-    cfg.visualizer = headless_visualizer
+    cfg['visualizer'] = None
+    cfg.visualizer = None
     if 'vis_backends' in cfg:
         cfg['vis_backends'] = []
 
@@ -401,6 +425,8 @@ def _configure_checkpoint_hook(cfg: Any, bench_cfg: Dict[str, Any]) -> None:
 
 
 def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], repo_root: Path) -> Dict[str, Any]:
+    _install_open3d_stub()
+
     from mmengine.config import Config
     from mmengine.runner import Runner
     from mmdet.registry import RUNNERS
@@ -413,13 +439,13 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
     cfg = Config.fromfile(str(cfg_path))
     cfg.launcher = 'none'
     _apply_dataset_root_override(cfg)
-    _disable_visualization(cfg, f'{model_name}_train_visualizer')
+    _disable_visualization(cfg)
 
     if bench_cfg.get('cfg_options'):
         cfg.merge_from_dict(bench_cfg['cfg_options'])
     if model_item.get('cfg_options'):
         cfg.merge_from_dict(model_item['cfg_options'])
-    _disable_visualization(cfg, f'{model_name}_train_visualizer')
+    _disable_visualization(cfg)
 
     seed = model_item.get('seed', bench_cfg.get('seed'))
     if seed is not None:
@@ -435,7 +461,7 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
     cfg.work_dir = str(work_dir)
 
     _configure_checkpoint_hook(cfg, bench_cfg)
-    _disable_visualization(cfg, f'{model_name}_train_visualizer')
+    _disable_visualization(cfg)
 
     train_enabled = bool(model_item.get('train', True))
     checkpoint = model_item.get('checkpoint')
@@ -474,7 +500,7 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
 
     cfg.load_from = str(checkpoint)
     cfg.resume = False
-    _disable_visualization(cfg, f'{model_name}_eval_visualizer')
+    _disable_visualization(cfg)
     if 'runner_type' not in cfg:
         eval_runner = Runner.from_cfg(cfg)
     else:
