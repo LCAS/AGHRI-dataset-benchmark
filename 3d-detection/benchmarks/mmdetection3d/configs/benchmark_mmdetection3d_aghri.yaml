@@ -6,7 +6,7 @@ benchmark_iters: 100
 summary_primary_mode: bev
 summary_primary_iou: 0.50
 prefer_best_checkpoint: true
-save_best_metric: bev_ap_mean
+save_best_metric: aghri/bev_ap_mean
 save_best_rule: greater
 max_keep_ckpts: 3
 project: 3d-detection/reports/benchmarks/mmdetection3d/runs

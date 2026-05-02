@@ -54,6 +54,16 @@ def _normalize_sample_id(value) -> str:
     return text
 
 
+def _extract_sample_id(data_sample) -> str:
+    metainfo = _get_field(data_sample, 'metainfo', {}) or {}
+    sample_idx = metainfo.get('sample_idx', metainfo.get('lidar_path'))
+    if sample_idx is None:
+        sample_idx = _get_field(data_sample, 'sample_idx')
+    if sample_idx is None:
+        sample_idx = _get_field(data_sample, 'lidar_path')
+    return _normalize_sample_id(sample_idx)
+
+
 def _box_to_bev_polygon(box: np.ndarray) -> Polygon:
     x, y, z, length, width, height, yaw = [float(v) for v in box[:7]]
     half_l = length / 2.0
@@ -206,12 +216,14 @@ class Aghri3DMetric(BaseMetric):
         self.score_thr = float(score_thr)
 
     def process(self, data_batch, data_samples) -> None:
-        for data_sample in data_samples:
-            metainfo = _get_field(data_sample, 'metainfo', {}) or {}
-            sample_idx = metainfo.get('sample_idx', metainfo.get('lidar_path'))
-            if sample_idx is None:
-                sample_idx = _get_field(data_sample, 'sample_idx')
-            sample_idx = _normalize_sample_id(sample_idx)
+        batch_data_samples = _get_field(data_batch, 'data_samples', []) or []
+
+        for idx, data_sample in enumerate(data_samples):
+            sample_idx = ''
+            if idx < len(batch_data_samples):
+                sample_idx = _extract_sample_id(batch_data_samples[idx])
+            if not sample_idx:
+                sample_idx = _extract_sample_id(data_sample)
             pred_instances = _get_field(data_sample, 'pred_instances_3d', {}) or {}
             boxes = _to_numpy(_get_field(pred_instances, 'bboxes_3d'))
             scores = _to_numpy(_get_field(pred_instances, 'scores_3d'))

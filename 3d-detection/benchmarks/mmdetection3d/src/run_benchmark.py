@@ -288,6 +288,16 @@ def _to_csvable(value: Any) -> Any:
     return value
 
 
+def _metric_get(metrics: Dict[str, Any], key: str) -> Any:
+    if key in metrics:
+        return metrics[key]
+    suffix = f'/{key}'
+    for metric_key, metric_value in metrics.items():
+        if str(metric_key).endswith(suffix):
+            return metric_value
+    return None
+
+
 def _extract_sample_pcd(test_dataset_cfg: Dict[str, Any]) -> Optional[Path]:
     ann_file = test_dataset_cfg.get('ann_file')
     data_root = test_dataset_cfg.get('data_root')
@@ -522,15 +532,15 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
     per_class_f1 = None
     if classes:
         per_class_precision = {
-            class_name: _to_float(metrics.get(f'{class_name}_{primary_precision_key}'))
+            class_name: _to_float(_metric_get(metrics, f'{class_name}_{primary_precision_key}'))
             for class_name in classes
         }
         per_class_recall = {
-            class_name: _to_float(metrics.get(f'{class_name}_{primary_recall_key}'))
+            class_name: _to_float(_metric_get(metrics, f'{class_name}_{primary_recall_key}'))
             for class_name in classes
         }
         per_class_f1 = {
-            class_name: _to_float(metrics.get(f'{class_name}_{primary_f1_key}'))
+            class_name: _to_float(_metric_get(metrics, f'{class_name}_{primary_f1_key}'))
             for class_name in classes
         }
 
@@ -559,43 +569,43 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
         'checkpoint_used': str(checkpoint),
         'eval_split': _infer_split_name(test_dataset_cfg.get('ann_file')),
         'num_classes': len(classes) if classes else None,
-        'bev_ap_mean': _to_float(metrics.get('bev_ap_mean')),
-        '3d_ap_mean': _to_float(metrics.get('3d_ap_mean')),
-        'bev_precision_mean': _to_float(metrics.get('bev_precision_mean')),
-        '3d_precision_mean': _to_float(metrics.get('3d_precision_mean')),
-        'bev_recall_mean': _to_float(metrics.get('bev_recall_mean')),
-        '3d_recall_mean': _to_float(metrics.get('3d_recall_mean')),
-        'bev_f1_mean': _to_float(metrics.get('bev_f1_mean')),
-        '3d_f1_mean': _to_float(metrics.get('3d_f1_mean')),
-        'bev_ap_0.25': _to_float(metrics.get('bev_ap_0.25')),
-        'bev_ap_0.50': _to_float(metrics.get('bev_ap_0.50')),
-        'bev_ap_0.75': _to_float(metrics.get('bev_ap_0.75')),
-        'bev_precision_0.25': _to_float(metrics.get('bev_precision_0.25')),
-        'bev_precision_0.50': _to_float(metrics.get('bev_precision_0.50')),
-        'bev_precision_0.75': _to_float(metrics.get('bev_precision_0.75')),
+        'bev_ap_mean': _to_float(_metric_get(metrics, 'bev_ap_mean')),
+        '3d_ap_mean': _to_float(_metric_get(metrics, '3d_ap_mean')),
+        'bev_precision_mean': _to_float(_metric_get(metrics, 'bev_precision_mean')),
+        '3d_precision_mean': _to_float(_metric_get(metrics, '3d_precision_mean')),
+        'bev_recall_mean': _to_float(_metric_get(metrics, 'bev_recall_mean')),
+        '3d_recall_mean': _to_float(_metric_get(metrics, '3d_recall_mean')),
+        'bev_f1_mean': _to_float(_metric_get(metrics, 'bev_f1_mean')),
+        '3d_f1_mean': _to_float(_metric_get(metrics, '3d_f1_mean')),
+        'bev_ap_0.25': _to_float(_metric_get(metrics, 'bev_ap_0.25')),
+        'bev_ap_0.50': _to_float(_metric_get(metrics, 'bev_ap_0.50')),
+        'bev_ap_0.75': _to_float(_metric_get(metrics, 'bev_ap_0.75')),
+        'bev_precision_0.25': _to_float(_metric_get(metrics, 'bev_precision_0.25')),
+        'bev_precision_0.50': _to_float(_metric_get(metrics, 'bev_precision_0.50')),
+        'bev_precision_0.75': _to_float(_metric_get(metrics, 'bev_precision_0.75')),
         **{
-            '3d_ap_0.25': _to_float(metrics.get('3d_ap_0.25')),
-            '3d_ap_0.50': _to_float(metrics.get('3d_ap_0.50')),
-            '3d_ap_0.75': _to_float(metrics.get('3d_ap_0.75')),
-            '3d_precision_0.25': _to_float(metrics.get('3d_precision_0.25')),
-            '3d_precision_0.50': _to_float(metrics.get('3d_precision_0.50')),
-            '3d_precision_0.75': _to_float(metrics.get('3d_precision_0.75')),
-            'bev_recall_0.25': _to_float(metrics.get('bev_recall_0.25')),
-            'bev_recall_0.50': _to_float(metrics.get('bev_recall_0.50')),
-            'bev_recall_0.75': _to_float(metrics.get('bev_recall_0.75')),
-            '3d_recall_0.25': _to_float(metrics.get('3d_recall_0.25')),
-            '3d_recall_0.50': _to_float(metrics.get('3d_recall_0.50')),
-            '3d_recall_0.75': _to_float(metrics.get('3d_recall_0.75')),
-            'bev_f1_0.25': _to_float(metrics.get('bev_f1_0.25')),
-            'bev_f1_0.50': _to_float(metrics.get('bev_f1_0.50')),
-            'bev_f1_0.75': _to_float(metrics.get('bev_f1_0.75')),
-            '3d_f1_0.25': _to_float(metrics.get('3d_f1_0.25')),
-            '3d_f1_0.50': _to_float(metrics.get('3d_f1_0.50')),
-            '3d_f1_0.75': _to_float(metrics.get('3d_f1_0.75')),
+            '3d_ap_0.25': _to_float(_metric_get(metrics, '3d_ap_0.25')),
+            '3d_ap_0.50': _to_float(_metric_get(metrics, '3d_ap_0.50')),
+            '3d_ap_0.75': _to_float(_metric_get(metrics, '3d_ap_0.75')),
+            '3d_precision_0.25': _to_float(_metric_get(metrics, '3d_precision_0.25')),
+            '3d_precision_0.50': _to_float(_metric_get(metrics, '3d_precision_0.50')),
+            '3d_precision_0.75': _to_float(_metric_get(metrics, '3d_precision_0.75')),
+            'bev_recall_0.25': _to_float(_metric_get(metrics, 'bev_recall_0.25')),
+            'bev_recall_0.50': _to_float(_metric_get(metrics, 'bev_recall_0.50')),
+            'bev_recall_0.75': _to_float(_metric_get(metrics, 'bev_recall_0.75')),
+            '3d_recall_0.25': _to_float(_metric_get(metrics, '3d_recall_0.25')),
+            '3d_recall_0.50': _to_float(_metric_get(metrics, '3d_recall_0.50')),
+            '3d_recall_0.75': _to_float(_metric_get(metrics, '3d_recall_0.75')),
+            'bev_f1_0.25': _to_float(_metric_get(metrics, 'bev_f1_0.25')),
+            'bev_f1_0.50': _to_float(_metric_get(metrics, 'bev_f1_0.50')),
+            'bev_f1_0.75': _to_float(_metric_get(metrics, 'bev_f1_0.75')),
+            '3d_f1_0.25': _to_float(_metric_get(metrics, '3d_f1_0.25')),
+            '3d_f1_0.50': _to_float(_metric_get(metrics, '3d_f1_0.50')),
+            '3d_f1_0.75': _to_float(_metric_get(metrics, '3d_f1_0.75')),
         },
-        'precision': _to_float(metrics.get(primary_precision_key)),
-        'recall': _to_float(metrics.get(primary_recall_key)),
-        'f1': _to_float(metrics.get(primary_f1_key)),
+        'precision': _to_float(_metric_get(metrics, primary_precision_key)),
+        'recall': _to_float(_metric_get(metrics, primary_recall_key)),
+        'f1': _to_float(_metric_get(metrics, primary_f1_key)),
         'per_class_precision': per_class_precision,
         'per_class_recall': per_class_recall,
         'per_class_f1': per_class_f1,
