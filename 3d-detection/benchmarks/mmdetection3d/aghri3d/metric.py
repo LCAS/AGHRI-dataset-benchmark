@@ -56,11 +56,14 @@ def _normalize_sample_id(value) -> str:
 
 def _extract_sample_id(data_sample) -> str:
     metainfo = _get_field(data_sample, 'metainfo', {}) or {}
-    sample_idx = metainfo.get('sample_idx', metainfo.get('lidar_path'))
-    if sample_idx is None:
-        sample_idx = _get_field(data_sample, 'sample_idx')
-    if sample_idx is None:
-        sample_idx = _get_field(data_sample, 'lidar_path')
+    # lidar_path is always an absolute file path set by LoadPointsFromFile and
+    # normalizes unambiguously via _normalize_sample_id. sample_idx may be an
+    # integer index or a differently formatted string depending on the PKL/MMDet3D
+    # version, so we only fall back to it when lidar_path is absent.
+    lidar_path = metainfo.get('lidar_path') or _get_field(data_sample, 'lidar_path')
+    if lidar_path:
+        return _normalize_sample_id(lidar_path)
+    sample_idx = metainfo.get('sample_idx') or _get_field(data_sample, 'sample_idx')
     return _normalize_sample_id(sample_idx)
 
 
@@ -250,7 +253,9 @@ class Aghri3DMetric(BaseMetric):
 
         data_list = raw_infos['data_list']
         ground_truth = {
-            _normalize_sample_id(item.get('sample_idx') or item.get('lidar_points', {}).get('lidar_path')): item
+            _normalize_sample_id(
+                item.get('lidar_points', {}).get('lidar_path') or item.get('sample_idx')
+            ): item
             for item in data_list
         }
 
