@@ -27,10 +27,11 @@ export VENV_PATH=$BENCH_ROOT/.venv
 export CACHE_ROOT=$BENCH_ROOT/.cache
 export OUT_DIR=$REPO_ROOT/3d-detection/reports/benchmarks/summary/mmdetection3d
 export RAW_DATA_ROOT=${RAW_DATA_ROOT:-/workspace/datasets/agri-human-sensing/labelled_dataset}
-export DATA_ROOT=${DATA_ROOT:-/workspace/datasets/agri-human-sensing/mmdet3d_person}
+export DATA_ROOT=${DATA_ROOT:-/workspace/data/mmdet3d_person}
 export PREPARE_DATASET=${PREPARE_DATASET:-0}
-export CONFIG_FILE=${CONFIG_FILE:-benchmark_mmdetection3d_aghri.yaml}
-export OUT_FILE=${OUT_FILE:-summary_mmdetection3d_aghri.csv}
+# TODO: Change default config and output file names as needed
+export CONFIG_FILE=${CONFIG_FILE:-benchmark_mmdetection3d_aghri_second.yaml}
+export OUT_FILE=${OUT_FILE:-summary_mmdetection3d_aghri_second.csv}
 
 srun bash -c "
     set -e
@@ -41,6 +42,7 @@ srun bash -c "
     export MIM_CACHE_DIR=\$CACHE_ROOT/mim
     export TORCH_HOME=\$CACHE_ROOT/torch
 
+    echo '--- Virtual Environment Management ---'
     if [ ! -d \$VENV_PATH ]; then
         python -m venv \$VENV_PATH
         source \$VENV_PATH/bin/activate
@@ -48,13 +50,33 @@ srun bash -c "
         pip install 'numpy<2' 'opencv-python-headless==4.11.0.86'
         pip install torch==2.1.2 torchvision==0.16.2 --index-url https://download.pytorch.org/whl/cu118
         pip install -U openmim
-        mim install mmengine
         pip install 'mmcv==2.1.0' -f https://download.openmmlab.com/mmcv/dist/cu118/torch2.1/index.html
-        pip install cumm-cu118 spconv-cu118
         pip install -r \$BENCH_ROOT/requirements.txt
+        pip install certifi
     else
         source \$VENV_PATH/bin/activate
     fi
+
+    # Check numpy version and fix if needed
+    _NP_VER=\$(python -c 'import numpy; print(numpy.__version__)' 2>/dev/null || echo 'missing')
+    if [[ \"\$_NP_VER\" == 2.* ]] || [[ \"\$_NP_VER\" == \"missing\" ]]; then
+        echo \"Fixing/Installing numpy - current: \$_NP_VER\"
+        pip install 'numpy<2'
+    fi
+
+    # Check opencv and fix if needed
+    if ! python -c 'import cv2' 2>/dev/null; then
+        echo \"Installing opencv-python-headless...\"
+        # Uninstall both to prevent conflicts between 'headless' and standard 'opencv-python'
+        pip uninstall -y opencv-python opencv-python-headless 2>/dev/null || true
+        pip install \"opencv-python-headless==4.11.0.86\"
+    fi
+
+    echo '--- Verification ---'
+    export SSL_CERT_FILE=\$(python -c 'import certifi; print(certifi.where())')
+    export REQUESTS_CA_BUNDLE=\$SSL_CERT_FILE
+    
+    python -c 'import torch, mmdet; print(f\"PyTorch: {torch.__version__} | MMDetection: {mmdet.__version__}\")'
 
     export AGHRI_3D_DATA_ROOT=\$DATA_ROOT
 

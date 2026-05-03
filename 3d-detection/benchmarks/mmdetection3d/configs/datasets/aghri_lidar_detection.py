@@ -1,7 +1,7 @@
 custom_imports = dict(imports=['aghri3d'], allow_failed_imports=False)
 
 dataset_type = 'AghriLidarDataset'
-data_root = '/workspace/datasets/agri-human-sensing/mmdet3d_person'
+data_root = '/workspace/data/mmdet3d_person'
 class_names = ['person']
 metainfo = dict(classes=class_names)
 # Match the processed export's spatial extent while ensuring grid sizes

@@ -12,8 +12,6 @@ max_keep_ckpts: 3
 project: 3d-detection/reports/benchmarks/mmdetection3d/runs
 name: aghri-3d-detection
 models:
-  - name: pointpillars_aghri
-    config: 3d-detection/benchmarks/mmdetection3d/configs/models/pointpillars_aghri.py
   - name: second_aghri
     config: 3d-detection/benchmarks/mmdetection3d/configs/models/second_aghri.py
-notes: "Benchmark settings for the AGHRI LiDAR 3D detection dataset with PointPillars and SECOND. Reports IoU 0.25, 0.50, 0.75 and uses mean BEV AP for primary ranking and best-checkpoint selection because the annotations do not provide orientation."
+notes: "Benchmark settings for the AGHRI LiDAR 3D detection dataset SECOND. Reports IoU 0.25, 0.50, 0.75 and uses mean BEV AP for primary ranking and best-checkpoint selection because the annotations do not provide orientation."

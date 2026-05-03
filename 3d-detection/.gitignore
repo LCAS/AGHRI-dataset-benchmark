@@ -1,0 +1,6 @@
+# Local virtual envs and caches
+**/.venv/
+**/.cache/
+
+# Logs and temporary files
+reports/benchmarks/mmdetection3d/*
