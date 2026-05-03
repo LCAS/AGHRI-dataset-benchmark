@@ -27,11 +27,11 @@ export VENV_PATH=$BENCH_ROOT/.venv
 export CACHE_ROOT=$BENCH_ROOT/.cache
 export OUT_DIR=$REPO_ROOT/3d-detection/reports/benchmarks/summary/mmdetection3d
 export RAW_DATA_ROOT=${RAW_DATA_ROOT:-/workspace/datasets/agri-human-sensing/labelled_dataset}
-export DATA_ROOT=${DATA_ROOT:-/workspace/data/mmdet3d_person}
+export DATA_ROOT=${DATA_ROOT:-/workspace/data/aghri-3d}
 export PREPARE_DATASET=${PREPARE_DATASET:-0}
 # TODO: Change default config and output file names as needed
-export CONFIG_FILE=${CONFIG_FILE:-benchmark_mmdetection3d_aghri_second.yaml}
-export OUT_FILE=${OUT_FILE:-summary_mmdetection3d_aghri_second.csv}
+export CONFIG_FILE=${CONFIG_FILE:-benchmark_mmdetection3d_aghri_pointpillars.yaml}
+export OUT_FILE=${OUT_FILE:-summary_mmdetection3d_aghri_pointpillars.csv}
 
 srun bash -c "
     set -e
