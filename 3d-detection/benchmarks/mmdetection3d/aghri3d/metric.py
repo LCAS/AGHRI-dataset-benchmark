@@ -336,3 +336,9 @@ class Aghri3DMetric(BaseMetric):
                 float(np.mean(threshold_values)) if threshold_values else 0.0, 6)
 
         return metrics
+
+
+@METRICS.register_module()
+class Kitti3DMetric(Aghri3DMetric):
+    """Aghri3DMetric reused for KITTI pedestrian data, with 'kitti' prefix."""
+    default_prefix = 'kitti'

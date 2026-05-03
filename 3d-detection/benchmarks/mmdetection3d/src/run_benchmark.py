@@ -188,7 +188,11 @@ def _override_evaluator_ann_file(evaluator_cfg: Any, data_root: str) -> None:
 
 
 def _apply_dataset_root_override(cfg: Any) -> None:
-    data_root_override = os.environ.get('AGHRI_3D_DATA_ROOT') or os.environ.get('AGRIHUMAN_3D_DATA_ROOT')
+    data_root_override = (
+        os.environ.get('AGHRI_3D_DATA_ROOT')
+        or os.environ.get('AGRIHUMAN_3D_DATA_ROOT')
+        or os.environ.get('KITTI_3D_DATA_ROOT')
+    )
     if not data_root_override:
         return
     for dataloader_name in ('train_dataloader', 'val_dataloader', 'test_dataloader'):

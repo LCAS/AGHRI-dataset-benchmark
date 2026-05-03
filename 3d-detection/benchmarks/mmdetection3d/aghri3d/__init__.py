@@ -1,7 +1,8 @@
 from .aghri_dataset import AghriLidarDataset
-from .metric import Aghri3DMetric
+from .metric import Aghri3DMetric, Kitti3DMetric
 
 __all__ = [
     'AghriLidarDataset',
     'Aghri3DMetric',
+    'Kitti3DMetric',
 ]
