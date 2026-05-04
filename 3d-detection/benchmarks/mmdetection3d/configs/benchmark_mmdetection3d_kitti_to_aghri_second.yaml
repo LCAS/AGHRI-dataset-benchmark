@@ -1,0 +1,24 @@
+device: 0
+seed: 42
+benchmark_fixed_input: true
+benchmark_warmup: 20
+benchmark_iters: 100
+summary_primary_mode: bev
+summary_primary_iou: 0.50
+prefer_best_checkpoint: false
+max_keep_ckpts: 1
+project: 3d-detection/reports/benchmarks/mmdetection3d/runs
+name: kitti-to-aghri-transfer
+models:
+  - name: second_kitti_to_aghri
+    config: 3d-detection/benchmarks/mmdetection3d/configs/models/second_kitti_to_aghri.py
+    train: false
+    # Update this path to the best checkpoint from benchmark_mmdetection3d_kitti_second.
+    # Pattern: runs/kitti-3d-detection/second_kitti/best_kitti_bev_ap_mean_epoch_<N>.pth
+    checkpoint: 3d-detection/reports/benchmarks/mmdetection3d/runs/kitti-3d-detection/second_kitti/best_kitti_bev_ap_mean_epoch_40.pth
+notes: >
+  Zero-shot cross-dataset transfer: SECOND trained on KITTI, evaluated on AGHRI
+  without any fine-tuning. AGHRI scans are clipped to KITTI's range
+  [0, 69.12] x [-39.68, 39.68] before inference (front hemisphere only).
+  Requires benchmark_mmdetection3d_kitti_second to be run first.
+  Set AGHRI_3D_DATA_ROOT=/workspace/data/aghri-3d when submitting.

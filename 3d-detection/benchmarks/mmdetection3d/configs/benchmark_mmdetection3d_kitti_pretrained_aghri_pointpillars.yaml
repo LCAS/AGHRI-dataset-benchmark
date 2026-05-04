@@ -1,0 +1,35 @@
+device: 0
+seed: 42
+benchmark_fixed_input: true
+benchmark_warmup: 20
+benchmark_iters: 100
+summary_primary_mode: bev
+summary_primary_iou: 0.50
+prefer_best_checkpoint: true
+save_best_metric: aghri/bev_ap_mean
+save_best_rule: greater
+max_keep_ckpts: 3
+project: 3d-detection/reports/benchmarks/mmdetection3d/runs
+name: aghri-3d-detection-kitti-pretrained
+models:
+  - name: pointpillars_kitti_pretrained_aghri
+    config: 3d-detection/benchmarks/mmdetection3d/configs/models/pointpillars_aghri.py
+    train: true
+    # Public MMDetection3D KITTI 3-class PointPillars checkpoint — used for weight
+    # initialization only. PillarFeatureNet weights transfer directly (same
+    # in_channels=4, same feat_channels=[64]); PointPillarsScatter has no learnable
+    # params; anchor head is re-initialized (different num_classes and z-range).
+    # Download before running:
+    #   mim download mmdet3d \
+    #     --config pointpillars_hv_secfpn_8xb6-160e_kitti-3d-3class \
+    #     --dest 3d-detection/benchmarks/mmdetection3d/.cache/mim
+    # Then update the filename below (mim appends a hash to the name).
+    checkpoint: https://download.openmmlab.com/mmdetection3d/v1.0.0_models/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class_20220301_150306-37dc2420.pth
+notes: >
+  Fine-tuning experiment: PointPillars initialized from the public MMDetection3D
+  KITTI 3-class checkpoint and then fine-tuned on AGHRI. The PillarFeatureNet
+  feature extractor transfers fully; the anchor head is re-initialized (different
+  number of classes and spatial range). Analogous to ImageNet pretraining in 2D.
+  Compare with benchmark_mmdetection3d_aghri_pointpillars (from scratch) to
+  quantify the benefit of KITTI pretraining.
+  Set AGHRI_3D_DATA_ROOT=/workspace/data/aghri-3d when submitting.
