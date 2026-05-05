@@ -84,4 +84,7 @@ test_evaluator = dict(
     pred_class_id=1,
 )
 
+val_cfg = dict()
+test_cfg = dict()
+
 load_from = None
