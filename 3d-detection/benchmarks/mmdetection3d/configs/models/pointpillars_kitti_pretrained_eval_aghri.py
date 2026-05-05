@@ -3,6 +3,8 @@ _base_ = [
     'mmdet3d::_base_/default_runtime.py',
 ]
 
+custom_imports = dict(imports=['aghri3d'], allow_failed_imports=False)
+
 # Zero-shot evaluation: public KITTI 3-class PointPillars pretrained weights on AGHRI.
 # No model overrides — architecture must match the pretrained checkpoint exactly so all
 # weights (backbone, neck, head) load without any shape mismatch.
