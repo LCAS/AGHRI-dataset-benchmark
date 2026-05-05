@@ -1,8 +1,8 @@
 """Convert raw KITTI label_2 + calib files to AGHRI-format pkl.
 
 Reads directly from training/label_2/ and training/calib/ — no need to run
-create_data.py first.  Merges Pedestrian, Cyclist, and Person_sitting into a
-single 'person' class (label 0).  DontCare and all other classes are discarded.
+create_data.py first.  Keeps only Pedestrian instances as a single 'person'
+class (label 0).  All other classes are discarded.
 
 Output pkl format (compatible with AghriLidarDataset and Kitti3DMetric):
   {
@@ -23,6 +23,12 @@ Output pkl format (compatible with AghriLidarDataset and Kitti3DMetric):
       ...
     ],
   }
+
+USAGE:
+  python src/prepare_kitti_lidar_dataset.py \
+  --kitti-root /data/kitti \
+  --out-root /data/kitti \
+  --splits train val
 """
 import argparse
 import pickle
@@ -30,7 +36,7 @@ from pathlib import Path
 
 import numpy as np
 
-PERSON_CLASSES = {'Pedestrian', 'Cyclist', 'Person_sitting'}
+PERSON_CLASSES = {'Pedestrian'}
 
 
 # ---------------------------------------------------------------------------

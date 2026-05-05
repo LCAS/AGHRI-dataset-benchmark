@@ -1,11 +1,16 @@
-_base_ = ['./pointpillars_kitti.py']
+_base_ = [
+    'mmdet3d::_base_/models/pointpillars_hv_secfpn_kitti.py',
+    'mmdet3d::_base_/default_runtime.py',
+]
 
-# Zero-shot cross-dataset evaluation: KITTI-trained PointPillars on AGHRI data.
-# AGHRI scans are filtered to the KITTI spatial range [0, 69.12] x [-39.68, 39.68]
-# (front hemisphere only) so the source checkpoint loads without any shape mismatch.
+# Zero-shot evaluation: public KITTI 3-class PointPillars pretrained weights on AGHRI.
+# No model overrides — architecture must match the pretrained checkpoint exactly so all
+# weights (backbone, neck, head) load without any shape mismatch.
+# AGHRI scans are filtered to the KITTI spatial range so the voxelizer shape is correct.
+# Pedestrian is class index 1 in the pretrained model's ['Car', 'Pedestrian', 'Cyclist'].
 
 _aghri_root = '/workspace/data/aghri-3d'
-_kitti_range = [0, -39.68, -1, 69.12, 39.68, 3]
+_kitti_range = [0, -39.68, -3, 69.12, 39.68, 1]
 
 _test_pipeline = [
     dict(
@@ -68,6 +73,7 @@ val_evaluator = dict(
     ann_file=_aghri_root + '/infos/agri_person_infos_val.pkl',
     iou_thresholds=[0.25, 0.5, 0.75],
     score_thr=0.0,
+    pred_class_id=1,
 )
 
 test_evaluator = dict(
@@ -75,4 +81,7 @@ test_evaluator = dict(
     ann_file=_aghri_root + '/infos/agri_person_infos_test.pkl',
     iou_thresholds=[0.25, 0.5, 0.75],
     score_thr=0.0,
+    pred_class_id=1,
 )
+
+load_from = None

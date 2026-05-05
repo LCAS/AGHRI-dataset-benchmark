@@ -2,7 +2,7 @@ import math
 import pickle
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, Iterable, List, Tuple
+from typing import Dict, Iterable, List, Optional, Tuple
 
 import numpy as np
 from mmengine.evaluator import BaseMetric
@@ -137,6 +137,7 @@ def _evaluate_predictions(
     iou_threshold: float,
     mode: str,
     class_id: int,
+    pred_class_id: Optional[int] = None,
 ) -> Dict[str, float]:
     assert mode in {'bev', '3d'}
     iou_fn = _bev_iou if mode == 'bev' else _iou3d
@@ -155,7 +156,8 @@ def _evaluate_predictions(
     if total_gt == 0:
         return dict(ap=0.0, precision=0.0, recall=0.0, f1=0.0)
 
-    filtered_predictions = [p for p in predictions if int(p['label']) == class_id]
+    _pred_label = pred_class_id if pred_class_id is not None else class_id
+    filtered_predictions = [p for p in predictions if int(p['label']) == _pred_label]
     filtered_predictions.sort(key=lambda item: float(item['score']), reverse=True)
 
     matched = {
@@ -210,6 +212,7 @@ class Aghri3DMetric(BaseMetric):
         ann_file: str,
         iou_thresholds: Iterable[float] = (0.25, 0.5),
         score_thr: float = 0.0,
+        pred_class_id: Optional[int] = None,
         prefix: str = None,
         collect_device: str = 'cpu',
     ) -> None:
@@ -217,6 +220,7 @@ class Aghri3DMetric(BaseMetric):
         self.ann_file = str(ann_file)
         self.iou_thresholds = tuple(float(v) for v in iou_thresholds)
         self.score_thr = float(score_thr)
+        self.pred_class_id = pred_class_id
 
     def process(self, data_batch, data_samples) -> None:
         batch_data_samples = _get_field(data_batch, 'data_samples', []) or []
@@ -278,9 +282,11 @@ class Aghri3DMetric(BaseMetric):
             for threshold in self.iou_thresholds:
                 threshold_key = f'{threshold:.2f}'
                 bev_metrics = _evaluate_predictions(
-                    results, ground_truth, threshold, 'bev', class_id)
+                    results, ground_truth, threshold, 'bev', class_id,
+                    pred_class_id=self.pred_class_id)
                 metrics_3d = _evaluate_predictions(
-                    results, ground_truth, threshold, '3d', class_id)
+                    results, ground_truth, threshold, '3d', class_id,
+                    pred_class_id=self.pred_class_id)
 
                 metrics[f'{class_name}_bev_ap_{threshold_key}'] = round(bev_metrics['ap'], 6)
                 metrics[f'{class_name}_bev_precision_{threshold_key}'] = round(
