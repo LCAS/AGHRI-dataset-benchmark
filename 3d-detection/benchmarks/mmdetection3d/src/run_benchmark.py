@@ -477,6 +477,10 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
     _configure_checkpoint_hook(cfg, bench_cfg)
     _disable_visualization(cfg)
 
+    device_cfg = model_item.get('device', bench_cfg.get('device'))
+    bench_device = _device_to_mmdet_str(device_cfg)
+    cfg.device = bench_device
+
     train_enabled = bool(model_item.get('train', True))
     checkpoint = model_item.get('checkpoint')
     if checkpoint:
@@ -548,8 +552,6 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
             for class_name in classes
         }
 
-    device_cfg = model_item.get('device', bench_cfg.get('device'))
-    bench_device = _device_to_mmdet_str(device_cfg)
     sample_pcd_path = _extract_sample_pcd(test_dataset_cfg)
     bench = {'fixed_input_inference_ms': None}
     if bench_cfg.get('benchmark_fixed_input', False):
@@ -662,6 +664,21 @@ def main() -> None:
     bench_cfg = load_config(cfg_path)
 
     _set_cuda_device(bench_cfg.get('device'))
+
+    try:
+        import torch as _torch
+        _cuda_available = _torch.cuda.is_available()
+    except Exception:
+        _cuda_available = False
+    _device_req = bench_cfg.get('device')
+    _wants_cuda = not (isinstance(_device_req, str) and _device_req.strip().lower() == 'cpu')
+    if _wants_cuda and not _cuda_available:
+        raise RuntimeError(
+            'CUDA is not available but the benchmark device is configured for GPU. '
+            'Check that the job was allocated a GPU and that the container exposes '
+            'the NVIDIA runtime (torch.cuda.is_available() returned False).'
+        )
+
     sys.path.insert(0, str(REPO_ROOT))
     sys.path.insert(0, str(BENCH_ROOT))
 
