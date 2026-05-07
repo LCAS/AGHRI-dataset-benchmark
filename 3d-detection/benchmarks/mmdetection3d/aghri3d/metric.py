@@ -10,6 +10,15 @@ from shapely.geometry import Polygon
 
 from mmdet3d.registry import METRICS
 
+# Official KITTI difficulty thresholds for Pedestrian class.
+# Each level is a superset: moderate includes easy, hard includes moderate.
+KITTI_DIFFICULTIES = {
+    'easy':     {'min_height': 40.0, 'max_occlusion': 0, 'max_truncation': 0.15},
+    'moderate': {'min_height': 25.0, 'max_occlusion': 1, 'max_truncation': 0.30},
+    'hard':     {'min_height': 25.0, 'max_occlusion': 2, 'max_truncation': 0.50},
+}
+KITTI_PEDESTRIAN_IOU = 0.5
+
 
 def _get_field(container, key, default=None):
     if isinstance(container, dict):
@@ -346,5 +355,68 @@ class Aghri3DMetric(BaseMetric):
 
 @METRICS.register_module()
 class Kitti3DMetric(Aghri3DMetric):
-    """Aghri3DMetric reused for KITTI pedestrian data, with 'kitti' prefix."""
+    """Aghri3DMetric extended with official KITTI difficulty-based AP (easy/moderate/hard)."""
     default_prefix = 'kitti'
+
+    def compute_metrics(self, results: List[dict]) -> Dict[str, float]:
+        metrics = super().compute_metrics(results)
+
+        ann_path = Path(self.ann_file)
+        with ann_path.open('rb') as handle:
+            raw_infos = pickle.load(handle)
+
+        data_list = raw_infos['data_list']
+        ground_truth = {
+            _normalize_sample_id(
+                item.get('lidar_points', {}).get('lidar_path') or item.get('sample_idx')
+            ): item
+            for item in data_list
+        }
+
+        # Skip difficulty eval if the PKL was built without difficulty fields.
+        has_difficulty_info = any(
+            'height_in_image' in inst
+            for sample in ground_truth.values()
+            for inst in sample.get('instances', [])
+        )
+        if not has_difficulty_info:
+            return metrics
+
+        classes = tuple(self.dataset_meta.get('classes', ('person',)))
+        for class_id, class_name in enumerate(classes):
+            for difficulty, thresholds in KITTI_DIFFICULTIES.items():
+                gt_filtered = {
+                    sample_idx: {
+                        'instances': [
+                            inst for inst in sample['instances']
+                            if (int(inst['bbox_label_3d']) == class_id
+                                and inst.get('height_in_image', 0.0) >= thresholds['min_height']
+                                and inst.get('occlusion', 3) <= thresholds['max_occlusion']
+                                and inst.get('truncation', 1.0) <= thresholds['max_truncation'])
+                        ]
+                    }
+                    for sample_idx, sample in ground_truth.items()
+                }
+                bev = _evaluate_predictions(
+                    results, gt_filtered, KITTI_PEDESTRIAN_IOU, 'bev',
+                    class_id, pred_class_id=self.pred_class_id)
+                det3d = _evaluate_predictions(
+                    results, gt_filtered, KITTI_PEDESTRIAN_IOU, '3d',
+                    class_id, pred_class_id=self.pred_class_id)
+                metrics[f'{class_name}_kitti_bev_ap_{difficulty}'] = round(bev['ap'], 6)
+                metrics[f'{class_name}_kitti_3d_ap_{difficulty}'] = round(det3d['ap'], 6)
+                metrics[f'{class_name}_kitti_bev_recall_{difficulty}'] = round(bev['recall'], 6)
+                metrics[f'{class_name}_kitti_3d_recall_{difficulty}'] = round(det3d['recall'], 6)
+
+        # Aggregate across classes (single class here, but kept general).
+        for difficulty in KITTI_DIFFICULTIES:
+            for prefix in ('kitti_bev_ap', 'kitti_3d_ap', 'kitti_bev_recall', 'kitti_3d_recall'):
+                values = [
+                    metrics[f'{cn}_{prefix}_{difficulty}']
+                    for cn in classes
+                    if f'{cn}_{prefix}_{difficulty}' in metrics
+                ]
+                metrics[f'{prefix}_{difficulty}'] = round(
+                    float(np.mean(values)) if values else 0.0, 6)
+
+        return metrics

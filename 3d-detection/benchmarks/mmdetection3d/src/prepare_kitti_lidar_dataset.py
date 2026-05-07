@@ -111,11 +111,21 @@ def _parse_labels(label_path: Path, mat: np.ndarray) -> list:
             cls = parts[0]
             if cls not in PERSON_CLASSES:
                 continue
+            truncation = float(parts[1])
+            occlusion = int(parts[2])
+            # 2D bbox in image pixels: left, top, right, bottom
+            height_in_image = float(parts[7]) - float(parts[5])
             h, w, l = float(parts[8]), float(parts[9]), float(parts[10])
             x_c, y_c, z_c = float(parts[11]), float(parts[12]), float(parts[13])
             ry = float(parts[14])
             bbox_lidar = _cam_box_to_lidar(h, w, l, x_c, y_c, z_c, ry, mat)
-            instances.append({'bbox_3d': bbox_lidar, 'bbox_label_3d': 0})
+            instances.append({
+                'bbox_3d': bbox_lidar,
+                'bbox_label_3d': 0,
+                'truncation': truncation,
+                'occlusion': occlusion,
+                'height_in_image': height_in_image,
+            })
     return instances
 
 
