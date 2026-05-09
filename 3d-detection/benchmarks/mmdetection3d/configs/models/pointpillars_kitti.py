@@ -7,7 +7,7 @@ _base_ = [
 point_cloud_range = [0, -39.68, -1, 69.12, 39.68, 3]
 voxel_size = [0.16, 0.16, 4.0]
 anchor_bottom_height = -0.6
-anchor_size = [0.6, 0.8, 1.73]  # pedestrian: [l, w, h]
+anchor_size = [0.91, 0.86, 1.73]  # pedestrian: [l, w, h]; matches mean KITTI Pedestrian box dims
 
 model = dict(
     data_preprocessor=dict(
@@ -79,7 +79,7 @@ model = dict(
 )
 
 lr = 0.001
-epoch_num = 80
+epoch_num = 160
 optim_wrapper = dict(
     type='OptimWrapper',
     optimizer=dict(type='AdamW', lr=lr, betas=(0.95, 0.99), weight_decay=0.01),

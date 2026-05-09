@@ -8,7 +8,7 @@ _base_ = [
 point_cloud_range = [0, -39.68, -1, 69.12, 39.68, 3]
 voxel_size = [0.05, 0.05, 0.1]
 anchor_bottom_height = -0.6
-anchor_size = [0.6, 0.8, 1.73]  # pedestrian: [l, w, h]
+anchor_size = [0.91, 0.86, 1.73]  # pedestrian: [l, w, h]; matches mean KITTI Pedestrian box dims
 
 model = dict(
     data_preprocessor=dict(
