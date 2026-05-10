@@ -5,9 +5,9 @@ _base_ = [
     'mmdet3d::_base_/default_runtime.py',
 ]
 
-point_cloud_range = [-24.0, -28.0, -1.0, 31.04, 28.0, 15.0]
-voxel_size = [0.08, 0.08, 0.4]
-anchor_bottom_height = 0.34
+point_cloud_range = [-10.24, -10.24, -2.0, 25.6, 10.24, 3.0]
+voxel_size = [0.08, 0.08, 0.5]
+anchor_bottom_height = 0.33
 anchor_size = [0.46, 0.57, 1.50]
 
 model = dict(
@@ -25,7 +25,7 @@ model = dict(
     middle_encoder=dict(
         type='SparseEncoder',
         in_channels=4,
-        sparse_shape=[41, 700, 688],
+        sparse_shape=[11, 256, 448],
         order=('conv', 'norm', 'act'),
     ),
     bbox_head=dict(
@@ -72,5 +72,10 @@ model = dict(
         max_num=100,
     ),
 )
+
+epoch_num = 80
+train_cfg = dict(by_epoch=True, max_epochs=epoch_num, val_interval=2)
+val_cfg = dict()
+test_cfg = dict()
 
 load_from = None

@@ -1,12 +1,10 @@
 custom_imports = dict(imports=['aghri3d'], allow_failed_imports=False)
 
 dataset_type = 'AghriLidarDataset'
-data_root = '/workspace/data/aghri-3d'
+data_root = 'D:/AOC/datasets/agri-human-sensing/mmdet3d_lidar_aghri'
 class_names = ['person']
 metainfo = dict(classes=class_names)
-# Match the processed export's spatial extent while ensuring grid sizes
-# stay aligned with backbone/FPN downsampling in both PointPillars and SECOND.
-point_cloud_range = [-24.0, -28.0, -1.0, 30.4, 28.0, 15.0]
+point_cloud_range = [-10.24, -10.24, -2.0, 25.6, 10.24, 3.0]
 input_modality = dict(use_lidar=True, use_camera=False)
 backend_args = None
 
@@ -103,7 +101,7 @@ test_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file='infos/agri_person_infos_test.pkl',
+        ann_file='infos/agri_person_infos_val.pkl',
         data_prefix=dict(pts=''),
         pipeline=test_pipeline,
         modality=input_modality,
@@ -123,7 +121,7 @@ val_evaluator = dict(
 
 test_evaluator = dict(
     type='Aghri3DMetric',
-    ann_file=data_root + '/infos/agri_person_infos_test.pkl',
+    ann_file=data_root + '/infos/agri_person_infos_val.pkl',
     iou_thresholds=[0.25, 0.5, 0.75],
     score_thr=0.0,
 )

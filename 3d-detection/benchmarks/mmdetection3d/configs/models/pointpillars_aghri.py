@@ -4,9 +4,9 @@ _base_ = [
     'mmdet3d::_base_/default_runtime.py',
 ]
 
-point_cloud_range = [-24.0, -28.0, -1.0, 30.4, 28.0, 15.0]
-voxel_size = [0.2, 0.2, 16.0]
-anchor_bottom_height = 0.34
+point_cloud_range = [-10.24, -10.24, -2.0, 25.6, 10.24, 3.0]
+voxel_size = [0.16, 0.16, 5.0]
+anchor_bottom_height = 0.33
 anchor_size = [0.46, 0.57, 1.50]
 
 model = dict(
@@ -31,7 +31,7 @@ model = dict(
     middle_encoder=dict(
         type='PointPillarsScatter',
         in_channels=64,
-        output_shape=[280, 272],
+        output_shape=[128, 224],
     ),
     bbox_head=dict(
         num_classes=1,
@@ -79,7 +79,7 @@ model = dict(
 )
 
 lr = 0.001
-epoch_num = 80
+epoch_num = 160
 optim_wrapper = dict(
     type='OptimWrapper',
     optimizer=dict(

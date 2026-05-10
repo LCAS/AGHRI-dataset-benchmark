@@ -12,7 +12,7 @@ custom_imports = dict(imports=['aghri3d'], allow_failed_imports=False)
 # correct. Pedestrian is class index 1 in the pretrained model's ['Car', 'Pedestrian',
 # 'Cyclist'].
 
-_aghri_root = '/workspace/data/aghri-3d'
+_aghri_root = 'D:/AOC/datasets/agri-human-sensing/mmdet3d_lidar_aghri'
 _kitti_range = [0, -39.68, -3, 69.12, 39.68, 1]
 
 _test_pipeline = [
@@ -60,7 +60,7 @@ test_dataloader = dict(
     dataset=dict(
         type='AghriLidarDataset',
         data_root=_aghri_root,
-        ann_file='infos/agri_person_infos_test.pkl',
+        ann_file='infos/agri_person_infos_val.pkl',
         data_prefix=dict(pts=''),
         pipeline=_test_pipeline,
         modality=dict(use_lidar=True, use_camera=False),
@@ -81,7 +81,7 @@ val_evaluator = dict(
 
 test_evaluator = dict(
     type='Aghri3DMetric',
-    ann_file=_aghri_root + '/infos/agri_person_infos_test.pkl',
+    ann_file=_aghri_root + '/infos/agri_person_infos_val.pkl',
     iou_thresholds=[0.25, 0.5, 0.75],
     score_thr=0.0,
     pred_class_id=1,
