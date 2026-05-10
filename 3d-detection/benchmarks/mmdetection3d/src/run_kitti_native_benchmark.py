@@ -40,6 +40,12 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional, Sequence, Tuple, Union
 from urllib.parse import urlparse
 
+import numpy as _np_compat  # noqa: E402
+# np.long was removed in NumPy 1.24; mmdet3d's dbsampler.py still uses it.
+# Patch before any mmdet3d import so DataLoader workers (fork) inherit the fix.
+if not hasattr(_np_compat, 'long'):
+    _np_compat.long = _np_compat.int_
+
 import yaml
 
 # ---------------------------------------------------------------------------
@@ -133,20 +139,26 @@ SUMMARY_FIELDS = [
 # Official KittiMetric may prefix keys with its default_prefix ('kitti') or
 # a user-supplied prefix, and may separate with '/' or '_'.  We try all
 # combinations so the runner is robust across mmdet3d versions.
+# Key fragments to search in the raw metrics dict returned by evaluator.evaluate().
+# In mmdet3d 1.4.x with newer mmengine, keys follow the format:
+#   "Kitti metric/pred_instances_3d/KITTI/Pedestrian_3D_AP40_moderate_strict"
+# Older or different installs may use "kitti/Pedestrian_3D_AP40_moderate_strict".
+# We search case-insensitively for substrings so both formats are matched.
+# Strict (IoU=0.50) is preferred; we exclude "_loose" (IoU=0.25) by requiring "strict" in the key.
 _KITTI_NATIVE_KEY_MAP = {
-    # output field name : list of candidate key fragments to search for
-    'kitti_native_3d_ap40_easy':      ['3D_AP40_easy',      '3d_ap40_easy',      'AP40_easy_3d',   'Pedestrian_3D_AP40_easy'],
-    'kitti_native_3d_ap40_moderate':  ['3D_AP40_moderate',  '3d_ap40_moderate',  'AP40_moderate_3d','Pedestrian_3D_AP40_moderate'],
-    'kitti_native_3d_ap40_hard':      ['3D_AP40_hard',      '3d_ap40_hard',      'AP40_hard_3d',   'Pedestrian_3D_AP40_hard'],
-    'kitti_native_bev_ap40_easy':     ['BEV_AP40_easy',     'bev_ap40_easy',     'AP40_easy_bev',  'Pedestrian_BEV_AP40_easy'],
-    'kitti_native_bev_ap40_moderate': ['BEV_AP40_moderate', 'bev_ap40_moderate', 'AP40_moderate_bev','Pedestrian_BEV_AP40_moderate'],
-    'kitti_native_bev_ap40_hard':     ['BEV_AP40_hard',     'bev_ap40_hard',     'AP40_hard_bev',  'Pedestrian_BEV_AP40_hard'],
-    'kitti_native_3d_ap11_easy':      ['3D_AP11_easy',      '3d_ap11_easy',      'AP11_easy_3d',   'Pedestrian_3D_AP11_easy'],
-    'kitti_native_3d_ap11_moderate':  ['3D_AP11_moderate',  '3d_ap11_moderate',  'AP11_moderate_3d','Pedestrian_3D_AP11_moderate'],
-    'kitti_native_3d_ap11_hard':      ['3D_AP11_hard',      '3d_ap11_hard',      'AP11_hard_3d',   'Pedestrian_3D_AP11_hard'],
-    'kitti_native_bev_ap11_easy':     ['BEV_AP11_easy',     'bev_ap11_easy',     'AP11_easy_bev',  'Pedestrian_BEV_AP11_easy'],
-    'kitti_native_bev_ap11_moderate': ['BEV_AP11_moderate', 'bev_ap11_moderate', 'AP11_moderate_bev','Pedestrian_BEV_AP11_moderate'],
-    'kitti_native_bev_ap11_hard':     ['BEV_AP11_hard',     'bev_ap11_hard',     'AP11_hard_bev',  'Pedestrian_BEV_AP11_hard'],
+    # output field name : list of candidate key fragments to search for (preferred first)
+    'kitti_native_3d_ap40_easy':      ['Pedestrian_3D_AP40_easy_strict',      'pedestrian_3d_ap40_easy_strict',      '3d_ap40_easy_strict',      '3D_AP40_easy_strict'],
+    'kitti_native_3d_ap40_moderate':  ['Pedestrian_3D_AP40_moderate_strict',  'pedestrian_3d_ap40_moderate_strict',  '3d_ap40_moderate_strict',  '3D_AP40_moderate_strict'],
+    'kitti_native_3d_ap40_hard':      ['Pedestrian_3D_AP40_hard_strict',      'pedestrian_3d_ap40_hard_strict',      '3d_ap40_hard_strict',      '3D_AP40_hard_strict'],
+    'kitti_native_bev_ap40_easy':     ['Pedestrian_BEV_AP40_easy_strict',     'pedestrian_bev_ap40_easy_strict',     'bev_ap40_easy_strict',     'BEV_AP40_easy_strict'],
+    'kitti_native_bev_ap40_moderate': ['Pedestrian_BEV_AP40_moderate_strict', 'pedestrian_bev_ap40_moderate_strict', 'bev_ap40_moderate_strict', 'BEV_AP40_moderate_strict'],
+    'kitti_native_bev_ap40_hard':     ['Pedestrian_BEV_AP40_hard_strict',     'pedestrian_bev_ap40_hard_strict',     'bev_ap40_hard_strict',     'BEV_AP40_hard_strict'],
+    'kitti_native_3d_ap11_easy':      ['Pedestrian_3D_AP11_easy_strict',      'pedestrian_3d_ap11_easy_strict',      '3d_ap11_easy_strict',      '3D_AP11_easy_strict'],
+    'kitti_native_3d_ap11_moderate':  ['Pedestrian_3D_AP11_moderate_strict',  'pedestrian_3d_ap11_moderate_strict',  '3d_ap11_moderate_strict',  '3D_AP11_moderate_strict'],
+    'kitti_native_3d_ap11_hard':      ['Pedestrian_3D_AP11_hard_strict',      'pedestrian_3d_ap11_hard_strict',      '3d_ap11_hard_strict',      '3D_AP11_hard_strict'],
+    'kitti_native_bev_ap11_easy':     ['Pedestrian_BEV_AP11_easy_strict',     'pedestrian_bev_ap11_easy_strict',     'bev_ap11_easy_strict',     'BEV_AP11_easy_strict'],
+    'kitti_native_bev_ap11_moderate': ['Pedestrian_BEV_AP11_moderate_strict', 'pedestrian_bev_ap11_moderate_strict', 'bev_ap11_moderate_strict', 'BEV_AP11_moderate_strict'],
+    'kitti_native_bev_ap11_hard':     ['Pedestrian_BEV_AP11_hard_strict',     'pedestrian_bev_ap11_hard_strict',     'bev_ap11_hard_strict',     'BEV_AP11_hard_strict'],
 }
 
 
@@ -426,8 +438,12 @@ def _configure_checkpoint_hook(cfg: Any, bench_cfg: Dict[str, Any]) -> None:
     if save_best:
         hook['save_best'] = save_best
         hook['rule']      = bench_cfg.get('save_best_rule', 'greater')
+        print(f"  Checkpoint hook: save_best='{save_best}' (must exactly match a val metric key)")
     if bench_cfg.get('max_keep_ckpts') is not None:
         hook['max_keep_ckpts'] = int(bench_cfg['max_keep_ckpts'])
+    # Always save at interval so checkpoints exist even if save_best key is wrong
+    if 'interval' not in hook:
+        hook['interval'] = 5
     cfg.default_hooks['checkpoint'] = hook
 
 

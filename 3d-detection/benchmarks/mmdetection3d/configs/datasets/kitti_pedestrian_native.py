@@ -17,8 +17,12 @@
 #   - Returns difficulty-based AP: easy / moderate / hard.
 #   - IoU threshold = 0.5 for Pedestrian (KITTI standard).
 
+import os as _os
 dataset_type = 'KittiDataset'
-data_root    = 'D:/AOC/datasets/kitti-3d/'
+# Override with env var KITTI_ROOT so the same config works on Windows and Linux:
+#   export KITTI_ROOT=/data/kitti-3d   (Linux cluster)
+#   $env:KITTI_ROOT = "D:/AOC/datasets/kitti-3d"  (Windows, optional — default below)
+data_root = _os.environ.get('KITTI_ROOT', 'D:/AOC/datasets/kitti-3d').rstrip('/\\') + '/'
 class_names  = ['Pedestrian']
 metainfo     = dict(classes=class_names)
 input_modality = dict(use_lidar=True, use_camera=False)

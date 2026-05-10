@@ -14,7 +14,7 @@ benchmark_fixed_input: true
 benchmark_warmup: 20
 benchmark_iters: 100
 prefer_best_checkpoint: true
-save_best_metric: kitti/Pedestrian_3D_AP40_moderate_strict   # official metric name from KittiMetric
+save_best_metric: "Kitti metric/pred_instances_3d/KITTI/Pedestrian_3D_AP40_moderate_strict"  # actual key from this mmdet3d/mmengine version
 save_best_rule: greater
 max_keep_ckpts: 3
 project: 3d-detection/reports/benchmarks/mmdetection3d/runs

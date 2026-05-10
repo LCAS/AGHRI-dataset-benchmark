@@ -47,9 +47,25 @@ USAGE:
 
 import argparse
 import pickle
+import struct
 from pathlib import Path
 
 import numpy as np
+
+# ---------------------------------------------------------------------------
+# PNG dimension reader (no Pillow/cv2 dependency)
+# ---------------------------------------------------------------------------
+
+def _png_shape(img_path: Path) -> tuple:
+    """Return (height, width) from a PNG file header. Falls back to standard KITTI size."""
+    try:
+        with img_path.open('rb') as fh:
+            fh.seek(16)          # skip 8-byte sig + 4-byte IHDR length + 4-byte "IHDR"
+            w, h = struct.unpack('>II', fh.read(8))
+        return int(h), int(w)
+    except Exception:
+        return 375, 1242         # standard KITTI training image size
+
 
 # ---------------------------------------------------------------------------
 # KITTI class definitions (full three-class set — dataset filters per config)
@@ -176,14 +192,15 @@ def _parse_label(label_path: Path, calib: dict) -> tuple:
                 # bbox_3d: [x, y, z, l, w, h, ry] — camera BOTTOM center
                 bbox_3d = [x_c, y_c, z_c, l, w, h, ry]
                 instances.append({
-                    'bbox':          [x1, y1, x2, y2],
-                    'bbox_label':    label_id,
-                    'bbox_3d':       bbox_3d,
-                    'bbox_label_3d': label_id,
+                    'bbox':            [x1, y1, x2, y2],
+                    'bbox_label':      label_id,
+                    'bbox_3d':         bbox_3d,
+                    'bbox_label_3d':   label_id,
                     'bbox_3d_isvalid': diff >= 0,
-                    'truncated':     trunc,
-                    'occluded':      occ,
-                    'alpha':         alpha,
+                    'truncated':       trunc,
+                    'occluded':        occ,
+                    'alpha':           alpha,
+                    'score':           -1.0,   # GT instances have no detection score
                 })
 
                 # LiDAR-frame box for the GT database (z is BOTTOM, not center)
@@ -269,12 +286,16 @@ def create_kitti_infos(kitti_root: Path, out_dir: Path, split: str) -> None:
 
     for sid in sample_ids:
         sid_int = int(sid)
+        img_path = kitti_root / 'training' / 'image_2' / f'{sid}.png'
+        img_h, img_w = _png_shape(img_path)
         info: dict = {
             'sample_idx': sid_int,
             'images': {
                 'CAM2': {
                     'img_path': f'training/image_2/{sid}.png',
-                    # cam2img populated below if calib available
+                    'height':   img_h,
+                    'width':    img_w,
+                    # cam2img and lidar2cam populated below if calib available
                 }
             },
             'lidar_points': {
@@ -319,7 +340,12 @@ def create_kitti_infos(kitti_root: Path, out_dir: Path, split: str) -> None:
 
     out_pkl = out_dir / f'kitti_infos_{split}.pkl'
     payload = {
-        'metainfo':  {'dataset': 'kitti', 'classes': KITTI_CLASSES},
+        'metainfo':  {
+            'dataset':    'kitti',
+            'classes':    KITTI_CLASSES,
+            # KittiMetric.convert_annos_to_kitti_annos expects this {name: id} dict.
+            'categories': {c: i for i, c in enumerate(KITTI_CLASSES)},
+        },
         'data_list': data_list,
     }
     with out_pkl.open('wb') as fh:
@@ -327,7 +353,7 @@ def create_kitti_infos(kitti_root: Path, out_dir: Path, split: str) -> None:
 
     n_inst = sum(len(d['instances']) for d in data_list)
     print(f"  [{split:10s}] {len(data_list):5d} samples | {n_inst:6d} total KITTI-class instances"
-          f"  →  {out_pkl}")
+          f"  ->  {out_pkl}")
 
 
 # ---------------------------------------------------------------------------
@@ -398,7 +424,7 @@ def create_gt_database(kitti_root: Path, out_dir: Path) -> None:
         pickle.dump(dbinfos, fh)
 
     summary = {cls: len(v) for cls, v in dbinfos.items() if v}
-    print(f"  GT database: {total_saved} instances saved  →  {out_pkl}")
+    print(f"  GT database: {total_saved} instances saved  ->  {out_pkl}")
     print(f"  Per-class:   {summary}")
 
 
@@ -522,13 +548,13 @@ def diagnose_custom_pkl(kitti_root: Path) -> None:
     print()
     print("  BUG 1 (training):")
     print("    AghriLidarDataset loads z_center with origin=(0.5,0.5,0.0).")
-    print("    mmdet3d adds h/2 to all GT boxes → they float h/2 above reality")
-    print("    during training → model learns wrong z regression targets.")
+    print("    mmdet3d adds h/2 to all GT boxes -> they float h/2 above reality")
+    print("    during training -> model learns wrong z regression targets.")
     print()
     print("  BUG 2 (evaluation):")
-    print("    _iou3d in metric.py uses z_stored as z_bottom → uses 'buggy_z_range'")
-    print("    above instead of 'correct_z_range' → height overlap ~50% too low")
-    print("    → 3D IoU is deflated by ~3-5x → 3D AP collapses.")
+    print("    _iou3d in metric.py uses z_stored as z_bottom -> uses 'buggy_z_range'")
+    print("    above instead of 'correct_z_range' -> height overlap ~50% too low")
+    print("    -> 3D IoU is deflated by ~3-5x -> 3D AP collapses.")
     print()
     print("  BUG 3 (AP protocol):")
     print("    Custom _compute_ap ≠ KITTI R40 (40-point) used for published numbers.")
