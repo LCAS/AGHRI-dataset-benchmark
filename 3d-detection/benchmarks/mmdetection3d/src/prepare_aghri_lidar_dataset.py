@@ -2,11 +2,10 @@ import argparse
 import json
 import os
 import pickle
-import random
 from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Dict, Iterable, List, Sequence, Tuple
+from typing import Dict, List
 
 import numpy as np
 
@@ -20,21 +19,6 @@ class SceneFrame:
     timestamp: float
     source_pcd: Path
     source_annotation: dict
-
-
-def _scene_group(scene_name: str) -> str:
-    prefixes = (
-        'footpath1',
-        'footpath2',
-        'in_straw',
-        'in_vine',
-        'out_straw',
-        'out_vine',
-    )
-    for prefix in prefixes:
-        if scene_name.startswith(prefix):
-            return prefix
-    return scene_name.split('_', 1)[0]
 
 
 def _load_json(path: Path) -> list:
@@ -144,8 +128,13 @@ def _build_scene_frames(scene_dir: Path) -> List[SceneFrame]:
     lidar_dir = scene_dir / 'sensor_data' / 'lidar'
     ann_data = _load_json(ann_path)
     frames: List[SceneFrame] = []
+    skipped_bad = 0
     for frame_ann in ann_data:
-        source_pcd = lidar_dir / frame_ann['File']
+        filename = frame_ann.get('File', '')
+        if not str(filename).endswith('.pcd'):
+            skipped_bad += 1
+            continue
+        source_pcd = lidar_dir / filename
         if not source_pcd.exists():
             raise FileNotFoundError(f'Missing point cloud referenced by annotation: {source_pcd}')
         frames.append(
@@ -155,38 +144,29 @@ def _build_scene_frames(scene_dir: Path) -> List[SceneFrame]:
                 source_pcd=source_pcd,
                 source_annotation=frame_ann,
             ))
+    if skipped_bad:
+        print(f'Warning: skipped {skipped_bad} annotation entries with non-PCD File in {scene_dir.name}')
     return frames
 
 
-def _split_scenes(scene_names: Sequence[str], seed: int, train_ratio: float, val_ratio: float) -> Dict[str, List[str]]:
-    grouped: Dict[str, List[str]] = {}
-    for scene_name in scene_names:
-        grouped.setdefault(_scene_group(scene_name), []).append(scene_name)
-
-    rng = random.Random(seed)
-    split_map = {'train': [], 'val': [], 'test': []}
-    for group_name in sorted(grouped):
-        names = sorted(grouped[group_name])
-        rng.shuffle(names)
-        train_count = max(1, int(round(len(names) * train_ratio)))
-        val_count = max(1, int(round(len(names) * val_ratio))) if len(names) >= 3 else 0
-        if train_count + val_count >= len(names):
-            val_count = max(0, len(names) - train_count - 1)
-        train_names = names[:train_count]
-        val_names = names[train_count:train_count + val_count]
-        test_names = names[train_count + val_count:]
-        if not test_names:
-            if val_names:
-                test_names = [val_names.pop()]
-            else:
-                test_names = [train_names.pop()]
-        split_map['train'].extend(train_names)
-        split_map['val'].extend(val_names)
-        split_map['test'].extend(test_names)
-
-    for split_name in split_map:
-        split_map[split_name] = sorted(split_map[split_name])
-    return split_map
+def _load_official_splits(splits_dir: Path) -> Dict[str, str]:
+    """Return a mapping from 'scene_name/pcd_stem' → split name, read from official split files."""
+    frame_to_split: Dict[str, str] = {}
+    for split_name in ('train', 'val', 'test'):
+        split_file = splits_dir / f'{split_name}.txt'
+        if not split_file.exists():
+            raise FileNotFoundError(f'Split file not found: {split_file}')
+        with split_file.open('r', encoding='utf-8') as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                # field 0: scene_dir\sensor_data\lidar\pcd_stem.pcd
+                lidar_rel = Path(line.split()[0])
+                scene_name = lidar_rel.parts[0]
+                pcd_stem = lidar_rel.stem
+                frame_to_split[f'{scene_name}/{pcd_stem}'] = split_name
+    return frame_to_split
 
 
 def _frame_to_info(frame: SceneFrame) -> dict:
@@ -273,9 +253,7 @@ def _summarize_infos(split_to_infos: Dict[str, List[dict]], split_to_scenes: Dic
 def prepare_dataset(
     raw_root: Path,
     out_root: Path,
-    train_ratio: float,
-    val_ratio: float,
-    seed: int,
+    splits_dir: Path,
     workers: int,
     overwrite_points: bool,
     limit_scenes: int = None,
@@ -288,13 +266,10 @@ def prepare_dataset(
     if not scene_dirs:
         raise RuntimeError(f'No labelled scenes found under {raw_root}')
 
+    print(f'Loading official splits from: {splits_dir}')
+    frame_to_split = _load_official_splits(splits_dir)
+
     scene_frames = {scene_dir.name: _build_scene_frames(scene_dir) for scene_dir in scene_dirs}
-    split_to_scenes = _split_scenes(
-        scene_names=sorted(scene_frames.keys()),
-        seed=seed,
-        train_ratio=train_ratio,
-        val_ratio=val_ratio,
-    )
 
     convert_jobs = []
     for frames in scene_frames.values():
@@ -316,13 +291,25 @@ def prepare_dataset(
 
     split_to_infos: Dict[str, List[dict]] = {'train': [], 'val': [], 'test': []}
     split_to_samples: Dict[str, List[str]] = {'train': [], 'val': [], 'test': []}
+    split_to_scene_sets: Dict[str, set] = {'train': set(), 'val': set(), 'test': set()}
+    skipped = 0
 
-    for split_name, scene_names in split_to_scenes.items():
-        for scene_name in scene_names:
-            for frame in scene_frames[scene_name]:
-                info = _frame_to_info(frame)
-                split_to_infos[split_name].append(info)
-                split_to_samples[split_name].append(info['sample_idx'])
+    for scene_name, frames in sorted(scene_frames.items()):
+        for frame in frames:
+            key = f'{frame.scene_name}/{frame.source_pcd.stem}'
+            split_name = frame_to_split.get(key)
+            if split_name is None:
+                skipped += 1
+                continue
+            info = _frame_to_info(frame)
+            split_to_infos[split_name].append(info)
+            split_to_samples[split_name].append(info['sample_idx'])
+            split_to_scene_sets[split_name].add(scene_name)
+
+    if skipped:
+        print(f'Warning: {skipped} frames had no entry in the official splits and were skipped.')
+
+    split_to_scenes = {k: sorted(v) for k, v in split_to_scene_sets.items()}
 
     _write_infos(out_root / 'aghri_infos_train.pkl', split_to_infos['train'])
     _write_infos(out_root / 'aghri_infos_val.pkl', split_to_infos['val'])
@@ -353,9 +340,12 @@ def build_argparser() -> argparse.ArgumentParser:
         default=r'D:\AOC\datasets\agri-human-sensing\mmdet3d_lidar_aghri',
         help='Output directory for processed points, ImageSets, and info pickles.',
     )
-    parser.add_argument('--train-ratio', type=float, default=0.7)
-    parser.add_argument('--val-ratio', type=float, default=0.15)
-    parser.add_argument('--seed', type=int, default=42)
+    parser.add_argument(
+        '--splits-dir',
+        default=None,
+        help='Path to the directory containing train.txt, val.txt, test.txt. '
+             'Defaults to <raw-root>/splits/default.',
+    )
     parser.add_argument('--workers', type=int, default=max(1, os.cpu_count() or 1))
     parser.add_argument(
         '--overwrite-points',
@@ -374,17 +364,13 @@ def build_argparser() -> argparse.ArgumentParser:
 def main() -> None:
     parser = build_argparser()
     args = parser.parse_args()
-    remaining = 1.0 - args.train_ratio - args.val_ratio
-    if args.train_ratio <= 0 or args.val_ratio < 0 or remaining <= 0:
-        raise ValueError(
-            'train_ratio must be > 0, val_ratio must be >= 0, and train_ratio + val_ratio must be < 1.0.')
+    raw_root = Path(args.raw_root)
+    splits_dir = Path(args.splits_dir) if args.splits_dir else raw_root / 'splits' / 'default'
 
     prepare_dataset(
-        raw_root=Path(args.raw_root),
+        raw_root=raw_root,
         out_root=Path(args.out_root),
-        train_ratio=float(args.train_ratio),
-        val_ratio=float(args.val_ratio),
-        seed=int(args.seed),
+        splits_dir=splits_dir,
         workers=max(1, int(args.workers)),
         overwrite_points=bool(args.overwrite_points),
         limit_scenes=args.limit_scenes,
