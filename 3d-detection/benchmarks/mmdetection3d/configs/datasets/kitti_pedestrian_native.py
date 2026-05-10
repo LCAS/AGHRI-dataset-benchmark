@@ -17,7 +17,6 @@
 #   - Returns difficulty-based AP: easy / moderate / hard.
 #   - IoU threshold = 0.5 for Pedestrian (KITTI standard).
 
-import os as _os
 dataset_type = 'KittiDataset'
 data_root    = '/workspace/data/kitti-3d/'
 class_names  = ['Pedestrian']
