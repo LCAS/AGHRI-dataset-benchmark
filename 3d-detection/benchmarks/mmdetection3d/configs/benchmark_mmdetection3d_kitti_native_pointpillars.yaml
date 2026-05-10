@@ -1,0 +1,35 @@
+# Benchmark configuration: PointPillars on KITTI (native pipeline).
+#
+# Uses the OFFICIAL KittiDataset + KittiMetric to reproduce published results.
+# Run prepare_kitti_native_dataset.py first to create the required pkl files.
+#
+# Usage:
+#   python src/run_kitti_native_benchmark.py \
+#       --config configs/benchmark_mmdetection3d_kitti_native_pointpillars.yaml \
+#       --out 3d-detection/reports/benchmarks/summary/mmdetection3d/summary_mmdetection3d_kitti_native_pointpillars.csv
+
+device: 0                    # GPU index (set to 'cpu' for CPU-only)
+seed: 42
+benchmark_fixed_input: true
+benchmark_warmup: 20
+benchmark_iters: 100
+prefer_best_checkpoint: true
+save_best_metric: kitti/Pedestrian_3D_AP40_moderate_strict   # official metric name from KittiMetric
+save_best_rule: greater
+max_keep_ckpts: 3
+project: 3d-detection/reports/benchmarks/mmdetection3d/runs
+name: kitti-native-pedestrian-detection
+
+notes: >
+  PointPillars trained and evaluated on KITTI Pedestrian using the official
+  MMDetection3D KittiDataset + KittiMetric pipeline.  This avoids the three
+  bugs present in the AGHRI-format custom pipeline:
+    (1) z_center/z_bottom mismatch during training (AghriLidarDataset origin),
+    (2) wrong height-overlap computation in _iou3d (metric.py),
+    (3) non-standard AP interpolation (VOC all-points vs KITTI R40).
+  Target 3D AP R40: Easy ≈ 32 %, Moderate ≈ 25 %, Hard ≈ 23 %.
+
+models:
+  - name: pointpillars_kitti_native
+    config: 3d-detection/benchmarks/mmdetection3d/configs/models/pointpillars_kitti_pedestrian_native.py
+    train: true
