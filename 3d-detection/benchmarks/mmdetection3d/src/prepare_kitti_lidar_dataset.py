@@ -15,7 +15,7 @@ Output pkl format (compatible with AghriLidarDataset and Kitti3DMetric):
             'num_pts_feats': 4,
         },
         'instances': [
-          {'bbox_3d': [x, y, z, l, w, h, yaw],   # LiDAR frame, bottom-center
+          {'bbox_3d': [x, y, z, l, w, h, yaw],   # LiDAR frame, z is center (matches AGHRI format)
            'bbox_label_3d': 0},
           ...
         ],
@@ -81,19 +81,20 @@ def _cam_box_to_lidar(h: float, w: float, l: float,
       h = height (camera y), w = width (camera x), l = length (camera z)
       ry = rotation around camera y-axis
 
-    Output: [x_l, y_l, z_bottom, l, w, h, yaw] (AGHRI LiDAR format)
-      origin is bottom-center, z_bottom is ground level in LiDAR frame
+    Output: [x_l, y_l, z_center, l, w, h, yaw] (AGHRI LiDAR format)
+      z_center matches AGHRI PKL convention and mmdet3d prediction output format,
+      keeping GT and predictions consistent in the metric's _iou3d comparison.
     """
     # Geometric center in camera frame (y_c is bottom; y_cam points down)
     center_cam = np.array([x_c, y_c - h / 2.0, z_c, 1.0])
     cx, cy, cz = (mat @ center_cam)[:3]
-    z_bottom = cz - h / 2.0
+    # cz is already z_center in LiDAR frame — store directly (not z_bottom)
 
     # Standard yaw conversion: camera ry → LiDAR yaw
     yaw = float(-ry - np.pi / 2.0)
     yaw = float((yaw + np.pi) % (2.0 * np.pi) - np.pi)  # normalize to [-π, π]
 
-    return [float(cx), float(cy), float(z_bottom), float(l), float(w), float(h), yaw]
+    return [float(cx), float(cy), float(cz), float(l), float(w), float(h), yaw]
 
 
 # ---------------------------------------------------------------------------
