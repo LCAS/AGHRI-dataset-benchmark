@@ -287,13 +287,24 @@ def create_kitti_infos(kitti_root: Path, out_dir: Path, split: str) -> None:
         calib_path = calib_dir / f'{sid}.txt'
         if calib_path.exists():
             calib = _parse_calib(calib_path)
-            # Store as lists so they are JSON-serialisable and pkl-friendly
+
+            # lidar2cam = R0_rect @ [Tr_velo_to_cam; 0 0 0 1]  (4×4)
+            # This transforms LiDAR points to rectified-camera frame.
+            # KittiDataset.parse_ann_info uses it to convert camera-frame GT
+            # boxes to LiDAR frame during dataset loading.
+            Tr4 = np.eye(4, dtype=np.float64)
+            Tr4[:3, :] = calib['Tr_velo_to_cam']
+            R04 = np.eye(4, dtype=np.float64)
+            R04[:3, :3] = calib['R0_rect']
+            lidar2cam = (R04 @ Tr4).tolist()
+
             info['calib'] = {
                 'P2':             calib['P2'].tolist(),
                 'R0_rect':        calib['R0_rect'].tolist(),
                 'Tr_velo_to_cam': calib['Tr_velo_to_cam'].tolist(),
             }
-            info['images']['CAM2']['cam2img'] = calib['P2'].tolist()
+            info['images']['CAM2']['cam2img']   = calib['P2'].tolist()
+            info['images']['CAM2']['lidar2cam'] = lidar2cam
         else:
             calib = None
 
