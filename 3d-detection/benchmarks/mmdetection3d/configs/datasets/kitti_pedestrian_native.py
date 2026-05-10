@@ -19,10 +19,7 @@
 
 import os as _os
 dataset_type = 'KittiDataset'
-# Override with env var KITTI_ROOT so the same config works on Windows and Linux:
-#   export KITTI_ROOT=/data/kitti-3d   (Linux cluster)
-#   $env:KITTI_ROOT = "D:/AOC/datasets/kitti-3d"  (Windows, optional — default below)
-data_root = _os.environ.get('KITTI_ROOT', 'D:/AOC/datasets/kitti-3d').rstrip('/\\') + '/'
+data_root    = '/workspace/data/kitti-3d/'
 class_names  = ['Pedestrian']
 metainfo     = dict(classes=class_names)
 input_modality = dict(use_lidar=True, use_camera=False)
