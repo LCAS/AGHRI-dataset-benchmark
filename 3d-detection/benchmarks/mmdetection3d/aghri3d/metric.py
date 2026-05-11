@@ -78,6 +78,10 @@ def _extract_sample_id(data_sample) -> str:
 
 def _box_to_bev_polygon(box: np.ndarray) -> Polygon:
     x, y, z, length, width, height, yaw = [float(v) for v in box[:7]]
+    if not (math.isfinite(x) and math.isfinite(y) and math.isfinite(yaw)
+            and math.isfinite(length) and math.isfinite(width)
+            and length > 0 and width > 0):
+        return Polygon()
     half_l = length / 2.0
     half_w = width / 2.0
     corners = np.array([
@@ -85,10 +89,10 @@ def _box_to_bev_polygon(box: np.ndarray) -> Polygon:
         [half_l, -half_w],
         [-half_l, -half_w],
         [-half_l, half_w],
-    ], dtype=np.float32)
+    ], dtype=np.float64)
     cos_yaw = math.cos(yaw)
     sin_yaw = math.sin(yaw)
-    rotation = np.array([[cos_yaw, -sin_yaw], [sin_yaw, cos_yaw]], dtype=np.float32)
+    rotation = np.array([[cos_yaw, -sin_yaw], [sin_yaw, cos_yaw]], dtype=np.float64)
     rotated = corners @ rotation.T
     rotated[:, 0] += x
     rotated[:, 1] += y
