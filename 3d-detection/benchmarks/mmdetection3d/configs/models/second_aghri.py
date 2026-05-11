@@ -6,7 +6,7 @@ _base_ = [
 ]
 
 point_cloud_range = [-10.24, -10.24, -2.0, 25.6, 10.24, 3.0]
-voxel_size = [0.08, 0.08, 0.5]
+voxel_size = [0.08, 0.08, 0.1]
 anchor_bottom_height = 0.33
 anchor_size = [0.46, 0.57, 1.50]
 
@@ -25,7 +25,7 @@ model = dict(
     middle_encoder=dict(
         type='SparseEncoder',
         in_channels=4,
-        sparse_shape=[11, 256, 448],
+        sparse_shape=[51, 256, 448],
         order=('conv', 'norm', 'act'),
     ),
     bbox_head=dict(
