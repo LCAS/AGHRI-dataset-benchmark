@@ -1,0 +1,34 @@
+device: 0
+seed: 42
+benchmark_fixed_input: true
+benchmark_warmup: 20
+benchmark_iters: 100
+summary_primary_mode: bev
+summary_primary_iou: 0.50
+prefer_best_checkpoint: false
+max_keep_ckpts: 1
+project: 3d-detection/reports/benchmarks/mmdetection3d/runs
+name: aghri-3d-detection-kitti-pretrained-zeroshot
+models:
+  - name: second_kitti_pretrained_eval_aghri
+    config: 3d-detection/benchmarks/mmdetection3d/configs/models/second_kitti_pretrained_eval_aghri.py
+    train: false
+    # Public MMDetection3D KITTI 3-class SECOND checkpoint — used as-is for zero-shot
+    # evaluation on AGHRI. All weights (SparseEncoder backbone, SECONDFPN neck, anchor
+    # head) load exactly since the architecture is unchanged from the pretrained config.
+    # Pedestrian predictions (class index 1 in [Car, Pedestrian, Cyclist]) are evaluated
+    # against AGHRI "person" ground truth via Aghri3DMetric(pred_class_id=1).
+    # Download before running:
+    #   mim download mmdet3d \
+    #     --config second_hv_secfpn_8xb6-80e_kitti-3d-3class \
+    #     --dest 3d-detection/benchmarks/mmdetection3d/.cache/mim
+    # Then update the filename below (mim appends a hash to the name).
+    checkpoint: https://download.openmmlab.com/mmdetection3d/v1.1.0_models/second/second_hv_secfpn_8xb6-80e_kitti-3d-3class/second_hv_secfpn_8xb6-80e_kitti-3d-3class-b086d0a3.pth
+notes: >
+  Zero-shot evaluation: SECOND public KITTI 3-class pretrained weights applied directly
+  to AGHRI without any fine-tuning. AGHRI scans are clipped to the KITTI range
+  [0, 69.12] x [-39.68, 39.68] (front hemisphere only) before inference. Pedestrian
+  predictions (class 1) are matched against AGHRI "person" ground truth.
+  Compare with benchmark_mmdetection3d_kitti_pretrained_aghri_second (fine-tuned)
+  to quantify the benefit of fine-tuning on AGHRI data.
+  Set AGHRI_3D_DATA_ROOT=/workspace/data/aghri-3d when submitting.

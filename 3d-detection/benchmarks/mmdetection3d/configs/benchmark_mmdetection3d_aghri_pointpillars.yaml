@@ -1,0 +1,17 @@
+device: 0
+seed: 42
+benchmark_fixed_input: true
+benchmark_warmup: 20
+benchmark_iters: 100
+summary_primary_mode: bev
+summary_primary_iou: 0.50
+prefer_best_checkpoint: true
+save_best_metric: aghri/bev_ap_mean
+save_best_rule: greater
+max_keep_ckpts: 3
+project: 3d-detection/reports/benchmarks/mmdetection3d/runs
+name: aghri-3d-detection
+models:
+  - name: pointpillars_aghri
+    config: 3d-detection/benchmarks/mmdetection3d/configs/models/pointpillars_aghri.py
+notes: "Benchmark settings for the AGHRI LiDAR 3D detection dataset with PointPillars. Reports IoU 0.25, 0.50, 0.75 and uses mean BEV AP for primary ranking and best-checkpoint selection because the annotations do not provide orientation."

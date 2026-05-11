@@ -1,0 +1,24 @@
+device: 0
+seed: 42
+benchmark_fixed_input: true
+benchmark_warmup: 20
+benchmark_iters: 100
+summary_primary_mode: 3d
+summary_primary_iou: 0.50
+prefer_best_checkpoint: true
+save_best_metric: kitti/3d_ap_0.50
+save_best_rule: greater
+max_keep_ckpts: 3
+project: 3d-detection/reports/benchmarks/mmdetection3d/runs
+name: kitti-3d-detection
+models:
+  - name: pointpillars_kitti
+    config: 3d-detection/benchmarks/mmdetection3d/configs/models/pointpillars_kitti.py
+    # train: false
+    # checkpoint: /workspace/agri-human-dataset-benchmark/3d-detection/reports/benchmarks/mmdetection3d/runs/kitti-3d-detection/pointpillars_kitti/best_kitti_3d_ap_0.50_epoch_26.pth
+notes: >
+  KITTI 3D detection benchmark with merged person class (Pedestrian + Cyclist +
+  Person_sitting).  GT boxes converted from camera frame to LiDAR frame by
+  prepare_kitti_lidar_dataset.py.  Evaluated with Kitti3DMetric (same logic as
+  Aghri3DMetric) at IoU thresholds 0.25/0.50/0.75.  Mean 3D AP used for
+  best-checkpoint selection.

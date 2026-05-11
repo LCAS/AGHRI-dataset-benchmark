@@ -1,0 +1,36 @@
+device: 0
+seed: 42
+benchmark_fixed_input: true
+benchmark_warmup: 20
+benchmark_iters: 100
+summary_primary_mode: bev
+summary_primary_iou: 0.50
+prefer_best_checkpoint: true
+save_best_metric: aghri/bev_ap_mean
+save_best_rule: greater
+max_keep_ckpts: 3
+project: 3d-detection/reports/benchmarks/mmdetection3d/runs
+name: aghri-3d-detection-kitti-pretrained
+models:
+  - name: second_kitti_pretrained_aghri
+    config: 3d-detection/benchmarks/mmdetection3d/configs/models/second_aghri.py
+    train: true
+    # Public MMDetection3D KITTI 3-class SECOND checkpoint — used for weight
+    # initialization only. The SparseEncoder backbone and SECONDFPN neck transfer
+    # fully (spatially agnostic sparse convolutions — same architecture regardless
+    # of range); the anchor head is re-initialized (different num_classes and range).
+    # This is a more complete transfer than PointPillars.
+    # Download before running:
+    #   mim download mmdet3d \
+    #     --config second_hv_secfpn_8xb6-80e_kitti-3d-3class \
+    #     --dest 3d-detection/benchmarks/mmdetection3d/.cache/mim
+    # Then update the filename below (mim appends a hash to the name).
+    checkpoint: https://download.openmmlab.com/mmdetection3d/v1.1.0_models/second/second_hv_secfpn_8xb6-80e_kitti-3d-3class/second_hv_secfpn_8xb6-80e_kitti-3d-3class-b086d0a3.pth
+notes: >
+  Fine-tuning experiment: SECOND initialized from the public MMDetection3D KITTI
+  3-class checkpoint and then fine-tuned on AGHRI. The SparseEncoder backbone and
+  SECONDFPN neck transfer fully (spatially agnostic sparse convolutions); only the
+  anchor head is re-initialized. This is a more complete transfer than PointPillars
+  and is expected to show a larger pretraining benefit. Analogous to ImageNet
+  pretraining in 2D. Compare with benchmark_mmdetection3d_aghri_second (from scratch).
+  Set AGHRI_3D_DATA_ROOT=/workspace/data/aghri-3d when submitting.

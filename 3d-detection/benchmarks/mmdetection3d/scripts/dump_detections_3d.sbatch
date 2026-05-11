@@ -1,0 +1,73 @@
+#!/bin/bash
+#SBATCH --job-name=mmdet3d_dump
+#SBATCH --output=/home/users/%u/logs/dump_detections_3d_%j.out
+#SBATCH --time=2-00:00:00
+#SBATCH --mem=32G
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=8
+#SBATCH --nodes=1
+#SBATCH --partition=gpu
+#SBATCH --gpus=nvidia_rtx_a6000:1
+#SBATCH --mail-type=BEGIN,END,FAIL
+
+#SBATCH --container-image=/home/users/hvu/mmdet_frcnn_dcn/mmdet_pytorch_cu118.sqfs
+#SBATCH --container-mounts=/home/users/hvu:/workspace
+#SBATCH --container-workdir=/workspace/agri-human-dataset-benchmark/3d-detection/benchmarks/mmdetection3d
+
+module purge
+
+export PIP_NO_CACHE_DIR=1
+export PYTHONUNBUFFERED=1
+export REPO_ROOT=/workspace/agri-human-dataset-benchmark
+export BENCH_ROOT=$REPO_ROOT/3d-detection/benchmarks/mmdetection3d
+export VENV_PATH=$BENCH_ROOT/.venv
+export CACHE_ROOT=$BENCH_ROOT/.cache
+# TODO: set PREDICT_CONFIG to the desired predict YAML (default: predict_aghri.yaml)
+export PREDICT_CONFIG=${PREDICT_CONFIG:-$BENCH_ROOT/configs/predict_aghri.yaml}
+
+srun bash -c "
+    set -e
+
+    mkdir -p \$CACHE_ROOT/pip \$CACHE_ROOT/torch \$CACHE_ROOT/mim \$BENCH_ROOT/.config
+    export HOME=/workspace
+    export XDG_CACHE_HOME=\$CACHE_ROOT
+    export MIM_CACHE_DIR=\$CACHE_ROOT/mim
+    export TORCH_HOME=\$CACHE_ROOT/torch
+
+    echo '--- Virtual Environment Management ---'
+    if [ ! -d \$VENV_PATH ]; then
+        python -m venv \$VENV_PATH
+        source \$VENV_PATH/bin/activate
+        pip install -U pip setuptools wheel
+        pip install 'numpy<2' 'opencv-python-headless==4.11.0.86'
+        pip install torch==2.1.2 torchvision==0.16.2 --index-url https://download.pytorch.org/whl/cu118
+        pip install -U openmim
+        pip install 'mmcv==2.1.0' -f https://download.openmmlab.com/mmcv/dist/cu118/torch2.1/index.html
+        pip install -r \$BENCH_ROOT/requirements.txt
+        pip install certifi
+    else
+        source \$VENV_PATH/bin/activate
+    fi
+
+    # Check numpy version and fix if needed
+    _NP_VER=\$(python -c 'import numpy; print(numpy.__version__)' 2>/dev/null || echo 'missing')
+    if [[ \"\$_NP_VER\" == 2.* ]] || [[ \"\$_NP_VER\" == \"missing\" ]]; then
+        echo \"Fixing/Installing numpy - current: \$_NP_VER\"
+        pip install 'numpy<2'
+    fi
+
+    # Check opencv and fix if needed
+    if ! python -c 'import cv2' 2>/dev/null; then
+        echo \"Installing opencv-python-headless...\"
+        pip uninstall -y opencv-python opencv-python-headless 2>/dev/null || true
+        pip install 'opencv-python-headless==4.11.0.86'
+    fi
+
+    echo '--- Verification ---'
+    export SSL_CERT_FILE=\$(python -c 'import certifi; print(certifi.where())')
+    export REQUESTS_CA_BUNDLE=\$SSL_CERT_FILE
+
+    python -c 'import torch, mmdet; print(f\"PyTorch: {torch.__version__} | MMDetection: {mmdet.__version__}\")'
+
+    python src/dump_detections_3d.py --config \$PREDICT_CONFIG
+"

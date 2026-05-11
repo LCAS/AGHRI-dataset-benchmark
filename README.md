@@ -4,7 +4,7 @@ This repository is a benchmark workspace for agricultural human detection and tr
 
 The core idea is simple: if agricultural robots are expected to work around people, they need perception systems that can detect, track, and eventually fuse observations of humans reliably across difficult real-world conditions such as occlusion, clutter, motion, wide-angle optics, and changing light. This repository exists to make those comparisons repeatable.
 
-Today, the implemented code focuses on 2D detection and 2D tracking. The broader benchmark direction is multimodal: RGB, fisheye, LiDAR point clouds, rosbag-derived streams, and future 3D or fusion pipelines can be added under the same benchmark philosophy.
+Today, the implemented code covers 2D detection, 2D tracking, and LiDAR-based 3D detection. The broader benchmark direction is multimodal: RGB, fisheye, LiDAR point clouds, rosbag-derived streams, and future 3D or fusion pipelines under the same benchmark philosophy.
 
 ## Why This Repo Exists
 
@@ -43,6 +43,13 @@ Tracker benchmarking and MOT-style evaluation for detections exported from the 2
 - `common/mot`: shared ground-truth conversion and MOT evaluation utilities
 - `reports`: per-run tracking outputs and summary metrics
 
+### `3d-detection`
+
+LiDAR-based 3D human detection benchmarks for the agricultural sensing dataset.
+
+- `benchmarks/mmdetection3d`: MMDetection3D-based data preparation, training, and evaluation
+- `reports/benchmarks`: 3D benchmark summaries and run artifacts
+
 ## Benchmark Scope
 
 The repository is designed around benchmark comparison, not around a single model implementation.
@@ -54,6 +61,7 @@ Current benchmark patterns in the codebase include:
 - cross-domain transfer evaluation
 - export of detector outputs into a common JSON format for downstream tracking
 - MOT-format evaluation of tracker outputs
+- LiDAR point-cloud conversion and 3D detector benchmarking
 
 The current configs already reflect several image domains, including `zedrgb`, `fisheye`, `fieldsafepedestrian`, `kitti_filtered`, and `coco2017_filtered`.
 
@@ -63,7 +71,8 @@ The current configs already reflect several image domains, including `zedrgb`, `
 2. Export frame-wise detections to the repository JSON format.
 3. Run tracker benchmarks in [`2d-tracking`](2d-tracking/README.md).
 4. Convert project annotations to MOT ground truth and evaluate tracker outputs.
-5. Compare reports across datasets, models, and sensing conditions.
+5. Train or evaluate LiDAR 3D detectors in [`3d-detection`](3d-detection/README.md).
+6. Compare reports across datasets, models, and sensing conditions.
 
 ## Repository Layout
 
@@ -76,6 +85,9 @@ The current configs already reflect several image domains, including `zedrgb`, `
 |-- 2d-tracking/
 |   |-- benchmarks/
 |   |-- common/
+|   `-- reports/
+|-- 3d-detection/
+|   |-- benchmarks/
 |   `-- reports/
 `-- LICENSE
 ```
@@ -107,10 +119,8 @@ This repository should be read as both:
 
 That future expansion can include:
 
-- 3D detection
 - 3D tracking
 - multimodal fusion
-- LiDAR and point-cloud benchmarks
 - rosbag-to-benchmark conversion utilities
 - cross-modal safety analysis for human-robot interaction
 
