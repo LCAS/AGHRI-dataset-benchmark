@@ -15,7 +15,7 @@ scene detections.
 
 Expected inputs
 ---------------
-1. --pcd-dir : raw scene PCD directory, e.g.
+1. --pcd_dir : raw scene PCD directory, e.g.
        D:/AOC/datasets/agri-human-sensing/labelled_dataset/<scene>/sensor_data/lidar/
 2. --tracks  : per-scene MOT3D CSV, e.g.
        3d-tracking/reports/runs/ab3dmot/pointpillars_aghri/<scene>.csv
@@ -31,6 +31,11 @@ Open3D mouse controls:
     - Mouse wheel              : zoom in/out
     - Hold mouse wheel + drag  : pan the scene
     - Hold left click + drag   : rotate the scene
+
+    a) scenario 1 with ab3dmot:
+    python 3d-tracking/tools/vis_tracks_pcd.py `
+        --pcd_dir   "D:/AOC/datasets/agri-human-sensing/labelled_dataset/out_vine_4swap+walk_st_ly_11_06_2024_2_label/sensor_data/lidar" `
+        --tracks    "D:/AOC/agri-human-dataset-benchmark/3d-tracking/reports/runs/tracker_suite/ab3dmot/out_vine_4swap+walk_st_ly_11_06_2024_2_label.csv"
 """
 
 import argparse
@@ -153,18 +158,18 @@ def main():
         epilog=(
             "Example:\n"
             "  python tools/vis_tracks_pcd.py \\\n"
-            "    --pcd-dir D:/AOC/datasets/agri-human-sensing/labelled_dataset"
+            "    --pcd_dir D:/AOC/datasets/agri-human-sensing/labelled_dataset"
             "/<scene>/sensor_data/lidar \\\n"
             "    --tracks  3d-tracking/reports/runs/ab3dmot/pointpillars_aghri/<scene>.csv"
         ),
     )
-    parser.add_argument("--pcd-dir", required=True, type=str,
+    parser.add_argument("--pcd_dir", required=True, type=str,
                         help="Directory containing raw .pcd frames for one scene.")
     parser.add_argument("--tracks", required=True, type=str,
                         help="Per-scene MOT3D CSV file (frame_id,track_id,x,y,z,l,w,h,yaw,score).")
     parser.add_argument("--ext", default=".pcd", type=str,
                         help="Point-cloud file extension (default: .pcd).")
-    parser.add_argument("--point-size", type=float, default=2.0,
+    parser.add_argument("--point_size", type=float, default=2.0,
                         help="Rendered point size (default: 2.0).")
     args = parser.parse_args()
 

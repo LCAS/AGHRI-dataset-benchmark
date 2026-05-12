@@ -117,7 +117,7 @@ def run(cfg: TrackerConfig) -> None:
 
     total_frames = 0
     total_time = 0.0
-    print(f"[CenterPoint] Tracking {len(scene_dirs)} scenes → {cfg.mot_output_dir}")
+    print(f"[CenterPoint] Tracking {len(scene_dirs)} scenes -> {cfg.mot_output_dir}")
 
     for scene_dir in scene_dirs:
         mot_path = cfg.mot_output_dir / f"{scene_dir.name}.csv"

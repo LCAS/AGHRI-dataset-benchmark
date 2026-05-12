@@ -40,6 +40,20 @@ Notes:
     - Colours are assigned from the annotation class label. In this project,
       labels such as human1, human2, and human3 encode consistent GT identities.
     - The visualisation background is white and the point cloud is rendered in black.
+
+Usage example:
+    a) scenario 1
+    python 3d-tracking/tools/vis_annotations_pcd.py `
+        --json_path "D:/AOC/datasets/agri-human-sensing/labelled_dataset/footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label/annotations/lidar_ann.json" `
+        --pcd_dir   "D:/AOC/datasets/agri-human-sensing/labelled_dataset/footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label/sensor_data/lidar"
+    b) scenario 2
+    python 3d-tracking/tools/vis_annotations_pcd.py `
+        --json_path "D:/AOC/datasets/agri-human-sensing/labelled_dataset/in_straw_3pick_diff_st_10_24_2024_5_a_label/annotations/lidar_ann.json" `
+        --pcd_dir   "D:/AOC/datasets/agri-human-sensing/labelled_dataset/in_straw_3pick_diff_st_10_24_2024_5_a_label/sensor_data/lidar"
+    c) scenario 3
+    python 3d-tracking/tools/vis_annotations_pcd.py `
+        --json_path "D:/AOC/datasets/agri-human-sensing/labelled_dataset/out_vine_4swap+walk_st_ly_11_06_2024_2_label/annotations/lidar_ann.json" `
+        --pcd_dir   "D:/AOC/datasets/agri-human-sensing/labelled_dataset/out_vine_4swap+walk_st_ly_11_06_2024_2_label/sensor_data/lidar"
 """
 
 from __future__ import annotations

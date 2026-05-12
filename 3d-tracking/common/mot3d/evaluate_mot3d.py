@@ -2,7 +2,11 @@
 Evaluate 3D tracking predictions against ground truth using BEV IoU distance.
 
 Reads per-scene MOT3D CSV files (format: frame_id,track_id,x,y,z,l,w,h,yaw,score)
-and computes CLEAR MOT metrics (MOTA, MOTP, IDF1, etc.) via motmetrics.
+and computes:
+  - CLEAR MOT:  MOTA, MOTP, num_switches, precision, recall, num_fp, num_fn
+  - ID metrics: IDF1, IDP, IDR
+  - Track-level: mostly_tracked, mostly_lost, num_fragmentations
+  - HOTA:       HOTA, DetA, AssA  (averaged over alpha thresholds 0.05..0.95)
 
 Usage:
     python evaluate_mot3d.py \\
@@ -26,6 +30,7 @@ COMMON_ROOT = Path(__file__).resolve().parents[0]
 sys.path.insert(0, str(COMMON_ROOT))
 from bev_iou import iou_matrix
 from mot3d_writer import load_mot3d
+from hota import compute_hota
 
 DEFAULT_METRICS = [
     "num_frames",
@@ -58,8 +63,13 @@ def evaluate_scene(
     gt_file: Path,
     pred_file: Path,
     iou_threshold: float,
-):
-    """Return a motmetrics accumulator for one scene."""
+) -> Tuple:
+    """
+    Evaluate one scene.
+
+    Returns (motmetrics_accumulator, gt_data, pred_data) so that HOTA can be
+    computed from the same loaded data without re-reading files.
+    """
     try:
         import motmetrics as mm
     except ImportError as exc:
@@ -71,7 +81,7 @@ def evaluate_scene(
     pred_data = load_mot3d(pred_file) if pred_file.exists() else {}
 
     all_frames = sorted(set(gt_data.keys()) | set(pred_data.keys()))
-    acc = mm.MOTAccumulator(auto_id=True)
+    acc = mm.MOTAccumulator(auto_id=False)
 
     for fid in all_frames:
         gt_ids, gt_boxes = _boxes_from_frame(gt_data.get(fid))
@@ -88,7 +98,7 @@ def evaluate_scene(
 
         acc.update(gt_ids.tolist(), pred_ids.tolist(), dist, frameid=fid)
 
-    return acc
+    return acc, gt_data, pred_data
 
 
 def evaluate_all(
@@ -117,13 +127,19 @@ def evaluate_all(
 
     accs = []
     names = []
+    hota_per_scene: Dict[str, Dict[str, float]] = {}
+
     for gt_file in gt_files:
         pred_file = pred_dir / gt_file.name
-        acc = evaluate_scene(gt_file, pred_file, iou_threshold)
+        acc, gt_data, pred_data = evaluate_scene(gt_file, pred_file, iou_threshold)
         accs.append(acc)
         names.append(gt_file.stem)
-        print(f"  Evaluated: {gt_file.stem}")
 
+        hota_per_scene[gt_file.stem] = compute_hota(gt_data, pred_data, iou_matrix)
+        print(f"  Evaluated: {gt_file.stem}  "
+              f"HOTA={hota_per_scene[gt_file.stem]['hota']:.3f}")
+
+    # --- motmetrics (CLEAR MOT + ID metrics) ---
     metrics_handler = mm.metrics.create()
     summary = metrics_handler.compute_many(
         accs,
@@ -138,14 +154,38 @@ def evaluate_all(
         namemap=mm.io.motchallenge_metric_names,
     ))
 
+    # Overall HOTA = mean of per-scene scores
+    overall_hota = {
+        k: float(np.mean([v[k] for v in hota_per_scene.values()]))
+        for k in ("hota", "deta", "assa")
+    }
+    print(f"\n  HOTA (overall): "
+          f"HOTA={overall_hota['hota']:.3f}  "
+          f"DetA={overall_hota['deta']:.3f}  "
+          f"AssA={overall_hota['assa']:.3f}")
+
     if output_csv is not None:
         output_csv.parent.mkdir(parents=True, exist_ok=True)
+        # Augment summary with HOTA columns before saving
+        for col, key in [("hota", "hota"), ("deta", "deta"), ("assa", "assa")]:
+            values = [
+                hota_per_scene.get(name, {}).get(key, float("nan"))
+                for name in names
+            ] + [overall_hota[key]]
+            summary[col] = values
         summary.to_csv(output_csv)
         print(f"CSV written: {output_csv}")
 
     if output_json is not None:
         output_json.parent.mkdir(parents=True, exist_ok=True)
         rows = summary.reset_index().to_dict(orient="records")
+        # Inject HOTA into each row (summary may not have the columns yet if csv not requested)
+        for row in rows:
+            scene = row.get("index", "OVERALL")
+            src = hota_per_scene.get(scene, overall_hota)
+            row["hota"] = round(src.get("hota", float("nan")), 6)
+            row["deta"] = round(src.get("deta", float("nan")), 6)
+            row["assa"] = round(src.get("assa", float("nan")), 6)
         output_json.write_text(json.dumps(rows, indent=2), encoding="utf-8")
         print(f"JSON written: {output_json}")
 
@@ -155,11 +195,14 @@ def main() -> None:
         description="Evaluate 3D tracking predictions using BEV IoU distance.",
         formatter_class=argparse.RawTextHelpFormatter,
     )
-    parser.add_argument("--gt-dir", required=True, type=Path, help="Directory with per-scene GT MOT3D CSV files.")
-    parser.add_argument("--pred-dir", required=True, type=Path, help="Directory with per-scene predicted MOT3D CSV files.")
-    parser.add_argument("--iou-threshold", type=float, default=0.25, help="Minimum BEV IoU to count as a match (default: 0.25).")
-    parser.add_argument("--out-csv", type=Path, default=None, help="Optional CSV output path.")
-    parser.add_argument("--out-json", type=Path, default=None, help="Optional JSON output path.")
+    parser.add_argument("--gt-dir", required=True, type=Path,
+                        help="Directory with per-scene GT MOT3D CSV files.")
+    parser.add_argument("--pred-dir", required=True, type=Path,
+                        help="Directory with per-scene predicted MOT3D CSV files.")
+    parser.add_argument("--iou-threshold", type=float, default=0.25,
+                        help="Minimum BEV IoU to count as a match (default: 0.25).")
+    parser.add_argument("--out-csv", type=Path, default=None)
+    parser.add_argument("--out-json", type=Path, default=None)
     args = parser.parse_args()
 
     evaluate_all(
