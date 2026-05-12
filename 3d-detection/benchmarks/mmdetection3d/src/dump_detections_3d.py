@@ -15,6 +15,10 @@ from typing import List
 
 import yaml
 
+# The aghri3d custom module lives one level above this src/ directory.
+# MMEngine's custom_imports needs its parent on sys.path.
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 
 @dataclass(frozen=True)
 class ModelSpec:
@@ -98,6 +102,8 @@ def run_inference(model_spec: ModelSpec, cfg: PredictConfig3D) -> None:
 
     for bin_path in bin_files:
         result = inference_detector(model, str(bin_path))
+        if isinstance(result, (list, tuple)):
+            result = result[0]
         pred = result.pred_instances_3d
 
         boxes = pred.bboxes_3d.tensor.cpu().numpy()   # (N, 7): cx, cy, cz, l, w, h, yaw
