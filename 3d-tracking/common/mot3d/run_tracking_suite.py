@@ -1,12 +1,19 @@
 """
-3D tracking benchmark suite — run all supported trackers across multiple scenes
-and collect MOTA / MOTP / IDF1 metrics into a single summary table.
+3D tracking benchmark suite -- run all supported trackers across multiple scenes
+and collect MOTA / MOTP / IDF1 / HOTA metrics into a single summary table.
 
-Pipeline per scene × tracker:
-  1. Convert raw lidar_ann.json → per-frame detection JSONs  (GT-as-detections)
-  2. Convert raw lidar_ann.json → GT MOT3D CSV               (evaluation ground truth)
-  3. Run tracker on detection JSONs      → per-scene predicted MOT3D CSV
-  4. Evaluate predicted vs GT            → per-scene + overall metrics JSON / CSV
+Supported input sources (--sources):
+  gt          Use GT annotations as perfect detections (upper-bound baseline).
+              Requires --raw-root pointing to the labelled_dataset directory.
+  detections  Use real model detections from --detections-dir.
+              The directory must contain one sub-folder per scene, each holding
+              per-frame JSON files in the format: [{x,y,z,l,w,h,yaw,score}, ...]
+
+Pipeline per source x scene x tracker:
+  1. (gt only) Convert raw lidar_ann.json -> per-frame detection JSONs
+  2. (gt only) Convert raw lidar_ann.json -> GT MOT3D CSV
+  3. Run tracker on detection JSONs       -> per-scene predicted MOT3D CSV
+  4. Evaluate predicted vs GT             -> per-scene + overall metrics JSON / CSV
   5. Append row to aggregate summary
 
 Default scenes (the three benchmark scenarios in this project):
@@ -16,11 +23,12 @@ Default scenes (the three benchmark scenarios in this project):
 
 Usage:
     python common/mot3d/run_tracking_suite.py
-    python common/mot3d/run_tracking_suite.py --trackers ab3dmot centerpoint
-    python common/mot3d/run_tracking_suite.py --skip-existing
-    python common/mot3d/run_tracking_suite.py \\
-        --raw-root D:/AOC/datasets/agri-human-sensing/labelled_dataset \\
-        --scenes footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label
+    python common/mot3d/run_tracking_suite.py --sources gt
+    python common/mot3d/run_tracking_suite.py --sources detections ^
+        --detections-dir D:/AOC/agri-human-dataset-benchmark/3d-detection/reports/detections/pointpillars_aghri
+    python common/mot3d/run_tracking_suite.py --sources gt detections ^
+        --detections-dir D:/AOC/agri-human-dataset-benchmark/3d-detection/reports/detections/pointpillars_aghri ^
+        --skip-existing
 """
 from __future__ import annotations
 
@@ -117,10 +125,10 @@ def _build_tracker_command(
     return [
         sys.executable,
         str(TRACKING_ROOT / spec.run_script),
-        "--config",       str(TRACKING_ROOT / spec.config_path),
-        "--detections-dir", str(detections_dir),
-        "--mot-output-dir", str(mot_output_dir),
-        "--runtime-json", str(runtime_json),
+        "--config",           str(TRACKING_ROOT / spec.config_path),
+        "--detections-dir",   str(detections_dir),
+        "--mot-output-dir",   str(mot_output_dir),
+        "--runtime-json",     str(runtime_json),
     ]
 
 
@@ -148,12 +156,13 @@ def _load_json(path: Path) -> object:
 
 def _run_tracker(
     spec: TrackerSpec,
-    gt_det_root: Path,
+    det_root: Path,
     runs_dir: Path,
     summary_dir: Path,
     gt_mot_root: Path,
     iou_threshold: float,
     skip_existing: bool,
+    source_label: str,
 ) -> List[Dict]:
     """Run one tracker over all scenes and evaluate. Returns list of result rows."""
     pred_dir     = runs_dir / spec.key
@@ -162,13 +171,13 @@ def _run_tracker(
     metrics_json = summary_dir / f"{spec.key}_metrics.json"
     pred_dir.mkdir(parents=True, exist_ok=True)
 
-    print(f"\n-- Tracker: {spec.key} --")
+    print(f"\n-- Tracker: {spec.key} (source: {source_label}) --")
 
     # ---- tracking step ----
     if skip_existing and pred_dir.exists() and any(pred_dir.glob("*.csv")) and runtime_json.exists():
         print(f"  [skip tracking] existing outputs found in {pred_dir}")
     else:
-        cmd = _build_tracker_command(spec, gt_det_root, pred_dir, runtime_json)
+        cmd = _build_tracker_command(spec, det_root, pred_dir, runtime_json)
         result = _run(cmd)
         if result.stdout:
             for line in result.stdout.strip().splitlines():
@@ -176,6 +185,7 @@ def _run_tracker(
         if result.returncode != 0:
             print(f"  [FAIL] tracking: {result.stderr.strip() or result.stdout.strip()}")
             return [{
+                "source": source_label,
                 "tracker": spec.key, "scene": "ALL", "status": "tracking_failed",
                 "error": result.stderr.strip() or result.stdout.strip(),
             }]
@@ -192,6 +202,7 @@ def _run_tracker(
         if result.returncode != 0:
             print(f"  [FAIL] evaluation: {result.stderr.strip() or result.stdout.strip()}")
             return [{
+                "source": source_label,
                 "tracker": spec.key, "scene": "ALL", "status": "evaluation_failed",
                 "error": result.stderr.strip() or result.stdout.strip(),
             }]
@@ -201,13 +212,31 @@ def _run_tracker(
     if metrics_json.exists():
         metric_rows = _load_json(metrics_json)
         runtime = _load_json(runtime_json) if runtime_json.exists() else {}
+        total_frames = runtime.get("total_frames", 0)
+        tracking_time_s = runtime.get("tracking_time_seconds", 0.0)
+        tracking_time_per_frame_ms = (
+            tracking_time_s * 1000.0 / total_frames if total_frames > 0 else 0.0
+        )
         for m in metric_rows:
             scene_label = m.get("index", "unknown")
+            if scene_label == "OVERALL":
+                continue
             rows.append({
+                "source": source_label,
                 "tracker": spec.key,
                 "scene": scene_label,
                 "status": "completed",
+                # file paths for traceability
+                "detections_dir": str(det_root / scene_label),
+                "gt_mot_dir": str(gt_mot_root),
+                "pred_csv": str(pred_dir / f"{scene_label}.csv"),
+                "runtime_json": str(runtime_json),
+                "metrics_csv": str(metrics_csv),
+                "metrics_json": str(metrics_json),
+                # runtime (aggregated over all scenes in this run)
                 **{k: v for k, v in runtime.items() if k not in ("tracker",)},
+                "tracking_time_per_frame_ms": round(tracking_time_per_frame_ms, 4),
+                # per-scene metrics
                 **{k: v for k, v in m.items() if k != "index"},
             })
 
@@ -220,16 +249,36 @@ def parse_args() -> argparse.Namespace:
         formatter_class=argparse.RawTextHelpFormatter,
     )
     parser.add_argument(
+        "--sources",
+        nargs="+",
+        choices=("gt", "detections"),
+        default=["gt"],
+        help=(
+            "Input source(s) to run.\n"
+            "  gt         -- GT annotations as perfect detections (requires --raw-root)\n"
+            "  detections -- real model detections (requires --detections-dir)"
+        ),
+    )
+    parser.add_argument(
         "--raw-root",
         type=Path,
         default=RAW_ROOT_DEFAULT,
-        help="Raw labelled_dataset root directory.",
+        help="Raw labelled_dataset root directory (used for 'gt' source).",
+    )
+    parser.add_argument(
+        "--detections-dir",
+        type=Path,
+        default=None,
+        help=(
+            "Directory with per-scene detection sub-folders (used for 'detections' source).\n"
+            "Each sub-folder name must match a scene name and contain per-frame JSON files."
+        ),
     )
     parser.add_argument(
         "--scenes",
         nargs="+",
         default=DEFAULT_SCENES,
-        help="Scene directory names to benchmark. Defaults to the 3 project scenarios.",
+        help="Scene directory names to benchmark.",
     )
     parser.add_argument(
         "--trackers",
@@ -267,50 +316,79 @@ def parse_args() -> argparse.Namespace:
 def main() -> None:
     args = parse_args()
 
-    raw_root    = args.raw_root
     runs_dir    = args.runs_dir
     summary_dir = args.summary_dir
+
+    # GT files are shared across all sources -- always derived from raw annotations.
     gt_det_root = runs_dir / "_gt_detections"
     gt_mot_root = runs_dir / "_gt_mot3d"
 
     runs_dir.mkdir(parents=True, exist_ok=True)
     summary_dir.mkdir(parents=True, exist_ok=True)
-    gt_det_root.mkdir(parents=True, exist_ok=True)
-    gt_mot_root.mkdir(parents=True, exist_ok=True)
 
+    # Validate scene directories for gt source.
     scene_dirs = []
-    for scene_name in args.scenes:
-        scene_dir = raw_root / scene_name
-        if not scene_dir.is_dir():
-            print(f"[WARN] Scene directory not found, skipping: {scene_dir}")
-            continue
-        scene_dirs.append(scene_dir)
+    if "gt" in args.sources:
+        for scene_name in args.scenes:
+            scene_dir = args.raw_root / scene_name
+            if not scene_dir.is_dir():
+                print(f"[WARN] Scene directory not found, skipping: {scene_dir}")
+                continue
+            scene_dirs.append(scene_dir)
 
-    if not scene_dirs:
-        print("[ERROR] No valid scene directories found. Check --raw-root and --scenes.")
-        sys.exit(1)
+        if not scene_dirs:
+            print("[ERROR] No valid scene directories found. Check --raw-root and --scenes.")
+            sys.exit(1)
 
-    # Step 1 — prepare GT detection files and GT MOT3D evaluation files
-    _prepare_gt(scene_dirs, gt_det_root, gt_mot_root, args.skip_existing)
+        gt_det_root.mkdir(parents=True, exist_ok=True)
+        gt_mot_root.mkdir(parents=True, exist_ok=True)
+        _prepare_gt(scene_dirs, gt_det_root, gt_mot_root, args.skip_existing)
 
-    # Step 2 — run each tracker and evaluate
+    # For detections source, GT MOT3D files must already exist (from a prior gt run).
+    if "detections" in args.sources and not "gt" in args.sources:
+        if not gt_mot_root.exists() or not any(gt_mot_root.glob("*.csv")):
+            print(
+                "[ERROR] GT MOT3D evaluation files not found.\n"
+                f"        Expected CSV files in: {gt_mot_root}\n"
+                "        Run with '--sources gt' first to generate them."
+            )
+            sys.exit(1)
+
     all_results: List[Dict] = []
-    for tracker_key in args.trackers:
-        spec = TRACKER_SPECS[tracker_key]
-        tracker_summary_dir = summary_dir / tracker_key
-        tracker_summary_dir.mkdir(parents=True, exist_ok=True)
-        rows = _run_tracker(
-            spec,
-            gt_det_root,
-            runs_dir,
-            tracker_summary_dir,
-            gt_mot_root,
-            args.iou_threshold,
-            args.skip_existing,
-        )
-        all_results.extend(rows)
 
-    # Step 3 — write aggregate summary
+    for source in args.sources:
+        if source == "gt":
+            det_root   = gt_det_root
+            source_label = "gt"
+        else:  # detections
+            if args.detections_dir is None:
+                print("[WARN] --detections-dir not set; skipping 'detections' source.")
+                continue
+            det_root     = args.detections_dir
+            source_label = det_root.name   # e.g. "pointpillars_aghri"
+
+        source_runs_dir    = runs_dir    / source_label
+        source_summary_dir = summary_dir / source_label
+        source_runs_dir.mkdir(parents=True, exist_ok=True)
+        source_summary_dir.mkdir(parents=True, exist_ok=True)
+
+        for tracker_key in args.trackers:
+            spec = TRACKER_SPECS[tracker_key]
+            tracker_summary_dir = source_summary_dir / tracker_key
+            tracker_summary_dir.mkdir(parents=True, exist_ok=True)
+            rows = _run_tracker(
+                spec,
+                det_root,
+                source_runs_dir,
+                tracker_summary_dir,
+                gt_mot_root,
+                args.iou_threshold,
+                args.skip_existing,
+                source_label,
+            )
+            all_results.extend(rows)
+
+    # Write aggregate summary.
     summary_json = summary_dir / "suite_summary.json"
     summary_csv  = summary_dir / "suite_summary.csv"
 
