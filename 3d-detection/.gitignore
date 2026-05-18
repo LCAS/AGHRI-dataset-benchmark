@@ -4,3 +4,4 @@
 
 # Logs and temporary files
 reports/benchmarks/mmdetection3d/*
+reports/detections

@@ -3,7 +3,7 @@ device: cuda:0
 confidence: 0.25
 
 # Directory containing AGHRI point cloud .bin files.
-points_dir: /workspace/data/aghri-3d/points
+points_dir: /workspace/data/mmdet3d_lidar_aghri/points/footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label
 
 # Output directory — one sub-folder per model, one JSON per frame.
 output_dir: /workspace/agri-human-dataset-benchmark/3d-detection/reports/detections
@@ -12,9 +12,9 @@ models:
   - name: pointpillars_aghri
     config: /workspace/agri-human-dataset-benchmark/3d-detection/benchmarks/mmdetection3d/configs/models/pointpillars_aghri.py
     # Update epoch suffix after running benchmark_mmdetection3d_aghri_pointpillars.
-    checkpoint: /workspace/agri-human-dataset-benchmark/3d-detection/reports/benchmarks/mmdetection3d/runs/aghri-3d-detection/pointpillars_aghri/best_aghri_bev_ap_mean_epoch_80.pth
+    checkpoint: /workspace/agri-human-dataset-benchmark/3d-detection/reports/benchmarks/mmdetection3d/runs/aghri-3d-detection/pointpillars_aghri/best_aghri_bev_ap_mean_epoch_66.pth
 
   - name: second_aghri
     config: /workspace/agri-human-dataset-benchmark/3d-detection/benchmarks/mmdetection3d/configs/models/second_aghri.py
     # Update epoch suffix after running benchmark_mmdetection3d_aghri_second.
-    checkpoint: /workspace/agri-human-dataset-benchmark/3d-detection/reports/benchmarks/mmdetection3d/runs/aghri-3d-detection/second_aghri/best_aghri_bev_ap_mean_epoch_40.pth
+    checkpoint: /workspace/agri-human-dataset-benchmark/3d-detection/reports/benchmarks/mmdetection3d/runs/aghri-3d-detection/second_aghri/best_aghri_bev_ap_mean_epoch_28.pth

@@ -1,0 +1,26 @@
+# AB3DMOT 3D tracking configuration for the AGHRI LiDAR dataset.
+#
+# detections_dir must contain one subdirectory per scene. Each subdirectory
+# holds per-frame JSON files produced by dump_detections_3d.py, e.g.:
+#
+#   detections_dir/
+#     footpath1_1walk_1stand_st_.../
+#       000000.json
+#       000001.json
+#       ...
+#
+# To export detections per scene, point dump_detections_3d.py at each scene's
+# points directory (e.g. mmdet3d_lidar_aghri/points/<scene_name>/) and set
+# output_dir to <detections_dir>/<model_name>/<scene_name>/.
+
+detections_dir: D:/AOC/datasets/agri-human-sensing/mmdet3d_lidar_aghri/detections/pointpillars_aghri
+mot_output_dir: 3d-tracking/reports/runs/ab3dmot/pointpillars_aghri
+runtime_json:   3d-tracking/reports/runs/ab3dmot/pointpillars_aghri_runtime.json
+
+# Detection confidence threshold — detections below this score are ignored.
+score_threshold: 0.25
+
+# Tracker hyper-parameters
+max_age:       2      # frames a track may go unmatched before deletion
+min_hits:      3      # minimum matched frames before a track is reported
+iou_threshold: 0.1   # minimum BEV IoU to accept a detection-track match

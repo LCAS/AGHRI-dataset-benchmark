@@ -1,0 +1,24 @@
+# SimpleTrack 3D tracking configuration for the AGHRI LiDAR dataset.
+#
+# detections_dir layout (same as ab3dmot):
+#   detections_dir/
+#     <scene_name>/
+#       000000.json   (from dump_detections_3d.py)
+#       000001.json
+#       ...
+
+detections_dir: D:/AOC/datasets/agri-human-sensing/mmdet3d_lidar_aghri/detections/pointpillars_aghri
+mot_output_dir: 3d-tracking/reports/runs/simpletrack/pointpillars_aghri
+runtime_json:   3d-tracking/reports/runs/simpletrack/pointpillars_aghri_runtime.json
+
+# Minimum detection confidence — detections below this score are discarded entirely.
+score_threshold: 0.1
+
+# Stage-1/stage-2 split: detections with score >= high_score_thresh go to stage 1.
+high_score_thresh: 0.5
+
+# Tracker hyper-parameters
+max_age:            2     # frames a Lost track survives before deletion
+min_hits:           3     # hits required for Tentative → Confirmed
+iou_threshold_high: 0.1   # stage-1 minimum BEV IoU (high-score dets vs Confirmed tracks)
+iou_threshold_low:  0.05  # stage-2 minimum BEV IoU (remaining dets vs all tracks)

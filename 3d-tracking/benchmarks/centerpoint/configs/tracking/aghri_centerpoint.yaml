@@ -1,0 +1,24 @@
+# CenterPoint-style 3D tracking configuration for the AGHRI LiDAR dataset.
+#
+# This tracker uses velocity-based centre-distance matching (no Kalman filter).
+# It pairs well with any 3D detector since it only needs box centres.
+#
+# detections_dir layout (same as ab3dmot / simpletrack):
+#   detections_dir/
+#     <scene_name>/
+#       000000.json   (from dump_detections_3d.py)
+#       000001.json
+#       ...
+
+detections_dir: D:/AOC/datasets/agri-human-sensing/mmdet3d_lidar_aghri/detections/pointpillars_aghri
+mot_output_dir: 3d-tracking/reports/runs/centerpoint/pointpillars_aghri
+runtime_json:   3d-tracking/reports/runs/centerpoint/pointpillars_aghri_runtime.json
+
+# Minimum detection confidence to consider.
+score_threshold: 0.25
+
+# Tracker hyper-parameters
+max_age:            2     # frames a track survives without a match before deletion
+min_hits:           3     # frames a track must be matched before it is reported
+distance_threshold: 2.0   # maximum XY Euclidean distance (metres) to accept a match
+dt:                 1.0   # time step between consecutive frames (in frame units)

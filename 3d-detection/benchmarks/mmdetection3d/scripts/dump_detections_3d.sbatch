@@ -8,6 +8,7 @@
 #SBATCH --nodes=1
 #SBATCH --partition=gpu
 #SBATCH --gpus=nvidia_rtx_a6000:1
+#SBATCH --qos=long
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 #SBATCH --container-image=/home/users/hvu/mmdet_frcnn_dcn/mmdet_pytorch_cu118.sqfs
