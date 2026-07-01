@@ -1,0 +1,21 @@
+Command: /home/prabuddhi/miniconda3/envs/oclreid/bin/python /home/prabuddhi/Desktop/OCLReID/evaluate_oclreid.py --predictions /home/prabuddhi/Desktop/OCLReID/aghri_reid_stage5_association/test_full_released_checkpoint_reid_gate/test/part-OCLReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front/class_02/predictions.json --annotations "/media/prabuddhi/Backup2/Updated Dataset_PW/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/annotations/cam_fish_front_ann.json" --frame_manifest /media/prabuddhi/Backup2/AGHRI_OCLReID_Videos/test/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front_frame_manifest.json --target_class 02 --initialization_video_frame 15 --fps 30.0 --iou_threshold 0.5 --center_threshold 20 --output_dir /home/prabuddhi/Desktop/OCLReID/aghri_reid_stage5_association/test_full_released_checkpoint_reid_gate/test/part-OCLReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front/class_02/evaluation
+
+======================================================================
+OCLReID EVALUATION RESULTS
+======================================================================
+Evaluated annotated frames: 853
+Valid annotated frames:     853
+Ambiguous target frames:    0
+GT-visible frames:          814
+Mean IoU:                   0.1142
+Success@IoU >= 0.5:      0.1253
+Centre Precision@20px: 0.1302
+Annotated state accuracy:   0.1630
+Exact reappearances:        6
+Uncertain reappearances:    0
+
+Per-frame results:
+/home/prabuddhi/Desktop/OCLReID/aghri_reid_stage5_association/test_full_released_checkpoint_reid_gate/test/part-OCLReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front/class_02/evaluation/per_frame_metrics.csv
+
+Summary:
+/home/prabuddhi/Desktop/OCLReID/aghri_reid_stage5_association/test_full_released_checkpoint_reid_gate/test/part-OCLReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front/class_02/evaluation/summary_metrics.json

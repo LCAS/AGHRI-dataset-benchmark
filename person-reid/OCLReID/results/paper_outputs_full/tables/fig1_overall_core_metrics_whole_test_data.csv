@@ -1,0 +1,10 @@
+method,metric,value
+rpf-ReID,Success@0.5,0.3604609290601368
+rpf-ReID,Mean IoU,0.32244049229799915
+rpf-ReID,Prediction availability,0.37714560076821513
+Normal part-OCLReID,Success@0.5,0.48307526107310045
+Normal part-OCLReID,Mean IoU,0.42822043097417317
+Normal part-OCLReID,Prediction availability,0.545732805185452
+Gated part-OCLReID,Success@0.5,0.556535830032409
+Gated part-OCLReID,Mean IoU,0.49380522478549277
+Gated part-OCLReID,Prediction availability,0.6477013563797863

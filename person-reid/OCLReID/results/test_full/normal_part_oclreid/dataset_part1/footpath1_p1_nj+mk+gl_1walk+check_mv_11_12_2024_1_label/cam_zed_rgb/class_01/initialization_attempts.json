@@ -1,0 +1,23 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 29,
+        "frame_index": 29,
+        "video_frame_index": 29,
+        "bbox_xywh": [
+            109.8323888543852,
+            4.35937956637286,
+            139.94035170233585,
+            358.08947244649625
+        ],
+        "width": 139.94035170233585,
+        "height": 358.08947244649625,
+        "area_ratio": 0.19832496958533827,
+        "file": "1731407369_612929459.png",
+        "visualization_video": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/part-OCLReID/dataset_part1/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label/cam_zed_rgb/class_01/inference_visualization.mp4",
+        "log": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/part-OCLReID/dataset_part1/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label/cam_zed_rgb/class_01/inference_attempt_01_frame_000029.log",
+        "status": "success",
+        "error": "",
+        "visualization_status": "created"
+    }
+]

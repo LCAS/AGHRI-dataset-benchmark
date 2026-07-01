@@ -1,0 +1,22 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 0,
+        "frame_index": 0,
+        "video_frame_index": 0,
+        "bbox_xywh": [
+            99.0,
+            136.0,
+            90.0,
+            206.0
+        ],
+        "width": 90.0,
+        "height": 206.0,
+        "area_ratio": 0.08046875,
+        "file": "1729759535_790912213.png",
+        "visualization_video": "",
+        "log": "aghri_reid_stage1/downstream_test/stage1_epoch1_checkpoint/test/part-OCLReID/dataset_part3/in_straw_3pick_diff_st_10_24_2024_5_a_label/cam_fish_left/class_01/inference_attempt_01_frame_000000.log",
+        "status": "success",
+        "error": ""
+    }
+]

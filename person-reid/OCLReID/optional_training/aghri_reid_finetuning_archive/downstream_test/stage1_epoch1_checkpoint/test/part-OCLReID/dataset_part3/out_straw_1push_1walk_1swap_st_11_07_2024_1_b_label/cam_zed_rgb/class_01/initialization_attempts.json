@@ -1,0 +1,22 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 67,
+        "frame_index": 67,
+        "video_frame_index": 67,
+        "bbox_xywh": [
+            564.9,
+            27.35,
+            104.949951,
+            291.849976
+        ],
+        "width": 104.949951,
+        "height": 291.849976,
+        "area_ratio": 0.12122293202472446,
+        "file": "1730978619_090014260.png",
+        "visualization_video": "",
+        "log": "aghri_reid_stage1/downstream_test/stage1_epoch1_checkpoint/test/part-OCLReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_zed_rgb/class_01/inference_attempt_01_frame_000067.log",
+        "status": "success",
+        "error": ""
+    }
+]

@@ -1,0 +1,7 @@
+{
+  "display_name": "rpf-ReID",
+  "internal_method_key": "rpf-ReID",
+  "checkpoint": "checkpoints/reid/resnet18.pth",
+  "association_mode": "baseline",
+  "gate": null
+}

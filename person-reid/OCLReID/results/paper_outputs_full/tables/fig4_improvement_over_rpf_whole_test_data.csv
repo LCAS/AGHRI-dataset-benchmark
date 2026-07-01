@@ -1,0 +1,7 @@
+method,metric,improvement_over_rpf
+Normal part-OCLReID,Success@0.5,0.12261433201296362
+Normal part-OCLReID,Mean IoU,0.10577993867617402
+Normal part-OCLReID,Prediction availability,0.16858720441723685
+Gated part-OCLReID,Success@0.5,0.1960749009722722
+Gated part-OCLReID,Mean IoU,0.17136473248749362
+Gated part-OCLReID,Prediction availability,0.2705557556115712

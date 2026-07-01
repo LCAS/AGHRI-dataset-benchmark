@@ -1,0 +1,23 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 0,
+        "frame_index": 0,
+        "video_frame_index": 0,
+        "bbox_xywh": [
+            329.0,
+            104.0,
+            66.0,
+            166.0
+        ],
+        "width": 66.0,
+        "height": 166.0,
+        "area_ratio": 0.043360562310030396,
+        "file": "1729759535_867983531.png",
+        "visualization_video": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/part-OCLReID/dataset_part3/in_straw_3pick_diff_st_10_24_2024_5_a_label/cam_zed_rgb/class_06/inference_visualization.mp4",
+        "log": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/part-OCLReID/dataset_part3/in_straw_3pick_diff_st_10_24_2024_5_a_label/cam_zed_rgb/class_06/inference_attempt_01_frame_000000.log",
+        "status": "success",
+        "error": "",
+        "visualization_status": "created"
+    }
+]

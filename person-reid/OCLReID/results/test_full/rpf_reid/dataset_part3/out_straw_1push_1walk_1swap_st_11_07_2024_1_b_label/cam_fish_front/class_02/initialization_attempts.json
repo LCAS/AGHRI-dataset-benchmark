@@ -1,0 +1,65 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 5,
+        "frame_index": 5,
+        "video_frame_index": 5,
+        "bbox_xywh": [
+            592.0,
+            138.0,
+            45.0,
+            179.0
+        ],
+        "width": 45.0,
+        "height": 179.0,
+        "area_ratio": 0.0349609375,
+        "file": "1730978613_431934426.png",
+        "visualization_video": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front/class_02/inference_visualization.mp4",
+        "log": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front/class_02/inference_attempt_01_frame_000005.log",
+        "status": "failed",
+        "error": "Command failed with exit code 1. See: /home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front/class_02/inference_attempt_01_frame_000005.log",
+        "visualization_status": "created"
+    },
+    {
+        "attempt": 2,
+        "annotation_record_index": 10,
+        "frame_index": 10,
+        "video_frame_index": 10,
+        "bbox_xywh": [
+            567.6563199457344,
+            143.20379826558832,
+            58.59240346882336,
+            164.79620173441168
+        ],
+        "width": 58.59240346882336,
+        "height": 164.79620173441168,
+        "area_ratio": 0.04190887822114696,
+        "file": "1730978613_691588771.png",
+        "visualization_video": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front/class_02/inference_visualization.mp4",
+        "log": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front/class_02/inference_attempt_02_frame_000010.log",
+        "status": "failed",
+        "error": "Command failed with exit code 1. See: /home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front/class_02/inference_attempt_02_frame_000010.log",
+        "visualization_status": "created"
+    },
+    {
+        "attempt": 3,
+        "annotation_record_index": 15,
+        "frame_index": 15,
+        "video_frame_index": 15,
+        "bbox_xywh": [
+            553.5942396201406,
+            144.42658785911823,
+            56.14682428176354,
+            163.57341214088177
+        ],
+        "width": 56.14682428176354,
+        "height": 163.57341214088177,
+        "area_ratio": 0.03986166505487229,
+        "file": "1730978613_855901090.png",
+        "visualization_video": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front/class_02/inference_visualization.mp4",
+        "log": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front/class_02/inference_attempt_03_frame_000015.log",
+        "status": "success",
+        "error": "",
+        "visualization_status": "created"
+    }
+]

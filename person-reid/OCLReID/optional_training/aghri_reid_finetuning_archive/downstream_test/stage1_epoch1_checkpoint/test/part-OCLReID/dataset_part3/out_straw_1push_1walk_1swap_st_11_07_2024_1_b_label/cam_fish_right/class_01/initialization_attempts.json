@@ -1,0 +1,62 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 0,
+        "frame_index": 0,
+        "video_frame_index": 0,
+        "bbox_xywh": [
+            217.0,
+            156.0,
+            45.0,
+            128.0
+        ],
+        "width": 45.0,
+        "height": 128.0,
+        "area_ratio": 0.025,
+        "file": "1730978612_982813502.png",
+        "visualization_video": "",
+        "log": "aghri_reid_stage1/downstream_test/stage1_epoch1_checkpoint/test/part-OCLReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_right/class_01/inference_attempt_01_frame_000000.log",
+        "status": "failed",
+        "error": "Command failed with exit code 1. See: aghri_reid_stage1/downstream_test/stage1_epoch1_checkpoint/test/part-OCLReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_right/class_01/inference_attempt_01_frame_000000.log"
+    },
+    {
+        "attempt": 2,
+        "annotation_record_index": 5,
+        "frame_index": 5,
+        "video_frame_index": 5,
+        "bbox_xywh": [
+            256.0,
+            156.0,
+            42.0,
+            132.0
+        ],
+        "width": 42.0,
+        "height": 132.0,
+        "area_ratio": 0.0240625,
+        "file": "1730978613_541912254.png",
+        "visualization_video": "",
+        "log": "aghri_reid_stage1/downstream_test/stage1_epoch1_checkpoint/test/part-OCLReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_right/class_01/inference_attempt_02_frame_000005.log",
+        "status": "failed",
+        "error": "Command failed with exit code 1. See: aghri_reid_stage1/downstream_test/stage1_epoch1_checkpoint/test/part-OCLReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_right/class_01/inference_attempt_02_frame_000005.log"
+    },
+    {
+        "attempt": 3,
+        "annotation_record_index": 10,
+        "frame_index": 10,
+        "video_frame_index": 10,
+        "bbox_xywh": [
+            265.0,
+            155.0,
+            31.0,
+            127.0
+        ],
+        "width": 31.0,
+        "height": 127.0,
+        "area_ratio": 0.01708767361111111,
+        "file": "1730978613_738485257.png",
+        "visualization_video": "",
+        "log": "aghri_reid_stage1/downstream_test/stage1_epoch1_checkpoint/test/part-OCLReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_right/class_01/inference_attempt_03_frame_000010.log",
+        "status": "success",
+        "error": ""
+    }
+]

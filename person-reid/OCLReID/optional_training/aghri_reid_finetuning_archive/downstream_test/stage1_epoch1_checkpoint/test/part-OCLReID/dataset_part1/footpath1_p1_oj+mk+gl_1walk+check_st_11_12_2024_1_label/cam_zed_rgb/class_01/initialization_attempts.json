@@ -1,0 +1,22 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 19,
+        "frame_index": 19,
+        "video_frame_index": 19,
+        "bbox_xywh": [
+            213.0,
+            3.0,
+            154.0,
+            348.0
+        ],
+        "width": 154.0,
+        "height": 348.0,
+        "area_ratio": 0.21210106382978725,
+        "file": "1731407160_202823459.png",
+        "visualization_video": "",
+        "log": "aghri_reid_stage1/downstream_test/stage1_epoch1_checkpoint/test/part-OCLReID/dataset_part1/footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label/cam_zed_rgb/class_01/inference_attempt_01_frame_000019.log",
+        "status": "success",
+        "error": ""
+    }
+]
