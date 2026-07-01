@@ -1,0 +1,22 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 57,
+        "frame_index": 57,
+        "video_frame_index": 57,
+        "bbox_xywh": [
+            158.3629481287984,
+            137.203685160998,
+            107.10617531186695,
+            220.1679284305363
+        ],
+        "width": 107.10617531186695,
+        "height": 220.1679284305363,
+        "area_ratio": 0.10234958654744616,
+        "file": "1731407369_324419184.png",
+        "visualization_video": "",
+        "log": "aghri_reid_stage1/downstream_test/stage1_epoch1_checkpoint/test/part-OCLReID/dataset_part1/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label/cam_fish_front/class_01/inference_attempt_01_frame_000057.log",
+        "status": "success",
+        "error": ""
+    }
+]

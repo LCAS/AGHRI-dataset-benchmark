@@ -1,0 +1,5 @@
+| Method | Completed runs | GT-visible frames | Success@0.5 ↑ | Mean IoU ↑ | Prediction availability ↑ |
+| --- | --- | --- | --- | --- | --- |
+| rpf-ReID | 50 | 16662 | 0.360 | 0.322 | 0.377 |
+| Normal part-OCLReID | 50 | 16662 | 0.483 | 0.428 | 0.546 |
+| Gated part-OCLReID | 50 | 16662 | 0.557 | 0.494 | 0.648 |

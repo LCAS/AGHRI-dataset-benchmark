@@ -1,0 +1,22 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 458,
+        "frame_index": 458,
+        "video_frame_index": 458,
+        "bbox_xywh": [
+            594.397622574264,
+            128.0,
+            43.0,
+            141.7576688228765
+        ],
+        "width": 43.0,
+        "height": 141.7576688228765,
+        "area_ratio": 0.026456509372325042,
+        "file": "1730892913_458329527.png",
+        "visualization_video": "",
+        "log": "aghri_reid_stage1/downstream_test/stage1_epoch1_checkpoint/test/part-OCLReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_fish_left/class_09/inference_attempt_01_frame_000458.log",
+        "status": "success",
+        "error": ""
+    }
+]

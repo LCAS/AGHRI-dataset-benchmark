@@ -1,0 +1,23 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 392,
+        "frame_index": 392,
+        "video_frame_index": 392,
+        "bbox_xywh": [
+            538.4017878361116,
+            88.67942523972233,
+            99.46487883055508,
+            268.380189118222
+        ],
+        "width": 99.46487883055508,
+        "height": 268.380189118222,
+        "area_ratio": 0.11586112409359986,
+        "file": "1731407386_027549828.png",
+        "visualization_video": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part1/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label/cam_fish_left/class_01/inference_visualization.mp4",
+        "log": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part1/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label/cam_fish_left/class_01/inference_attempt_01_frame_000392.log",
+        "status": "success",
+        "error": "",
+        "visualization_status": "created"
+    }
+]

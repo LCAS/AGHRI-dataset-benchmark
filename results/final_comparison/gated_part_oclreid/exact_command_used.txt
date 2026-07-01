@@ -1,0 +1,1 @@
+methods/gated_part_oclreid/run_aghri_test.sh --save-visualizations

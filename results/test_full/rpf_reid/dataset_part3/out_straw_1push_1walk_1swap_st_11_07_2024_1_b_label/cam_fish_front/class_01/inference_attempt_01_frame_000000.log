@@ -1,0 +1,59 @@
+
+Running: rpf-ReID
+
+2026-06-18 13:42:56,897 - mmdet - INFO - image shape: height=800, width=1440 in YOLOX.__init__
+Loading pose model from /home/prabuddhi/Desktop/OCLReID/mmtrack/models/pose/Models/sppe/fast_res50_256x192.pth
+2026-06-18 13:42:59,655 - mmtrack - INFO - initialize YOLOX with init_cfg {'type': 'Pretrained', 'checkpoint': 'https://download.openmmlab.com/mmdetection/v2.0/yolox/yolox_l_8x8_300e_coco/yolox_l_8x8_300e_coco_20211126_140236-d3bd2b23.pth'}
+2026-06-18 13:42:59,655 - mmcv - INFO - load model from: https://download.openmmlab.com/mmdetection/v2.0/yolox/yolox_l_8x8_300e_coco/yolox_l_8x8_300e_coco_20211126_140236-d3bd2b23.pth
+2026-06-18 13:42:59,656 - mmcv - INFO - load checkpoint from http path: https://download.openmmlab.com/mmdetection/v2.0/yolox/yolox_l_8x8_300e_coco/yolox_l_8x8_300e_coco_20211126_140236-d3bd2b23.pth
+2026-06-18 13:42:59,879 - mmtrack - INFO - initialize BaseClassifier with init_cfg {'type': 'Pretrained', 'checkpoint': '/home/prabuddhi/Desktop/OCLReID/checkpoints/reid/resnet18.pth'}
+2026-06-18 13:42:59,880 - mmcv - INFO - load model from: /home/prabuddhi/Desktop/OCLReID/checkpoints/reid/resnet18.pth
+2026-06-18 13:42:59,880 - mmcv - INFO - load checkpoint from local path: /home/prabuddhi/Desktop/OCLReID/checkpoints/reid/resnet18.pth
+2026-06-18 13:42:59,982 - mmcv - WARNING - The model and loaded state dict do not match exactly
+
+size mismatch for head.classifier.weight: copying a param with shape torch.Size([380, 128]) from checkpoint, the shape in current model is torch.Size([2, 128]).
+size mismatch for head.classifier.bias: copying a param with shape torch.Size([380]) from checkpoint, the shape in current model is torch.Size([2]).
+Warning: The model doesn't have classes
+[                                                  ] 0/869, elapsed: 0s, ETA:/home/prabuddhi/miniconda3/envs/oclreid/lib/python3.7/site-packages/torch/functional.py:568: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  /opt/conda/conda-bld/pytorch_1646755953518/work/aten/src/ATen/native/TensorShape.cpp:2228.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+gt: [586. 146. 636. 303.]
+es: [379, 155, 422, 261], iou: 0.000
+
+[OK] Saving inference visualization MP4: /home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front/class_01/inference_visualization.mp4
+QFontDatabase: Cannot find font directory /home/prabuddhi/miniconda3/envs/oclreid/lib/python3.7/site-packages/cv2/qt/fonts.
+Note that Qt no longer ships fonts. Deploy some (from https://dejavu-fonts.github.io/ for example) or switch to fontconfig.
+QFontDatabase: Cannot find font directory /home/prabuddhi/miniconda3/envs/oclreid/lib/python3.7/site-packages/cv2/qt/fonts.
+Note that Qt no longer ships fonts. Deploy some (from https://dejavu-fonts.github.io/ for example) or switch to fontconfig.
+QFontDatabase: Cannot find font directory /home/prabuddhi/miniconda3/envs/oclreid/lib/python3.7/site-packages/cv2/qt/fonts.
+Note that Qt no longer ships fonts. Deploy some (from https://dejavu-fonts.github.io/ for example) or switch to fontconfig.
+QFontDatabase: Cannot find font directory /home/prabuddhi/miniconda3/envs/oclreid/lib/python3.7/site-packages/cv2/qt/fonts.
+Note that Qt no longer ships fonts. Deploy some (from https://dejavu-fonts.github.io/ for example) or switch to fontconfig.
+QFontDatabase: Cannot find font directory /home/prabuddhi/miniconda3/envs/oclreid/lib/python3.7/site-packages/cv2/qt/fonts.
+Note that Qt no longer ships fonts. Deploy some (from https://dejavu-fonts.github.io/ for example) or switch to fontconfig.
+[                                 ] 1/869, 1.5 task/s, elapsed: 1s, ETA:   595s
+gt: None
+Traceback (most recent call last):
+  File "/home/prabuddhi/Desktop/OCLReID/run_video.py", line 488, in <module>
+    evaluator.run_video()
+  File "/home/prabuddhi/Desktop/OCLReID/run_video.py", line 323, in run_video
+    result_dict, raw_dict = self.tracker.infer(img, init_bbox, i)
+  File "/home/prabuddhi/Desktop/OCLReID/Evaluator.py", line 162, in infer
+    raw_result = inference_rpf(self.obj_tracker, image_fname, frame_id=frame_id, gt_bbox=target_gt_bbox)
+  File "/home/prabuddhi/Desktop/OCLReID/mmtrack/apis/inference.py", line 310, in inference_rpf
+    result = model(return_loss=False, rescale=True, gt_bbox=np.array(gt_bbox), **data)
+  File "/home/prabuddhi/miniconda3/envs/oclreid/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/prabuddhi/miniconda3/envs/oclreid/lib/python3.7/site-packages/mmcv/runner/fp16_utils.py", line 116, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/prabuddhi/Desktop/OCLReID/mmtrack/models/rpf/base.py", line 125, in forward
+    return self.forward_test(img, img_metas, gt_bbox, **kwargs)
+  File "/home/prabuddhi/Desktop/OCLReID/mmtrack/models/rpf/base.py", line 102, in forward_test
+    return self.simple_test(imgs[0], img_metas[0], gt_bbox, **kwargs)
+  File "/home/prabuddhi/Desktop/OCLReID/mmtrack/models/rpf/naive_rpf.py", line 310, in simple_test
+    self.init(gt_bbox, raw_result)
+  File "/home/prabuddhi/Desktop/OCLReID/mmtrack/models/rpf/naive_rpf.py", line 173, in init
+    iou = self.get_iou(c_bbox, gt_bbox)
+  File "/home/prabuddhi/Desktop/OCLReID/mmtrack/models/rpf/naive_rpf.py", line 142, in get_iou
+    ixmin = max(pred_box[0], gt_box[0])
+IndexError: too many indices for array: array is 0-dimensional, but 1 were indexed

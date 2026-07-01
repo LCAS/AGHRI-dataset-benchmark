@@ -1,0 +1,15 @@
+# Checkpoint/Gate Ablation
+
+| Configuration | Success@IoU 0.5 | Mean IoU | Prediction availability | Absent-target false-positive rate | Reacquisition rate |
+| --- | --- | --- | --- | --- | --- |
+| Released checkpoint, no gate | 0.483 | 0.428 | 0.546 | 0.226 | 0.233 |
+| AGHRI experimental checkpoint, no gate | 0.483 | 0.429 | 0.515 | 0.208 | 0.262 |
+| Released checkpoint, gate | 0.557 | 0.494 | 0.648 | 0.276 | 0.427 |
+| AGHRI experimental checkpoint, gate | 0.551 | 0.489 | 0.636 | 0.259 | 0.466 |
+
+
+The optional AGHRI experimental checkpoint did not improve the three main end-to-end tracking metrics in this archived comparison.
+
+The main improvement came from ReID-gated target reassociation.
+
+The final gated method uses the released checkpoint.

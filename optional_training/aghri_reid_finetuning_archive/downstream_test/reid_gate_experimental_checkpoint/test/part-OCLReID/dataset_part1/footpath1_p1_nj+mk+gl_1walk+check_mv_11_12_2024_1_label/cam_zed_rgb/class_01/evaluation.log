@@ -1,0 +1,21 @@
+Command: /home/prabuddhi/miniconda3/envs/oclreid/bin/python /home/prabuddhi/Desktop/OCLReID/evaluate_oclreid.py --predictions /home/prabuddhi/Desktop/OCLReID/aghri_reid_stage5_association/test_full_reid_gate/test/part-OCLReID/dataset_part1/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label/cam_zed_rgb/class_01/predictions.json --annotations "/media/prabuddhi/Backup2/Updated Dataset_PW/dataset_part1/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label/annotations/cam_zed_rgb_ann.json" --frame_manifest /media/prabuddhi/Backup2/AGHRI_OCLReID_Videos/test/dataset_part1/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label/cam_zed_rgb_frame_manifest.json --target_class 01 --initialization_video_frame 29 --fps 15.0 --iou_threshold 0.5 --center_threshold 20 --output_dir /home/prabuddhi/Desktop/OCLReID/aghri_reid_stage5_association/test_full_reid_gate/test/part-OCLReID/dataset_part1/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label/cam_zed_rgb/class_01/evaluation
+
+======================================================================
+OCLReID EVALUATION RESULTS
+======================================================================
+Evaluated annotated frames: 286
+Valid annotated frames:     286
+Ambiguous target frames:    0
+GT-visible frames:          217
+Mean IoU:                   0.8795
+Success@IoU >= 0.5:      0.9770
+Centre Precision@20px: 0.9770
+Annotated state accuracy:   0.9825
+Exact reappearances:        1
+Uncertain reappearances:    0
+
+Per-frame results:
+/home/prabuddhi/Desktop/OCLReID/aghri_reid_stage5_association/test_full_reid_gate/test/part-OCLReID/dataset_part1/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label/cam_zed_rgb/class_01/evaluation/per_frame_metrics.csv
+
+Summary:
+/home/prabuddhi/Desktop/OCLReID/aghri_reid_stage5_association/test_full_reid_gate/test/part-OCLReID/dataset_part1/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label/cam_zed_rgb/class_01/evaluation/summary_metrics.json

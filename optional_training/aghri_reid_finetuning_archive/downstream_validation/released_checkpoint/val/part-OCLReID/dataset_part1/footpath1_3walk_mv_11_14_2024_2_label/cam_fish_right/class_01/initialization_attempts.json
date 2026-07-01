@@ -1,0 +1,22 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 508,
+        "frame_index": 521,
+        "video_frame_index": 521,
+        "bbox_xywh": [
+            586.2141203356712,
+            111.85719374287038,
+            50.00035620009264,
+            172.14280625712962
+        ],
+        "width": 50.00035620009264,
+        "height": 172.14280625712962,
+        "area_ratio": 0.03735764596414937,
+        "file": "1731593536_682088578.png",
+        "visualization_video": "",
+        "log": "aghri_reid_stage1/downstream_validation/released_checkpoint/val/part-OCLReID/dataset_part1/footpath1_3walk_mv_11_14_2024_2_label/cam_fish_right/class_01/inference_attempt_01_frame_000521.log",
+        "status": "success",
+        "error": ""
+    }
+]

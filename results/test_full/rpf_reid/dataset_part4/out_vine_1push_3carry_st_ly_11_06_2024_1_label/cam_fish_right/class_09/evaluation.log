@@ -1,0 +1,19 @@
+======================================================================
+OCLReID EVALUATION RESULTS
+======================================================================
+Evaluated annotated frames: 378
+Valid annotated frames:     378
+Ambiguous target frames:    0
+GT-visible frames:          94
+Mean IoU:                   0.6513
+Success@IoU >= 0.5:      0.7872
+Centre Precision@20px: 0.7872
+Annotated state accuracy:   0.9471
+Exact reappearances:        1
+Uncertain reappearances:    0
+
+Per-frame results:
+/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part4/out_vine_1push_3carry_st_ly_11_06_2024_1_label/cam_fish_right/class_09/evaluation/per_frame_metrics.csv
+
+Summary:
+/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part4/out_vine_1push_3carry_st_ly_11_06_2024_1_label/cam_fish_right/class_09/evaluation/summary_metrics.json

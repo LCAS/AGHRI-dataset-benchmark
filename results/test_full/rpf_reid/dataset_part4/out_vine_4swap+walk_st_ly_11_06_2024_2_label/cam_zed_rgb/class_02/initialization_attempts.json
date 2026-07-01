@@ -1,0 +1,44 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 0,
+        "frame_index": 0,
+        "video_frame_index": 0,
+        "bbox_xywh": [
+            262.0,
+            79.0,
+            51.0,
+            177.0
+        ],
+        "width": 51.0,
+        "height": 177.0,
+        "area_ratio": 0.03572615881458967,
+        "file": "1730892897_011952740.png",
+        "visualization_video": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_zed_rgb/class_02/inference_visualization.mp4",
+        "log": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_zed_rgb/class_02/inference_attempt_01_frame_000000.log",
+        "status": "failed",
+        "error": "Command failed with exit code 1. See: /home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_zed_rgb/class_02/inference_attempt_01_frame_000000.log",
+        "visualization_status": "created"
+    },
+    {
+        "attempt": 2,
+        "annotation_record_index": 5,
+        "frame_index": 5,
+        "video_frame_index": 5,
+        "bbox_xywh": [
+            281.0,
+            82.0,
+            61.0,
+            174.0
+        ],
+        "width": 61.0,
+        "height": 174.0,
+        "area_ratio": 0.04200702887537994,
+        "file": "1730892897_347669740.png",
+        "visualization_video": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_zed_rgb/class_02/inference_visualization.mp4",
+        "log": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_zed_rgb/class_02/inference_attempt_02_frame_000005.log",
+        "status": "success",
+        "error": "",
+        "visualization_status": "created"
+    }
+]

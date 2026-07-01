@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: orientation
+Version: 0.1
+Summary: A simple example package
+Home-page: https://github.com/example/example
+Author: Your Name
+Author-email: your.name@example.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent

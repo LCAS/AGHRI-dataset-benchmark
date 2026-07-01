@@ -1,0 +1,12 @@
+{
+  "display_name": "Gated part-OCLReID",
+  "internal_method_key": "part-OCLReID",
+  "checkpoint": "checkpoints/reid/resnet18.pth",
+  "association_mode": "reid_gate",
+  "gate": {
+    "threshold": 0.6,
+    "margin": 0.02,
+    "minimum_bbox_score": 0.0,
+    "minimum_visible_parts": 1
+  }
+}

@@ -1,0 +1,30 @@
+
+Running: part-OCLReID
+
+ReID checkpoint: /home/prabuddhi/Desktop/OCLReID/checkpoints/reid/resnet18.pth
+2026-06-22 16:00:37,723 - mmdet - INFO - image shape: height=800, width=1440 in YOLOX.__init__
+=> loading model from /home/prabuddhi/Desktop/OCLReID/mmtrack/models/orientation/checkpoints/keypoints_net.pth
+Loading pose model from /home/prabuddhi/Desktop/OCLReID/mmtrack/models/pose/Models/sppe/fast_res50_256x192.pth
+2026-06-22 16:00:42,328 - mmtrack - INFO - initialize YOLOX with init_cfg {'type': 'Pretrained', 'checkpoint': 'https://download.openmmlab.com/mmdetection/v2.0/yolox/yolox_l_8x8_300e_coco/yolox_l_8x8_300e_coco_20211126_140236-d3bd2b23.pth'}
+2026-06-22 16:00:42,329 - mmcv - INFO - load model from: https://download.openmmlab.com/mmdetection/v2.0/yolox/yolox_l_8x8_300e_coco/yolox_l_8x8_300e_coco_20211126_140236-d3bd2b23.pth
+2026-06-22 16:00:42,330 - mmcv - INFO - load checkpoint from http path: https://download.openmmlab.com/mmdetection/v2.0/yolox/yolox_l_8x8_300e_coco/yolox_l_8x8_300e_coco_20211126_140236-d3bd2b23.pth
+2026-06-22 16:00:42,603 - mmtrack - INFO - initialize PartWeightedClassifier with init_cfg {'type': 'Pretrained', 'checkpoint': '/home/prabuddhi/Desktop/OCLReID/checkpoints/reid/resnet18.pth'}
+2026-06-22 16:00:42,603 - mmcv - INFO - load model from: /home/prabuddhi/Desktop/OCLReID/checkpoints/reid/resnet18.pth
+2026-06-22 16:00:42,603 - mmcv - INFO - load checkpoint from local path: /home/prabuddhi/Desktop/OCLReID/checkpoints/reid/resnet18.pth
+2026-06-22 16:00:42,650 - mmcv - WARNING - The model and loaded state dict do not match exactly
+
+unexpected key in source state_dict: head.fc_out.weight, head.fc_out.bias, head.bn.weight, head.bn.bias, head.bn.running_mean, head.bn.running_var, head.bn.num_batches_tracked, head.classifier.weight, head.classifier.bias
+
+missing keys in source state_dict: head.global_identity_classifier.0.bn.weight, head.global_identity_classifier.0.bn.bias, head.global_identity_classifier.0.bn.running_mean, head.global_identity_classifier.0.bn.running_var, head.global_identity_classifier.0.classifier.weight, head.global_identity_classifier.1.bn.weight, head.global_identity_classifier.1.bn.bias, head.global_identity_classifier.1.bn.running_mean, head.global_identity_classifier.1.bn.running_var, head.global_identity_classifier.1.classifier.weight, head.concat_parts_identity_classifier.0.bn.weight, head.concat_parts_identity_classifier.0.bn.bias, head.concat_parts_identity_classifier.0.bn.running_mean, head.concat_parts_identity_classifier.0.bn.running_var, head.concat_parts_identity_classifier.0.classifier.weight, head.concat_parts_identity_classifier.1.bn.weight, head.concat_parts_identity_classifier.1.bn.bias, head.concat_parts_identity_classifier.1.bn.running_mean, head.concat_parts_identity_classifier.1.bn.running_var, head.concat_parts_identity_classifier.1.classifier.weight, head.parts_identity_classifier.0.bn.weight, head.parts_identity_classifier.0.bn.bias, head.parts_identity_classifier.0.bn.running_mean, head.parts_identity_classifier.0.bn.running_var, head.parts_identity_classifier.0.classifier.weight, head.parts_identity_classifier.1.bn.weight, head.parts_identity_classifier.1.bn.bias, head.parts_identity_classifier.1.bn.running_mean, head.parts_identity_classifier.1.bn.running_var, head.parts_identity_classifier.1.classifier.weight, head.parts_identity_classifier.2.bn.weight, head.parts_identity_classifier.2.bn.bias, head.parts_identity_classifier.2.bn.running_mean, head.parts_identity_classifier.2.bn.running_var, head.parts_identity_classifier.2.classifier.weight, head.parts_identity_classifier.3.bn.weight, head.parts_identity_classifier.3.bn.bias, head.parts_identity_classifier.3.bn.running_mean, head.parts_identity_classifier.3.bn.running_var, head.parts_identity_classifier.3.classifier.weight, head.parts_identity_classifier.4.bn.weight, head.parts_identity_classifier.4.bn.bias, head.parts_identity_classifier.4.bn.running_mean, head.parts_identity_classifier.4.bn.running_var, head.parts_identity_classifier.4.classifier.weight, head.parts_identity_classifier.5.bn.weight, head.parts_identity_classifier.5.bn.bias, head.parts_identity_classifier.5.bn.running_mean, head.parts_identity_classifier.5.bn.running_var, head.parts_identity_classifier.5.classifier.weight, head.parts_identity_classifier.6.bn.weight, head.parts_identity_classifier.6.bn.bias, head.parts_identity_classifier.6.bn.running_mean, head.parts_identity_classifier.6.bn.running_var, head.parts_identity_classifier.6.classifier.weight, head.parts_identity_classifier.7.bn.weight, head.parts_identity_classifier.7.bn.bias, head.parts_identity_classifier.7.bn.running_mean, head.parts_identity_classifier.7.bn.running_var, head.parts_identity_classifier.7.classifier.weight
+
+Warning: The model doesn't have classes
+[REID RESET] checkpoint_path=/home/prabuddhi/Desktop/OCLReID/checkpoints/reid/resnet18.pth
+[REID RESET] checkpoint_hash=7ab10e51ae97593581996327e910ccfd6e26d0d3befb4ea3b67f05fdc7cfd073
+[REID RESET] checkpoint_key_count=136
+[REID RESET] matched_loaded_key_count=127
+[REID RESET] initial_loaded_hash=4f58366f09ace000ecd702a57cc402e57c5b04e943ed7adcb6c4c328907dbb64
+[REID RESET] initial_full_reid_hash=ee846eea96b4e3b51f6c669afd1a3b64af6a1b3be34a0eeb25383c2366d39e1b
+[REID RESET] initial_loaded_hash_matches_checkpoint=False
+[REID RESET] full_reid_key_count=199
+[                                                  ] 0/533, elapsed: 0s, ETA:[                                ] 1/533, 10.7 task/s, elapsed: 0s, ETA:    50s/home/prabuddhi/miniconda3/envs/oclreid/lib/python3.7/site-packages/torch/functional.py:568: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  /opt/conda/conda-bld/pytorch_1646755953518/work/aten/src/ATen/native/TensorShape.cpp:2228.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]

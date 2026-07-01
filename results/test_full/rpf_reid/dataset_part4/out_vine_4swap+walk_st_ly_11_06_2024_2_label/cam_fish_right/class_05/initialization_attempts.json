@@ -1,0 +1,44 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 113,
+        "frame_index": 113,
+        "video_frame_index": 113,
+        "bbox_xywh": [
+            21.17440716873915,
+            137.97867264061597,
+            31.0,
+            153.0
+        ],
+        "width": 31.0,
+        "height": 153.0,
+        "area_ratio": 0.0205859375,
+        "file": "1730892901_067060386.png",
+        "visualization_video": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_fish_right/class_05/inference_visualization.mp4",
+        "log": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_fish_right/class_05/inference_attempt_01_frame_000113.log",
+        "status": "failed",
+        "error": "Command failed with exit code 1. See: /home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_fish_right/class_05/inference_attempt_01_frame_000113.log",
+        "visualization_status": "created"
+    },
+    {
+        "attempt": 2,
+        "annotation_record_index": 118,
+        "frame_index": 118,
+        "video_frame_index": 118,
+        "bbox_xywh": [
+            28.64652110020985,
+            142.55716233688628,
+            54.04993182089801,
+            150.32851298934114
+        ],
+        "width": 54.04993182089801,
+        "height": 150.32851298934114,
+        "area_ratio": 0.03526582412244301,
+        "file": "1730892901_351110978.png",
+        "visualization_video": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_fish_right/class_05/inference_visualization.mp4",
+        "log": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/rpf-ReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_fish_right/class_05/inference_attempt_02_frame_000118.log",
+        "status": "success",
+        "error": "",
+        "visualization_status": "created"
+    }
+]

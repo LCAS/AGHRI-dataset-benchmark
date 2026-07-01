@@ -1,0 +1,52 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 0,
+        "frame_index": 0,
+        "video_frame_index": 0,
+        "bbox_xywh": [
+            265.0,
+            150.0,
+            49.0,
+            141.0
+        ],
+        "width": 49.0,
+        "height": 141.0,
+        "area_ratio": 0.029986979166666667,
+        "file": "1730978612_982813502.png",
+        "visualization_video": "",
+        "command": [
+            "/home/prabuddhi/miniconda3/envs/oclreid/bin/python",
+            "/home/prabuddhi/Desktop/OCLReID/run_video.py",
+            "--input",
+            "/media/prabuddhi/Backup2/AGHRI_OCLReID_Videos/test/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_right.mp4",
+            "--start_frame",
+            "0",
+            "--gt_bbox_file",
+            "/home/prabuddhi/Desktop/OCLReID/aghri_reid_stage5_association/test_full_reid_gate/test/part-OCLReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_right/class_02/init_bbox.txt",
+            "--method",
+            "part-OCLReID",
+            "--img_width",
+            "640",
+            "--img_height",
+            "360",
+            "--output_json",
+            "/home/prabuddhi/Desktop/OCLReID/aghri_reid_stage5_association/test_full_reid_gate/test/part-OCLReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_right/class_02/predictions.json",
+            "--reid-checkpoint",
+            "/home/prabuddhi/Desktop/OCLReID/checkpoints/reid/aghri_resnet18_backbone_stage1.pth",
+            "--association-mode",
+            "reid_gate",
+            "--association-reid-threshold",
+            "0.6",
+            "--association-reid-margin",
+            "0.02",
+            "--association-min-bbox-score",
+            "0.0",
+            "--association-min-visible-parts",
+            "1"
+        ],
+        "log": "/home/prabuddhi/Desktop/OCLReID/aghri_reid_stage5_association/test_full_reid_gate/test/part-OCLReID/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_right/class_02/inference_attempt_01_frame_000000.log",
+        "status": "success",
+        "error": ""
+    }
+]
