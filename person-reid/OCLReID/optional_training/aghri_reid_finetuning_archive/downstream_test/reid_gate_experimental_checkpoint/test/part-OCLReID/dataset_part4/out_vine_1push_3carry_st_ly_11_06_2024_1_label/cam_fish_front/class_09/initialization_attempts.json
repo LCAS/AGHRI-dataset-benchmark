@@ -1,0 +1,52 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 4,
+        "frame_index": 4,
+        "video_frame_index": 4,
+        "bbox_xywh": [
+            398.02475630642766,
+            171.29207282262053,
+            31.24256020976523,
+            78.68317087095176
+        ],
+        "width": 31.24256020976523,
+        "height": 78.68317087095176,
+        "area_ratio": 0.01066954732391908,
+        "file": "1730893381_171985505.png",
+        "visualization_video": "",
+        "command": [
+            "/home/prabuddhi/miniconda3/envs/oclreid/bin/python",
+            "/home/prabuddhi/Desktop/OCLReID/run_video.py",
+            "--input",
+            "/media/prabuddhi/Backup2/AGHRI_OCLReID_Videos/test/dataset_part4/out_vine_1push_3carry_st_ly_11_06_2024_1_label/cam_fish_front.mp4",
+            "--start_frame",
+            "4",
+            "--gt_bbox_file",
+            "/home/prabuddhi/Desktop/OCLReID/aghri_reid_stage5_association/test_full_reid_gate/test/part-OCLReID/dataset_part4/out_vine_1push_3carry_st_ly_11_06_2024_1_label/cam_fish_front/class_09/init_bbox.txt",
+            "--method",
+            "part-OCLReID",
+            "--img_width",
+            "640",
+            "--img_height",
+            "360",
+            "--output_json",
+            "/home/prabuddhi/Desktop/OCLReID/aghri_reid_stage5_association/test_full_reid_gate/test/part-OCLReID/dataset_part4/out_vine_1push_3carry_st_ly_11_06_2024_1_label/cam_fish_front/class_09/predictions.json",
+            "--reid-checkpoint",
+            "/home/prabuddhi/Desktop/OCLReID/checkpoints/reid/aghri_resnet18_backbone_stage1.pth",
+            "--association-mode",
+            "reid_gate",
+            "--association-reid-threshold",
+            "0.6",
+            "--association-reid-margin",
+            "0.02",
+            "--association-min-bbox-score",
+            "0.0",
+            "--association-min-visible-parts",
+            "1"
+        ],
+        "log": "/home/prabuddhi/Desktop/OCLReID/aghri_reid_stage5_association/test_full_reid_gate/test/part-OCLReID/dataset_part4/out_vine_1push_3carry_st_ly_11_06_2024_1_label/cam_fish_front/class_09/inference_attempt_01_frame_000004.log",
+        "status": "success",
+        "error": ""
+    }
+]

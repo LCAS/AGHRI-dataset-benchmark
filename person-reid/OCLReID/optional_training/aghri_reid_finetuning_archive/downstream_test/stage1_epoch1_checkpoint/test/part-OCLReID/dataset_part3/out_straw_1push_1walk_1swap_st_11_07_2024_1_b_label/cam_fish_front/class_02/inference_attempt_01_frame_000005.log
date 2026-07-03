@@ -1,0 +1,61 @@
+
+Running: part-OCLReID
+
+ReID checkpoint: /home/prabuddhi/Desktop/OCLReID/checkpoints/reid/aghri_resnet18_backbone_stage1.pth
+2026-06-22 16:39:37,854 - mmdet - INFO - image shape: height=800, width=1440 in YOLOX.__init__
+=> loading model from /home/prabuddhi/Desktop/OCLReID/mmtrack/models/orientation/checkpoints/keypoints_net.pth
+Loading pose model from /home/prabuddhi/Desktop/OCLReID/mmtrack/models/pose/Models/sppe/fast_res50_256x192.pth
+2026-06-22 16:39:40,953 - mmtrack - INFO - initialize YOLOX with init_cfg {'type': 'Pretrained', 'checkpoint': 'https://download.openmmlab.com/mmdetection/v2.0/yolox/yolox_l_8x8_300e_coco/yolox_l_8x8_300e_coco_20211126_140236-d3bd2b23.pth'}
+2026-06-22 16:39:40,954 - mmcv - INFO - load model from: https://download.openmmlab.com/mmdetection/v2.0/yolox/yolox_l_8x8_300e_coco/yolox_l_8x8_300e_coco_20211126_140236-d3bd2b23.pth
+2026-06-22 16:39:40,954 - mmcv - INFO - load checkpoint from http path: https://download.openmmlab.com/mmdetection/v2.0/yolox/yolox_l_8x8_300e_coco/yolox_l_8x8_300e_coco_20211126_140236-d3bd2b23.pth
+2026-06-22 16:39:41,074 - mmtrack - INFO - initialize PartWeightedClassifier with init_cfg {'type': 'Pretrained', 'checkpoint': '/home/prabuddhi/Desktop/OCLReID/checkpoints/reid/aghri_resnet18_backbone_stage1.pth'}
+2026-06-22 16:39:41,074 - mmcv - INFO - load model from: /home/prabuddhi/Desktop/OCLReID/checkpoints/reid/aghri_resnet18_backbone_stage1.pth
+2026-06-22 16:39:41,074 - mmcv - INFO - load checkpoint from local path: /home/prabuddhi/Desktop/OCLReID/checkpoints/reid/aghri_resnet18_backbone_stage1.pth
+2026-06-22 16:39:41,092 - mmcv - WARNING - The model and loaded state dict do not match exactly
+
+missing keys in source state_dict: head.global_identity_classifier.0.bn.weight, head.global_identity_classifier.0.bn.bias, head.global_identity_classifier.0.bn.running_mean, head.global_identity_classifier.0.bn.running_var, head.global_identity_classifier.0.classifier.weight, head.global_identity_classifier.1.bn.weight, head.global_identity_classifier.1.bn.bias, head.global_identity_classifier.1.bn.running_mean, head.global_identity_classifier.1.bn.running_var, head.global_identity_classifier.1.classifier.weight, head.concat_parts_identity_classifier.0.bn.weight, head.concat_parts_identity_classifier.0.bn.bias, head.concat_parts_identity_classifier.0.bn.running_mean, head.concat_parts_identity_classifier.0.bn.running_var, head.concat_parts_identity_classifier.0.classifier.weight, head.concat_parts_identity_classifier.1.bn.weight, head.concat_parts_identity_classifier.1.bn.bias, head.concat_parts_identity_classifier.1.bn.running_mean, head.concat_parts_identity_classifier.1.bn.running_var, head.concat_parts_identity_classifier.1.classifier.weight, head.parts_identity_classifier.0.bn.weight, head.parts_identity_classifier.0.bn.bias, head.parts_identity_classifier.0.bn.running_mean, head.parts_identity_classifier.0.bn.running_var, head.parts_identity_classifier.0.classifier.weight, head.parts_identity_classifier.1.bn.weight, head.parts_identity_classifier.1.bn.bias, head.parts_identity_classifier.1.bn.running_mean, head.parts_identity_classifier.1.bn.running_var, head.parts_identity_classifier.1.classifier.weight, head.parts_identity_classifier.2.bn.weight, head.parts_identity_classifier.2.bn.bias, head.parts_identity_classifier.2.bn.running_mean, head.parts_identity_classifier.2.bn.running_var, head.parts_identity_classifier.2.classifier.weight, head.parts_identity_classifier.3.bn.weight, head.parts_identity_classifier.3.bn.bias, head.parts_identity_classifier.3.bn.running_mean, head.parts_identity_classifier.3.bn.running_var, head.parts_identity_classifier.3.classifier.weight, head.parts_identity_classifier.4.bn.weight, head.parts_identity_classifier.4.bn.bias, head.parts_identity_classifier.4.bn.running_mean, head.parts_identity_classifier.4.bn.running_var, head.parts_identity_classifier.4.classifier.weight, head.parts_identity_classifier.5.bn.weight, head.parts_identity_classifier.5.bn.bias, head.parts_identity_classifier.5.bn.running_mean, head.parts_identity_classifier.5.bn.running_var, head.parts_identity_classifier.5.classifier.weight, head.parts_identity_classifier.6.bn.weight, head.parts_identity_classifier.6.bn.bias, head.parts_identity_classifier.6.bn.running_mean, head.parts_identity_classifier.6.bn.running_var, head.parts_identity_classifier.6.classifier.weight, head.parts_identity_classifier.7.bn.weight, head.parts_identity_classifier.7.bn.bias, head.parts_identity_classifier.7.bn.running_mean, head.parts_identity_classifier.7.bn.running_var, head.parts_identity_classifier.7.classifier.weight
+
+Warning: The model doesn't have classes
+[REID RESET] checkpoint_path=/home/prabuddhi/Desktop/OCLReID/checkpoints/reid/aghri_resnet18_backbone_stage1.pth
+[REID RESET] checkpoint_hash=fdfb10edae7fea1f509801efd5ec18f392d619965363189dd2b1daff8d992151
+[REID RESET] checkpoint_key_count=127
+[REID RESET] matched_loaded_key_count=127
+[REID RESET] initial_loaded_hash=fdfb10edae7fea1f509801efd5ec18f392d619965363189dd2b1daff8d992151
+[REID RESET] initial_full_reid_hash=d34b90ed66f12177df8ec35418000530036a4cf98c2031530f0779f9d32342e6
+[REID RESET] initial_loaded_hash_matches_checkpoint=True
+[REID RESET] full_reid_key_count=199
+[                                                  ] 0/869, elapsed: 0s, ETA:[                                ] 1/869, 20.1 task/s, elapsed: 0s, ETA:    43s[                                ] 2/869, 39.3 task/s, elapsed: 0s, ETA:    22s[                                ] 3/869, 57.4 task/s, elapsed: 0s, ETA:    15s[                                ] 4/869, 74.4 task/s, elapsed: 0s, ETA:    12s[                                ] 5/869, 90.8 task/s, elapsed: 0s, ETA:    10s/home/prabuddhi/miniconda3/envs/oclreid/lib/python3.7/site-packages/torch/functional.py:568: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at  /opt/conda/conda-bld/pytorch_1646755953518/work/aten/src/ATen/native/TensorShape.cpp:2228.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+gt: [592. 138. 637. 317.]
+es: [410, 151, 442, 264], iou: 0.000
+[                                 ] 6/869, 8.3 task/s, elapsed: 1s, ETA:   104s
+gt: None
+[REID RESET] final_loaded_hash=fdfb10edae7fea1f509801efd5ec18f392d619965363189dd2b1daff8d992151
+[REID RESET] final_full_reid_hash=d34b90ed66f12177df8ec35418000530036a4cf98c2031530f0779f9d32342e6
+[REID RESET] loaded_params_changed_during_sequence=False
+[REID RESET] full_reid_changed_during_sequence=False
+Traceback (most recent call last):
+  File "/home/prabuddhi/Desktop/OCLReID/run_video.py", line 614, in <module>
+    evaluator.run_video()
+  File "/home/prabuddhi/Desktop/OCLReID/run_video.py", line 439, in run_video
+    result_dict, raw_dict = self.tracker.infer(img, init_bbox, i)
+  File "/home/prabuddhi/Desktop/OCLReID/Evaluator.py", line 162, in infer
+    raw_result = inference_rpf(self.obj_tracker, image_fname, frame_id=frame_id, gt_bbox=target_gt_bbox)
+  File "/home/prabuddhi/Desktop/OCLReID/mmtrack/apis/inference.py", line 310, in inference_rpf
+    result = model(return_loss=False, rescale=True, gt_bbox=np.array(gt_bbox), **data)
+  File "/home/prabuddhi/miniconda3/envs/oclreid/lib/python3.7/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/prabuddhi/miniconda3/envs/oclreid/lib/python3.7/site-packages/mmcv/runner/fp16_utils.py", line 116, in new_func
+    return old_func(*args, **kwargs)
+  File "/home/prabuddhi/Desktop/OCLReID/mmtrack/models/rpf/base.py", line 125, in forward
+    return self.forward_test(img, img_metas, gt_bbox, **kwargs)
+  File "/home/prabuddhi/Desktop/OCLReID/mmtrack/models/rpf/base.py", line 102, in forward_test
+    return self.simple_test(imgs[0], img_metas[0], gt_bbox, **kwargs)
+  File "/home/prabuddhi/Desktop/OCLReID/mmtrack/models/rpf/part_rpf.py", line 334, in simple_test
+    self.init(gt_bbox, raw_result)
+  File "/home/prabuddhi/Desktop/OCLReID/mmtrack/models/rpf/part_rpf.py", line 196, in init
+    iou = self.get_iou(c_bbox, gt_bbox)
+  File "/home/prabuddhi/Desktop/OCLReID/mmtrack/models/rpf/part_rpf.py", line 165, in get_iou
+    ixmin = max(pred_box[0], gt_box[0])
+IndexError: too many indices for array: array is 0-dimensional, but 1 were indexed

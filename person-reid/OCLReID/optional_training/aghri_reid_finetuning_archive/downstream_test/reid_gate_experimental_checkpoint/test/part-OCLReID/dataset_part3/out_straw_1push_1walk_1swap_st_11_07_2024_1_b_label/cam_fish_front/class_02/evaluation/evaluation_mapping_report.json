@@ -1,0 +1,4354 @@
+{
+    "frame_manifest": "/media/prabuddhi/Backup2/AGHRI_OCLReID_Videos/test/dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/cam_fish_front_frame_manifest.json",
+    "annotation_records": 869,
+    "evaluated_annotation_records": 853,
+    "initialization_video_frame": 15,
+    "prediction_frame_count": 854,
+    "mapping": [
+        {
+            "annotation_record_index": 0,
+            "file": "1730978613_035530061.png",
+            "video_frame_index": 0
+        },
+        {
+            "annotation_record_index": 1,
+            "file": "1730978613_143021689.png",
+            "video_frame_index": 1
+        },
+        {
+            "annotation_record_index": 2,
+            "file": "1730978613_168652184.png",
+            "video_frame_index": 2
+        },
+        {
+            "annotation_record_index": 3,
+            "file": "1730978613_300439797.png",
+            "video_frame_index": 3
+        },
+        {
+            "annotation_record_index": 4,
+            "file": "1730978613_407866472.png",
+            "video_frame_index": 4
+        },
+        {
+            "annotation_record_index": 5,
+            "file": "1730978613_431934426.png",
+            "video_frame_index": 5
+        },
+        {
+            "annotation_record_index": 6,
+            "file": "1730978613_530656840.png",
+            "video_frame_index": 6
+        },
+        {
+            "annotation_record_index": 7,
+            "file": "1730978613_595949858.png",
+            "video_frame_index": 7
+        },
+        {
+            "annotation_record_index": 8,
+            "file": "1730978613_628745553.png",
+            "video_frame_index": 8
+        },
+        {
+            "annotation_record_index": 9,
+            "file": "1730978613_659622006.png",
+            "video_frame_index": 9
+        },
+        {
+            "annotation_record_index": 10,
+            "file": "1730978613_691588771.png",
+            "video_frame_index": 10
+        },
+        {
+            "annotation_record_index": 11,
+            "file": "1730978613_727700693.png",
+            "video_frame_index": 11
+        },
+        {
+            "annotation_record_index": 12,
+            "file": "1730978613_759775910.png",
+            "video_frame_index": 12
+        },
+        {
+            "annotation_record_index": 13,
+            "file": "1730978613_790861983.png",
+            "video_frame_index": 13
+        },
+        {
+            "annotation_record_index": 14,
+            "file": "1730978613_824302497.png",
+            "video_frame_index": 14
+        },
+        {
+            "annotation_record_index": 15,
+            "file": "1730978613_855901090.png",
+            "video_frame_index": 15
+        },
+        {
+            "annotation_record_index": 16,
+            "file": "1730978613_889224334.png",
+            "video_frame_index": 16
+        },
+        {
+            "annotation_record_index": 17,
+            "file": "1730978613_923029233.png",
+            "video_frame_index": 17
+        },
+        {
+            "annotation_record_index": 18,
+            "file": "1730978613_955783958.png",
+            "video_frame_index": 18
+        },
+        {
+            "annotation_record_index": 19,
+            "file": "1730978613_986851366.png",
+            "video_frame_index": 19
+        },
+        {
+            "annotation_record_index": 20,
+            "file": "1730978614_023232296.png",
+            "video_frame_index": 20
+        },
+        {
+            "annotation_record_index": 21,
+            "file": "1730978614_057369775.png",
+            "video_frame_index": 21
+        },
+        {
+            "annotation_record_index": 22,
+            "file": "1730978614_087311635.png",
+            "video_frame_index": 22
+        },
+        {
+            "annotation_record_index": 23,
+            "file": "1730978614_115484825.png",
+            "video_frame_index": 23
+        },
+        {
+            "annotation_record_index": 24,
+            "file": "1730978614_155664418.png",
+            "video_frame_index": 24
+        },
+        {
+            "annotation_record_index": 25,
+            "file": "1730978614_184725086.png",
+            "video_frame_index": 25
+        },
+        {
+            "annotation_record_index": 26,
+            "file": "1730978614_221291956.png",
+            "video_frame_index": 26
+        },
+        {
+            "annotation_record_index": 27,
+            "file": "1730978614_248101833.png",
+            "video_frame_index": 27
+        },
+        {
+            "annotation_record_index": 28,
+            "file": "1730978614_288821789.png",
+            "video_frame_index": 28
+        },
+        {
+            "annotation_record_index": 29,
+            "file": "1730978614_316373646.png",
+            "video_frame_index": 29
+        },
+        {
+            "annotation_record_index": 30,
+            "file": "1730978614_349519838.png",
+            "video_frame_index": 30
+        },
+        {
+            "annotation_record_index": 31,
+            "file": "1730978614_415592178.png",
+            "video_frame_index": 31
+        },
+        {
+            "annotation_record_index": 32,
+            "file": "1730978614_445018891.png",
+            "video_frame_index": 32
+        },
+        {
+            "annotation_record_index": 33,
+            "file": "1730978614_481806524.png",
+            "video_frame_index": 33
+        },
+        {
+            "annotation_record_index": 34,
+            "file": "1730978614_512651296.png",
+            "video_frame_index": 34
+        },
+        {
+            "annotation_record_index": 35,
+            "file": "1730978614_552031034.png",
+            "video_frame_index": 35
+        },
+        {
+            "annotation_record_index": 36,
+            "file": "1730978614_578643384.png",
+            "video_frame_index": 36
+        },
+        {
+            "annotation_record_index": 37,
+            "file": "1730978614_642170248.png",
+            "video_frame_index": 37
+        },
+        {
+            "annotation_record_index": 38,
+            "file": "1730978614_671534090.png",
+            "video_frame_index": 38
+        },
+        {
+            "annotation_record_index": 39,
+            "file": "1730978614_746124160.png",
+            "video_frame_index": 39
+        },
+        {
+            "annotation_record_index": 40,
+            "file": "1730978614_777901571.png",
+            "video_frame_index": 40
+        },
+        {
+            "annotation_record_index": 41,
+            "file": "1730978614_808632646.png",
+            "video_frame_index": 41
+        },
+        {
+            "annotation_record_index": 42,
+            "file": "1730978614_841622096.png",
+            "video_frame_index": 42
+        },
+        {
+            "annotation_record_index": 43,
+            "file": "1730978614_872549683.png",
+            "video_frame_index": 43
+        },
+        {
+            "annotation_record_index": 44,
+            "file": "1730978614_915830579.png",
+            "video_frame_index": 44
+        },
+        {
+            "annotation_record_index": 45,
+            "file": "1730978614_938816893.png",
+            "video_frame_index": 45
+        },
+        {
+            "annotation_record_index": 46,
+            "file": "1730978614_970159984.png",
+            "video_frame_index": 46
+        },
+        {
+            "annotation_record_index": 47,
+            "file": "1730978615_005939230.png",
+            "video_frame_index": 47
+        },
+        {
+            "annotation_record_index": 48,
+            "file": "1730978615_038671758.png",
+            "video_frame_index": 48
+        },
+        {
+            "annotation_record_index": 49,
+            "file": "1730978615_067680593.png",
+            "video_frame_index": 49
+        },
+        {
+            "annotation_record_index": 50,
+            "file": "1730978615_106656263.png",
+            "video_frame_index": 50
+        },
+        {
+            "annotation_record_index": 51,
+            "file": "1730978615_132214317.png",
+            "video_frame_index": 51
+        },
+        {
+            "annotation_record_index": 52,
+            "file": "1730978615_168459990.png",
+            "video_frame_index": 52
+        },
+        {
+            "annotation_record_index": 53,
+            "file": "1730978615_199459264.png",
+            "video_frame_index": 53
+        },
+        {
+            "annotation_record_index": 54,
+            "file": "1730978615_237016940.png",
+            "video_frame_index": 54
+        },
+        {
+            "annotation_record_index": 55,
+            "file": "1730978615_263218432.png",
+            "video_frame_index": 55
+        },
+        {
+            "annotation_record_index": 56,
+            "file": "1730978615_300141576.png",
+            "video_frame_index": 56
+        },
+        {
+            "annotation_record_index": 57,
+            "file": "1730978615_331338826.png",
+            "video_frame_index": 57
+        },
+        {
+            "annotation_record_index": 58,
+            "file": "1730978615_369145187.png",
+            "video_frame_index": 58
+        },
+        {
+            "annotation_record_index": 59,
+            "file": "1730978615_396078958.png",
+            "video_frame_index": 59
+        },
+        {
+            "annotation_record_index": 60,
+            "file": "1730978615_441593845.png",
+            "video_frame_index": 60
+        },
+        {
+            "annotation_record_index": 61,
+            "file": "1730978615_461158057.png",
+            "video_frame_index": 61
+        },
+        {
+            "annotation_record_index": 62,
+            "file": "1730978615_493879219.png",
+            "video_frame_index": 62
+        },
+        {
+            "annotation_record_index": 63,
+            "file": "1730978615_527895408.png",
+            "video_frame_index": 63
+        },
+        {
+            "annotation_record_index": 64,
+            "file": "1730978615_566023028.png",
+            "video_frame_index": 64
+        },
+        {
+            "annotation_record_index": 65,
+            "file": "1730978615_591763730.png",
+            "video_frame_index": 65
+        },
+        {
+            "annotation_record_index": 66,
+            "file": "1730978615_655726839.png",
+            "video_frame_index": 66
+        },
+        {
+            "annotation_record_index": 67,
+            "file": "1730978615_692372230.png",
+            "video_frame_index": 67
+        },
+        {
+            "annotation_record_index": 68,
+            "file": "1730978615_726485450.png",
+            "video_frame_index": 68
+        },
+        {
+            "annotation_record_index": 69,
+            "file": "1730978615_756645767.png",
+            "video_frame_index": 69
+        },
+        {
+            "annotation_record_index": 70,
+            "file": "1730978615_788482272.png",
+            "video_frame_index": 70
+        },
+        {
+            "annotation_record_index": 71,
+            "file": "1730978615_852745647.png",
+            "video_frame_index": 71
+        },
+        {
+            "annotation_record_index": 72,
+            "file": "1730978615_919563128.png",
+            "video_frame_index": 72
+        },
+        {
+            "annotation_record_index": 73,
+            "file": "1730978615_955814204.png",
+            "video_frame_index": 73
+        },
+        {
+            "annotation_record_index": 74,
+            "file": "1730978615_987176908.png",
+            "video_frame_index": 74
+        },
+        {
+            "annotation_record_index": 75,
+            "file": "1730978616_051405978.png",
+            "video_frame_index": 75
+        },
+        {
+            "annotation_record_index": 76,
+            "file": "1730978616_084750545.png",
+            "video_frame_index": 76
+        },
+        {
+            "annotation_record_index": 77,
+            "file": "1730978616_116137882.png",
+            "video_frame_index": 77
+        },
+        {
+            "annotation_record_index": 78,
+            "file": "1730978616_147568857.png",
+            "video_frame_index": 78
+        },
+        {
+            "annotation_record_index": 79,
+            "file": "1730978616_182771213.png",
+            "video_frame_index": 79
+        },
+        {
+            "annotation_record_index": 80,
+            "file": "1730978616_213380672.png",
+            "video_frame_index": 80
+        },
+        {
+            "annotation_record_index": 81,
+            "file": "1730978616_251820030.png",
+            "video_frame_index": 81
+        },
+        {
+            "annotation_record_index": 82,
+            "file": "1730978616_412747107.png",
+            "video_frame_index": 82
+        },
+        {
+            "annotation_record_index": 83,
+            "file": "1730978616_451963712.png",
+            "video_frame_index": 83
+        },
+        {
+            "annotation_record_index": 84,
+            "file": "1730978616_651106656.png",
+            "video_frame_index": 84
+        },
+        {
+            "annotation_record_index": 85,
+            "file": "1730978616_672716818.png",
+            "video_frame_index": 85
+        },
+        {
+            "annotation_record_index": 86,
+            "file": "1730978616_714660725.png",
+            "video_frame_index": 86
+        },
+        {
+            "annotation_record_index": 87,
+            "file": "1730978616_741738715.png",
+            "video_frame_index": 87
+        },
+        {
+            "annotation_record_index": 88,
+            "file": "1730978616_835697194.png",
+            "video_frame_index": 88
+        },
+        {
+            "annotation_record_index": 89,
+            "file": "1730978616_868103422.png",
+            "video_frame_index": 89
+        },
+        {
+            "annotation_record_index": 90,
+            "file": "1730978616_935029068.png",
+            "video_frame_index": 90
+        },
+        {
+            "annotation_record_index": 91,
+            "file": "1730978616_967028530.png",
+            "video_frame_index": 91
+        },
+        {
+            "annotation_record_index": 92,
+            "file": "1730978616_999160874.png",
+            "video_frame_index": 92
+        },
+        {
+            "annotation_record_index": 93,
+            "file": "1730978617_031817506.png",
+            "video_frame_index": 93
+        },
+        {
+            "annotation_record_index": 94,
+            "file": "1730978617_065491866.png",
+            "video_frame_index": 94
+        },
+        {
+            "annotation_record_index": 95,
+            "file": "1730978617_131691096.png",
+            "video_frame_index": 95
+        },
+        {
+            "annotation_record_index": 96,
+            "file": "1730978617_163666914.png",
+            "video_frame_index": 96
+        },
+        {
+            "annotation_record_index": 97,
+            "file": "1730978617_196894780.png",
+            "video_frame_index": 97
+        },
+        {
+            "annotation_record_index": 98,
+            "file": "1730978617_267295504.png",
+            "video_frame_index": 98
+        },
+        {
+            "annotation_record_index": 99,
+            "file": "1730978617_295008397.png",
+            "video_frame_index": 99
+        },
+        {
+            "annotation_record_index": 100,
+            "file": "1730978617_328184444.png",
+            "video_frame_index": 100
+        },
+        {
+            "annotation_record_index": 101,
+            "file": "1730978617_362092914.png",
+            "video_frame_index": 101
+        },
+        {
+            "annotation_record_index": 102,
+            "file": "1730978617_391219415.png",
+            "video_frame_index": 102
+        },
+        {
+            "annotation_record_index": 103,
+            "file": "1730978617_426673558.png",
+            "video_frame_index": 103
+        },
+        {
+            "annotation_record_index": 104,
+            "file": "1730978617_460305757.png",
+            "video_frame_index": 104
+        },
+        {
+            "annotation_record_index": 105,
+            "file": "1730978617_492430312.png",
+            "video_frame_index": 105
+        },
+        {
+            "annotation_record_index": 106,
+            "file": "1730978617_525035084.png",
+            "video_frame_index": 106
+        },
+        {
+            "annotation_record_index": 107,
+            "file": "1730978617_557591587.png",
+            "video_frame_index": 107
+        },
+        {
+            "annotation_record_index": 108,
+            "file": "1730978617_619976039.png",
+            "video_frame_index": 108
+        },
+        {
+            "annotation_record_index": 109,
+            "file": "1730978617_662196611.png",
+            "video_frame_index": 109
+        },
+        {
+            "annotation_record_index": 110,
+            "file": "1730978617_687654049.png",
+            "video_frame_index": 110
+        },
+        {
+            "annotation_record_index": 111,
+            "file": "1730978617_723430148.png",
+            "video_frame_index": 111
+        },
+        {
+            "annotation_record_index": 112,
+            "file": "1730978617_755092158.png",
+            "video_frame_index": 112
+        },
+        {
+            "annotation_record_index": 113,
+            "file": "1730978617_789332347.png",
+            "video_frame_index": 113
+        },
+        {
+            "annotation_record_index": 114,
+            "file": "1730978617_861723926.png",
+            "video_frame_index": 114
+        },
+        {
+            "annotation_record_index": 115,
+            "file": "1730978617_879390117.png",
+            "video_frame_index": 115
+        },
+        {
+            "annotation_record_index": 116,
+            "file": "1730978617_924020516.png",
+            "video_frame_index": 116
+        },
+        {
+            "annotation_record_index": 117,
+            "file": "1730978617_947626864.png",
+            "video_frame_index": 117
+        },
+        {
+            "annotation_record_index": 118,
+            "file": "1730978618_010855693.png",
+            "video_frame_index": 118
+        },
+        {
+            "annotation_record_index": 119,
+            "file": "1730978618_047567678.png",
+            "video_frame_index": 119
+        },
+        {
+            "annotation_record_index": 120,
+            "file": "1730978618_079170280.png",
+            "video_frame_index": 120
+        },
+        {
+            "annotation_record_index": 121,
+            "file": "1730978618_117475576.png",
+            "video_frame_index": 121
+        },
+        {
+            "annotation_record_index": 122,
+            "file": "1730978618_178120678.png",
+            "video_frame_index": 122
+        },
+        {
+            "annotation_record_index": 123,
+            "file": "1730978618_208451998.png",
+            "video_frame_index": 123
+        },
+        {
+            "annotation_record_index": 124,
+            "file": "1730978618_239870456.png",
+            "video_frame_index": 124
+        },
+        {
+            "annotation_record_index": 125,
+            "file": "1730978618_275544765.png",
+            "video_frame_index": 125
+        },
+        {
+            "annotation_record_index": 126,
+            "file": "1730978618_339257099.png",
+            "video_frame_index": 126
+        },
+        {
+            "annotation_record_index": 127,
+            "file": "1730978618_371344795.png",
+            "video_frame_index": 127
+        },
+        {
+            "annotation_record_index": 128,
+            "file": "1730978618_407298748.png",
+            "video_frame_index": 128
+        },
+        {
+            "annotation_record_index": 129,
+            "file": "1730978618_439396087.png",
+            "video_frame_index": 129
+        },
+        {
+            "annotation_record_index": 130,
+            "file": "1730978618_472451825.png",
+            "video_frame_index": 130
+        },
+        {
+            "annotation_record_index": 131,
+            "file": "1730978618_503232619.png",
+            "video_frame_index": 131
+        },
+        {
+            "annotation_record_index": 132,
+            "file": "1730978618_539888867.png",
+            "video_frame_index": 132
+        },
+        {
+            "annotation_record_index": 133,
+            "file": "1730978618_570819251.png",
+            "video_frame_index": 133
+        },
+        {
+            "annotation_record_index": 134,
+            "file": "1730978618_604835807.png",
+            "video_frame_index": 134
+        },
+        {
+            "annotation_record_index": 135,
+            "file": "1730978618_639993872.png",
+            "video_frame_index": 135
+        },
+        {
+            "annotation_record_index": 136,
+            "file": "1730978618_672603719.png",
+            "video_frame_index": 136
+        },
+        {
+            "annotation_record_index": 137,
+            "file": "1730978618_705031281.png",
+            "video_frame_index": 137
+        },
+        {
+            "annotation_record_index": 138,
+            "file": "1730978618_736716704.png",
+            "video_frame_index": 138
+        },
+        {
+            "annotation_record_index": 139,
+            "file": "1730978618_767876393.png",
+            "video_frame_index": 139
+        },
+        {
+            "annotation_record_index": 140,
+            "file": "1730978618_801285593.png",
+            "video_frame_index": 140
+        },
+        {
+            "annotation_record_index": 141,
+            "file": "1730978618_831995682.png",
+            "video_frame_index": 141
+        },
+        {
+            "annotation_record_index": 142,
+            "file": "1730978618_870307094.png",
+            "video_frame_index": 142
+        },
+        {
+            "annotation_record_index": 143,
+            "file": "1730978618_895525840.png",
+            "video_frame_index": 143
+        },
+        {
+            "annotation_record_index": 144,
+            "file": "1730978618_933368236.png",
+            "video_frame_index": 144
+        },
+        {
+            "annotation_record_index": 145,
+            "file": "1730978618_966435717.png",
+            "video_frame_index": 145
+        },
+        {
+            "annotation_record_index": 146,
+            "file": "1730978618_997525610.png",
+            "video_frame_index": 146
+        },
+        {
+            "annotation_record_index": 147,
+            "file": "1730978619_028288908.png",
+            "video_frame_index": 147
+        },
+        {
+            "annotation_record_index": 148,
+            "file": "1730978619_071620322.png",
+            "video_frame_index": 148
+        },
+        {
+            "annotation_record_index": 149,
+            "file": "1730978619_095957849.png",
+            "video_frame_index": 149
+        },
+        {
+            "annotation_record_index": 150,
+            "file": "1730978619_134714648.png",
+            "video_frame_index": 150
+        },
+        {
+            "annotation_record_index": 151,
+            "file": "1730978619_161102599.png",
+            "video_frame_index": 151
+        },
+        {
+            "annotation_record_index": 152,
+            "file": "1730978619_197760373.png",
+            "video_frame_index": 152
+        },
+        {
+            "annotation_record_index": 153,
+            "file": "1730978619_226570077.png",
+            "video_frame_index": 153
+        },
+        {
+            "annotation_record_index": 154,
+            "file": "1730978619_258500885.png",
+            "video_frame_index": 154
+        },
+        {
+            "annotation_record_index": 155,
+            "file": "1730978619_292474943.png",
+            "video_frame_index": 155
+        },
+        {
+            "annotation_record_index": 156,
+            "file": "1730978619_327419284.png",
+            "video_frame_index": 156
+        },
+        {
+            "annotation_record_index": 157,
+            "file": "1730978619_355852631.png",
+            "video_frame_index": 157
+        },
+        {
+            "annotation_record_index": 158,
+            "file": "1730978619_393405235.png",
+            "video_frame_index": 158
+        },
+        {
+            "annotation_record_index": 159,
+            "file": "1730978619_419180792.png",
+            "video_frame_index": 159
+        },
+        {
+            "annotation_record_index": 160,
+            "file": "1730978619_463957115.png",
+            "video_frame_index": 160
+        },
+        {
+            "annotation_record_index": 161,
+            "file": "1730978619_487209934.png",
+            "video_frame_index": 161
+        },
+        {
+            "annotation_record_index": 162,
+            "file": "1730978619_524290359.png",
+            "video_frame_index": 162
+        },
+        {
+            "annotation_record_index": 163,
+            "file": "1730978619_553701448.png",
+            "video_frame_index": 163
+        },
+        {
+            "annotation_record_index": 164,
+            "file": "1730978619_583154118.png",
+            "video_frame_index": 164
+        },
+        {
+            "annotation_record_index": 165,
+            "file": "1730978619_618878669.png",
+            "video_frame_index": 165
+        },
+        {
+            "annotation_record_index": 166,
+            "file": "1730978619_657546208.png",
+            "video_frame_index": 166
+        },
+        {
+            "annotation_record_index": 167,
+            "file": "1730978619_685520357.png",
+            "video_frame_index": 167
+        },
+        {
+            "annotation_record_index": 168,
+            "file": "1730978619_715393289.png",
+            "video_frame_index": 168
+        },
+        {
+            "annotation_record_index": 169,
+            "file": "1730978619_748413103.png",
+            "video_frame_index": 169
+        },
+        {
+            "annotation_record_index": 170,
+            "file": "1730978619_781029832.png",
+            "video_frame_index": 170
+        },
+        {
+            "annotation_record_index": 171,
+            "file": "1730978619_814732949.png",
+            "video_frame_index": 171
+        },
+        {
+            "annotation_record_index": 172,
+            "file": "1730978619_848773381.png",
+            "video_frame_index": 172
+        },
+        {
+            "annotation_record_index": 173,
+            "file": "1730978619_884265697.png",
+            "video_frame_index": 173
+        },
+        {
+            "annotation_record_index": 174,
+            "file": "1730978619_912070474.png",
+            "video_frame_index": 174
+        },
+        {
+            "annotation_record_index": 175,
+            "file": "1730978619_943344310.png",
+            "video_frame_index": 175
+        },
+        {
+            "annotation_record_index": 176,
+            "file": "1730978619_981889470.png",
+            "video_frame_index": 176
+        },
+        {
+            "annotation_record_index": 177,
+            "file": "1730978620_044626076.png",
+            "video_frame_index": 177
+        },
+        {
+            "annotation_record_index": 178,
+            "file": "1730978620_077408666.png",
+            "video_frame_index": 178
+        },
+        {
+            "annotation_record_index": 179,
+            "file": "1730978620_145122600.png",
+            "video_frame_index": 179
+        },
+        {
+            "annotation_record_index": 180,
+            "file": "1730978620_176698567.png",
+            "video_frame_index": 180
+        },
+        {
+            "annotation_record_index": 181,
+            "file": "1730978620_241543161.png",
+            "video_frame_index": 181
+        },
+        {
+            "annotation_record_index": 182,
+            "file": "1730978620_276258144.png",
+            "video_frame_index": 182
+        },
+        {
+            "annotation_record_index": 183,
+            "file": "1730978620_303775503.png",
+            "video_frame_index": 183
+        },
+        {
+            "annotation_record_index": 184,
+            "file": "1730978620_341079376.png",
+            "video_frame_index": 184
+        },
+        {
+            "annotation_record_index": 185,
+            "file": "1730978620_371515186.png",
+            "video_frame_index": 185
+        },
+        {
+            "annotation_record_index": 186,
+            "file": "1730978620_403145474.png",
+            "video_frame_index": 186
+        },
+        {
+            "annotation_record_index": 187,
+            "file": "1730978620_437941638.png",
+            "video_frame_index": 187
+        },
+        {
+            "annotation_record_index": 188,
+            "file": "1730978620_472126290.png",
+            "video_frame_index": 188
+        },
+        {
+            "annotation_record_index": 189,
+            "file": "1730978620_501312693.png",
+            "video_frame_index": 189
+        },
+        {
+            "annotation_record_index": 190,
+            "file": "1730978620_536237805.png",
+            "video_frame_index": 190
+        },
+        {
+            "annotation_record_index": 191,
+            "file": "1730978620_568023944.png",
+            "video_frame_index": 191
+        },
+        {
+            "annotation_record_index": 192,
+            "file": "1730978620_604663721.png",
+            "video_frame_index": 192
+        },
+        {
+            "annotation_record_index": 193,
+            "file": "1730978620_636688645.png",
+            "video_frame_index": 193
+        },
+        {
+            "annotation_record_index": 194,
+            "file": "1730978620_673393156.png",
+            "video_frame_index": 194
+        },
+        {
+            "annotation_record_index": 195,
+            "file": "1730978620_701953456.png",
+            "video_frame_index": 195
+        },
+        {
+            "annotation_record_index": 196,
+            "file": "1730978620_736843167.png",
+            "video_frame_index": 196
+        },
+        {
+            "annotation_record_index": 197,
+            "file": "1730978620_763685514.png",
+            "video_frame_index": 197
+        },
+        {
+            "annotation_record_index": 198,
+            "file": "1730978620_796432714.png",
+            "video_frame_index": 198
+        },
+        {
+            "annotation_record_index": 199,
+            "file": "1730978620_829904272.png",
+            "video_frame_index": 199
+        },
+        {
+            "annotation_record_index": 200,
+            "file": "1730978620_873953596.png",
+            "video_frame_index": 200
+        },
+        {
+            "annotation_record_index": 201,
+            "file": "1730978620_896354830.png",
+            "video_frame_index": 201
+        },
+        {
+            "annotation_record_index": 202,
+            "file": "1730978620_940815794.png",
+            "video_frame_index": 202
+        },
+        {
+            "annotation_record_index": 203,
+            "file": "1730978620_959902402.png",
+            "video_frame_index": 203
+        },
+        {
+            "annotation_record_index": 204,
+            "file": "1730978620_995319793.png",
+            "video_frame_index": 204
+        },
+        {
+            "annotation_record_index": 205,
+            "file": "1730978621_023516374.png",
+            "video_frame_index": 205
+        },
+        {
+            "annotation_record_index": 206,
+            "file": "1730978621_066529178.png",
+            "video_frame_index": 206
+        },
+        {
+            "annotation_record_index": 207,
+            "file": "1730978621_092107455.png",
+            "video_frame_index": 207
+        },
+        {
+            "annotation_record_index": 208,
+            "file": "1730978621_127593526.png",
+            "video_frame_index": 208
+        },
+        {
+            "annotation_record_index": 209,
+            "file": "1730978621_157687348.png",
+            "video_frame_index": 209
+        },
+        {
+            "annotation_record_index": 210,
+            "file": "1730978621_188232174.png",
+            "video_frame_index": 210
+        },
+        {
+            "annotation_record_index": 211,
+            "file": "1730978621_219648218.png",
+            "video_frame_index": 211
+        },
+        {
+            "annotation_record_index": 212,
+            "file": "1730978621_255288527.png",
+            "video_frame_index": 212
+        },
+        {
+            "annotation_record_index": 213,
+            "file": "1730978621_289008987.png",
+            "video_frame_index": 213
+        },
+        {
+            "annotation_record_index": 214,
+            "file": "1730978621_323075827.png",
+            "video_frame_index": 214
+        },
+        {
+            "annotation_record_index": 215,
+            "file": "1730978621_354993854.png",
+            "video_frame_index": 215
+        },
+        {
+            "annotation_record_index": 216,
+            "file": "1730978621_384778446.png",
+            "video_frame_index": 216
+        },
+        {
+            "annotation_record_index": 217,
+            "file": "1730978621_422685224.png",
+            "video_frame_index": 217
+        },
+        {
+            "annotation_record_index": 218,
+            "file": "1730978621_453508356.png",
+            "video_frame_index": 218
+        },
+        {
+            "annotation_record_index": 219,
+            "file": "1730978621_484881429.png",
+            "video_frame_index": 219
+        },
+        {
+            "annotation_record_index": 220,
+            "file": "1730978621_521050333.png",
+            "video_frame_index": 220
+        },
+        {
+            "annotation_record_index": 221,
+            "file": "1730978621_555629588.png",
+            "video_frame_index": 221
+        },
+        {
+            "annotation_record_index": 222,
+            "file": "1730978621_586660753.png",
+            "video_frame_index": 222
+        },
+        {
+            "annotation_record_index": 223,
+            "file": "1730978621_628763161.png",
+            "video_frame_index": 223
+        },
+        {
+            "annotation_record_index": 224,
+            "file": "1730978621_648770132.png",
+            "video_frame_index": 224
+        },
+        {
+            "annotation_record_index": 225,
+            "file": "1730978621_681069768.png",
+            "video_frame_index": 225
+        },
+        {
+            "annotation_record_index": 226,
+            "file": "1730978621_712809471.png",
+            "video_frame_index": 226
+        },
+        {
+            "annotation_record_index": 227,
+            "file": "1730978621_754250633.png",
+            "video_frame_index": 227
+        },
+        {
+            "annotation_record_index": 228,
+            "file": "1730978621_781117917.png",
+            "video_frame_index": 228
+        },
+        {
+            "annotation_record_index": 229,
+            "file": "1730978621_814971498.png",
+            "video_frame_index": 229
+        },
+        {
+            "annotation_record_index": 230,
+            "file": "1730978621_843865836.png",
+            "video_frame_index": 230
+        },
+        {
+            "annotation_record_index": 231,
+            "file": "1730978621_877569748.png",
+            "video_frame_index": 231
+        },
+        {
+            "annotation_record_index": 232,
+            "file": "1730978621_909816682.png",
+            "video_frame_index": 232
+        },
+        {
+            "annotation_record_index": 233,
+            "file": "1730978621_953753447.png",
+            "video_frame_index": 233
+        },
+        {
+            "annotation_record_index": 234,
+            "file": "1730978621_976596794.png",
+            "video_frame_index": 234
+        },
+        {
+            "annotation_record_index": 235,
+            "file": "1730978622_041763502.png",
+            "video_frame_index": 235
+        },
+        {
+            "annotation_record_index": 236,
+            "file": "1730978622_079342285.png",
+            "video_frame_index": 236
+        },
+        {
+            "annotation_record_index": 237,
+            "file": "1730978622_104161291.png",
+            "video_frame_index": 237
+        },
+        {
+            "annotation_record_index": 238,
+            "file": "1730978622_151610533.png",
+            "video_frame_index": 238
+        },
+        {
+            "annotation_record_index": 239,
+            "file": "1730978622_175172874.png",
+            "video_frame_index": 239
+        },
+        {
+            "annotation_record_index": 240,
+            "file": "1730978622_211124008.png",
+            "video_frame_index": 240
+        },
+        {
+            "annotation_record_index": 241,
+            "file": "1730978622_235710157.png",
+            "video_frame_index": 241
+        },
+        {
+            "annotation_record_index": 242,
+            "file": "1730978622_280719398.png",
+            "video_frame_index": 242
+        },
+        {
+            "annotation_record_index": 243,
+            "file": "1730978622_301642702.png",
+            "video_frame_index": 243
+        },
+        {
+            "annotation_record_index": 244,
+            "file": "1730978622_340484791.png",
+            "video_frame_index": 244
+        },
+        {
+            "annotation_record_index": 245,
+            "file": "1730978622_371244067.png",
+            "video_frame_index": 245
+        },
+        {
+            "annotation_record_index": 246,
+            "file": "1730978622_410723965.png",
+            "video_frame_index": 246
+        },
+        {
+            "annotation_record_index": 247,
+            "file": "1730978622_434850056.png",
+            "video_frame_index": 247
+        },
+        {
+            "annotation_record_index": 248,
+            "file": "1730978622_465423545.png",
+            "video_frame_index": 248
+        },
+        {
+            "annotation_record_index": 249,
+            "file": "1730978622_499944773.png",
+            "video_frame_index": 249
+        },
+        {
+            "annotation_record_index": 250,
+            "file": "1730978622_542423618.png",
+            "video_frame_index": 250
+        },
+        {
+            "annotation_record_index": 251,
+            "file": "1730978622_569231412.png",
+            "video_frame_index": 251
+        },
+        {
+            "annotation_record_index": 252,
+            "file": "1730978622_605039877.png",
+            "video_frame_index": 252
+        },
+        {
+            "annotation_record_index": 253,
+            "file": "1730978622_638599030.png",
+            "video_frame_index": 253
+        },
+        {
+            "annotation_record_index": 254,
+            "file": "1730978622_665093263.png",
+            "video_frame_index": 254
+        },
+        {
+            "annotation_record_index": 255,
+            "file": "1730978622_697743798.png",
+            "video_frame_index": 255
+        },
+        {
+            "annotation_record_index": 256,
+            "file": "1730978622_728396554.png",
+            "video_frame_index": 256
+        },
+        {
+            "annotation_record_index": 257,
+            "file": "1730978622_794597718.png",
+            "video_frame_index": 257
+        },
+        {
+            "annotation_record_index": 258,
+            "file": "1730978622_859797691.png",
+            "video_frame_index": 258
+        },
+        {
+            "annotation_record_index": 259,
+            "file": "1730978622_897625983.png",
+            "video_frame_index": 259
+        },
+        {
+            "annotation_record_index": 260,
+            "file": "1730978622_924636670.png",
+            "video_frame_index": 260
+        },
+        {
+            "annotation_record_index": 261,
+            "file": "1730978622_965797934.png",
+            "video_frame_index": 261
+        },
+        {
+            "annotation_record_index": 262,
+            "file": "1730978622_986806338.png",
+            "video_frame_index": 262
+        },
+        {
+            "annotation_record_index": 263,
+            "file": "1730978623_025759852.png",
+            "video_frame_index": 263
+        },
+        {
+            "annotation_record_index": 264,
+            "file": "1730978623_058623378.png",
+            "video_frame_index": 264
+        },
+        {
+            "annotation_record_index": 265,
+            "file": "1730978623_092298370.png",
+            "video_frame_index": 265
+        },
+        {
+            "annotation_record_index": 266,
+            "file": "1730978623_119865735.png",
+            "video_frame_index": 266
+        },
+        {
+            "annotation_record_index": 267,
+            "file": "1730978623_165996478.png",
+            "video_frame_index": 267
+        },
+        {
+            "annotation_record_index": 268,
+            "file": "1730978623_187320527.png",
+            "video_frame_index": 268
+        },
+        {
+            "annotation_record_index": 269,
+            "file": "1730978623_221925667.png",
+            "video_frame_index": 269
+        },
+        {
+            "annotation_record_index": 270,
+            "file": "1730978623_254220933.png",
+            "video_frame_index": 270
+        },
+        {
+            "annotation_record_index": 271,
+            "file": "1730978623_288694596.png",
+            "video_frame_index": 271
+        },
+        {
+            "annotation_record_index": 272,
+            "file": "1730978623_317881726.png",
+            "video_frame_index": 272
+        },
+        {
+            "annotation_record_index": 273,
+            "file": "1730978623_362510302.png",
+            "video_frame_index": 273
+        },
+        {
+            "annotation_record_index": 274,
+            "file": "1730978623_383201262.png",
+            "video_frame_index": 274
+        },
+        {
+            "annotation_record_index": 275,
+            "file": "1730978623_415806853.png",
+            "video_frame_index": 275
+        },
+        {
+            "annotation_record_index": 276,
+            "file": "1730978623_448667101.png",
+            "video_frame_index": 276
+        },
+        {
+            "annotation_record_index": 277,
+            "file": "1730978623_495420669.png",
+            "video_frame_index": 277
+        },
+        {
+            "annotation_record_index": 278,
+            "file": "1730978623_512181990.png",
+            "video_frame_index": 278
+        },
+        {
+            "annotation_record_index": 279,
+            "file": "1730978623_567237747.png",
+            "video_frame_index": 279
+        },
+        {
+            "annotation_record_index": 280,
+            "file": "1730978623_585125426.png",
+            "video_frame_index": 280
+        },
+        {
+            "annotation_record_index": 281,
+            "file": "1730978623_619497298.png",
+            "video_frame_index": 281
+        },
+        {
+            "annotation_record_index": 282,
+            "file": "1730978623_648453219.png",
+            "video_frame_index": 282
+        },
+        {
+            "annotation_record_index": 283,
+            "file": "1730978623_696897229.png",
+            "video_frame_index": 283
+        },
+        {
+            "annotation_record_index": 284,
+            "file": "1730978623_710704519.png",
+            "video_frame_index": 284
+        },
+        {
+            "annotation_record_index": 285,
+            "file": "1730978623_750787499.png",
+            "video_frame_index": 285
+        },
+        {
+            "annotation_record_index": 286,
+            "file": "1730978623_776928489.png",
+            "video_frame_index": 286
+        },
+        {
+            "annotation_record_index": 287,
+            "file": "1730978623_840925703.png",
+            "video_frame_index": 287
+        },
+        {
+            "annotation_record_index": 288,
+            "file": "1730978623_871191679.png",
+            "video_frame_index": 288
+        },
+        {
+            "annotation_record_index": 289,
+            "file": "1730978623_911065962.png",
+            "video_frame_index": 289
+        },
+        {
+            "annotation_record_index": 290,
+            "file": "1730978623_945685661.png",
+            "video_frame_index": 290
+        },
+        {
+            "annotation_record_index": 291,
+            "file": "1730978623_976687811.png",
+            "video_frame_index": 291
+        },
+        {
+            "annotation_record_index": 292,
+            "file": "1730978624_006006132.png",
+            "video_frame_index": 292
+        },
+        {
+            "annotation_record_index": 293,
+            "file": "1730978624_038307030.png",
+            "video_frame_index": 293
+        },
+        {
+            "annotation_record_index": 294,
+            "file": "1730978624_070191490.png",
+            "video_frame_index": 294
+        },
+        {
+            "annotation_record_index": 295,
+            "file": "1730978624_105497566.png",
+            "video_frame_index": 295
+        },
+        {
+            "annotation_record_index": 296,
+            "file": "1730978624_138067576.png",
+            "video_frame_index": 296
+        },
+        {
+            "annotation_record_index": 297,
+            "file": "1730978624_183829693.png",
+            "video_frame_index": 297
+        },
+        {
+            "annotation_record_index": 298,
+            "file": "1730978624_200781725.png",
+            "video_frame_index": 298
+        },
+        {
+            "annotation_record_index": 299,
+            "file": "1730978624_233390528.png",
+            "video_frame_index": 299
+        },
+        {
+            "annotation_record_index": 300,
+            "file": "1730978624_265173165.png",
+            "video_frame_index": 300
+        },
+        {
+            "annotation_record_index": 301,
+            "file": "1730978624_301901418.png",
+            "video_frame_index": 301
+        },
+        {
+            "annotation_record_index": 302,
+            "file": "1730978624_332451495.png",
+            "video_frame_index": 302
+        },
+        {
+            "annotation_record_index": 303,
+            "file": "1730978624_369332586.png",
+            "video_frame_index": 303
+        },
+        {
+            "annotation_record_index": 304,
+            "file": "1730978624_396510892.png",
+            "video_frame_index": 304
+        },
+        {
+            "annotation_record_index": 305,
+            "file": "1730978624_428238029.png",
+            "video_frame_index": 305
+        },
+        {
+            "annotation_record_index": 306,
+            "file": "1730978624_465003760.png",
+            "video_frame_index": 306
+        },
+        {
+            "annotation_record_index": 307,
+            "file": "1730978624_499239239.png",
+            "video_frame_index": 307
+        },
+        {
+            "annotation_record_index": 308,
+            "file": "1730978624_531209577.png",
+            "video_frame_index": 308
+        },
+        {
+            "annotation_record_index": 309,
+            "file": "1730978624_567208573.png",
+            "video_frame_index": 309
+        },
+        {
+            "annotation_record_index": 310,
+            "file": "1730978624_599853531.png",
+            "video_frame_index": 310
+        },
+        {
+            "annotation_record_index": 311,
+            "file": "1730978624_629666662.png",
+            "video_frame_index": 311
+        },
+        {
+            "annotation_record_index": 312,
+            "file": "1730978624_665469508.png",
+            "video_frame_index": 312
+        },
+        {
+            "annotation_record_index": 313,
+            "file": "1730978624_693577660.png",
+            "video_frame_index": 313
+        },
+        {
+            "annotation_record_index": 314,
+            "file": "1730978624_725547188.png",
+            "video_frame_index": 314
+        },
+        {
+            "annotation_record_index": 315,
+            "file": "1730978624_769263697.png",
+            "video_frame_index": 315
+        },
+        {
+            "annotation_record_index": 316,
+            "file": "1730978624_788737158.png",
+            "video_frame_index": 316
+        },
+        {
+            "annotation_record_index": 317,
+            "file": "1730978624_823765492.png",
+            "video_frame_index": 317
+        },
+        {
+            "annotation_record_index": 318,
+            "file": "1730978624_856057079.png",
+            "video_frame_index": 318
+        },
+        {
+            "annotation_record_index": 319,
+            "file": "1730978624_891318054.png",
+            "video_frame_index": 319
+        },
+        {
+            "annotation_record_index": 320,
+            "file": "1730978624_920270636.png",
+            "video_frame_index": 320
+        },
+        {
+            "annotation_record_index": 321,
+            "file": "1730978624_959630436.png",
+            "video_frame_index": 321
+        },
+        {
+            "annotation_record_index": 322,
+            "file": "1730978624_987093882.png",
+            "video_frame_index": 322
+        },
+        {
+            "annotation_record_index": 323,
+            "file": "1730978625_023340403.png",
+            "video_frame_index": 323
+        },
+        {
+            "annotation_record_index": 324,
+            "file": "1730978625_056515777.png",
+            "video_frame_index": 324
+        },
+        {
+            "annotation_record_index": 325,
+            "file": "1730978625_095223121.png",
+            "video_frame_index": 325
+        },
+        {
+            "annotation_record_index": 326,
+            "file": "1730978625_119859851.png",
+            "video_frame_index": 326
+        },
+        {
+            "annotation_record_index": 327,
+            "file": "1730978625_152404365.png",
+            "video_frame_index": 327
+        },
+        {
+            "annotation_record_index": 328,
+            "file": "1730978625_183739162.png",
+            "video_frame_index": 328
+        },
+        {
+            "annotation_record_index": 329,
+            "file": "1730978625_221027240.png",
+            "video_frame_index": 329
+        },
+        {
+            "annotation_record_index": 330,
+            "file": "1730978625_251305112.png",
+            "video_frame_index": 330
+        },
+        {
+            "annotation_record_index": 331,
+            "file": "1730978625_279435415.png",
+            "video_frame_index": 331
+        },
+        {
+            "annotation_record_index": 332,
+            "file": "1730978625_314326852.png",
+            "video_frame_index": 332
+        },
+        {
+            "annotation_record_index": 333,
+            "file": "1730978625_352717320.png",
+            "video_frame_index": 333
+        },
+        {
+            "annotation_record_index": 334,
+            "file": "1730978625_391837909.png",
+            "video_frame_index": 334
+        },
+        {
+            "annotation_record_index": 335,
+            "file": "1730978625_411858306.png",
+            "video_frame_index": 335
+        },
+        {
+            "annotation_record_index": 336,
+            "file": "1730978625_444135698.png",
+            "video_frame_index": 336
+        },
+        {
+            "annotation_record_index": 337,
+            "file": "1730978625_486894333.png",
+            "video_frame_index": 337
+        },
+        {
+            "annotation_record_index": 338,
+            "file": "1730978625_515579535.png",
+            "video_frame_index": 338
+        },
+        {
+            "annotation_record_index": 339,
+            "file": "1730978625_543196254.png",
+            "video_frame_index": 339
+        },
+        {
+            "annotation_record_index": 340,
+            "file": "1730978625_577171732.png",
+            "video_frame_index": 340
+        },
+        {
+            "annotation_record_index": 341,
+            "file": "1730978625_644687301.png",
+            "video_frame_index": 341
+        },
+        {
+            "annotation_record_index": 342,
+            "file": "1730978625_671851827.png",
+            "video_frame_index": 342
+        },
+        {
+            "annotation_record_index": 343,
+            "file": "1730978625_713049432.png",
+            "video_frame_index": 343
+        },
+        {
+            "annotation_record_index": 344,
+            "file": "1730978625_739151386.png",
+            "video_frame_index": 344
+        },
+        {
+            "annotation_record_index": 345,
+            "file": "1730978625_776081730.png",
+            "video_frame_index": 345
+        },
+        {
+            "annotation_record_index": 346,
+            "file": "1730978625_838637113.png",
+            "video_frame_index": 346
+        },
+        {
+            "annotation_record_index": 347,
+            "file": "1730978625_872188451.png",
+            "video_frame_index": 347
+        },
+        {
+            "annotation_record_index": 348,
+            "file": "1730978625_907540726.png",
+            "video_frame_index": 348
+        },
+        {
+            "annotation_record_index": 349,
+            "file": "1730978625_985506449.png",
+            "video_frame_index": 349
+        },
+        {
+            "annotation_record_index": 350,
+            "file": "1730978626_004134860.png",
+            "video_frame_index": 350
+        },
+        {
+            "annotation_record_index": 351,
+            "file": "1730978626_048157883.png",
+            "video_frame_index": 351
+        },
+        {
+            "annotation_record_index": 352,
+            "file": "1730978626_102786658.png",
+            "video_frame_index": 352
+        },
+        {
+            "annotation_record_index": 353,
+            "file": "1730978626_131933815.png",
+            "video_frame_index": 353
+        },
+        {
+            "annotation_record_index": 354,
+            "file": "1730978626_178532523.png",
+            "video_frame_index": 354
+        },
+        {
+            "annotation_record_index": 355,
+            "file": "1730978626_195791104.png",
+            "video_frame_index": 355
+        },
+        {
+            "annotation_record_index": 356,
+            "file": "1730978626_233975272.png",
+            "video_frame_index": 356
+        },
+        {
+            "annotation_record_index": 357,
+            "file": "1730978626_267497376.png",
+            "video_frame_index": 357
+        },
+        {
+            "annotation_record_index": 358,
+            "file": "1730978626_302350916.png",
+            "video_frame_index": 358
+        },
+        {
+            "annotation_record_index": 359,
+            "file": "1730978626_329030915.png",
+            "video_frame_index": 359
+        },
+        {
+            "annotation_record_index": 360,
+            "file": "1730978626_359834777.png",
+            "video_frame_index": 360
+        },
+        {
+            "annotation_record_index": 361,
+            "file": "1730978626_398940522.png",
+            "video_frame_index": 361
+        },
+        {
+            "annotation_record_index": 362,
+            "file": "1730978626_427799767.png",
+            "video_frame_index": 362
+        },
+        {
+            "annotation_record_index": 363,
+            "file": "1730978626_462339562.png",
+            "video_frame_index": 363
+        },
+        {
+            "annotation_record_index": 364,
+            "file": "1730978626_496133941.png",
+            "video_frame_index": 364
+        },
+        {
+            "annotation_record_index": 365,
+            "file": "1730978626_527862337.png",
+            "video_frame_index": 365
+        },
+        {
+            "annotation_record_index": 366,
+            "file": "1730978626_560521896.png",
+            "video_frame_index": 366
+        },
+        {
+            "annotation_record_index": 367,
+            "file": "1730978626_594031494.png",
+            "video_frame_index": 367
+        },
+        {
+            "annotation_record_index": 368,
+            "file": "1730978626_626626289.png",
+            "video_frame_index": 368
+        },
+        {
+            "annotation_record_index": 369,
+            "file": "1730978626_660245626.png",
+            "video_frame_index": 369
+        },
+        {
+            "annotation_record_index": 370,
+            "file": "1730978626_689758571.png",
+            "video_frame_index": 370
+        },
+        {
+            "annotation_record_index": 371,
+            "file": "1730978626_721552601.png",
+            "video_frame_index": 371
+        },
+        {
+            "annotation_record_index": 372,
+            "file": "1730978626_756964170.png",
+            "video_frame_index": 372
+        },
+        {
+            "annotation_record_index": 373,
+            "file": "1730978626_796099811.png",
+            "video_frame_index": 373
+        },
+        {
+            "annotation_record_index": 374,
+            "file": "1730978626_864471392.png",
+            "video_frame_index": 374
+        },
+        {
+            "annotation_record_index": 375,
+            "file": "1730978626_882873781.png",
+            "video_frame_index": 375
+        },
+        {
+            "annotation_record_index": 376,
+            "file": "1730978626_915131174.png",
+            "video_frame_index": 376
+        },
+        {
+            "annotation_record_index": 377,
+            "file": "1730978626_953328853.png",
+            "video_frame_index": 377
+        },
+        {
+            "annotation_record_index": 378,
+            "file": "1730978626_985582902.png",
+            "video_frame_index": 378
+        },
+        {
+            "annotation_record_index": 379,
+            "file": "1730978627_016697136.png",
+            "video_frame_index": 379
+        },
+        {
+            "annotation_record_index": 380,
+            "file": "1730978627_060447040.png",
+            "video_frame_index": 380
+        },
+        {
+            "annotation_record_index": 381,
+            "file": "1730978627_079499348.png",
+            "video_frame_index": 381
+        },
+        {
+            "annotation_record_index": 382,
+            "file": "1730978627_115552269.png",
+            "video_frame_index": 382
+        },
+        {
+            "annotation_record_index": 383,
+            "file": "1730978627_152482363.png",
+            "video_frame_index": 383
+        },
+        {
+            "annotation_record_index": 384,
+            "file": "1730978627_191830634.png",
+            "video_frame_index": 384
+        },
+        {
+            "annotation_record_index": 385,
+            "file": "1730978627_211821611.png",
+            "video_frame_index": 385
+        },
+        {
+            "annotation_record_index": 386,
+            "file": "1730978627_254917717.png",
+            "video_frame_index": 386
+        },
+        {
+            "annotation_record_index": 387,
+            "file": "1730978627_282706452.png",
+            "video_frame_index": 387
+        },
+        {
+            "annotation_record_index": 388,
+            "file": "1730978627_312444306.png",
+            "video_frame_index": 388
+        },
+        {
+            "annotation_record_index": 389,
+            "file": "1730978627_387779904.png",
+            "video_frame_index": 389
+        },
+        {
+            "annotation_record_index": 390,
+            "file": "1730978627_408517357.png",
+            "video_frame_index": 390
+        },
+        {
+            "annotation_record_index": 391,
+            "file": "1730978627_444228242.png",
+            "video_frame_index": 391
+        },
+        {
+            "annotation_record_index": 392,
+            "file": "1730978627_475993901.png",
+            "video_frame_index": 392
+        },
+        {
+            "annotation_record_index": 393,
+            "file": "1730978627_542777499.png",
+            "video_frame_index": 393
+        },
+        {
+            "annotation_record_index": 394,
+            "file": "1730978627_586824259.png",
+            "video_frame_index": 394
+        },
+        {
+            "annotation_record_index": 395,
+            "file": "1730978627_608767673.png",
+            "video_frame_index": 395
+        },
+        {
+            "annotation_record_index": 396,
+            "file": "1730978627_644655545.png",
+            "video_frame_index": 396
+        },
+        {
+            "annotation_record_index": 397,
+            "file": "1730978627_672506649.png",
+            "video_frame_index": 397
+        },
+        {
+            "annotation_record_index": 398,
+            "file": "1730978627_705239807.png",
+            "video_frame_index": 398
+        },
+        {
+            "annotation_record_index": 399,
+            "file": "1730978627_736889715.png",
+            "video_frame_index": 399
+        },
+        {
+            "annotation_record_index": 400,
+            "file": "1730978627_770842371.png",
+            "video_frame_index": 400
+        },
+        {
+            "annotation_record_index": 401,
+            "file": "1730978627_808432695.png",
+            "video_frame_index": 401
+        },
+        {
+            "annotation_record_index": 402,
+            "file": "1730978627_837995354.png",
+            "video_frame_index": 402
+        },
+        {
+            "annotation_record_index": 403,
+            "file": "1730978627_876890133.png",
+            "video_frame_index": 403
+        },
+        {
+            "annotation_record_index": 404,
+            "file": "1730978627_905313652.png",
+            "video_frame_index": 404
+        },
+        {
+            "annotation_record_index": 405,
+            "file": "1730978627_935496585.png",
+            "video_frame_index": 405
+        },
+        {
+            "annotation_record_index": 406,
+            "file": "1730978627_964637341.png",
+            "video_frame_index": 406
+        },
+        {
+            "annotation_record_index": 407,
+            "file": "1730978628_004460994.png",
+            "video_frame_index": 407
+        },
+        {
+            "annotation_record_index": 408,
+            "file": "1730978628_033839447.png",
+            "video_frame_index": 408
+        },
+        {
+            "annotation_record_index": 409,
+            "file": "1730978628_069305876.png",
+            "video_frame_index": 409
+        },
+        {
+            "annotation_record_index": 410,
+            "file": "1730978628_096233944.png",
+            "video_frame_index": 410
+        },
+        {
+            "annotation_record_index": 411,
+            "file": "1730978628_129259511.png",
+            "video_frame_index": 411
+        },
+        {
+            "annotation_record_index": 412,
+            "file": "1730978628_168161530.png",
+            "video_frame_index": 412
+        },
+        {
+            "annotation_record_index": 413,
+            "file": "1730978628_202070513.png",
+            "video_frame_index": 413
+        },
+        {
+            "annotation_record_index": 414,
+            "file": "1730978628_228442997.png",
+            "video_frame_index": 414
+        },
+        {
+            "annotation_record_index": 415,
+            "file": "1730978628_267428857.png",
+            "video_frame_index": 415
+        },
+        {
+            "annotation_record_index": 416,
+            "file": "1730978628_291811217.png",
+            "video_frame_index": 416
+        },
+        {
+            "annotation_record_index": 417,
+            "file": "1730978628_327863421.png",
+            "video_frame_index": 417
+        },
+        {
+            "annotation_record_index": 418,
+            "file": "1730978628_361692988.png",
+            "video_frame_index": 418
+        },
+        {
+            "annotation_record_index": 419,
+            "file": "1730978628_399336905.png",
+            "video_frame_index": 419
+        },
+        {
+            "annotation_record_index": 420,
+            "file": "1730978628_423522834.png",
+            "video_frame_index": 420
+        },
+        {
+            "annotation_record_index": 421,
+            "file": "1730978628_465754076.png",
+            "video_frame_index": 421
+        },
+        {
+            "annotation_record_index": 422,
+            "file": "1730978628_490958461.png",
+            "video_frame_index": 422
+        },
+        {
+            "annotation_record_index": 423,
+            "file": "1730978628_525994274.png",
+            "video_frame_index": 423
+        },
+        {
+            "annotation_record_index": 424,
+            "file": "1730978628_557944131.png",
+            "video_frame_index": 424
+        },
+        {
+            "annotation_record_index": 425,
+            "file": "1730978628_604523789.png",
+            "video_frame_index": 425
+        },
+        {
+            "annotation_record_index": 426,
+            "file": "1730978628_619437671.png",
+            "video_frame_index": 426
+        },
+        {
+            "annotation_record_index": 427,
+            "file": "1730978628_662720860.png",
+            "video_frame_index": 427
+        },
+        {
+            "annotation_record_index": 428,
+            "file": "1730978628_683707107.png",
+            "video_frame_index": 428
+        },
+        {
+            "annotation_record_index": 429,
+            "file": "1730978628_722095047.png",
+            "video_frame_index": 429
+        },
+        {
+            "annotation_record_index": 430,
+            "file": "1730978628_751877758.png",
+            "video_frame_index": 430
+        },
+        {
+            "annotation_record_index": 431,
+            "file": "1730978628_789896788.png",
+            "video_frame_index": 431
+        },
+        {
+            "annotation_record_index": 432,
+            "file": "1730978628_817235802.png",
+            "video_frame_index": 432
+        },
+        {
+            "annotation_record_index": 433,
+            "file": "1730978628_872936905.png",
+            "video_frame_index": 433
+        },
+        {
+            "annotation_record_index": 434,
+            "file": "1730978628_916891354.png",
+            "video_frame_index": 434
+        },
+        {
+            "annotation_record_index": 435,
+            "file": "1730978628_949078011.png",
+            "video_frame_index": 435
+        },
+        {
+            "annotation_record_index": 436,
+            "file": "1730978628_991829779.png",
+            "video_frame_index": 436
+        },
+        {
+            "annotation_record_index": 437,
+            "file": "1730978629_013131722.png",
+            "video_frame_index": 437
+        },
+        {
+            "annotation_record_index": 438,
+            "file": "1730978629_050303847.png",
+            "video_frame_index": 438
+        },
+        {
+            "annotation_record_index": 439,
+            "file": "1730978629_083026731.png",
+            "video_frame_index": 439
+        },
+        {
+            "annotation_record_index": 440,
+            "file": "1730978629_115111240.png",
+            "video_frame_index": 440
+        },
+        {
+            "annotation_record_index": 441,
+            "file": "1730978629_144988022.png",
+            "video_frame_index": 441
+        },
+        {
+            "annotation_record_index": 442,
+            "file": "1730978629_177112775.png",
+            "video_frame_index": 442
+        },
+        {
+            "annotation_record_index": 443,
+            "file": "1730978629_208630865.png",
+            "video_frame_index": 443
+        },
+        {
+            "annotation_record_index": 444,
+            "file": "1730978629_243950057.png",
+            "video_frame_index": 444
+        },
+        {
+            "annotation_record_index": 445,
+            "file": "1730978629_283022415.png",
+            "video_frame_index": 445
+        },
+        {
+            "annotation_record_index": 446,
+            "file": "1730978629_340752223.png",
+            "video_frame_index": 446
+        },
+        {
+            "annotation_record_index": 447,
+            "file": "1730978629_371346306.png",
+            "video_frame_index": 447
+        },
+        {
+            "annotation_record_index": 448,
+            "file": "1730978629_443452387.png",
+            "video_frame_index": 448
+        },
+        {
+            "annotation_record_index": 449,
+            "file": "1730978629_478310767.png",
+            "video_frame_index": 449
+        },
+        {
+            "annotation_record_index": 450,
+            "file": "1730978629_504092958.png",
+            "video_frame_index": 450
+        },
+        {
+            "annotation_record_index": 451,
+            "file": "1730978629_542459337.png",
+            "video_frame_index": 451
+        },
+        {
+            "annotation_record_index": 452,
+            "file": "1730978629_570951247.png",
+            "video_frame_index": 452
+        },
+        {
+            "annotation_record_index": 453,
+            "file": "1730978629_608056538.png",
+            "video_frame_index": 453
+        },
+        {
+            "annotation_record_index": 454,
+            "file": "1730978629_637750475.png",
+            "video_frame_index": 454
+        },
+        {
+            "annotation_record_index": 455,
+            "file": "1730978629_673544696.png",
+            "video_frame_index": 455
+        },
+        {
+            "annotation_record_index": 456,
+            "file": "1730978629_735693672.png",
+            "video_frame_index": 456
+        },
+        {
+            "annotation_record_index": 457,
+            "file": "1730978629_766765115.png",
+            "video_frame_index": 457
+        },
+        {
+            "annotation_record_index": 458,
+            "file": "1730978629_809649106.png",
+            "video_frame_index": 458
+        },
+        {
+            "annotation_record_index": 459,
+            "file": "1730978629_832500626.png",
+            "video_frame_index": 459
+        },
+        {
+            "annotation_record_index": 460,
+            "file": "1730978629_867494375.png",
+            "video_frame_index": 460
+        },
+        {
+            "annotation_record_index": 461,
+            "file": "1730978629_899423962.png",
+            "video_frame_index": 461
+        },
+        {
+            "annotation_record_index": 462,
+            "file": "1730978629_930024220.png",
+            "video_frame_index": 462
+        },
+        {
+            "annotation_record_index": 463,
+            "file": "1730978629_964348879.png",
+            "video_frame_index": 463
+        },
+        {
+            "annotation_record_index": 464,
+            "file": "1730978630_033224672.png",
+            "video_frame_index": 464
+        },
+        {
+            "annotation_record_index": 465,
+            "file": "1730978630_063936446.png",
+            "video_frame_index": 465
+        },
+        {
+            "annotation_record_index": 466,
+            "file": "1730978630_090813125.png",
+            "video_frame_index": 466
+        },
+        {
+            "annotation_record_index": 467,
+            "file": "1730978630_124079102.png",
+            "video_frame_index": 467
+        },
+        {
+            "annotation_record_index": 468,
+            "file": "1730978630_161527320.png",
+            "video_frame_index": 468
+        },
+        {
+            "annotation_record_index": 469,
+            "file": "1730978630_193818508.png",
+            "video_frame_index": 469
+        },
+        {
+            "annotation_record_index": 470,
+            "file": "1730978630_224243013.png",
+            "video_frame_index": 470
+        },
+        {
+            "annotation_record_index": 471,
+            "file": "1730978630_262929176.png",
+            "video_frame_index": 471
+        },
+        {
+            "annotation_record_index": 472,
+            "file": "1730978630_297216685.png",
+            "video_frame_index": 472
+        },
+        {
+            "annotation_record_index": 473,
+            "file": "1730978630_356484226.png",
+            "video_frame_index": 473
+        },
+        {
+            "annotation_record_index": 474,
+            "file": "1730978630_389511493.png",
+            "video_frame_index": 474
+        },
+        {
+            "annotation_record_index": 475,
+            "file": "1730978630_423703651.png",
+            "video_frame_index": 475
+        },
+        {
+            "annotation_record_index": 476,
+            "file": "1730978630_455941020.png",
+            "video_frame_index": 476
+        },
+        {
+            "annotation_record_index": 477,
+            "file": "1730978630_491074450.png",
+            "video_frame_index": 477
+        },
+        {
+            "annotation_record_index": 478,
+            "file": "1730978630_519070290.png",
+            "video_frame_index": 478
+        },
+        {
+            "annotation_record_index": 479,
+            "file": "1730978630_554317782.png",
+            "video_frame_index": 479
+        },
+        {
+            "annotation_record_index": 480,
+            "file": "1730978630_583150498.png",
+            "video_frame_index": 480
+        },
+        {
+            "annotation_record_index": 481,
+            "file": "1730978630_621202950.png",
+            "video_frame_index": 481
+        },
+        {
+            "annotation_record_index": 482,
+            "file": "1730978630_653614067.png",
+            "video_frame_index": 482
+        },
+        {
+            "annotation_record_index": 483,
+            "file": "1730978630_687072378.png",
+            "video_frame_index": 483
+        },
+        {
+            "annotation_record_index": 484,
+            "file": "1730978630_715123496.png",
+            "video_frame_index": 484
+        },
+        {
+            "annotation_record_index": 485,
+            "file": "1730978630_747756539.png",
+            "video_frame_index": 485
+        },
+        {
+            "annotation_record_index": 486,
+            "file": "1730978630_779894458.png",
+            "video_frame_index": 486
+        },
+        {
+            "annotation_record_index": 487,
+            "file": "1730978630_817247371.png",
+            "video_frame_index": 487
+        },
+        {
+            "annotation_record_index": 488,
+            "file": "1730978630_851391852.png",
+            "video_frame_index": 488
+        },
+        {
+            "annotation_record_index": 489,
+            "file": "1730978630_883452651.png",
+            "video_frame_index": 489
+        },
+        {
+            "annotation_record_index": 490,
+            "file": "1730978630_911374558.png",
+            "video_frame_index": 490
+        },
+        {
+            "annotation_record_index": 491,
+            "file": "1730978630_980987710.png",
+            "video_frame_index": 491
+        },
+        {
+            "annotation_record_index": 492,
+            "file": "1730978631_015489311.png",
+            "video_frame_index": 492
+        },
+        {
+            "annotation_record_index": 493,
+            "file": "1730978631_044239425.png",
+            "video_frame_index": 493
+        },
+        {
+            "annotation_record_index": 494,
+            "file": "1730978631_081589884.png",
+            "video_frame_index": 494
+        },
+        {
+            "annotation_record_index": 495,
+            "file": "1730978631_141400129.png",
+            "video_frame_index": 495
+        },
+        {
+            "annotation_record_index": 496,
+            "file": "1730978631_175721233.png",
+            "video_frame_index": 496
+        },
+        {
+            "annotation_record_index": 497,
+            "file": "1730978631_215242553.png",
+            "video_frame_index": 497
+        },
+        {
+            "annotation_record_index": 498,
+            "file": "1730978631_239819121.png",
+            "video_frame_index": 498
+        },
+        {
+            "annotation_record_index": 499,
+            "file": "1730978631_274519446.png",
+            "video_frame_index": 499
+        },
+        {
+            "annotation_record_index": 500,
+            "file": "1730978631_308814596.png",
+            "video_frame_index": 500
+        },
+        {
+            "annotation_record_index": 501,
+            "file": "1730978631_351044225.png",
+            "video_frame_index": 501
+        },
+        {
+            "annotation_record_index": 502,
+            "file": "1730978631_372651580.png",
+            "video_frame_index": 502
+        },
+        {
+            "annotation_record_index": 503,
+            "file": "1730978631_410763067.png",
+            "video_frame_index": 503
+        },
+        {
+            "annotation_record_index": 504,
+            "file": "1730978631_435775160.png",
+            "video_frame_index": 504
+        },
+        {
+            "annotation_record_index": 505,
+            "file": "1730978631_477071681.png",
+            "video_frame_index": 505
+        },
+        {
+            "annotation_record_index": 506,
+            "file": "1730978631_503218642.png",
+            "video_frame_index": 506
+        },
+        {
+            "annotation_record_index": 507,
+            "file": "1730978631_535033092.png",
+            "video_frame_index": 507
+        },
+        {
+            "annotation_record_index": 508,
+            "file": "1730978631_567052682.png",
+            "video_frame_index": 508
+        },
+        {
+            "annotation_record_index": 509,
+            "file": "1730978631_600114994.png",
+            "video_frame_index": 509
+        },
+        {
+            "annotation_record_index": 510,
+            "file": "1730978631_633442208.png",
+            "video_frame_index": 510
+        },
+        {
+            "annotation_record_index": 511,
+            "file": "1730978631_668376270.png",
+            "video_frame_index": 511
+        },
+        {
+            "annotation_record_index": 512,
+            "file": "1730978631_704284484.png",
+            "video_frame_index": 512
+        },
+        {
+            "annotation_record_index": 513,
+            "file": "1730978631_765652942.png",
+            "video_frame_index": 513
+        },
+        {
+            "annotation_record_index": 514,
+            "file": "1730978631_801089334.png",
+            "video_frame_index": 514
+        },
+        {
+            "annotation_record_index": 515,
+            "file": "1730978631_830554739.png",
+            "video_frame_index": 515
+        },
+        {
+            "annotation_record_index": 516,
+            "file": "1730978631_865405339.png",
+            "video_frame_index": 516
+        },
+        {
+            "annotation_record_index": 517,
+            "file": "1730978631_896870935.png",
+            "video_frame_index": 517
+        },
+        {
+            "annotation_record_index": 518,
+            "file": "1730978631_927323350.png",
+            "video_frame_index": 518
+        },
+        {
+            "annotation_record_index": 519,
+            "file": "1730978631_961182335.png",
+            "video_frame_index": 519
+        },
+        {
+            "annotation_record_index": 520,
+            "file": "1730978631_991545346.png",
+            "video_frame_index": 520
+        },
+        {
+            "annotation_record_index": 521,
+            "file": "1730978632_027325729.png",
+            "video_frame_index": 521
+        },
+        {
+            "annotation_record_index": 522,
+            "file": "1730978632_059693860.png",
+            "video_frame_index": 522
+        },
+        {
+            "annotation_record_index": 523,
+            "file": "1730978632_093455529.png",
+            "video_frame_index": 523
+        },
+        {
+            "annotation_record_index": 524,
+            "file": "1730978632_123368820.png",
+            "video_frame_index": 524
+        },
+        {
+            "annotation_record_index": 525,
+            "file": "1730978632_160329585.png",
+            "video_frame_index": 525
+        },
+        {
+            "annotation_record_index": 526,
+            "file": "1730978632_193007772.png",
+            "video_frame_index": 526
+        },
+        {
+            "annotation_record_index": 527,
+            "file": "1730978632_227780505.png",
+            "video_frame_index": 527
+        },
+        {
+            "annotation_record_index": 528,
+            "file": "1730978632_257322232.png",
+            "video_frame_index": 528
+        },
+        {
+            "annotation_record_index": 529,
+            "file": "1730978632_293500712.png",
+            "video_frame_index": 529
+        },
+        {
+            "annotation_record_index": 530,
+            "file": "1730978632_321758336.png",
+            "video_frame_index": 530
+        },
+        {
+            "annotation_record_index": 531,
+            "file": "1730978632_353274651.png",
+            "video_frame_index": 531
+        },
+        {
+            "annotation_record_index": 532,
+            "file": "1730978632_387015726.png",
+            "video_frame_index": 532
+        },
+        {
+            "annotation_record_index": 533,
+            "file": "1730978632_425494065.png",
+            "video_frame_index": 533
+        },
+        {
+            "annotation_record_index": 534,
+            "file": "1730978632_451958866.png",
+            "video_frame_index": 534
+        },
+        {
+            "annotation_record_index": 535,
+            "file": "1730978632_491963189.png",
+            "video_frame_index": 535
+        },
+        {
+            "annotation_record_index": 536,
+            "file": "1730978632_515170860.png",
+            "video_frame_index": 536
+        },
+        {
+            "annotation_record_index": 537,
+            "file": "1730978632_548421845.png",
+            "video_frame_index": 537
+        },
+        {
+            "annotation_record_index": 538,
+            "file": "1730978632_579939491.png",
+            "video_frame_index": 538
+        },
+        {
+            "annotation_record_index": 539,
+            "file": "1730978632_624077036.png",
+            "video_frame_index": 539
+        },
+        {
+            "annotation_record_index": 540,
+            "file": "1730978632_647863653.png",
+            "video_frame_index": 540
+        },
+        {
+            "annotation_record_index": 541,
+            "file": "1730978632_681845375.png",
+            "video_frame_index": 541
+        },
+        {
+            "annotation_record_index": 542,
+            "file": "1730978632_711303972.png",
+            "video_frame_index": 542
+        },
+        {
+            "annotation_record_index": 543,
+            "file": "1730978632_746206985.png",
+            "video_frame_index": 543
+        },
+        {
+            "annotation_record_index": 544,
+            "file": "1730978632_777024692.png",
+            "video_frame_index": 544
+        },
+        {
+            "annotation_record_index": 545,
+            "file": "1730978632_817379082.png",
+            "video_frame_index": 545
+        },
+        {
+            "annotation_record_index": 546,
+            "file": "1730978632_844252203.png",
+            "video_frame_index": 546
+        },
+        {
+            "annotation_record_index": 547,
+            "file": "1730978632_876340089.png",
+            "video_frame_index": 547
+        },
+        {
+            "annotation_record_index": 548,
+            "file": "1730978632_940796409.png",
+            "video_frame_index": 548
+        },
+        {
+            "annotation_record_index": 549,
+            "file": "1730978632_978049485.png",
+            "video_frame_index": 549
+        },
+        {
+            "annotation_record_index": 550,
+            "file": "1730978633_039078221.png",
+            "video_frame_index": 550
+        },
+        {
+            "annotation_record_index": 551,
+            "file": "1730978633_071366661.png",
+            "video_frame_index": 551
+        },
+        {
+            "annotation_record_index": 552,
+            "file": "1730978633_106083653.png",
+            "video_frame_index": 552
+        },
+        {
+            "annotation_record_index": 553,
+            "file": "1730978633_139900172.png",
+            "video_frame_index": 553
+        },
+        {
+            "annotation_record_index": 554,
+            "file": "1730978633_171639816.png",
+            "video_frame_index": 554
+        },
+        {
+            "annotation_record_index": 555,
+            "file": "1730978633_204950752.png",
+            "video_frame_index": 555
+        },
+        {
+            "annotation_record_index": 556,
+            "file": "1730978633_237102237.png",
+            "video_frame_index": 556
+        },
+        {
+            "annotation_record_index": 557,
+            "file": "1730978633_268396480.png",
+            "video_frame_index": 557
+        },
+        {
+            "annotation_record_index": 558,
+            "file": "1730978633_309743076.png",
+            "video_frame_index": 558
+        },
+        {
+            "annotation_record_index": 559,
+            "file": "1730978633_336579150.png",
+            "video_frame_index": 559
+        },
+        {
+            "annotation_record_index": 560,
+            "file": "1730978633_370856703.png",
+            "video_frame_index": 560
+        },
+        {
+            "annotation_record_index": 561,
+            "file": "1730978633_400469370.png",
+            "video_frame_index": 561
+        },
+        {
+            "annotation_record_index": 562,
+            "file": "1730978633_440603090.png",
+            "video_frame_index": 562
+        },
+        {
+            "annotation_record_index": 563,
+            "file": "1730978633_468573458.png",
+            "video_frame_index": 563
+        },
+        {
+            "annotation_record_index": 564,
+            "file": "1730978633_503435616.png",
+            "video_frame_index": 564
+        },
+        {
+            "annotation_record_index": 565,
+            "file": "1730978633_533526156.png",
+            "video_frame_index": 565
+        },
+        {
+            "annotation_record_index": 566,
+            "file": "1730978633_570560518.png",
+            "video_frame_index": 566
+        },
+        {
+            "annotation_record_index": 567,
+            "file": "1730978633_595763208.png",
+            "video_frame_index": 567
+        },
+        {
+            "annotation_record_index": 568,
+            "file": "1730978633_636098550.png",
+            "video_frame_index": 568
+        },
+        {
+            "annotation_record_index": 569,
+            "file": "1730978633_665303367.png",
+            "video_frame_index": 569
+        },
+        {
+            "annotation_record_index": 570,
+            "file": "1730978633_701521090.png",
+            "video_frame_index": 570
+        },
+        {
+            "annotation_record_index": 571,
+            "file": "1730978633_728416328.png",
+            "video_frame_index": 571
+        },
+        {
+            "annotation_record_index": 572,
+            "file": "1730978633_765655869.png",
+            "video_frame_index": 572
+        },
+        {
+            "annotation_record_index": 573,
+            "file": "1730978633_794283115.png",
+            "video_frame_index": 573
+        },
+        {
+            "annotation_record_index": 574,
+            "file": "1730978633_834415910.png",
+            "video_frame_index": 574
+        },
+        {
+            "annotation_record_index": 575,
+            "file": "1730978633_862289261.png",
+            "video_frame_index": 575
+        },
+        {
+            "annotation_record_index": 576,
+            "file": "1730978633_896382682.png",
+            "video_frame_index": 576
+        },
+        {
+            "annotation_record_index": 577,
+            "file": "1730978633_926768970.png",
+            "video_frame_index": 577
+        },
+        {
+            "annotation_record_index": 578,
+            "file": "1730978633_961022191.png",
+            "video_frame_index": 578
+        },
+        {
+            "annotation_record_index": 579,
+            "file": "1730978633_988287591.png",
+            "video_frame_index": 579
+        },
+        {
+            "annotation_record_index": 580,
+            "file": "1730978634_035383905.png",
+            "video_frame_index": 580
+        },
+        {
+            "annotation_record_index": 581,
+            "file": "1730978634_056031448.png",
+            "video_frame_index": 581
+        },
+        {
+            "annotation_record_index": 582,
+            "file": "1730978634_102077039.png",
+            "video_frame_index": 582
+        },
+        {
+            "annotation_record_index": 583,
+            "file": "1730978634_120651401.png",
+            "video_frame_index": 583
+        },
+        {
+            "annotation_record_index": 584,
+            "file": "1730978634_157153479.png",
+            "video_frame_index": 584
+        },
+        {
+            "annotation_record_index": 585,
+            "file": "1730978634_185667898.png",
+            "video_frame_index": 585
+        },
+        {
+            "annotation_record_index": 586,
+            "file": "1730978634_226567749.png",
+            "video_frame_index": 586
+        },
+        {
+            "annotation_record_index": 587,
+            "file": "1730978634_253470047.png",
+            "video_frame_index": 587
+        },
+        {
+            "annotation_record_index": 588,
+            "file": "1730978634_292332628.png",
+            "video_frame_index": 588
+        },
+        {
+            "annotation_record_index": 589,
+            "file": "1730978634_316567917.png",
+            "video_frame_index": 589
+        },
+        {
+            "annotation_record_index": 590,
+            "file": "1730978634_354541486.png",
+            "video_frame_index": 590
+        },
+        {
+            "annotation_record_index": 591,
+            "file": "1730978634_384046670.png",
+            "video_frame_index": 591
+        },
+        {
+            "annotation_record_index": 592,
+            "file": "1730978634_423832904.png",
+            "video_frame_index": 592
+        },
+        {
+            "annotation_record_index": 593,
+            "file": "1730978634_453258246.png",
+            "video_frame_index": 593
+        },
+        {
+            "annotation_record_index": 594,
+            "file": "1730978634_482521799.png",
+            "video_frame_index": 594
+        },
+        {
+            "annotation_record_index": 595,
+            "file": "1730978634_513697300.png",
+            "video_frame_index": 595
+        },
+        {
+            "annotation_record_index": 596,
+            "file": "1730978634_545250316.png",
+            "video_frame_index": 596
+        },
+        {
+            "annotation_record_index": 597,
+            "file": "1730978634_581152789.png",
+            "video_frame_index": 597
+        },
+        {
+            "annotation_record_index": 598,
+            "file": "1730978634_613151145.png",
+            "video_frame_index": 598
+        },
+        {
+            "annotation_record_index": 599,
+            "file": "1730978634_655539632.png",
+            "video_frame_index": 599
+        },
+        {
+            "annotation_record_index": 600,
+            "file": "1730978634_676872390.png",
+            "video_frame_index": 600
+        },
+        {
+            "annotation_record_index": 601,
+            "file": "1730978634_715749879.png",
+            "video_frame_index": 601
+        },
+        {
+            "annotation_record_index": 602,
+            "file": "1730978634_743524231.png",
+            "video_frame_index": 602
+        },
+        {
+            "annotation_record_index": 603,
+            "file": "1730978634_776746233.png",
+            "video_frame_index": 603
+        },
+        {
+            "annotation_record_index": 604,
+            "file": "1730978634_842020748.png",
+            "video_frame_index": 604
+        },
+        {
+            "annotation_record_index": 605,
+            "file": "1730978634_870929758.png",
+            "video_frame_index": 605
+        },
+        {
+            "annotation_record_index": 606,
+            "file": "1730978634_914390469.png",
+            "video_frame_index": 606
+        },
+        {
+            "annotation_record_index": 607,
+            "file": "1730978634_941248764.png",
+            "video_frame_index": 607
+        },
+        {
+            "annotation_record_index": 608,
+            "file": "1730978634_977580237.png",
+            "video_frame_index": 608
+        },
+        {
+            "annotation_record_index": 609,
+            "file": "1730978635_004296973.png",
+            "video_frame_index": 609
+        },
+        {
+            "annotation_record_index": 610,
+            "file": "1730978635_043583699.png",
+            "video_frame_index": 610
+        },
+        {
+            "annotation_record_index": 611,
+            "file": "1730978635_068535261.png",
+            "video_frame_index": 611
+        },
+        {
+            "annotation_record_index": 612,
+            "file": "1730978635_104177887.png",
+            "video_frame_index": 612
+        },
+        {
+            "annotation_record_index": 613,
+            "file": "1730978635_135135160.png",
+            "video_frame_index": 613
+        },
+        {
+            "annotation_record_index": 614,
+            "file": "1730978635_169208794.png",
+            "video_frame_index": 614
+        },
+        {
+            "annotation_record_index": 615,
+            "file": "1730978635_199979247.png",
+            "video_frame_index": 615
+        },
+        {
+            "annotation_record_index": 616,
+            "file": "1730978635_239869711.png",
+            "video_frame_index": 616
+        },
+        {
+            "annotation_record_index": 617,
+            "file": "1730978635_267351970.png",
+            "video_frame_index": 617
+        },
+        {
+            "annotation_record_index": 618,
+            "file": "1730978635_304745021.png",
+            "video_frame_index": 618
+        },
+        {
+            "annotation_record_index": 619,
+            "file": "1730978635_331215275.png",
+            "video_frame_index": 619
+        },
+        {
+            "annotation_record_index": 620,
+            "file": "1730978635_368769384.png",
+            "video_frame_index": 620
+        },
+        {
+            "annotation_record_index": 621,
+            "file": "1730978635_399268792.png",
+            "video_frame_index": 621
+        },
+        {
+            "annotation_record_index": 622,
+            "file": "1730978635_439468180.png",
+            "video_frame_index": 622
+        },
+        {
+            "annotation_record_index": 623,
+            "file": "1730978635_466502059.png",
+            "video_frame_index": 623
+        },
+        {
+            "annotation_record_index": 624,
+            "file": "1730978635_500707493.png",
+            "video_frame_index": 624
+        },
+        {
+            "annotation_record_index": 625,
+            "file": "1730978635_529732836.png",
+            "video_frame_index": 625
+        },
+        {
+            "annotation_record_index": 626,
+            "file": "1730978635_560418246.png",
+            "video_frame_index": 626
+        },
+        {
+            "annotation_record_index": 627,
+            "file": "1730978635_594899713.png",
+            "video_frame_index": 627
+        },
+        {
+            "annotation_record_index": 628,
+            "file": "1730978635_636760998.png",
+            "video_frame_index": 628
+        },
+        {
+            "annotation_record_index": 629,
+            "file": "1730978635_673699552.png",
+            "video_frame_index": 629
+        },
+        {
+            "annotation_record_index": 630,
+            "file": "1730978635_707324423.png",
+            "video_frame_index": 630
+        },
+        {
+            "annotation_record_index": 631,
+            "file": "1730978635_732784098.png",
+            "video_frame_index": 631
+        },
+        {
+            "annotation_record_index": 632,
+            "file": "1730978635_757692815.png",
+            "video_frame_index": 632
+        },
+        {
+            "annotation_record_index": 633,
+            "file": "1730978635_788700932.png",
+            "video_frame_index": 633
+        },
+        {
+            "annotation_record_index": 634,
+            "file": "1730978635_826335318.png",
+            "video_frame_index": 634
+        },
+        {
+            "annotation_record_index": 635,
+            "file": "1730978635_863547652.png",
+            "video_frame_index": 635
+        },
+        {
+            "annotation_record_index": 636,
+            "file": "1730978635_888353391.png",
+            "video_frame_index": 636
+        },
+        {
+            "annotation_record_index": 637,
+            "file": "1730978635_920345782.png",
+            "video_frame_index": 637
+        },
+        {
+            "annotation_record_index": 638,
+            "file": "1730978635_990557301.png",
+            "video_frame_index": 638
+        },
+        {
+            "annotation_record_index": 639,
+            "file": "1730978636_019593080.png",
+            "video_frame_index": 639
+        },
+        {
+            "annotation_record_index": 640,
+            "file": "1730978636_068245538.png",
+            "video_frame_index": 640
+        },
+        {
+            "annotation_record_index": 641,
+            "file": "1730978636_084780002.png",
+            "video_frame_index": 641
+        },
+        {
+            "annotation_record_index": 642,
+            "file": "1730978636_116619921.png",
+            "video_frame_index": 642
+        },
+        {
+            "annotation_record_index": 643,
+            "file": "1730978636_150250681.png",
+            "video_frame_index": 643
+        },
+        {
+            "annotation_record_index": 644,
+            "file": "1730978636_187690241.png",
+            "video_frame_index": 644
+        },
+        {
+            "annotation_record_index": 645,
+            "file": "1730978636_217526062.png",
+            "video_frame_index": 645
+        },
+        {
+            "annotation_record_index": 646,
+            "file": "1730978636_257677011.png",
+            "video_frame_index": 646
+        },
+        {
+            "annotation_record_index": 647,
+            "file": "1730978636_282482802.png",
+            "video_frame_index": 647
+        },
+        {
+            "annotation_record_index": 648,
+            "file": "1730978636_318966876.png",
+            "video_frame_index": 648
+        },
+        {
+            "annotation_record_index": 649,
+            "file": "1730978636_348639416.png",
+            "video_frame_index": 649
+        },
+        {
+            "annotation_record_index": 650,
+            "file": "1730978636_381613263.png",
+            "video_frame_index": 650
+        },
+        {
+            "annotation_record_index": 651,
+            "file": "1730978636_410985638.png",
+            "video_frame_index": 651
+        },
+        {
+            "annotation_record_index": 652,
+            "file": "1730978636_446816228.png",
+            "video_frame_index": 652
+        },
+        {
+            "annotation_record_index": 653,
+            "file": "1730978636_477086459.png",
+            "video_frame_index": 653
+        },
+        {
+            "annotation_record_index": 654,
+            "file": "1730978636_517307394.png",
+            "video_frame_index": 654
+        },
+        {
+            "annotation_record_index": 655,
+            "file": "1730978636_546549373.png",
+            "video_frame_index": 655
+        },
+        {
+            "annotation_record_index": 656,
+            "file": "1730978636_580743620.png",
+            "video_frame_index": 656
+        },
+        {
+            "annotation_record_index": 657,
+            "file": "1730978636_645516262.png",
+            "video_frame_index": 657
+        },
+        {
+            "annotation_record_index": 658,
+            "file": "1730978636_673434818.png",
+            "video_frame_index": 658
+        },
+        {
+            "annotation_record_index": 659,
+            "file": "1730978636_720197759.png",
+            "video_frame_index": 659
+        },
+        {
+            "annotation_record_index": 660,
+            "file": "1730978636_745135631.png",
+            "video_frame_index": 660
+        },
+        {
+            "annotation_record_index": 661,
+            "file": "1730978636_775429008.png",
+            "video_frame_index": 661
+        },
+        {
+            "annotation_record_index": 662,
+            "file": "1730978636_803909130.png",
+            "video_frame_index": 662
+        },
+        {
+            "annotation_record_index": 663,
+            "file": "1730978636_838085874.png",
+            "video_frame_index": 663
+        },
+        {
+            "annotation_record_index": 664,
+            "file": "1730978636_871982620.png",
+            "video_frame_index": 664
+        },
+        {
+            "annotation_record_index": 665,
+            "file": "1730978636_905300830.png",
+            "video_frame_index": 665
+        },
+        {
+            "annotation_record_index": 666,
+            "file": "1730978636_940115047.png",
+            "video_frame_index": 666
+        },
+        {
+            "annotation_record_index": 667,
+            "file": "1730978636_970977540.png",
+            "video_frame_index": 667
+        },
+        {
+            "annotation_record_index": 668,
+            "file": "1730978637_007488627.png",
+            "video_frame_index": 668
+        },
+        {
+            "annotation_record_index": 669,
+            "file": "1730978637_033071705.png",
+            "video_frame_index": 669
+        },
+        {
+            "annotation_record_index": 670,
+            "file": "1730978637_067931555.png",
+            "video_frame_index": 670
+        },
+        {
+            "annotation_record_index": 671,
+            "file": "1730978637_102474836.png",
+            "video_frame_index": 671
+        },
+        {
+            "annotation_record_index": 672,
+            "file": "1730978637_134381529.png",
+            "video_frame_index": 672
+        },
+        {
+            "annotation_record_index": 673,
+            "file": "1730978637_198745069.png",
+            "video_frame_index": 673
+        },
+        {
+            "annotation_record_index": 674,
+            "file": "1730978637_272216685.png",
+            "video_frame_index": 674
+        },
+        {
+            "annotation_record_index": 675,
+            "file": "1730978637_303582717.png",
+            "video_frame_index": 675
+        },
+        {
+            "annotation_record_index": 676,
+            "file": "1730978637_333871291.png",
+            "video_frame_index": 676
+        },
+        {
+            "annotation_record_index": 677,
+            "file": "1730978637_367374052.png",
+            "video_frame_index": 677
+        },
+        {
+            "annotation_record_index": 678,
+            "file": "1730978637_400062325.png",
+            "video_frame_index": 678
+        },
+        {
+            "annotation_record_index": 679,
+            "file": "1730978637_430681254.png",
+            "video_frame_index": 679
+        },
+        {
+            "annotation_record_index": 680,
+            "file": "1730978637_469708199.png",
+            "video_frame_index": 680
+        },
+        {
+            "annotation_record_index": 681,
+            "file": "1730978637_495597180.png",
+            "video_frame_index": 681
+        },
+        {
+            "annotation_record_index": 682,
+            "file": "1730978637_530540775.png",
+            "video_frame_index": 682
+        },
+        {
+            "annotation_record_index": 683,
+            "file": "1730978637_558997515.png",
+            "video_frame_index": 683
+        },
+        {
+            "annotation_record_index": 684,
+            "file": "1730978637_597132335.png",
+            "video_frame_index": 684
+        },
+        {
+            "annotation_record_index": 685,
+            "file": "1730978637_625640228.png",
+            "video_frame_index": 685
+        },
+        {
+            "annotation_record_index": 686,
+            "file": "1730978637_662896413.png",
+            "video_frame_index": 686
+        },
+        {
+            "annotation_record_index": 687,
+            "file": "1730978637_689464120.png",
+            "video_frame_index": 687
+        },
+        {
+            "annotation_record_index": 688,
+            "file": "1730978637_721513552.png",
+            "video_frame_index": 688
+        },
+        {
+            "annotation_record_index": 689,
+            "file": "1730978637_753550882.png",
+            "video_frame_index": 689
+        },
+        {
+            "annotation_record_index": 690,
+            "file": "1730978637_789211980.png",
+            "video_frame_index": 690
+        },
+        {
+            "annotation_record_index": 691,
+            "file": "1730978637_819882993.png",
+            "video_frame_index": 691
+        },
+        {
+            "annotation_record_index": 692,
+            "file": "1730978637_859788932.png",
+            "video_frame_index": 692
+        },
+        {
+            "annotation_record_index": 693,
+            "file": "1730978637_884945251.png",
+            "video_frame_index": 693
+        },
+        {
+            "annotation_record_index": 694,
+            "file": "1730978637_915426050.png",
+            "video_frame_index": 694
+        },
+        {
+            "annotation_record_index": 695,
+            "file": "1730978637_951951966.png",
+            "video_frame_index": 695
+        },
+        {
+            "annotation_record_index": 696,
+            "file": "1730978637_983481975.png",
+            "video_frame_index": 696
+        },
+        {
+            "annotation_record_index": 697,
+            "file": "1730978638_016404685.png",
+            "video_frame_index": 697
+        },
+        {
+            "annotation_record_index": 698,
+            "file": "1730978638_048264367.png",
+            "video_frame_index": 698
+        },
+        {
+            "annotation_record_index": 699,
+            "file": "1730978638_079709011.png",
+            "video_frame_index": 699
+        },
+        {
+            "annotation_record_index": 700,
+            "file": "1730978638_111335817.png",
+            "video_frame_index": 700
+        },
+        {
+            "annotation_record_index": 701,
+            "file": "1730978638_150013244.png",
+            "video_frame_index": 701
+        },
+        {
+            "annotation_record_index": 702,
+            "file": "1730978638_179324206.png",
+            "video_frame_index": 702
+        },
+        {
+            "annotation_record_index": 703,
+            "file": "1730978638_210916514.png",
+            "video_frame_index": 703
+        },
+        {
+            "annotation_record_index": 704,
+            "file": "1730978638_243151758.png",
+            "video_frame_index": 704
+        },
+        {
+            "annotation_record_index": 705,
+            "file": "1730978638_281575934.png",
+            "video_frame_index": 705
+        },
+        {
+            "annotation_record_index": 706,
+            "file": "1730978638_311171194.png",
+            "video_frame_index": 706
+        },
+        {
+            "annotation_record_index": 707,
+            "file": "1730978638_345939836.png",
+            "video_frame_index": 707
+        },
+        {
+            "annotation_record_index": 708,
+            "file": "1730978638_375119726.png",
+            "video_frame_index": 708
+        },
+        {
+            "annotation_record_index": 709,
+            "file": "1730978638_439893268.png",
+            "video_frame_index": 709
+        },
+        {
+            "annotation_record_index": 710,
+            "file": "1730978638_509650552.png",
+            "video_frame_index": 710
+        },
+        {
+            "annotation_record_index": 711,
+            "file": "1730978638_542285376.png",
+            "video_frame_index": 711
+        },
+        {
+            "annotation_record_index": 712,
+            "file": "1730978638_571850975.png",
+            "video_frame_index": 712
+        },
+        {
+            "annotation_record_index": 713,
+            "file": "1730978638_604595644.png",
+            "video_frame_index": 713
+        },
+        {
+            "annotation_record_index": 714,
+            "file": "1730978638_636651014.png",
+            "video_frame_index": 714
+        },
+        {
+            "annotation_record_index": 715,
+            "file": "1730978638_679274757.png",
+            "video_frame_index": 715
+        },
+        {
+            "annotation_record_index": 716,
+            "file": "1730978638_705569617.png",
+            "video_frame_index": 716
+        },
+        {
+            "annotation_record_index": 717,
+            "file": "1730978638_743201969.png",
+            "video_frame_index": 717
+        },
+        {
+            "annotation_record_index": 718,
+            "file": "1730978638_768808497.png",
+            "video_frame_index": 718
+        },
+        {
+            "annotation_record_index": 719,
+            "file": "1730978638_803560400.png",
+            "video_frame_index": 719
+        },
+        {
+            "annotation_record_index": 720,
+            "file": "1730978638_832045036.png",
+            "video_frame_index": 720
+        },
+        {
+            "annotation_record_index": 721,
+            "file": "1730978638_877684567.png",
+            "video_frame_index": 721
+        },
+        {
+            "annotation_record_index": 722,
+            "file": "1730978638_900175848.png",
+            "video_frame_index": 722
+        },
+        {
+            "annotation_record_index": 723,
+            "file": "1730978638_938968594.png",
+            "video_frame_index": 723
+        },
+        {
+            "annotation_record_index": 724,
+            "file": "1730978638_965999322.png",
+            "video_frame_index": 724
+        },
+        {
+            "annotation_record_index": 725,
+            "file": "1730978638_997134410.png",
+            "video_frame_index": 725
+        },
+        {
+            "annotation_record_index": 726,
+            "file": "1730978639_031340681.png",
+            "video_frame_index": 726
+        },
+        {
+            "annotation_record_index": 727,
+            "file": "1730978639_066850222.png",
+            "video_frame_index": 727
+        },
+        {
+            "annotation_record_index": 728,
+            "file": "1730978639_096579302.png",
+            "video_frame_index": 728
+        },
+        {
+            "annotation_record_index": 729,
+            "file": "1730978639_138293710.png",
+            "video_frame_index": 729
+        },
+        {
+            "annotation_record_index": 730,
+            "file": "1730978639_159856068.png",
+            "video_frame_index": 730
+        },
+        {
+            "annotation_record_index": 731,
+            "file": "1730978639_200491497.png",
+            "video_frame_index": 731
+        },
+        {
+            "annotation_record_index": 732,
+            "file": "1730978639_227307607.png",
+            "video_frame_index": 732
+        },
+        {
+            "annotation_record_index": 733,
+            "file": "1730978639_272629225.png",
+            "video_frame_index": 733
+        },
+        {
+            "annotation_record_index": 734,
+            "file": "1730978639_296300665.png",
+            "video_frame_index": 734
+        },
+        {
+            "annotation_record_index": 735,
+            "file": "1730978639_332979861.png",
+            "video_frame_index": 735
+        },
+        {
+            "annotation_record_index": 736,
+            "file": "1730978639_363370862.png",
+            "video_frame_index": 736
+        },
+        {
+            "annotation_record_index": 737,
+            "file": "1730978639_392968425.png",
+            "video_frame_index": 737
+        },
+        {
+            "annotation_record_index": 738,
+            "file": "1730978639_424470060.png",
+            "video_frame_index": 738
+        },
+        {
+            "annotation_record_index": 739,
+            "file": "1730978639_457367423.png",
+            "video_frame_index": 739
+        },
+        {
+            "annotation_record_index": 740,
+            "file": "1730978639_487781745.png",
+            "video_frame_index": 740
+        },
+        {
+            "annotation_record_index": 741,
+            "file": "1730978639_519202032.png",
+            "video_frame_index": 741
+        },
+        {
+            "annotation_record_index": 742,
+            "file": "1730978639_562040761.png",
+            "video_frame_index": 742
+        },
+        {
+            "annotation_record_index": 743,
+            "file": "1730978639_586694550.png",
+            "video_frame_index": 743
+        },
+        {
+            "annotation_record_index": 744,
+            "file": "1730978639_619467452.png",
+            "video_frame_index": 744
+        },
+        {
+            "annotation_record_index": 745,
+            "file": "1730978639_654713431.png",
+            "video_frame_index": 745
+        },
+        {
+            "annotation_record_index": 746,
+            "file": "1730978639_685339042.png",
+            "video_frame_index": 746
+        },
+        {
+            "annotation_record_index": 747,
+            "file": "1730978639_718247404.png",
+            "video_frame_index": 747
+        },
+        {
+            "annotation_record_index": 748,
+            "file": "1730978639_753313822.png",
+            "video_frame_index": 748
+        },
+        {
+            "annotation_record_index": 749,
+            "file": "1730978639_783660831.png",
+            "video_frame_index": 749
+        },
+        {
+            "annotation_record_index": 750,
+            "file": "1730978639_814891437.png",
+            "video_frame_index": 750
+        },
+        {
+            "annotation_record_index": 751,
+            "file": "1730978639_848315472.png",
+            "video_frame_index": 751
+        },
+        {
+            "annotation_record_index": 752,
+            "file": "1730978639_882751840.png",
+            "video_frame_index": 752
+        },
+        {
+            "annotation_record_index": 753,
+            "file": "1730978639_915855444.png",
+            "video_frame_index": 753
+        },
+        {
+            "annotation_record_index": 754,
+            "file": "1730978639_951143580.png",
+            "video_frame_index": 754
+        },
+        {
+            "annotation_record_index": 755,
+            "file": "1730978640_112245494.png",
+            "video_frame_index": 755
+        },
+        {
+            "annotation_record_index": 756,
+            "file": "1730978640_208401915.png",
+            "video_frame_index": 756
+        },
+        {
+            "annotation_record_index": 757,
+            "file": "1730978640_244848352.png",
+            "video_frame_index": 757
+        },
+        {
+            "annotation_record_index": 758,
+            "file": "1730978640_279930528.png",
+            "video_frame_index": 758
+        },
+        {
+            "annotation_record_index": 759,
+            "file": "1730978640_372770420.png",
+            "video_frame_index": 759
+        },
+        {
+            "annotation_record_index": 760,
+            "file": "1730978640_406805760.png",
+            "video_frame_index": 760
+        },
+        {
+            "annotation_record_index": 761,
+            "file": "1730978640_476621643.png",
+            "video_frame_index": 761
+        },
+        {
+            "annotation_record_index": 762,
+            "file": "1730978640_504332156.png",
+            "video_frame_index": 762
+        },
+        {
+            "annotation_record_index": 763,
+            "file": "1730978640_542605603.png",
+            "video_frame_index": 763
+        },
+        {
+            "annotation_record_index": 764,
+            "file": "1730978640_607976045.png",
+            "video_frame_index": 764
+        },
+        {
+            "annotation_record_index": 765,
+            "file": "1730978640_672342725.png",
+            "video_frame_index": 765
+        },
+        {
+            "annotation_record_index": 766,
+            "file": "1730978640_701406484.png",
+            "video_frame_index": 766
+        },
+        {
+            "annotation_record_index": 767,
+            "file": "1730978640_732132351.png",
+            "video_frame_index": 767
+        },
+        {
+            "annotation_record_index": 768,
+            "file": "1730978640_767209388.png",
+            "video_frame_index": 768
+        },
+        {
+            "annotation_record_index": 769,
+            "file": "1730978640_865514638.png",
+            "video_frame_index": 769
+        },
+        {
+            "annotation_record_index": 770,
+            "file": "1730978640_962419937.png",
+            "video_frame_index": 770
+        },
+        {
+            "annotation_record_index": 771,
+            "file": "1730978641_027908978.png",
+            "video_frame_index": 771
+        },
+        {
+            "annotation_record_index": 772,
+            "file": "1730978641_059871138.png",
+            "video_frame_index": 772
+        },
+        {
+            "annotation_record_index": 773,
+            "file": "1730978641_091152665.png",
+            "video_frame_index": 773
+        },
+        {
+            "annotation_record_index": 774,
+            "file": "1730978641_123075588.png",
+            "video_frame_index": 774
+        },
+        {
+            "annotation_record_index": 775,
+            "file": "1730978641_166768590.png",
+            "video_frame_index": 775
+        },
+        {
+            "annotation_record_index": 776,
+            "file": "1730978641_190986395.png",
+            "video_frame_index": 776
+        },
+        {
+            "annotation_record_index": 777,
+            "file": "1730978641_228624613.png",
+            "video_frame_index": 777
+        },
+        {
+            "annotation_record_index": 778,
+            "file": "1730978641_261511584.png",
+            "video_frame_index": 778
+        },
+        {
+            "annotation_record_index": 779,
+            "file": "1730978641_294699611.png",
+            "video_frame_index": 779
+        },
+        {
+            "annotation_record_index": 780,
+            "file": "1730978641_326117093.png",
+            "video_frame_index": 780
+        },
+        {
+            "annotation_record_index": 781,
+            "file": "1730978641_358829081.png",
+            "video_frame_index": 781
+        },
+        {
+            "annotation_record_index": 782,
+            "file": "1730978641_387287512.png",
+            "video_frame_index": 782
+        },
+        {
+            "annotation_record_index": 783,
+            "file": "1730978641_420743712.png",
+            "video_frame_index": 783
+        },
+        {
+            "annotation_record_index": 784,
+            "file": "1730978641_456441461.png",
+            "video_frame_index": 784
+        },
+        {
+            "annotation_record_index": 785,
+            "file": "1730978641_487859104.png",
+            "video_frame_index": 785
+        },
+        {
+            "annotation_record_index": 786,
+            "file": "1730978641_523569621.png",
+            "video_frame_index": 786
+        },
+        {
+            "annotation_record_index": 787,
+            "file": "1730978641_559151845.png",
+            "video_frame_index": 787
+        },
+        {
+            "annotation_record_index": 788,
+            "file": "1730978641_618729465.png",
+            "video_frame_index": 788
+        },
+        {
+            "annotation_record_index": 789,
+            "file": "1730978641_690802873.png",
+            "video_frame_index": 789
+        },
+        {
+            "annotation_record_index": 790,
+            "file": "1730978641_716399255.png",
+            "video_frame_index": 790
+        },
+        {
+            "annotation_record_index": 791,
+            "file": "1730978641_753444100.png",
+            "video_frame_index": 791
+        },
+        {
+            "annotation_record_index": 792,
+            "file": "1730978641_814791699.png",
+            "video_frame_index": 792
+        },
+        {
+            "annotation_record_index": 793,
+            "file": "1730978641_889919708.png",
+            "video_frame_index": 793
+        },
+        {
+            "annotation_record_index": 794,
+            "file": "1730978641_915415895.png",
+            "video_frame_index": 794
+        },
+        {
+            "annotation_record_index": 795,
+            "file": "1730978641_950506651.png",
+            "video_frame_index": 795
+        },
+        {
+            "annotation_record_index": 796,
+            "file": "1730978641_977430213.png",
+            "video_frame_index": 796
+        },
+        {
+            "annotation_record_index": 797,
+            "file": "1730978642_009198071.png",
+            "video_frame_index": 797
+        },
+        {
+            "annotation_record_index": 798,
+            "file": "1730978642_040505499.png",
+            "video_frame_index": 798
+        },
+        {
+            "annotation_record_index": 799,
+            "file": "1730978642_078565120.png",
+            "video_frame_index": 799
+        },
+        {
+            "annotation_record_index": 800,
+            "file": "1730978642_140275675.png",
+            "video_frame_index": 800
+        },
+        {
+            "annotation_record_index": 801,
+            "file": "1730978642_176000776.png",
+            "video_frame_index": 801
+        },
+        {
+            "annotation_record_index": 802,
+            "file": "1730978642_208534398.png",
+            "video_frame_index": 802
+        },
+        {
+            "annotation_record_index": 803,
+            "file": "1730978642_241654067.png",
+            "video_frame_index": 803
+        },
+        {
+            "annotation_record_index": 804,
+            "file": "1730978642_270971366.png",
+            "video_frame_index": 804
+        },
+        {
+            "annotation_record_index": 805,
+            "file": "1730978642_339287982.png",
+            "video_frame_index": 805
+        },
+        {
+            "annotation_record_index": 806,
+            "file": "1730978642_376044054.png",
+            "video_frame_index": 806
+        },
+        {
+            "annotation_record_index": 807,
+            "file": "1730978642_403061815.png",
+            "video_frame_index": 807
+        },
+        {
+            "annotation_record_index": 808,
+            "file": "1730978642_434826356.png",
+            "video_frame_index": 808
+        },
+        {
+            "annotation_record_index": 809,
+            "file": "1730978642_467909727.png",
+            "video_frame_index": 809
+        },
+        {
+            "annotation_record_index": 810,
+            "file": "1730978642_500643337.png",
+            "video_frame_index": 810
+        },
+        {
+            "annotation_record_index": 811,
+            "file": "1730978642_531572762.png",
+            "video_frame_index": 811
+        },
+        {
+            "annotation_record_index": 812,
+            "file": "1730978642_570139614.png",
+            "video_frame_index": 812
+        },
+        {
+            "annotation_record_index": 813,
+            "file": "1730978642_599197005.png",
+            "video_frame_index": 813
+        },
+        {
+            "annotation_record_index": 814,
+            "file": "1730978642_632624504.png",
+            "video_frame_index": 814
+        },
+        {
+            "annotation_record_index": 815,
+            "file": "1730978642_663273608.png",
+            "video_frame_index": 815
+        },
+        {
+            "annotation_record_index": 816,
+            "file": "1730978642_700170709.png",
+            "video_frame_index": 816
+        },
+        {
+            "annotation_record_index": 817,
+            "file": "1730978642_731844717.png",
+            "video_frame_index": 817
+        },
+        {
+            "annotation_record_index": 818,
+            "file": "1730978642_766826616.png",
+            "video_frame_index": 818
+        },
+        {
+            "annotation_record_index": 819,
+            "file": "1730978642_796251440.png",
+            "video_frame_index": 819
+        },
+        {
+            "annotation_record_index": 820,
+            "file": "1730978642_829837903.png",
+            "video_frame_index": 820
+        },
+        {
+            "annotation_record_index": 821,
+            "file": "1730978642_859230094.png",
+            "video_frame_index": 821
+        },
+        {
+            "annotation_record_index": 822,
+            "file": "1730978642_896541269.png",
+            "video_frame_index": 822
+        },
+        {
+            "annotation_record_index": 823,
+            "file": "1730978642_929375038.png",
+            "video_frame_index": 823
+        },
+        {
+            "annotation_record_index": 824,
+            "file": "1730978642_965365815.png",
+            "video_frame_index": 824
+        },
+        {
+            "annotation_record_index": 825,
+            "file": "1730978642_991498577.png",
+            "video_frame_index": 825
+        },
+        {
+            "annotation_record_index": 826,
+            "file": "1730978643_025031593.png",
+            "video_frame_index": 826
+        },
+        {
+            "annotation_record_index": 827,
+            "file": "1730978643_056711368.png",
+            "video_frame_index": 827
+        },
+        {
+            "annotation_record_index": 828,
+            "file": "1730978643_098966819.png",
+            "video_frame_index": 828
+        },
+        {
+            "annotation_record_index": 829,
+            "file": "1730978643_125602205.png",
+            "video_frame_index": 829
+        },
+        {
+            "annotation_record_index": 830,
+            "file": "1730978643_174071200.png",
+            "video_frame_index": 830
+        },
+        {
+            "annotation_record_index": 831,
+            "file": "1730978643_223872733.png",
+            "video_frame_index": 831
+        },
+        {
+            "annotation_record_index": 832,
+            "file": "1730978643_255379306.png",
+            "video_frame_index": 832
+        },
+        {
+            "annotation_record_index": 833,
+            "file": "1730978643_319778067.png",
+            "video_frame_index": 833
+        },
+        {
+            "annotation_record_index": 834,
+            "file": "1730978643_365493240.png",
+            "video_frame_index": 834
+        },
+        {
+            "annotation_record_index": 835,
+            "file": "1730978643_384048002.png",
+            "video_frame_index": 835
+        },
+        {
+            "annotation_record_index": 836,
+            "file": "1730978643_418663943.png",
+            "video_frame_index": 836
+        },
+        {
+            "annotation_record_index": 837,
+            "file": "1730978643_451833749.png",
+            "video_frame_index": 837
+        },
+        {
+            "annotation_record_index": 838,
+            "file": "1730978643_492742591.png",
+            "video_frame_index": 838
+        },
+        {
+            "annotation_record_index": 839,
+            "file": "1730978643_516110713.png",
+            "video_frame_index": 839
+        },
+        {
+            "annotation_record_index": 840,
+            "file": "1730978643_551492009.png",
+            "video_frame_index": 840
+        },
+        {
+            "annotation_record_index": 841,
+            "file": "1730978643_581409027.png",
+            "video_frame_index": 841
+        },
+        {
+            "annotation_record_index": 842,
+            "file": "1730978643_617184970.png",
+            "video_frame_index": 842
+        },
+        {
+            "annotation_record_index": 843,
+            "file": "1730978643_779485709.png",
+            "video_frame_index": 843
+        },
+        {
+            "annotation_record_index": 844,
+            "file": "1730978643_811481189.png",
+            "video_frame_index": 844
+        },
+        {
+            "annotation_record_index": 845,
+            "file": "1730978643_843160167.png",
+            "video_frame_index": 845
+        },
+        {
+            "annotation_record_index": 846,
+            "file": "1730978643_875788455.png",
+            "video_frame_index": 846
+        },
+        {
+            "annotation_record_index": 847,
+            "file": "1730978643_939827117.png",
+            "video_frame_index": 847
+        },
+        {
+            "annotation_record_index": 848,
+            "file": "1730978643_975939850.png",
+            "video_frame_index": 848
+        },
+        {
+            "annotation_record_index": 849,
+            "file": "1730978644_007578636.png",
+            "video_frame_index": 849
+        },
+        {
+            "annotation_record_index": 850,
+            "file": "1730978644_041154000.png",
+            "video_frame_index": 850
+        },
+        {
+            "annotation_record_index": 851,
+            "file": "1730978644_070951047.png",
+            "video_frame_index": 851
+        },
+        {
+            "annotation_record_index": 852,
+            "file": "1730978644_139582919.png",
+            "video_frame_index": 852
+        },
+        {
+            "annotation_record_index": 853,
+            "file": "1730978644_205805408.png",
+            "video_frame_index": 853
+        },
+        {
+            "annotation_record_index": 854,
+            "file": "1730978644_271672361.png",
+            "video_frame_index": 854
+        },
+        {
+            "annotation_record_index": 855,
+            "file": "1730978644_305803960.png",
+            "video_frame_index": 855
+        },
+        {
+            "annotation_record_index": 856,
+            "file": "1730978644_338406696.png",
+            "video_frame_index": 856
+        },
+        {
+            "annotation_record_index": 857,
+            "file": "1730978644_373853821.png",
+            "video_frame_index": 857
+        },
+        {
+            "annotation_record_index": 858,
+            "file": "1730978644_465330309.png",
+            "video_frame_index": 858
+        },
+        {
+            "annotation_record_index": 859,
+            "file": "1730978644_505702250.png",
+            "video_frame_index": 859
+        },
+        {
+            "annotation_record_index": 860,
+            "file": "1730978644_531405806.png",
+            "video_frame_index": 860
+        },
+        {
+            "annotation_record_index": 861,
+            "file": "1730978644_595389923.png",
+            "video_frame_index": 861
+        },
+        {
+            "annotation_record_index": 862,
+            "file": "1730978644_635544298.png",
+            "video_frame_index": 862
+        },
+        {
+            "annotation_record_index": 863,
+            "file": "1730978644_659962932.png",
+            "video_frame_index": 863
+        },
+        {
+            "annotation_record_index": 864,
+            "file": "1730978644_702432440.png",
+            "video_frame_index": 864
+        },
+        {
+            "annotation_record_index": 865,
+            "file": "1730978644_730556350.png",
+            "video_frame_index": 865
+        },
+        {
+            "annotation_record_index": 866,
+            "file": "1730978644_791897106.png",
+            "video_frame_index": 866
+        },
+        {
+            "annotation_record_index": 867,
+            "file": "1730978644_924640090.png",
+            "video_frame_index": 867
+        },
+        {
+            "annotation_record_index": 868,
+            "file": "1730978644_957336966.png",
+            "video_frame_index": 868
+        }
+    ]
+}

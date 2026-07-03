@@ -1,0 +1,16 @@
+{
+  "copied_from_validated_full_result_roots_before_cleanup": true,
+  "methods": {
+    "rpf_reid": "rpf-ReID",
+    "normal_part_oclreid": "Normal part-OCLReID",
+    "gated_part_oclreid": "Gated part-OCLReID"
+  },
+  "checkpoint": "checkpoints/reid/resnet18.pth",
+  "gated_part_oclreid_gate": {
+    "association_mode": "reid_gate",
+    "threshold": 0.6,
+    "margin": 0.02,
+    "minimum_bbox_score": 0.0,
+    "minimum_visible_parts": 1
+  }
+}

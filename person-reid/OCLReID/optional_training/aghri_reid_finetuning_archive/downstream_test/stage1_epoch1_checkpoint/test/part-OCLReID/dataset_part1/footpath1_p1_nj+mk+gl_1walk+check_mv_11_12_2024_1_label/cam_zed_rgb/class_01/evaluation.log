@@ -1,0 +1,19 @@
+======================================================================
+OCLReID EVALUATION RESULTS
+======================================================================
+Evaluated annotated frames: 286
+Valid annotated frames:     286
+Ambiguous target frames:    0
+GT-visible frames:          217
+Mean IoU:                   0.8496
+Success@IoU >= 0.5:      0.9447
+Centre Precision@20px: 0.9447
+Annotated state accuracy:   0.9580
+Exact reappearances:        1
+Uncertain reappearances:    0
+
+Per-frame results:
+aghri_reid_stage1/downstream_test/stage1_epoch1_checkpoint/test/part-OCLReID/dataset_part1/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label/cam_zed_rgb/class_01/evaluation/per_frame_metrics.csv
+
+Summary:
+aghri_reid_stage1/downstream_test/stage1_epoch1_checkpoint/test/part-OCLReID/dataset_part1/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label/cam_zed_rgb/class_01/evaluation/summary_metrics.json

@@ -1,0 +1,65 @@
+[
+    {
+        "attempt": 1,
+        "annotation_record_index": 4,
+        "frame_index": 4,
+        "video_frame_index": 4,
+        "bbox_xywh": [
+            257.0,
+            86.0,
+            32.0,
+            152.0
+        ],
+        "width": 32.0,
+        "height": 152.0,
+        "area_ratio": 0.019250253292806486,
+        "file": "1730892897_279027740.png",
+        "visualization_video": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/part-OCLReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_zed_rgb/class_05/inference_visualization.mp4",
+        "log": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/part-OCLReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_zed_rgb/class_05/inference_attempt_01_frame_000004.log",
+        "status": "failed",
+        "error": "Command failed with exit code 1. See: /home/prabuddhi/Desktop/OCLReID/results/final_test/test/part-OCLReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_zed_rgb/class_05/inference_attempt_01_frame_000004.log",
+        "visualization_status": "created"
+    },
+    {
+        "attempt": 2,
+        "annotation_record_index": 9,
+        "frame_index": 9,
+        "video_frame_index": 9,
+        "bbox_xywh": [
+            257.0,
+            84.0,
+            57.0,
+            155.0
+        ],
+        "width": 57.0,
+        "height": 155.0,
+        "area_ratio": 0.03496628039513678,
+        "file": "1730892897_617433740.png",
+        "visualization_video": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/part-OCLReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_zed_rgb/class_05/inference_visualization.mp4",
+        "log": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/part-OCLReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_zed_rgb/class_05/inference_attempt_02_frame_000009.log",
+        "status": "failed",
+        "error": "Command failed with exit code 1. See: /home/prabuddhi/Desktop/OCLReID/results/final_test/test/part-OCLReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_zed_rgb/class_05/inference_attempt_02_frame_000009.log",
+        "visualization_status": "created"
+    },
+    {
+        "attempt": 3,
+        "annotation_record_index": 14,
+        "frame_index": 14,
+        "video_frame_index": 14,
+        "bbox_xywh": [
+            276.15,
+            83.0,
+            52.4500122,
+            152.2
+        ],
+        "width": 52.4500122,
+        "height": 152.2,
+        "area_ratio": 0.0315938919106193,
+        "file": "1730892898_013720740.png",
+        "visualization_video": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/part-OCLReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_zed_rgb/class_05/inference_visualization.mp4",
+        "log": "/home/prabuddhi/Desktop/OCLReID/results/final_test/test/part-OCLReID/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_zed_rgb/class_05/inference_attempt_03_frame_000014.log",
+        "status": "success",
+        "error": "",
+        "visualization_status": "created"
+    }
+]

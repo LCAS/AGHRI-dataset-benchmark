@@ -1,0 +1,205 @@
+{
+  "split": "test",
+  "scene": "out_vine_4swap+walk_st_ly_11_06_2024_2_label",
+  "dataset_part": "dataset_part4",
+  "camera": "cam_fish_front",
+  "camera_label": "Front fisheye",
+  "target_identity": "01",
+  "panels_extracted_directly_from_saved_runtime_mp4": true,
+  "normal_run_directory": "/home/prabuddhi/Desktop/OCLReID/results/test_full/normal_part_oclreid/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_fish_front/class_01",
+  "gated_run_directory": "/home/prabuddhi/Desktop/OCLReID/results/test_full/gated_part_oclreid/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_fish_front/class_01",
+  "selected_dataset_frames": [
+    516,
+    517,
+    519,
+    521
+  ],
+  "frame_indices": [
+    516,
+    517,
+    519,
+    521
+  ],
+  "normal_mp4_path": "/home/prabuddhi/Desktop/OCLReID/results/test_full/normal_part_oclreid/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_fish_front/class_01/inference_visualization.mp4",
+  "gated_mp4_path": "/home/prabuddhi/Desktop/OCLReID/results/test_full/gated_part_oclreid/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_fish_front/class_01/inference_visualization.mp4",
+  "normal_mp4_frame_indices": [
+    516,
+    517,
+    519,
+    521
+  ],
+  "gated_mp4_frame_indices": [
+    516,
+    517,
+    519,
+    521
+  ],
+  "normal_extracted_frame_paths": [
+    "/home/prabuddhi/Desktop/OCLReID/results/paper_outputs_full/qualitative/fig9_mp4_frames/normal/out_vine_4swap+walk_st_ly_11_06_2024_2_label_cam_fish_front_target01_frame516_normal_part-OCLReID.png",
+    "/home/prabuddhi/Desktop/OCLReID/results/paper_outputs_full/qualitative/fig9_mp4_frames/normal/out_vine_4swap+walk_st_ly_11_06_2024_2_label_cam_fish_front_target01_frame517_normal_part-OCLReID.png",
+    "/home/prabuddhi/Desktop/OCLReID/results/paper_outputs_full/qualitative/fig9_mp4_frames/normal/out_vine_4swap+walk_st_ly_11_06_2024_2_label_cam_fish_front_target01_frame519_normal_part-OCLReID.png",
+    "/home/prabuddhi/Desktop/OCLReID/results/paper_outputs_full/qualitative/fig9_mp4_frames/normal/out_vine_4swap+walk_st_ly_11_06_2024_2_label_cam_fish_front_target01_frame521_normal_part-OCLReID.png"
+  ],
+  "gated_extracted_frame_paths": [
+    "/home/prabuddhi/Desktop/OCLReID/results/paper_outputs_full/qualitative/fig9_mp4_frames/gated/out_vine_4swap+walk_st_ly_11_06_2024_2_label_cam_fish_front_target01_frame516_gated_part-OCLReID.png",
+    "/home/prabuddhi/Desktop/OCLReID/results/paper_outputs_full/qualitative/fig9_mp4_frames/gated/out_vine_4swap+walk_st_ly_11_06_2024_2_label_cam_fish_front_target01_frame517_gated_part-OCLReID.png",
+    "/home/prabuddhi/Desktop/OCLReID/results/paper_outputs_full/qualitative/fig9_mp4_frames/gated/out_vine_4swap+walk_st_ly_11_06_2024_2_label_cam_fish_front_target01_frame519_gated_part-OCLReID.png",
+    "/home/prabuddhi/Desktop/OCLReID/results/paper_outputs_full/qualitative/fig9_mp4_frames/gated/out_vine_4swap+walk_st_ly_11_06_2024_2_label_cam_fish_front_target01_frame521_gated_part-OCLReID.png"
+  ],
+  "original_image_paths": [
+    "/media/prabuddhi/Backup2/Updated Dataset_PW/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/sensor_data/cam_fish_front/1730892916_141759823.png",
+    "/media/prabuddhi/Backup2/Updated Dataset_PW/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/sensor_data/cam_fish_front/1730892916_162835208.png",
+    "/media/prabuddhi/Backup2/Updated Dataset_PW/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/sensor_data/cam_fish_front/1730892916_226569006.png",
+    "/media/prabuddhi/Backup2/Updated Dataset_PW/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/sensor_data/cam_fish_front/1730892916_290182307.png"
+  ],
+  "original_image_filenames": [
+    "1730892916_141759823.png",
+    "1730892916_162835208.png",
+    "1730892916_226569006.png",
+    "1730892916_290182307.png"
+  ],
+  "alignment_verification": {
+    "method": "For each selected dataset frame, the per-frame metrics file provided the original image filename and video_frame_index. The run MP4 position was computed from the first evaluated video_frame_index, then verified to equal the selected video_frame_index for this run. Normal and Gated rows use the same dataset frame and image filename.",
+    "alignment_csv": "/home/prabuddhi/Desktop/OCLReID/results/paper_outputs_full/qualitative/fig9_mp4_alignment_validation.csv",
+    "all_statuses": [
+      "verified",
+      "verified",
+      "verified",
+      "verified"
+    ]
+  },
+  "normal_prediction_paths": [
+    "/home/prabuddhi/Desktop/OCLReID/results/test_full/normal_part_oclreid/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_fish_front/class_01/predictions.json"
+  ],
+  "gated_prediction_paths": [
+    "/home/prabuddhi/Desktop/OCLReID/results/test_full/gated_part_oclreid/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_fish_front/class_01/predictions.json"
+  ],
+  "ground_truth_paths": [
+    "/home/prabuddhi/Desktop/OCLReID/results/test_full/normal_part_oclreid/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_fish_front/class_01/evaluation/summary_metrics.json",
+    "/home/prabuddhi/Desktop/OCLReID/results/test_full/normal_part_oclreid/dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label/cam_fish_front/class_01/evaluation/per_frame_metrics.csv"
+  ],
+  "normal_ious": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+  ],
+  "gated_ious": [
+    0.8247100389083587,
+    0.739674187194154,
+    0.917135961383749,
+    0.9692307692307692
+  ],
+  "prediction_availability": {
+    "normal_prediction_present": [
+      false,
+      false,
+      false,
+      false
+    ],
+    "gated_prediction_present": [
+      true,
+      true,
+      true,
+      true
+    ]
+  },
+  "tracker_ids": {
+    "normal": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "gated": [
+      16,
+      16,
+      16,
+      16
+    ]
+  },
+  "structured_confidence_values": {
+    "normal": [
+      null,
+      null,
+      null,
+      null
+    ],
+    "gated": [
+      0.630055046081543,
+      0.7823411524295807,
+      0.7177156805992126,
+      0.664862596988678
+    ],
+    "source": "evaluation/per_frame_metrics.csv target_confidence field"
+  },
+  "reappearance_event_information": {
+    "nearest_reappearance_frame": 511,
+    "all_reappearance_frames_for_run": [
+      330,
+      463,
+      511
+    ],
+    "frames_after_nearest_reappearance": [
+      5,
+      6,
+      8,
+      10
+    ]
+  },
+  "diagnostic_values_shown": {
+    "normal_iou_per_frame": [
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "gated_iou_per_frame": [
+      0.8247100389083587,
+      0.739674187194154,
+      0.917135961383749,
+      0.9692307692307692
+    ],
+    "gated_target_confidence_and_tracker_id": [
+      {
+        "frame": 516,
+        "gated_iou": 0.8247100389083587,
+        "gated_target_confidence": 0.630055046081543,
+        "gated_tracker_id": 16
+      },
+      {
+        "frame": 517,
+        "gated_iou": 0.739674187194154,
+        "gated_target_confidence": 0.7823411524295807,
+        "gated_tracker_id": 16
+      },
+      {
+        "frame": 519,
+        "gated_iou": 0.917135961383749,
+        "gated_target_confidence": 0.7177156805992126,
+        "gated_tracker_id": 16
+      },
+      {
+        "frame": 521,
+        "gated_iou": 0.9692307692307692,
+        "gated_target_confidence": 0.664862596988678,
+        "gated_tracker_id": 16
+      }
+    ],
+    "gate_thresholds": {
+      "reid_threshold": 0.6,
+      "reid_margin": 0.02,
+      "minimum_bbox_score": 0.0,
+      "minimum_visible_parts": 1
+    },
+    "unavailable_diagnostics_omitted": [
+      "best ReID score",
+      "second-best ReID score",
+      "score margin",
+      "visible-part count",
+      "state-machine internal confirmation counter"
+    ]
+  },
+  "reason_for_selection": "Common completed front-fisheye run around a target reappearance event where the target is ground-truth visible, Normal part-OCLReID has no target output on the selected frames, and released-checkpoint Gated part-OCLReID correctly localizes the target with IoU >= 0.5 without wrong-person selection.",
+  "reason_this_example_was_selected": "Common completed front-fisheye run around a target reappearance event where the target is ground-truth visible, Normal part-OCLReID has no target output on the selected frames, and released-checkpoint Gated part-OCLReID correctly localizes the target with IoU >= 0.5 without wrong-person selection."
+}
