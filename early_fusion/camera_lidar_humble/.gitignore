@@ -1,0 +1,23 @@
+
+# Python cache files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# ROS 2 generated directories
+build/
+install/
+log/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# ROS 2 generated directories
+build/
+install/
+log/
+
+# Jupyter temporary checkpoints
+.ipynb_checkpoints/

@@ -1,0 +1,55 @@
+# AGHRI ZED RGB fine-tuned YOLO11s, train/validation-only provenance.
+# Checkpoint SHA256: bbb267ba96e3b94b615ef4e78a0d5319b95c592e932879f2c2bfeedf54fa3110
+# Association method: hybrid_depth_legacy with frozen held-out-test settings.
+lidar_fusion:
+  ros__parameters:
+    image_sub_topic: "/dataset/cam_zed_rgb/image"
+    calib_sub_topic: "/camera/calibration"
+    lidar_sub_topic: "/dataset/lidar/points"
+
+    result_pub_topic: "/camera_lidar_fusion/result"
+    bboxes_pub_topic: "/camera_lidar_fusion/pred_bboxes"
+
+    YOLO_model: "/home/prabuddhi/Desktop/Early_Fus/camera_lidar_humble/checkpoints/aghri_yolo11s_finetune/cluster_run/weights/best.pt"
+    reduction_factor: 0.8
+    yolo_classes: [0]
+    yolo_threshold: 0.1
+
+    draw_points: True
+    draw_bboxes: True
+    write_distance: True
+
+    total_rings: 64
+    rings_to_use: 8
+    pointcloud_mode: "unorganised_xyz"
+
+    sync_mode: "approximate"
+    sync_queue_size: 30
+    sync_slop_sec: 0.10
+
+    calibration_mode: "ros_camera_info_tf"
+    camera_info_topic: "/dataset/cam_zed_rgb/camera_info"
+    calibration_zip_path: "/media/prabuddhi/Backup2/Updated Dataset_PW/calibration.zip"
+    intrinsics_member: "calibration/intrinsics.json"
+    extrinsics_member: "calibration/extrinsics.json"
+    camera_sensor_name: "cam_zed_rgb"
+    lidar_frame_name: "front_lidar_link"
+    camera_optical_frame_name: "front_left_camera_optical_frame"
+    camera_matrix_source: "p"
+
+    point_depth_filter_mode: "positive_camera_depth"
+    minimum_forward_distance: 0.1
+    output_coordinate_mode: "camera_xyz"
+    coordinate_label_mode: "depth"
+    association_method: "hybrid_depth_legacy"
+    centre_statistic: "mean"
+    depth_cluster_gap_m: 0.35
+    depth_cluster_min_points: 5
+    box_bottom_trim_ratio: 0.0
+    hybrid_min_cluster_points: 5
+    hybrid_min_support_ratio: 0.20
+    hybrid_max_depth_spread_m: 0.45
+    hybrid_min_cluster_separation_m: 0.15
+    hybrid_fallback_on_single_cluster: False
+    hybrid_fallback_on_sparse_candidates: True
+    device: "auto"

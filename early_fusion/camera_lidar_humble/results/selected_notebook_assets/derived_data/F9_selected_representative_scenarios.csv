@@ -1,0 +1,4 @@
+scenario,selected_bag,generic_mean_3d_error_m,finetuned_mean_3d_error_m
+Footpath,footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label,0.14144071323030136,0.13144209008137492
+Polytunnel,in_straw_3pick_diff_st_10_24_2024_5_a_label,0.38412978909574114,0.19068898247810556
+Vineyard,out_vine_4swap+walk_st_ly_11_06_2024_2_label,0.46229779612706995,0.39574748301908136
