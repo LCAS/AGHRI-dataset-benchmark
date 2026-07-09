@@ -1,0 +1,44 @@
+lidar_fusion:
+  ros__parameters:
+    image_sub_topic: "/camera/image_raw"
+    calib_sub_topic: "/camera/calibration"
+    lidar_sub_topic: "/lidar/points"
+
+    result_pub_topic: "/camera_lidar_fusion/result"
+    bboxes_pub_topic: "/camera_lidar_fusion/pred_bboxes"
+    
+
+    YOLO_model: "yolov5su.pt"
+    reduction_factor: 0.8
+    yolo_classes: [0, 2]
+    yolo_threshold: 0.1
+
+    draw_points: True
+    draw_bboxes: True
+    write_distance: True
+
+    total_rings: 64
+    rings_to_use: 8
+    pointcloud_mode: "organised_rings"
+
+    sync_mode: "exact"
+    sync_queue_size: 10
+    sync_slop_sec: 0.1
+
+    calibration_mode: "kitti_topic"
+
+    point_depth_filter_mode: "legacy_lidar_x"
+    minimum_forward_distance: 2.0
+    output_coordinate_mode: "legacy_kitti"
+    association_method: "legacy_box"
+    centre_statistic: "mean"
+    depth_cluster_gap_m: 0.35
+    depth_cluster_min_points: 5
+    box_bottom_trim_ratio: 0.0
+    hybrid_min_cluster_points: 5
+    hybrid_min_support_ratio: 0.35
+    hybrid_max_depth_spread_m: 0.35
+    hybrid_min_cluster_separation_m: 0.20
+    hybrid_fallback_on_single_cluster: True
+    hybrid_fallback_on_sparse_candidates: True
+    device: "auto"

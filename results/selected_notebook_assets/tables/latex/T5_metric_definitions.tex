@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lll}
+\hline
+metric & definition & unit \\
+\hline
+valid fusion rate & matched valid fused detections divided by detector person detections & ratio \\
+mean/median/P95 3D error & Euclidean error between fused person centre and GT 3D person centre & metres \\
+error > 1m & fraction of matched valid fused detections with 3D error above 1 metre & ratio \\
+FPS & approximate offline detector + fusion throughput reported by evaluator & frames/s \\
+camera depth error & absolute difference along the camera optical depth axis & metres \\
+\hline
+\end{tabular}
+\caption{Definitions of reported fusion metrics.}
+\label{tab:T5_metric_definitions}
+\end{table}
