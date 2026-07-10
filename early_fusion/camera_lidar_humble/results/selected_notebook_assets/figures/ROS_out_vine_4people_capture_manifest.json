@@ -1,0 +1,29 @@
+{
+  "bag": "/home/prabuddhi/Desktop/Early_Fus/rosbags/aghri_test/out_vine_4swap+walk_st_ly_11_06_2024_2_label",
+  "params_file": "/home/prabuddhi/Desktop/Early_Fus/camera_lidar_humble/config/aghri_zed_livox_yolo11s_finetuned.yaml",
+  "result_topic": "/camera_lidar_fusion/result",
+  "bboxes_topic": "/camera_lidar_fusion/pred_bboxes",
+  "capture_rule": "primary: save result frames when pred_bboxes reports at least 4 detections; fallback: highest-count candidate frames if fewer than two primary frames are seen",
+  "observed_result_frames": 28,
+  "observed_bbox_messages": 30,
+  "max_detected_people_seen": 6,
+  "saved": [
+    {
+      "file": "/home/prabuddhi/Desktop/Early_Fus/results/aghri_fusion_paper_assets/selected_notebook_assets/figures/ROS_out_vine_4people_fusion_01.png",
+      "detected_people_from_pred_bboxes": 4,
+      "image_stamp_sec": 0.0,
+      "frame_id": "",
+      "width": 672,
+      "height": 376
+    },
+    {
+      "file": "/home/prabuddhi/Desktop/Early_Fus/results/aghri_fusion_paper_assets/selected_notebook_assets/figures/ROS_out_vine_4people_fusion_02.png",
+      "detected_people_from_pred_bboxes": 4,
+      "image_stamp_sec": 0.0,
+      "frame_id": "",
+      "width": 672,
+      "height": 376
+    }
+  ],
+  "candidate_count": 2
+}

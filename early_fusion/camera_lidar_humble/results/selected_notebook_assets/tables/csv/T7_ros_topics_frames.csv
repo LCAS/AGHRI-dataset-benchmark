@@ -1,0 +1,9 @@
+topic,type,frame
+/dataset/cam_zed_rgb/image,sensor_msgs/Image,front_left_camera_optical_frame
+/dataset/lidar/points,sensor_msgs/PointCloud2,front_lidar_link
+/dataset/cam_zed_rgb/camera_info,sensor_msgs/CameraInfo,front_left_camera_optical_frame
+/dataset/cam_fish_front/camera_info,sensor_msgs/CameraInfo,fish_front_camera_link_optical
+/dataset/cam_fish_left/camera_info,sensor_msgs/CameraInfo,fish_left_camera_link_optical
+/dataset/cam_fish_right/camera_info,sensor_msgs/CameraInfo,fish_right_camera_link_optical
+/tf,tf2_msgs/TFMessage,map -> base_link
+/tf_static,tf2_msgs/TFMessage,static sensor tree

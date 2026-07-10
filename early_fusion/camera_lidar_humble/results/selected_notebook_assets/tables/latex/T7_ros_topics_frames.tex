@@ -1,0 +1,20 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{lll}
+\hline
+topic & type & frame \\
+\hline
+/dataset/cam\_zed\_rgb/image & sensor\_msgs/Image & front\_left\_camera\_optical\_frame \\
+/dataset/lidar/points & sensor\_msgs/PointCloud2 & front\_lidar\_link \\
+/dataset/cam\_zed\_rgb/camera\_info & sensor\_msgs/CameraInfo & front\_left\_camera\_optical\_frame \\
+/dataset/cam\_fish\_front/camera\_info & sensor\_msgs/CameraInfo & fish\_front\_camera\_link\_optical \\
+/dataset/cam\_fish\_left/camera\_info & sensor\_msgs/CameraInfo & fish\_left\_camera\_link\_optical \\
+/dataset/cam\_fish\_right/camera\_info & sensor\_msgs/CameraInfo & fish\_right\_camera\_link\_optical \\
+/tf & tf2\_msgs/TFMessage & map -> base\_link \\
+/tf\_static & tf2\_msgs/TFMessage & static sensor tree \\
+\hline
+\end{tabular}
+\caption{ROS 2 bag topics and frame IDs used by the fusion workflow.}
+\label{tab:T7_ros_topics_frames}
+\end{table}

@@ -1,0 +1,7 @@
+cv_bridge
+numpy
+sensor_msgs_py
+pytorch
+opencv-python
+matplotlib
+ultralytics

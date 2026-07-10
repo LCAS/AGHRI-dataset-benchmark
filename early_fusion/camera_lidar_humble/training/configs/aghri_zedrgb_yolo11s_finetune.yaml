@@ -1,0 +1,22 @@
+mode: train_eval
+train_dataset: /home/prabuddhi/Desktop/Early_Fus/aghri_zedrgb_yolo_dataset/data.yaml
+eval_dataset: /home/prabuddhi/Desktop/Early_Fus/aghri_zedrgb_yolo_dataset/data.yaml
+imgsz: 640
+epochs: 50
+batch: 16
+device: 0
+seed: 42
+eval_split: val
+rect: false
+half: false
+dnn: false
+workers: 8
+benchmark_fixed_input: true
+benchmark_warmup: 20
+benchmark_iters: 200
+project: /home/prabuddhi/Desktop/Early_Fus/checkpoints/aghri_yolo11s_finetune
+name: yolo11s_aghri_zedrgb_seed42
+models:
+- name: yolo11s
+  source: /home/prabuddhi/Desktop/agri-human-dataset-benchmark/2d-detection/benchmarks/ultralytics/yolo11s.pt
+notes: AGHRI ZED RGB YOLO11s fine-tuning from verified generic checkpoint; official train and validation recordings only.
