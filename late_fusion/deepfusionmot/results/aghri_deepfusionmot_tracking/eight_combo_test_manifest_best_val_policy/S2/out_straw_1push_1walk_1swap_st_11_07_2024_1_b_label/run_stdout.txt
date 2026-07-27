@@ -1,0 +1,8 @@
+recording=out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label
+combination_id=S2
+combination=FT YOLO + G SECOND
+frames=303
+tracked_3d_rows=292
+confirmed_tracks=15
+tracker_only_fps=3460.33
+output_dir=results/aghri_deepfusionmot_tracking/eight_combo_test_manifest_best_val_policy/S2/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label

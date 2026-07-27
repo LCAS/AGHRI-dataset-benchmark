@@ -1,0 +1,20 @@
+late_fusion_node:
+  ros__parameters:
+    calibration_topic: "/camera/calibration"
+    image_detections_topic: "/yolo/detections"
+    lidar_detections_topic: "/lidar/detections"
+
+    image_with: 1242
+    image_height: 375
+    iou_threshold: 0.1
+
+    fussed_publisher_topic: "/late_fusion/matching"
+    unmatched_3d_publisher_topic: "/late_fusion/nonmatching_3d"
+    unmatched_2d_publisher_topic: "/late_fusion/nonmatching_2d"
+
+
+projection_node:
+  ros__parameters:
+    input_matching_topic: "deepfusion/matching"
+    input_nonmatching_topic: "deepfusion/nonmatching"
+    input_image_topic: "camera/image_raw"

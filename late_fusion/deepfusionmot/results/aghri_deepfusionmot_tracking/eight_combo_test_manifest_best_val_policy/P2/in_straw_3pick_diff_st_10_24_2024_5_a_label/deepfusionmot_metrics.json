@@ -1,0 +1,51 @@
+{
+  "metrics": {
+    "combination_id": "P2",
+    "combination_label": "FT YOLO + G PointPillars",
+    "recording": "in_straw_3pick_diff_st_10_24_2024_5_a_label",
+    "frames_evaluated": 122,
+    "gt_dets": 200,
+    "tracker_dets": 27,
+    "gt_ids": 2,
+    "tracker_ids": 2,
+    "tracker_only_fps": 1035.0487875243125,
+    "cached_pipeline_fps": 972.4134511197009,
+    "tracking_output_dir": "results/aghri_deepfusionmot_tracking/eight_combo_test_manifest_best_val_policy/P2/in_straw_3pick_diff_st_10_24_2024_5_a_label",
+    "HOTA": 0.06571351899318367,
+    "DetA": 0.05480602379444164,
+    "AssA": 0.07903048441603965,
+    "LocA": 0.6624825351531629,
+    "HOTA_0": 0.16084515645418396,
+    "MOTA": -0.125,
+    "MOTP": 0.6650032903063663,
+    "IDSW": 0,
+    "MT": 0,
+    "PT": 0,
+    "ML": 2,
+    "Frag": 0,
+    "CLR_TP": 1,
+    "CLR_FP": 26,
+    "CLR_FN": 199,
+    "IDF1": 0.00881057268722467,
+    "IDP": 0.037037037037037035,
+    "IDR": 0.005,
+    "IDTP": 1,
+    "IDFP": 26,
+    "IDFN": 199
+  },
+  "metadata": {
+    "num_frames": 122,
+    "num_gt_dets": 200,
+    "num_tracker_dets": 27,
+    "num_gt_ids": 2,
+    "num_tracker_ids": 2,
+    "gt_id_map": {
+      "02": 0,
+      "06": 1
+    },
+    "tracker_id_map": {
+      "42": 0,
+      "44": 1
+    }
+  }
+}

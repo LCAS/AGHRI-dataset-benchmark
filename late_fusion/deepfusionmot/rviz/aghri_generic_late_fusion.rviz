@@ -1,0 +1,88 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Enabled: true
+      Name: Ground Grid
+      Cell Size: 1
+      Plane: XY
+    - Class: rviz_default_plugins/TF
+      Enabled: false
+      Name: TF
+      Show Axes: false
+      Show Names: false
+    - Class: rviz_default_plugins/PointCloud2
+      Alpha: 0.85
+      Decay Time: 0
+      Enabled: true
+      Name: AGHRI LiDAR
+      Topic:
+        Value: /dataset/lidar/points
+      Size (Pixels): 1
+      Style: Points
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Original LiDAR Boxes
+      Topic:
+        Value: /visualization/lidar_detections_markers
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Matched 3D Boxes
+      Topic:
+        Value: /visualization/matched_3d_markers
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Tracked DeepFusionMOT Boxes
+      Topic:
+        Value: /visualization/tracked_3d_markers
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: true
+      Name: Unmatched LiDAR Boxes
+      Topic:
+        Value: /visualization/unmatched_lidar_markers
+    - Class: rviz_default_plugins/MarkerArray
+      Enabled: false
+      Name: Canonical Fused 3D Boxes
+      Topic:
+        Value: /visualization/fused_3d_markers
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Name: YOLO 2D Detection Image
+      Topic:
+        Value: /visualization/camera_detections_image
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Name: Matched 3D Projection Image
+      Topic:
+        Value: /visualization/fused_projection_image
+    - Class: rviz_default_plugins/Image
+      Enabled: true
+      Name: Tracked DeepFusionMOT Projection Image
+      Topic:
+        Value: /visualization/tracked_projection_image
+  Enabled: true
+  Fixed Frame: front_lidar_link
+  Global Options:
+    Fixed Frame: front_lidar_link
+    Frame Rate: 30
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 24
+      Focal Point:
+        X: 10
+        Y: 0
+        Z: 0.8
+      Name: Current View
+      Near Clip Distance: 0.05
+      Pitch: 0.55
+      Target Frame: front_lidar_link
+      Yaw: 3.05
+Window Geometry:
+  Height: 1000
+  Width: 1600

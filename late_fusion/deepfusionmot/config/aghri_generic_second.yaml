@@ -1,0 +1,9 @@
+aghri_second_detector:
+  ros__parameters:
+    points_topic: "/dataset/lidar/points"
+    detections_topic: "/detector/lidar/detections"
+    config: "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/3d-detection/benchmarks/mmdetection3d/configs/models/second_kitti_pretrained_eval_aghri.py"
+    checkpoint: "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/kitti_pretrained/second_hv_secfpn_8xb6-80e_kitti-3d-3class-b086d0a3.pth"
+    device: "cuda:0"
+    score_threshold: 0.0
+    pedestrian_class_id: 0

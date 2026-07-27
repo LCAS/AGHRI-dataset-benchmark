@@ -1,0 +1,90 @@
+[
+  {
+    "experiment_id": "S1",
+    "combination": "G YOLO + G SECOND",
+    "bags": 6,
+    "mean_online_fused_fps": 12.726796,
+    "std_online_fused_fps": 3.0616064311205644,
+    "mean_online_tracked_fps": 12.903770999999999,
+    "std_online_tracked_fps": 3.0954100709653964,
+    "mean_processing_ratio": 0.8169655,
+    "mean_e2e_latency_ms": 71.66883166666666
+  },
+  {
+    "experiment_id": "S2",
+    "combination": "FT YOLO + G SECOND",
+    "bags": 6,
+    "mean_online_fused_fps": 12.271658333333333,
+    "std_online_fused_fps": 2.321887183853399,
+    "mean_online_tracked_fps": 12.514546833333334,
+    "std_online_tracked_fps": 2.4533159152452764,
+    "mean_processing_ratio": 0.7993121666666667,
+    "mean_e2e_latency_ms": 78.1944345
+  },
+  {
+    "experiment_id": "S3",
+    "combination": "G YOLO + FT SECOND",
+    "bags": 6,
+    "mean_online_fused_fps": 12.691228833333334,
+    "std_online_fused_fps": 2.941846145851847,
+    "mean_online_tracked_fps": 12.6915805,
+    "std_online_tracked_fps": 3.0111677112771216,
+    "mean_processing_ratio": 0.8163116666666667,
+    "mean_e2e_latency_ms": 65.59421116666667
+  },
+  {
+    "experiment_id": "S4",
+    "combination": "FT YOLO + FT SECOND",
+    "bags": 6,
+    "mean_online_fused_fps": 12.430685333333333,
+    "std_online_fused_fps": 2.533960373460301,
+    "mean_online_tracked_fps": 12.613173166666666,
+    "std_online_tracked_fps": 2.5974762296314027,
+    "mean_processing_ratio": 0.8212036666666667,
+    "mean_e2e_latency_ms": 65.82123133333333
+  },
+  {
+    "experiment_id": "P1",
+    "combination": "G YOLO + G PointPillars",
+    "bags": 6,
+    "mean_online_fused_fps": 13.568924833333334,
+    "std_online_fused_fps": 3.4211412717753364,
+    "mean_online_tracked_fps": 13.326798833333333,
+    "std_online_tracked_fps": 3.141643956773932,
+    "mean_processing_ratio": 0.8740749999999999,
+    "mean_e2e_latency_ms": 57.001943499999996
+  },
+  {
+    "experiment_id": "P2",
+    "combination": "FT YOLO + G PointPillars",
+    "bags": 6,
+    "mean_online_fused_fps": 13.375709333333333,
+    "std_online_fused_fps": 2.9612943631661923,
+    "mean_online_tracked_fps": 13.543713666666667,
+    "std_online_tracked_fps": 3.0775964789564383,
+    "mean_processing_ratio": 0.8709735,
+    "mean_e2e_latency_ms": 58.18759883333333
+  },
+  {
+    "experiment_id": "P3",
+    "combination": "G YOLO + FT PointPillars",
+    "bags": 6,
+    "mean_online_fused_fps": 12.149848666666667,
+    "std_online_fused_fps": 2.7186652569935617,
+    "mean_online_tracked_fps": 12.183838166666666,
+    "std_online_tracked_fps": 2.6894278124731605,
+    "mean_processing_ratio": 0.797305,
+    "mean_e2e_latency_ms": 75.97320500000001
+  },
+  {
+    "experiment_id": "P4",
+    "combination": "FT YOLO + FT PointPillars",
+    "bags": 6,
+    "mean_online_fused_fps": 12.143274333333334,
+    "std_online_fused_fps": 2.8309277875126853,
+    "mean_online_tracked_fps": 12.288504666666666,
+    "std_online_tracked_fps": 2.899412047908173,
+    "mean_processing_ratio": 0.7917615,
+    "mean_e2e_latency_ms": 70.76103783333333
+  }
+]

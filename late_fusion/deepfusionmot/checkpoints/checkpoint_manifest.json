@@ -1,0 +1,57 @@
+[
+  {
+    "model_name": "generic_yolo11s",
+    "architecture": "YOLO11s",
+    "training_dataset": "COCO-pretrained",
+    "classes": [
+      "person"
+    ],
+    "official_source_url": "",
+    "matching_config_file": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/early_fusion/camera_lidar_humble/config/aghri_zed_livox.yaml",
+    "absolute_local_path": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/early_fusion/camera_lidar_humble/checkpoints/generic/yolo11s.pt",
+    "file_size": 19313732,
+    "sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5",
+    "download_date": "2026-07-09T09:26:54.729841+00:00",
+    "mmdetection3d_generation": "Ultralytics YOLO11",
+    "intended_use": "generic YOLO camera baseline",
+    "status": "present"
+  },
+  {
+    "model_name": "second_hv_secfpn_8xb6_80e_kitti_3d_3class",
+    "architecture": "SECOND",
+    "training_dataset": "KITTI 3D 3-class",
+    "classes": [
+      "Pedestrian",
+      "Cyclist",
+      "Car"
+    ],
+    "official_source_url": "https://download.openmmlab.com/mmdetection3d/v1.1.0_models/second/second_hv_secfpn_8xb6-80e_kitti-3d-3class/second_hv_secfpn_8xb6-80e_kitti-3d-3class-b086d0a3.pth",
+    "matching_config_file": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/3d-detection/benchmarks/mmdetection3d/configs/models/second_kitti_pretrained_eval_aghri.py",
+    "absolute_local_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/kitti_pretrained/second_hv_secfpn_8xb6-80e_kitti-3d-3class-b086d0a3.pth",
+    "file_size": 23098237,
+    "sha256": "b086d0a369d0b955b3ff45b6849a4370c46dea2b95445671837a989839eb2bbd",
+    "download_date": "2026-07-09T09:26:54.742830+00:00",
+    "mmdetection3d_generation": "MMDetection3D v1.1.0 model zoo",
+    "intended_use": "generic SECOND LiDAR baseline",
+    "status": "present"
+  },
+  {
+    "model_name": "hv_pointpillars_secfpn_6x8_160e_kitti_3d_3class",
+    "architecture": "PointPillars",
+    "training_dataset": "KITTI 3D 3-class",
+    "classes": [
+      "Pedestrian",
+      "Cyclist",
+      "Car"
+    ],
+    "official_source_url": "https://download.openmmlab.com/mmdetection3d/v1.0.0_models/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class_20220301_150306-37dc2420.pth",
+    "matching_config_file": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/3d-detection/benchmarks/mmdetection3d/configs/models/pointpillars_kitti_pretrained_eval_aghri.py",
+    "absolute_local_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/kitti_pretrained/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class_20220301_150306-37dc2420.pth",
+    "file_size": 19419845,
+    "sha256": "37dc242098f0d3dd7d870e0fe7cd4514f76fd85a04fb1377681279f963b3cbe5",
+    "download_date": "2026-07-09T09:26:54.754077+00:00",
+    "mmdetection3d_generation": "MMDetection3D v1.0.0 model zoo",
+    "intended_use": "downloaded PointPillars future baseline",
+    "status": "present"
+  }
+]

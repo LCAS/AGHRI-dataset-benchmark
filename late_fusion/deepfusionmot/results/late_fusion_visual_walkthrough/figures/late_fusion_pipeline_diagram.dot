@@ -1,0 +1,12 @@
+
+digraph G {
+  graph [rankdir=LR, bgcolor="white"];
+  node [shape=box, style="rounded,filled", fillcolor="#f7f7f7", fontname="DejaVu Sans"];
+  rgb [label="RGB image -> YOLO 2D box", fillcolor="#e8f5e9"];
+  lidar [label="Point cloud -> 3D detector box", fillcolor="#fce4ec"];
+  geom [label="3D corners -> camera projection -> 2D envelope"];
+  assoc [label="YOLO box + envelope -> IoU -> assignment", fillcolor="#fff9c4"];
+  out [label="matched / unmatched / ALL3D outputs", fillcolor="#e3f2fd"];
+  rgb -> assoc;
+  lidar -> geom -> assoc -> out;
+}

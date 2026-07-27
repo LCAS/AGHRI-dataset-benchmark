@@ -1,0 +1,70 @@
+{
+  "bag_path": "/home/prabuddhi/Desktop/Early_Fus/rosbags/aghri_test/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label",
+  "bag_root": "/home/prabuddhi/Desktop/Early_Fus/rosbags/aghri_test",
+  "combinations": [
+    {
+      "camera_model": "generic",
+      "id": "S1",
+      "lidar_detector": "second",
+      "lidar_model": "generic"
+    },
+    {
+      "camera_model": "finetuned",
+      "id": "S2",
+      "lidar_detector": "second",
+      "lidar_model": "generic"
+    },
+    {
+      "camera_model": "generic",
+      "id": "S3",
+      "lidar_detector": "second",
+      "lidar_model": "finetuned"
+    },
+    {
+      "camera_model": "finetuned",
+      "id": "S4",
+      "lidar_detector": "second",
+      "lidar_model": "finetuned"
+    },
+    {
+      "camera_model": "generic",
+      "id": "P1",
+      "lidar_detector": "pointpillars",
+      "lidar_model": "generic"
+    },
+    {
+      "camera_model": "finetuned",
+      "id": "P2",
+      "lidar_detector": "pointpillars",
+      "lidar_model": "generic"
+    },
+    {
+      "camera_model": "generic",
+      "id": "P3",
+      "lidar_detector": "pointpillars",
+      "lidar_model": "finetuned"
+    },
+    {
+      "camera_model": "finetuned",
+      "id": "P4",
+      "lidar_detector": "pointpillars",
+      "lidar_model": "finetuned"
+    }
+  ],
+  "generated_at": "2026-07-26T18:04:50.998723+00:00",
+  "inference_mode": "live",
+  "launch_rviz": false,
+  "max_throughput_rate": 8.0,
+  "normal_rate": 2.0,
+  "recordings": [
+    "footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label",
+    "footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label",
+    "in_straw_3pick_diff_st_10_24_2024_5_a_label",
+    "out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label",
+    "out_vine_1push_3carry_st_ly_11_06_2024_1_label",
+    "out_vine_4swap+walk_st_ly_11_06_2024_2_label"
+  ],
+  "repetitions": 1,
+  "visualisation": false,
+  "warmup_frames": 5
+}

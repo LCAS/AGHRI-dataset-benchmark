@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "src/run_benchmark.py", line 724, in <module>
+    main()
+  File "src/run_benchmark.py", line 711, in main
+    rows.append(train_and_eval_model(model_item, bench_cfg, REPO_ROOT))
+  File "src/run_benchmark.py", line 462, in train_and_eval_model
+    cfg = Config.fromfile(str(cfg_path))
+  File "/work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages/mmengine/config/config.py", line 494, in fromfile
+    raise e
+  File "/work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages/mmengine/config/config.py", line 492, in fromfile
+    cfg_dict, imported_names = Config._parse_lazy_import(filename)
+  File "/work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages/mmengine/config/config.py", line 1044, in _parse_lazy_import
+    base_modules = Config._get_base_modules(parsed_codes.body)
+  File "/work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages/mmengine/config/config.py", line 579, in _get_base_modules
+    raise ConfigParsingError(
+mmengine.config.utils.ConfigParsingError: The configuration file type in the inheritance chain must match the current configuration file type, either "lazy_import" or non-"lazy_import". You got this error since you use the syntax like `_base_ = "_base_"` in your config. You should use `with read_base(): ... to` mark the inherited config file. See more information in https://mmengine.readthedocs.io/en/latest/advanced_tutorials/config.html
+srun: error: hpc-novel-gpu05: task 0: Exited with exit code 1
+srun: Terminating StepId=14837.0

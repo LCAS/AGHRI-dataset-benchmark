@@ -1,0 +1,17 @@
+
+digraph G {
+  graph [rankdir=LR, bgcolor="white"];
+  node [shape=box, style="rounded,filled", fillcolor="#f7f7f7", fontname="DejaVu Sans"];
+  image [label="ROS image topic"];
+  yolo [label="live YOLO inference\nDetection2DArray", fillcolor="#e8f5e9"];
+  cloud [label="ROS PointCloud2 topic"];
+  lidar [label="live PointPillars/SECOND\nDetection3DArray", fillcolor="#fce4ec"];
+  fusion [label="online projection\nand association"];
+  topics [label="fused ROS topics"];
+  vis [label="projected image + RViz"];
+  replay [label="optional cached ROS replay\ndebugging path", fillcolor="#eeeeee"];
+  image -> yolo -> fusion;
+  cloud -> lidar -> fusion;
+  fusion -> topics -> vis;
+  replay -> fusion [style=dashed];
+}

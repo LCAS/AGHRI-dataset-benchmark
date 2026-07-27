@@ -1,0 +1,118 @@
+[INFO] [launch]: All log files can be found below /home/prabuddhi/.ros/log/2026-07-26-19-19-34-834470-prabuddhi-ROG-Strix-G614JV-G614JV-240065
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [launch.user]: ROS inference mode: LIVE
+[INFO] [launch.user]: Dataset profile: aghri
+[INFO] [launch.user]: Camera detector: AGHRI-fine-tuned YOLO11s
+[INFO] [launch.user]: Camera checkpoint: /home/prabuddhi/Desktop/Early_Fus/checkpoints/aghri_yolo11s_finetune/cluster_run/weights/best.pt
+[INFO] [launch.user]: Camera checkpoint SHA256: bbb267ba96e3b94b615ef4e78a0d5319b95c592e932879f2c2bfeedf54fa3110
+[INFO] [launch.user]: Live camera inference: ENABLED
+[INFO] [launch.user]: LiDAR detector family: second
+[INFO] [launch.user]: LiDAR model: AGHRI-fine-tuned SECOND
+[INFO] [launch.user]: LiDAR config: /home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_second_finetune/cluster_run/configs/second_aghri_finetune_seed42.py
+[INFO] [launch.user]: LiDAR checkpoint: /home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_second_finetune/cluster_run/weights/best.pth
+[INFO] [launch.user]: LiDAR checkpoint SHA256: 06e67ae24080f9eba67d745c71e8554ba950b2aa9d2886348ff260a257fe87ab
+[INFO] [launch.user]: LiDAR box origin: center
+[INFO] [launch.user]: Live LiDAR inference: ENABLED
+[INFO] [launch.user]: Cached camera replay: DISABLED
+[INFO] [launch.user]: Cached LiDAR replay: DISABLED
+[INFO] [launch.user]: Online projection: ENABLED
+[INFO] [launch.user]: Online association: ENABLED
+[INFO] [launch.user]: Online recording label: aghri_online
+[INFO] [python-1]: process started with pid [240082]
+[INFO] [live_lidar_detector_node-2]: process started with pid [240084]
+[INFO] [aghri_late_fusion_node-3]: process started with pid [240086]
+[INFO] [aghri_deepfusionmot_tracker_node-4]: process started with pid [240088]
+[INFO] [cache_diagnostics_collector-5]: process started with pid [240090]
+[cache_diagnostics_collector-5] [INFO] [1785089975.090645653] [online_diagnostics_collector]: writing cached replay diagnostics to /home/prabuddhi/Desktop/late_fusion/deepfusionmot/results/aghri_online_fps_benchmark_live_2x_all_bags_all_combinations/raw_runs/normal_out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label_S4_run1/collector_diagnostics.jsonl
+[aghri_deepfusionmot_tracker_node-4] [INFO] [1785089975.284475001] [aghri_deepfusionmot_tracker]: online DeepFusionMOT tracker ready
+[python-1] [INFO] [1785089977.632436435] [online_yolo_detector]: LIVE YOLO inference enabled; cached camera replay disabled; model=AGHRI-fine-tuned YOLO11s; checkpoint=/home/prabuddhi/Desktop/Early_Fus/checkpoints/aghri_yolo11s_finetune/cluster_run/weights/best.pt; sha256=bbb267ba96e3b94b615ef4e78a0d5319b95c592e932879f2c2bfeedf54fa3110; device=cuda; load_ms=1646.5
+[live_lidar_detector_node-2] /home/prabuddhi/miniconda3/envs/aghri-mmdet3d/lib/python3.10/site-packages/mmdet3d/models/dense_heads/anchor3d_head.py:94: UserWarning: dir_offset and dir_limit_offset will be depressed and be incorporated into box coder in the future
+[live_lidar_detector_node-2]   warnings.warn(
+[live_lidar_detector_node-2] Loads checkpoint by local backend from path: /home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_second_finetune/cluster_run/weights/best.pth
+[live_lidar_detector_node-2] {"event": "worker_ready", "worker": "mmdet3d_online", "dataset_profile": "aghri", "detector_family": "second", "lidar_model": "finetuned", "config_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_second_finetune/cluster_run/configs/second_aghri_finetune_seed42.py", "checkpoint_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_second_finetune/cluster_run/weights/best.pth", "checkpoint_sha256": "06e67ae24080f9eba67d745c71e8554ba950b2aa9d2886348ff260a257fe87ab", "selected_class_id": 0, "selected_class_name": "person", "score_threshold": 0.2, "box_origin": "center", "device": "cuda:0", "model_load_sec": 4.887789538996003}
+[live_lidar_detector_node-2] {"event": "client_connected", "addr": "('127.0.0.1', 58718)"}
+[live_lidar_detector_node-2] [INFO] [1785089983.759445609] [online_lidar_detector]: worker_ready
+[live_lidar_detector_node-2] [INFO] [1785089983.780589878] [online_lidar_detector]: LIVE LiDAR inference enabled; cached LiDAR replay disabled; detector=AGHRI-fine-tuned SECOND; config=/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_second_finetune/cluster_run/configs/second_aghri_finetune_seed42.py; checkpoint=/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_second_finetune/cluster_run/weights/best.pth; sha256=06e67ae24080f9eba67d745c71e8554ba950b2aa9d2886348ff260a257fe87ab; box_origin=center
+[live_lidar_detector_node-2] /home/prabuddhi/miniconda3/envs/aghri-mmdet3d/lib/python3.10/site-packages/torch/functional.py:504: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at ../aten/src/ATen/native/TensorShape.cpp:3526.)
+[live_lidar_detector_node-2]   return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [cache_diagnostics_collector-5]: sending signal 'SIGINT' to process[cache_diagnostics_collector-5]
+[INFO] [aghri_deepfusionmot_tracker_node-4]: sending signal 'SIGINT' to process[aghri_deepfusionmot_tracker_node-4]
+[INFO] [aghri_late_fusion_node-3]: sending signal 'SIGINT' to process[aghri_late_fusion_node-3]
+[INFO] [live_lidar_detector_node-2]: sending signal 'SIGINT' to process[live_lidar_detector_node-2]
+[INFO] [python-1]: sending signal 'SIGINT' to process[python-1]
+[live_lidar_detector_node-2] Traceback (most recent call last):
+[live_lidar_detector_node-2]   File "/home/prabuddhi/miniconda3/envs/aghri-mmdet3d/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+[live_lidar_detector_node-2]     return _run_code(code, main_globals, None,
+[live_lidar_detector_node-2]   File "/home/prabuddhi/miniconda3/envs/aghri-mmdet3d/lib/python3.10/runpy.py", line 86, in _run_code
+[cache_diagnostics_collector-5] Traceback (most recent call last):
+[cache_diagnostics_collector-5]   File "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/install/late_fusion_pkg/lib/late_fusion_pkg/cache_diagnostics_collector", line 33, in <module>
+[cache_diagnostics_collector-5]     sys.exit(load_entry_point('late-fusion-pkg', 'console_scripts', 'cache_diagnostics_collector')())
+[cache_diagnostics_collector-5]   File "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/build/late_fusion_pkg/late_fusion_pkg/cache_diagnostics_collector.py", line 59, in main
+[cache_diagnostics_collector-5]     node.destroy_node()
+[cache_diagnostics_collector-5]   File "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/build/late_fusion_pkg/late_fusion_pkg/cache_diagnostics_collector.py", line 50, in destroy_node
+[cache_diagnostics_collector-5]     super().destroy_node()
+[cache_diagnostics_collector-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1681, in destroy_node
+[aghri_deepfusionmot_tracker_node-4] Traceback (most recent call last):
+[aghri_deepfusionmot_tracker_node-4]   File "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/install/late_fusion_pkg/lib/late_fusion_pkg/aghri_deepfusionmot_tracker_node", line 33, in <module>
+[aghri_late_fusion_node-3] Traceback (most recent call last):
+[aghri_late_fusion_node-3]   File "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/install/late_fusion_pkg/lib/late_fusion_pkg/aghri_late_fusion_node", line 33, in <module>
+[aghri_late_fusion_node-3]     sys.exit(load_entry_point('late-fusion-pkg', 'console_scripts', 'aghri_late_fusion_node')())
+[aghri_late_fusion_node-3]   File "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/build/late_fusion_pkg/late_fusion_pkg/aghri_late_fusion_node.py", line 161, in main
+[cache_diagnostics_collector-5]     self.destroy_subscription(self._subscriptions[0])
+[cache_diagnostics_collector-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1577, in destroy_subscription
+[aghri_deepfusionmot_tracker_node-4]     sys.exit(load_entry_point('late-fusion-pkg', 'console_scripts', 'aghri_deepfusionmot_tracker_node')())
+[aghri_deepfusionmot_tracker_node-4]   File "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/build/late_fusion_pkg/late_fusion_pkg/aghri_deepfusionmot_tracker_node.py", line 230, in main
+[aghri_deepfusionmot_tracker_node-4]     node.destroy_node()
+[aghri_deepfusionmot_tracker_node-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1681, in destroy_node
+[aghri_late_fusion_node-3]     node.destroy_node()
+[aghri_late_fusion_node-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1679, in destroy_node
+[aghri_late_fusion_node-3]     self.destroy_publisher(self._publishers[0])
+[aghri_late_fusion_node-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1559, in destroy_publisher
+[cache_diagnostics_collector-5]     subscription.destroy()
+[cache_diagnostics_collector-5]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/subscription.py", line 80, in destroy
+[cache_diagnostics_collector-5]     self.handle.destroy_when_not_in_use()
+[cache_diagnostics_collector-5] KeyboardInterrupt
+[aghri_late_fusion_node-3]     publisher.destroy()
+[aghri_late_fusion_node-3]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/publisher.py", line 93, in destroy
+[aghri_late_fusion_node-3]     self.__publisher.destroy_when_not_in_use()
+[aghri_late_fusion_node-3] KeyboardInterrupt
+[aghri_deepfusionmot_tracker_node-4]     self.destroy_subscription(self._subscriptions[0])
+[aghri_deepfusionmot_tracker_node-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1577, in destroy_subscription
+[aghri_deepfusionmot_tracker_node-4]     subscription.destroy()
+[aghri_deepfusionmot_tracker_node-4]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/subscription.py", line 80, in destroy
+[aghri_deepfusionmot_tracker_node-4]     self.handle.destroy_when_not_in_use()
+[aghri_deepfusionmot_tracker_node-4] KeyboardInterrupt
+[python-1] Traceback (most recent call last):
+[python-1]   File "/home/prabuddhi/miniconda3/envs/aghri-mmdet3d/lib/python3.10/runpy.py", line 196, in _run_module_as_main
+[python-1]     return _run_code(code, main_globals, None,
+[python-1]   File "/home/prabuddhi/miniconda3/envs/aghri-mmdet3d/lib/python3.10/runpy.py", line 86, in _run_code
+[python-1]     exec(code, run_globals)
+[python-1]   File "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/late_fusion_pkg/live_yolo_detector_node.py", line 213, in <module>
+[python-1]     main()
+[python-1]   File "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/late_fusion_pkg/live_yolo_detector_node.py", line 207, in main
+[python-1]     node.destroy_node()
+[python-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1685, in destroy_node
+[python-1]     self.destroy_service(self._services[0])
+[python-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1609, in destroy_service
+[python-1]     service.destroy()
+[python-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/service.py", line 87, in destroy
+[python-1]     self.__service.destroy_when_not_in_use()
+[python-1] KeyboardInterrupt
+[live_lidar_detector_node-2] Traceback (most recent call last):
+[live_lidar_detector_node-2]   File "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/install/late_fusion_pkg/lib/late_fusion_pkg/live_lidar_detector_node", line 33, in <module>
+[live_lidar_detector_node-2]     sys.exit(load_entry_point('late-fusion-pkg', 'console_scripts', 'live_lidar_detector_node')())
+[live_lidar_detector_node-2]   File "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/build/late_fusion_pkg/late_fusion_pkg/live_lidar_detector_node.py", line 278, in main
+[live_lidar_detector_node-2]     node.destroy_node()
+[live_lidar_detector_node-2]   File "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/build/late_fusion_pkg/late_fusion_pkg/live_lidar_detector_node.py", line 266, in destroy_node
+[live_lidar_detector_node-2]     self.worker.wait(timeout=10)
+[live_lidar_detector_node-2]   File "/usr/lib/python3.10/subprocess.py", line 1209, in wait
+[live_lidar_detector_node-2]     return self._wait(timeout=timeout)
+[live_lidar_detector_node-2]   File "/usr/lib/python3.10/subprocess.py", line 1953, in _wait
+[live_lidar_detector_node-2]     time.sleep(delay)
+[live_lidar_detector_node-2] KeyboardInterrupt
+[ERROR] [cache_diagnostics_collector-5]: process has died [pid 240090, exit code -2, cmd '/home/prabuddhi/Desktop/late_fusion/deepfusionmot/install/late_fusion_pkg/lib/late_fusion_pkg/cache_diagnostics_collector --ros-args -r __node:=online_diagnostics_collector -p output_jsonl:=/home/prabuddhi/Desktop/late_fusion/deepfusionmot/results/aghri_online_fps_benchmark_live_2x_all_bags_all_combinations/raw_runs/normal_out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label_S4_run1/collector_diagnostics.jsonl -p camera_stats_topic:=/detector/camera/live_stats -p lidar_stats_topic:=/detector/lidar/live_stats -p fusion_diagnostics_topic:=/late_fusion/diagnostics -p tracking_diagnostics_topic:=/deepfusionmot/diagnostics -p visualization_diagnostics_topic:=/visualization/diagnostics -p camera_source_label:=camera_live -p lidar_source_label:=lidar_live -p use_sim_time:=true'].
+[ERROR] [live_lidar_detector_node-2]: process has died [pid 240084, exit code -2, cmd '/home/prabuddhi/Desktop/late_fusion/deepfusionmot/install/late_fusion_pkg/lib/late_fusion_pkg/live_lidar_detector_node --ros-args -r __node:=online_lidar_detector -p dataset_profile:=aghri -p lidar_detector:=second -p lidar_model:=finetuned -p allow_cross_domain:=false -p input_topic:=/dataset/lidar/points -p output_topic:=/detector/lidar/detections -p diagnostics_topic:=/detector/lidar/live_stats -p frame_id:=front_lidar_link -p device:=cuda:0 -p worker_python:=/home/prabuddhi/miniconda3/envs/aghri-mmdet3d/bin/python -p worker_timeout_sec:=600.0 -p score_threshold_override:=0.20 -p use_sim_time:=true'].
+[ERROR] [aghri_late_fusion_node-3]: process has died [pid 240086, exit code -2, cmd '/home/prabuddhi/Desktop/late_fusion/deepfusionmot/install/late_fusion_pkg/lib/late_fusion_pkg/aghri_late_fusion_node --ros-args -r __node:=aghri_late_fusion --params-file /home/prabuddhi/Desktop/late_fusion/deepfusionmot/config/aghri_generic_late_fusion.yaml -p camera_detections_topic:=/detector/camera/detections -p lidar_detections_topic:=/detector/lidar/detections -p camera_info_topic:=/dataset/cam_zed_rgb/camera_info -p fused_topic:=/late_fusion/fused_3d -p matched_topic:=/late_fusion/matched_3d -p unmatched_lidar_topic:=/late_fusion/unmatched_lidar -p unmatched_camera_topic:=/late_fusion/unmatched_camera -p diagnostics_topic:=/late_fusion/diagnostics -p lidar_frame:=front_lidar_link -p camera_frame:=front_left_camera_optical_frame -p use_sim_time:=true'].
+[ERROR] [aghri_deepfusionmot_tracker_node-4]: process has died [pid 240088, exit code -2, cmd '/home/prabuddhi/Desktop/late_fusion/deepfusionmot/install/late_fusion_pkg/lib/late_fusion_pkg/aghri_deepfusionmot_tracker_node --ros-args -r __node:=aghri_deepfusionmot_tracker -p matched_3d_topic:=/late_fusion/matched_3d -p unmatched_lidar_topic:=/late_fusion/unmatched_lidar -p unmatched_camera_topic:=/late_fusion/unmatched_camera -p tracked_3d_topic:=/deepfusionmot/tracked_3d -p tracked_2d_topic:=/deepfusionmot/tracked_2d -p diagnostics_topic:=/deepfusionmot/diagnostics -p recording_id:=aghri_online -p min_hits:=3 -p max_age_frames:=10 -p association_3d_threshold:=0.03 -p association_2d_threshold:=0.40 -p support_2d_to_3d_threshold:=0.40 -p ego_motion_mode:=tf -p fixed_frame:=map -p lidar_frame:=front_lidar_link -p use_sim_time:=true'].
+[ERROR] [python-1]: process has died [pid 240082, exit code -2, cmd '/home/prabuddhi/miniconda3/envs/aghri-mmdet3d/bin/python -m late_fusion_pkg.live_yolo_detector_node --ros-args -r __node:=online_yolo_detector -p dataset_profile:=aghri -p camera_model:=finetuned -p checkpoint_path:=/home/prabuddhi/Desktop/Early_Fus/checkpoints/aghri_yolo11s_finetune/cluster_run/weights/best.pt -p checkpoint_sha256:=bbb267ba96e3b94b615ef4e78a0d5319b95c592e932879f2c2bfeedf54fa3110 -p input_topic:=/dataset/cam_zed_rgb/image -p output_topic:=/detector/camera/detections -p diagnostics_topic:=/detector/camera/live_stats -p device:=auto -p imgsz:=640 -p conf:=0.10 -p use_sim_time:=true'].

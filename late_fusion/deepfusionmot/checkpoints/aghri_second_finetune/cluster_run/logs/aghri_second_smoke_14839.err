@@ -1,0 +1,60 @@
+Matplotlib created a temporary config/cache directory at /tmp/matplotlib-ed3d10vx because the default path (/home/users/pwariyapperuma/.config/matplotlib) is not a writable directory; it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Traceback (most recent call last):
+  File "/work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages/mmengine/utils/misc.py", line 77, in import_modules_from_strings
+    imported_tmp = import_module(imp)
+  File "/opt/conda/envs/bevfusion/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/work/users/pwariyapperuma/aghri_second_finetune/code/mmdetection3d/aghri3d/__init__.py", line 1, in <module>
+    from .aghri_dataset import AghriLidarDataset
+  File "/work/users/pwariyapperuma/aghri_second_finetune/code/mmdetection3d/aghri3d/aghri_dataset.py", line 3, in <module>
+    from mmdet3d.datasets.det3d_dataset import Det3DDataset
+  File "/work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages/mmdet3d/datasets/__init__.py", line 15, in <module>
+    from .transforms import (AffineResize, BackgroundPointsFilter, GlobalAlignment,
+  File "/work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages/mmdet3d/datasets/transforms/__init__.py", line 2, in <module>
+    from .dbsampler import DataBaseSampler
+  File "/work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages/mmdet3d/datasets/transforms/dbsampler.py", line 10, in <module>
+    from mmdet3d.datasets.transforms import data_augment_utils
+  File "/work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages/mmdet3d/datasets/transforms/data_augment_utils.py", line 6, in <module>
+    from numba.core.errors import NumbaPerformanceWarning
+ModuleNotFoundError: No module named 'numba.core'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages/mmengine/config/config.py", line 466, in fromfile
+    import_modules_from_strings(**cfg_dict['custom_imports'])
+  File "/work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages/mmengine/utils/misc.py", line 84, in import_modules_from_strings
+    raise ImportError(f'Failed to import {imp}')
+ImportError: Failed to import aghri3d
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "src/run_benchmark.py", line 733, in <module>
+    main()
+  File "src/run_benchmark.py", line 720, in main
+    rows.append(train_and_eval_model(model_item, bench_cfg, REPO_ROOT))
+  File "src/run_benchmark.py", line 471, in train_and_eval_model
+    cfg = Config.fromfile(str(cfg_path), lazy_import=False)
+  File "/work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages/mmengine/config/config.py", line 478, in fromfile
+    raise ImportError(err_msg) from e
+ImportError: Failed to import custom modules from {'imports': ['aghri3d'], 'allow_failed_imports': False}, the current sys.path is: 
+    /work/users/pwariyapperuma/aghri_second_finetune/code/mmdetection3d
+    /work/users/pwariyapperuma
+    /work/users/pwariyapperuma/aghri_second_finetune/code/mmdetection3d/src
+    /work/users/pwariyapperuma/aghri_second_finetune/code/mmdetection3d
+    /work/users/pwariyapperuma/aghri_second_finetune/code/mmdetection3d/aghri3d
+    /opt/conda/envs/bevfusion/lib/python38.zip
+    /opt/conda/envs/bevfusion/lib/python3.8
+    /opt/conda/envs/bevfusion/lib/python3.8/lib-dynload
+    /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages
+    /opt/conda/envs/bevfusion/lib/python3.8/site-packages
+You should set `PYTHONPATH` to make `sys.path` include the directory which contains your custom module
+srun: error: hpc-novel-gpu05: task 0: Exited with exit code 1
+srun: Terminating StepId=14839.0

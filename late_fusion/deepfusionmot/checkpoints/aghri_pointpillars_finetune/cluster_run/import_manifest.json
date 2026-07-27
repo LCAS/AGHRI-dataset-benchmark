@@ -1,0 +1,103 @@
+{
+  "source_root": "/home/prabuddhi/cluster/aghri_pointpillars_finetune",
+  "destination_root": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run",
+  "dry_run": false,
+  "weights": [
+    {
+      "source": "/home/prabuddhi/cluster/aghri_pointpillars_finetune/outputs/pointpillars_aghri_seed42/full/best_aghri_bev_ap_mean_epoch_126.pth",
+      "dest": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/weights/best.pth",
+      "sha256": "50a0dde7c5650a46e50785050c632a405dedcc24a8513713e07371e3666d6847",
+      "dry_run": false,
+      "copied": true
+    },
+    {
+      "source": "/home/prabuddhi/cluster/aghri_pointpillars_finetune/outputs/pointpillars_aghri_seed42/full/epoch_160.pth",
+      "dest": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/weights/last.pth",
+      "sha256": "dc50f9ae9d8ec7604e304d97a47f5e3428b15f3ed4a33d51c513578ba4936d3e",
+      "dry_run": false,
+      "copied": true
+    }
+  ],
+  "artifact_dirs": {
+    "configs": [
+      {
+        "source": "/home/prabuddhi/cluster/aghri_pointpillars_finetune/configs/pointpillars_aghri_finetune_seed42.py",
+        "dest": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/configs/pointpillars_aghri_finetune_seed42.py",
+        "sha256": "b720e7993b25f9fa4b9edda80cc7999434e0a271fd3141dd7c3c3c3ec179b063",
+        "dry_run": false,
+        "copied": true
+      },
+      {
+        "source": "/home/prabuddhi/cluster/aghri_pointpillars_finetune/configs/benchmark_aghri_pointpillars_finetune.yaml",
+        "dest": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/configs/benchmark_aghri_pointpillars_finetune.yaml",
+        "sha256": "7a1538bbfb1090f4a476efa91876158594fdcfd666374644348548034ee8c2d0",
+        "dry_run": false,
+        "copied": true
+      },
+      {
+        "source": "/home/prabuddhi/cluster/aghri_pointpillars_finetune/configs/aghri_pointpillars_finetune_paths.env",
+        "dest": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/configs/aghri_pointpillars_finetune_paths.env",
+        "sha256": "aa9a772e8fb7824ce94a9288ead33a04384af5e6a907125f291d52bef256564d",
+        "dry_run": false,
+        "copied": true
+      }
+    ],
+    "manifests": [
+      {
+        "source": "/home/prabuddhi/cluster/aghri_pointpillars_finetune/manifests/aghri_pointpillars_finetune_paths.env",
+        "dest": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/manifests/aghri_pointpillars_finetune_paths.env",
+        "sha256": "aa9a772e8fb7824ce94a9288ead33a04384af5e6a907125f291d52bef256564d",
+        "dry_run": false,
+        "copied": true
+      }
+    ],
+    "environment": [
+      {
+        "source": "/home/prabuddhi/cluster/aghri_pointpillars_finetune/environment/pip_freeze_pointpillars_openmmlab_py38_torch110_cu113.txt",
+        "dest": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/environment/pip_freeze_pointpillars_openmmlab_py38_torch110_cu113.txt",
+        "sha256": "412f72a876019d198e356491e18422f930616ad6b5579d815dfd2ced8b7af914",
+        "dry_run": false,
+        "copied": true
+      },
+      {
+        "source": "/home/prabuddhi/cluster/aghri_pointpillars_finetune/environment/pip_check_pointpillars_openmmlab_py38_torch110_cu113.txt",
+        "dest": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/environment/pip_check_pointpillars_openmmlab_py38_torch110_cu113.txt",
+        "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09",
+        "dry_run": false,
+        "copied": true
+      }
+    ],
+    "summaries": [
+      {
+        "source": "/home/prabuddhi/cluster/aghri_pointpillars_finetune/summaries/summary_aghri_pointpillars_finetune.csv",
+        "dest": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/summaries/summary_aghri_pointpillars_finetune.csv",
+        "sha256": "ceee5e272da564c2e611c4b47beec1cd977111c0b5f2140a12779850b021b976",
+        "dry_run": false,
+        "copied": true
+      },
+      {
+        "source": "/home/prabuddhi/cluster/aghri_pointpillars_finetune/summaries/summary_aghri_pointpillars_finetune.json",
+        "dest": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/summaries/summary_aghri_pointpillars_finetune.json",
+        "sha256": "5de3f5f73b9fc0ec7344a90b6e56ab88e55ddcdebce6e43143ffef7d19f4d36c",
+        "dry_run": false,
+        "copied": true
+      }
+    ],
+    "logs": [
+      {
+        "source": "/home/prabuddhi/cluster/aghri_pointpillars_finetune/logs/aghri_pointpillars_train_14869.err",
+        "dest": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/logs/aghri_pointpillars_train_14869.err",
+        "sha256": "95d55d68fd719582d00e95c7fb34fe3705761e6ae5fb7b60e605ca6ca61657b9",
+        "dry_run": false,
+        "copied": true
+      },
+      {
+        "source": "/home/prabuddhi/cluster/aghri_pointpillars_finetune/logs/aghri_pointpillars_train_14869.out",
+        "dest": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/logs/aghri_pointpillars_train_14869.out",
+        "sha256": "c555ee3b8d3c9118e6437d80e2f454dc95672dbd1995dd30faf4f02a3ae4e19f",
+        "dry_run": false,
+        "copied": true
+      }
+    ]
+  }
+}

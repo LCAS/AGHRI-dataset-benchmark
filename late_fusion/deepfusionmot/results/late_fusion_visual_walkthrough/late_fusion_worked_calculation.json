@@ -1,0 +1,404 @@
+{
+  "recording_name": "footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label",
+  "sample_id": "footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label/1731407186_709929023",
+  "selection": {
+    "used_original_audited_frame": true,
+    "reason": "The calibration audit already verified this real matched frame exactly; boundary clipping is retained and explained as part of the projection stage."
+  },
+  "box_origin_correction": {
+    "cache_metadata_origin": "bottom_center",
+    "used_geometry_origin": "center",
+    "override_applied": true,
+    "reason": "The projected cuboid was vertically high when the cached PointPillars z value was treated as bottom-centre. Interpreting the same real detector box as centre-origin aligns the projected cuboid with the visible person. This is a box-origin convention correction, not a calibration change."
+  },
+  "image_timestamp": 1731407186.7798126,
+  "lidar_timestamp": 1731407186.709929,
+  "image_dimensions": [
+    672,
+    376
+  ],
+  "image_path": "/media/prabuddhi/Backup2/Updated Dataset_PW/dataset_part1/footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label/sensor_data/cam_zed_rgb/1731407186_779812459.png",
+  "pointcloud_path": "/media/prabuddhi/Backup2/Updated Dataset_PW/dataset_part1/footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label/sensor_data/lidar/1731407186_709929023.pcd",
+  "frames": {
+    "camera_frame": "front_left_camera_optical_frame",
+    "lidar_frame": "front_lidar_link"
+  },
+  "camera_detection": {
+    "bbox_xyxy": [
+      277.7835693359375,
+      106.77847290039062,
+      346.9267883300781,
+      252.9573516845703
+    ],
+    "confidence": 0.916218101978302,
+    "class_id": 0,
+    "class_name": "person",
+    "checkpoint_sha256": "bbb267ba96e3b94b615ef4e78a0d5319b95c592e932879f2c2bfeedf54fa3110",
+    "cache_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/results/aghri_pointpillars_detector_comparison/cache/yolo_finetuned/detections.csv",
+    "row_identifier": "footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label/1731407186_709929023"
+  },
+  "lidar_detection": {
+    "box_xyzlwhyaw": [
+      5.315617561340332,
+      0.20094463229179382,
+      0.2806103229522705,
+      0.4411206543445587,
+      0.619935154914856,
+      1.5118756294250488,
+      -0.0062798261642456055
+    ],
+    "score": 0.7171115279197693,
+    "class_id": 0,
+    "class_name": "person",
+    "checkpoint_sha256": "50a0dde7c5650a46e50785050c632a405dedcc24a8513713e07371e3666d6847",
+    "cache_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/results/aghri_pointpillars_detector_comparison/cache/pointpillars_finetuned/detections.csv",
+    "row_identifier": "footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label/1731407186_709929023",
+    "box_origin": "center",
+    "cache_metadata_box_origin": "bottom_center"
+  },
+  "calibration": {
+    "source": "/media/prabuddhi/Backup2/Updated Dataset_PW/calibration.zip",
+    "P": [
+      [
+        477.29998779296875,
+        0.0,
+        339.74749755859375,
+        0.0
+      ],
+      [
+        0.0,
+        477.4949951171875,
+        191.94400024414062,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    ],
+    "T_camera_from_lidar": [
+      [
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        -0.22
+      ],
+      [
+        2.220446049250313e-16,
+        0.0,
+        -1.0,
+        0.295
+      ],
+      [
+        1.0,
+        2.220446049250313e-16,
+        2.220446049250313e-16,
+        0.07499999999999993
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "R_camera_from_lidar": [
+      [
+        2.220446049250313e-16,
+        -1.0,
+        0.0
+      ],
+      [
+        2.220446049250313e-16,
+        0.0,
+        -1.0
+      ],
+      [
+        1.0,
+        2.220446049250313e-16,
+        2.220446049250313e-16
+      ]
+    ],
+    "t_camera_from_lidar_m": [
+      -0.22,
+      0.295,
+      0.07499999999999993
+    ],
+    "distortion_model": "rational_polynomial",
+    "json_vs_bag": {
+      "max_abs_R": 0.0,
+      "max_abs_t": 0.0,
+      "max_abs_K": 0.0,
+      "max_abs_P": 0.0,
+      "max_abs_D": 0.0
+    }
+  },
+  "geometry": {
+    "half_dimensions_lwh_m": [
+      0.22056032717227936,
+      0.309967577457428,
+      0.7559378147125244
+    ],
+    "local_corners": [
+      [
+        -0.22056032717227936,
+        -0.309967577457428,
+        -0.7559378147125244
+      ],
+      [
+        0.22056032717227936,
+        -0.309967577457428,
+        -0.7559378147125244
+      ],
+      [
+        0.22056032717227936,
+        0.309967577457428,
+        -0.7559378147125244
+      ],
+      [
+        -0.22056032717227936,
+        0.309967577457428,
+        -0.7559378147125244
+      ],
+      [
+        -0.22056032717227936,
+        -0.309967577457428,
+        0.7559378147125244
+      ],
+      [
+        0.22056032717227936,
+        -0.309967577457428,
+        0.7559378147125244
+      ],
+      [
+        0.22056032717227936,
+        0.309967577457428,
+        0.7559378147125244
+      ],
+      [
+        -0.22056032717227936,
+        0.309967577457428,
+        0.7559378147125244
+      ]
+    ],
+    "yaw_rotation_matrix": [
+      [
+        0.9999802819564739,
+        0.006279784888896133,
+        0.0
+      ],
+      [
+        -0.006279784888896133,
+        0.9999802819564739,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "corners_lidar": [
+      [
+        5.093115053477219,
+        -0.10763176180178369,
+        -0.4753274917602539
+      ],
+      [
+        5.534227009785515,
+        -0.11040190462111665,
+        -0.4753274917602539
+      ],
+      [
+        5.538120069203445,
+        0.5095210263853713,
+        -0.4753274917602539
+      ],
+      [
+        5.097008112895149,
+        0.5122911692047043,
+        -0.4753274917602539
+      ],
+      [
+        5.093115053477219,
+        -0.10763176180178369,
+        1.036548137664795
+      ],
+      [
+        5.534227009785515,
+        -0.11040190462111665,
+        1.036548137664795
+      ],
+      [
+        5.538120069203445,
+        0.5095210263853713,
+        1.036548137664795
+      ],
+      [
+        5.097008112895149,
+        0.5122911692047043,
+        1.036548137664795
+      ]
+    ],
+    "corners_camera": [
+      [
+        -0.11236823819821519,
+        0.770327491760255,
+        5.168115053477219
+      ],
+      [
+        -0.10959809537888211,
+        0.7703274917602552,
+        5.609227009785515
+      ],
+      [
+        -0.7295210263853701,
+        0.7703274917602552,
+        5.613120069203445
+      ],
+      [
+        -0.7322911692047032,
+        0.770327491760255,
+        5.172008112895149
+      ],
+      [
+        -0.11236823819821519,
+        -0.7415481376647939,
+        5.168115053477219
+      ],
+      [
+        -0.10959809537888211,
+        -0.7415481376647937,
+        5.609227009785515
+      ],
+      [
+        -0.7295210263853701,
+        -0.7415481376647937,
+        5.613120069203445
+      ],
+      [
+        -0.7322911692047032,
+        -0.7415481376647939,
+        5.172008112895149
+      ]
+    ],
+    "corners_image_unclipped": [
+      [
+        329.36975670620313,
+        263.1164718533429
+      ],
+      [
+        330.4215834005085,
+        257.5194389409537
+      ],
+      [
+        277.71419474384317,
+        257.4739581609141
+      ],
+      [
+        272.1678344001285,
+        263.06289911044547
+      ],
+      [
+        329.36975670620313,
+        123.43052469077153
+      ],
+      [
+        330.4215834005085,
+        128.8184530420584
+      ],
+      [
+        277.71419474384317,
+        128.86223466493783
+      ],
+      [
+        272.1678344001285,
+        123.48209596162725
+      ]
+    ],
+    "valid_corner_mask": [
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true,
+      true
+    ],
+    "projected_lidar_rectangle_unclipped": [
+      272.1678344001285,
+      123.43052469077153,
+      330.4215834005085,
+      263.1164718533429
+    ],
+    "projected_lidar_rectangle_clipped": [
+      272.1678344001285,
+      123.43052469077153,
+      330.4215834005085,
+      263.1164718533429
+    ]
+  },
+  "association": {
+    "intersection_xyxy": [
+      277.7835693359375,
+      123.43052469077153,
+      330.4215834005085,
+      252.9573516845703
+    ],
+    "intersection_width": 52.638014064570996,
+    "intersection_height": 129.52682699379878,
+    "intersection_area": 6818.034941038834,
+    "camera_area": 10107.278228092473,
+    "lidar_projected_area": 8137.23010488877,
+    "union_area": 11426.47339194241,
+    "iou": 0.5966875961787735,
+    "cached_association_iou": 0.5966875961787724,
+    "cached_association_iou_note": "Cached association IoU already matches the explicit origin-corrected geometry.",
+    "threshold": 0.1,
+    "accepted": true,
+    "decision": "MATCHED",
+    "camera_index": 0,
+    "lidar_index": 0,
+    "fused_score": 0.7171115279197693
+  },
+  "fusion_outputs": {
+    "matched_3d_count": 1,
+    "unmatched_camera_count": 0,
+    "unmatched_lidar_count": 0,
+    "final_3d_count": 1,
+    "output_policy": "matched_plus_unmatched_lidar",
+    "confidence_policy": "lidar_score"
+  },
+  "ground_truth_evaluation": {
+    "ground_truth_box_xyzlwhyaw": [
+      5.2920664273245475,
+      0.174600112041986,
+      0.2250000238418579,
+      0.6159265578826707,
+      0.7713451607723454,
+      1.4819999933242798,
+      0.0
+    ],
+    "bev_iou": 0.5756068689064969,
+    "iou_3d_approx": 0.24780084219088697,
+    "center_error_m": 0.06588774565707599,
+    "vertical_center_error_m": 0.07054811716079712,
+    "ground_truth_2d_box_xyxy": [
+      277.0,
+      104.0,
+      351.0,
+      254.0
+    ]
+  },
+  "source_files": {
+    "manifest": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/data_manifests/aghri_late_fusion_test_manifest.csv",
+    "manifest_sha256": "def1cd3c290d53cda470be153f6b4db54f5a86b7a444b316026d8089d46da440",
+    "yolo_cache": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/results/aghri_pointpillars_detector_comparison/cache/yolo_finetuned/detections.csv",
+    "lidar_cache": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/results/aghri_pointpillars_detector_comparison/cache/pointpillars_finetuned/detections.csv",
+    "association_cache": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/results/aghri_pointpillars_detector_comparison/combinations/cam_ft_pointpillars_ft/fusion/association_results.csv",
+    "calibration_matrices": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/results/calibration_consistency_audit/calibration_matrices.json"
+  }
+}

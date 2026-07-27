@@ -1,0 +1,10 @@
+aghri_yolo11s_detector:
+  ros__parameters:
+    image_topic: "/dataset/cam_zed_rgb/image"
+    detections_topic: "/detector/camera/detections"
+    checkpoint: "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/early_fusion/camera_lidar_humble/checkpoints/generic/yolo11s.pt"
+    confidence_threshold: 0.10
+    imgsz: 640
+    classes: [0]
+    device: "auto"
+

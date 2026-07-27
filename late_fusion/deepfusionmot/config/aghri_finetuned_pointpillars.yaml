@@ -1,0 +1,17 @@
+aghri_pointpillars_detector:
+  ros__parameters:
+    available: false
+    unavailable_reason: "AGHRI fine-tuned PointPillars checkpoint has not been imported yet."
+    detector_family: "pointpillars"
+    model: "finetuned"
+    config: "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/configs/pointpillars_aghri_finetune_seed42.py"
+    checkpoint: "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/weights/best.pth"
+    score_threshold: 0.05
+    selected_class_id: 0
+    selected_class_name: "person"
+    box_origin: "center"
+    point_cloud_range: [-10.24, -10.24, -2.0, 25.6, 10.24, 3.0]
+    voxel_size: [0.16, 0.16, 5.0]
+    anchor_size: [0.46, 0.57, 1.50]
+    anchor_rotations: [0.0, 1.57]
+    nms_thr: 0.01
