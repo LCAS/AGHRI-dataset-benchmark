@@ -1,0 +1,21 @@
+aghri_late_fusion:
+  ros__parameters:
+    camera_detections_topic: "/detector/camera/detections"
+    lidar_detections_topic: "/detector/lidar/detections"
+    camera_info_topic: "/dataset/cam_zed_rgb/camera_info"
+    fused_topic: "/late_fusion/fused_3d"
+    matched_topic: "/late_fusion/matched_3d"
+    unmatched_lidar_topic: "/late_fusion/unmatched_lidar"
+    unmatched_camera_topic: "/late_fusion/unmatched_camera"
+    diagnostics_topic: "/late_fusion/diagnostics"
+    sync_queue_size: 30
+    sync_slop_sec: 0.10
+    iou_threshold: 0.10
+    confidence_policy: "lidar_score"
+    lidar_frame: "front_lidar_link"
+    camera_frame: "front_left_camera_optical_frame"
+    image_width: 672
+    image_height: 376
+    enable_visualisation: false
+    use_sim_time: true
+

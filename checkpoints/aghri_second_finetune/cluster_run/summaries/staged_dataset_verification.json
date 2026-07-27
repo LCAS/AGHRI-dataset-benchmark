@@ -1,0 +1,28 @@
+{
+  "data_root": "/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d",
+  "splits": {
+    "train": {
+      "info_file": "/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d/infos/agri_person_infos_train.pkl",
+      "frames": 11411,
+      "instances": 21732,
+      "empty_frames": 87,
+      "missing_point_files": 0
+    },
+    "val": {
+      "info_file": "/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d/infos/agri_person_infos_val.pkl",
+      "frames": 1201,
+      "instances": 2314,
+      "empty_frames": 59,
+      "missing_point_files": 0
+    }
+  },
+  "allow_test": false,
+  "test_artifacts_present": [],
+  "manifest_csv": "/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d/aghri_second_finetune_verification_manifest.csv",
+  "errors": [],
+  "warnings": [
+    "train has 87 frames without 3D boxes",
+    "val has 59 frames without 3D boxes"
+  ],
+  "ok": true
+}

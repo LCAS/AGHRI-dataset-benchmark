@@ -1,0 +1,49 @@
+aghri_late_fusion_visualizer:
+  ros__parameters:
+    camera_image_topic: "/dataset/cam_zed_rgb/image"
+    camera_info_topic: "/dataset/cam_zed_rgb/camera_info"
+    camera_detections_topic: "/detector/camera/detections"
+    lidar_detections_topic: "/detector/lidar/detections"
+    matched_3d_topic: "/late_fusion/matched_3d"
+    fused_3d_topic: "/late_fusion/fused_3d"
+    tracked_3d_topic: "/deepfusionmot/tracked_3d"
+    unmatched_camera_topic: "/late_fusion/unmatched_camera"
+    unmatched_lidar_topic: "/late_fusion/unmatched_lidar"
+    camera_detections_image_topic: "/visualization/camera_detections_image"
+    fused_projection_image_topic: "/visualization/fused_projection_image"
+    tracked_projection_image_topic: "/visualization/tracked_projection_image"
+    lidar_projection_image_topic: "/visualization/lidar_projection_image"
+    lidar_markers_topic: "/visualization/lidar_detections_markers"
+    matched_markers_topic: "/visualization/matched_3d_markers"
+    fused_markers_topic: "/visualization/fused_3d_markers"
+    tracked_markers_topic: "/visualization/tracked_3d_markers"
+    unmatched_lidar_markers_topic: "/visualization/unmatched_lidar_markers"
+    diagnostics_topic: "/visualization/diagnostics"
+    lidar_frame: "front_lidar_link"
+    camera_frame: "front_left_camera_optical_frame"
+    draw_camera_detections: true
+    draw_fused_projection: true
+    draw_tracked_projection: false
+    draw_original_lidar_projection: false
+    draw_unmatched_camera: false
+    publish_original_lidar_markers: false
+    publish_matched_markers: true
+    publish_fused_markers: false
+    publish_tracked_markers: false
+    publish_unmatched_lidar_markers: true
+    draw_labels: true
+    draw_confidence: true
+    line_width_2d: 2
+    marker_line_width: 0.04
+    # DELETEALL is sent before each frame; lifetime is an additional stale-data guard.
+    # Live neural inference can be slower/jitterier than cached replay, so keep
+    # markers visible long enough for RViz inspection.
+    marker_lifetime_sec: 1.00
+    sync_queue_size: 30
+    sync_slop_sec: 0.10
+    draw_projected_envelope: true
+    # Display-only EMA. It never republishes or changes scientific detection topics.
+    enable_visual_smoothing: false
+    visual_smoothing_alpha: 0.35
+    visual_smoothing_max_gap_sec: 0.20
+    visual_smoothing_max_distance_m: 1.5

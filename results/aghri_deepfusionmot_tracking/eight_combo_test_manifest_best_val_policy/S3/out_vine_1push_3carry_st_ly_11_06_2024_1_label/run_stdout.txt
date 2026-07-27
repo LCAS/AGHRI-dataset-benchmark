@@ -1,0 +1,8 @@
+recording=out_vine_1push_3carry_st_ly_11_06_2024_1_label
+combination_id=S3
+combination=G YOLO + FT SECOND
+frames=131
+tracked_3d_rows=219
+confirmed_tracks=13
+tracker_only_fps=1719.79
+output_dir=results/aghri_deepfusionmot_tracking/eight_combo_test_manifest_best_val_policy/S3/out_vine_1push_3carry_st_ly_11_06_2024_1_label

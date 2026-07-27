@@ -1,0 +1,52 @@
+{
+  "metrics": {
+    "combination_id": "P3",
+    "combination_label": "G YOLO + FT PointPillars",
+    "recording": "footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label",
+    "frames_evaluated": 184,
+    "gt_dets": 184,
+    "tracker_dets": 177,
+    "gt_ids": 1,
+    "tracker_ids": 4,
+    "tracker_only_fps": 3667.9898266469513,
+    "cached_pipeline_fps": 1346.1196262620201,
+    "tracking_output_dir": "results/aghri_deepfusionmot_tracking/eight_combo_test_manifest_best_val_policy/P3/footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label",
+    "HOTA": 0.2513354106956039,
+    "DetA": 0.4610274943407878,
+    "AssA": 0.13861150753096185,
+    "LocA": 0.6854856616463949,
+    "HOTA_0": 0.4991426960317964,
+    "MOTA": 0.0,
+    "MOTP": 0.6411153981194018,
+    "IDSW": 3,
+    "MT": 0,
+    "PT": 1,
+    "ML": 0,
+    "Frag": 16,
+    "CLR_TP": 90,
+    "CLR_FP": 87,
+    "CLR_FN": 94,
+    "IDF1": 0.1883656509695291,
+    "IDP": 0.192090395480226,
+    "IDR": 0.18478260869565216,
+    "IDTP": 34,
+    "IDFP": 143,
+    "IDFN": 150
+  },
+  "metadata": {
+    "num_frames": 184,
+    "num_gt_dets": 184,
+    "num_tracker_dets": 177,
+    "num_gt_ids": 1,
+    "num_tracker_ids": 4,
+    "gt_id_map": {
+      "01": 0
+    },
+    "tracker_id_map": {
+      "0": 0,
+      "2": 1,
+      "4": 2,
+      "6": 3
+    }
+  }
+}

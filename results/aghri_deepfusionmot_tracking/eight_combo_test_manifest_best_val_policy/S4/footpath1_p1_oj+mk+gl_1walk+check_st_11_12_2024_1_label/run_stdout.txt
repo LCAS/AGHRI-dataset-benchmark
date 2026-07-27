@@ -1,0 +1,8 @@
+recording=footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label
+combination_id=S4
+combination=FT YOLO + FT SECOND
+frames=184
+tracked_3d_rows=162
+confirmed_tracks=5
+tracker_only_fps=2694.55
+output_dir=results/aghri_deepfusionmot_tracking/eight_combo_test_manifest_best_val_policy/S4/footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label

@@ -1,0 +1,24 @@
+
+digraph G {
+  graph [rankdir=LR, bgcolor="white", nodesep=0.45, ranksep=0.6];
+  node [shape=box, style="rounded,filled", fillcolor="#f7f7f7", fontname="DejaVu Sans", fontsize=12];
+  edge [fontname="DejaVu Sans", fontsize=10];
+  image [label="ZED RGB image"];
+  yolo [label="YOLO11s\n2D person boxes", fillcolor="#e8f5e9"];
+  cloud [label="Livox point cloud"];
+  detector [label="PointPillars / SECOND\n3D person boxes", fillcolor="#fce4ec"];
+  norm [label="Box convention\nnormalisation"];
+  corners [label="8 cuboid corners"];
+  tf [label="T_C<-L"];
+  proj [label="Camera projection P"];
+  env [label="Projected 2D envelope"];
+  iou [label="Pairwise 2D IoU"];
+  assign [label="one-to-one assignment\nthreshold"];
+  outputs [label="matched / unmatched\nALL3D outputs", fillcolor="#e3f2fd"];
+  metrics [label="offline metrics"];
+  ros [label="ROS 2 publication\nimage visualisation + RViz"];
+  image -> yolo -> iou;
+  cloud -> detector -> norm -> corners -> tf -> proj -> env -> iou -> assign -> outputs;
+  outputs -> metrics;
+  outputs -> ros;
+}

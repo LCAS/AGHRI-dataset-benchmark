@@ -1,0 +1,8 @@
+recording=out_vine_4swap+walk_st_ly_11_06_2024_2_label
+combination_id=P1
+combination=G YOLO + G PointPillars
+frames=273
+tracked_3d_rows=249
+confirmed_tracks=13
+tracker_only_fps=2082.80
+output_dir=results/aghri_deepfusionmot_tracking/eight_combo_test_manifest_best_val_policy/P1/out_vine_4swap+walk_st_ly_11_06_2024_2_label

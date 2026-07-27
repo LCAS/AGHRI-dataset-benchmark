@@ -1,0 +1,195 @@
+{
+  "environment": {
+    "python": "3.10.12 (main, Jun 22 2026, 18:55:27) [GCC 11.4.0]",
+    "torch": "1.13.1+cu116",
+    "mmcv": "2.0.0rc4",
+    "mmengine": "0.10.7",
+    "mmdet": "unavailable: ModuleNotFoundError: No module named 'mmdet'",
+    "mmdet3d": "unavailable: ModuleNotFoundError: No module named 'mmdet3d'",
+    "ultralytics": "8.3.154",
+    "cuda_available": true,
+    "torch_cuda": "11.6",
+    "gpu_name": "NVIDIA GeForce RTX 4060 Laptop GPU"
+  },
+  "pedestrian_class_mapping": {
+    "selected_mapping_source": "checkpoint_meta",
+    "selected_mapping": {
+      "0": "Pedestrian",
+      "1": "Cyclist",
+      "2": "Car"
+    },
+    "selected_pedestrian_class_id": 0,
+    "checkpoint_meta_evidence": "The downloaded official SECOND and PointPillars checkpoints contain metadata with class order ['Pedestrian', 'Cyclist', 'Car'].",
+    "local_config_conflict": "The local AGHRI zero-shot evaluation configs use pred_class_id=1 with a commented ['Car', 'Pedestrian', 'Cyclist'] ordering. Because mmdet3d is not available in this environment for an inference smoke test, the generic baseline follows the checkpoint metadata and records this conflict.",
+    "pedestrian_class_id": 0
+  },
+  "checkpoints": [
+    {
+      "record": {
+        "model_name": "generic_yolo11s",
+        "architecture": "YOLO11s",
+        "training_dataset": "COCO-pretrained",
+        "classes": [
+          "person"
+        ],
+        "official_source_url": "",
+        "matching_config_file": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/early_fusion/camera_lidar_humble/config/aghri_zed_livox.yaml",
+        "absolute_local_path": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/early_fusion/camera_lidar_humble/checkpoints/generic/yolo11s.pt",
+        "file_size": 19313732,
+        "sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5",
+        "download_date": "2026-07-09T09:26:54.729841+00:00",
+        "mmdetection3d_generation": "Ultralytics YOLO11",
+        "intended_use": "generic YOLO camera baseline",
+        "status": "present"
+      },
+      "torch_summary": {
+        "path": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/early_fusion/camera_lidar_humble/checkpoints/generic/yolo11s.pt",
+        "readable": true,
+        "state_dict_key_count": 0,
+        "first_keys": [],
+        "meta": {}
+      }
+    },
+    {
+      "record": {
+        "model_name": "second_hv_secfpn_8xb6_80e_kitti_3d_3class",
+        "architecture": "SECOND",
+        "training_dataset": "KITTI 3D 3-class",
+        "classes": [
+          "Pedestrian",
+          "Cyclist",
+          "Car"
+        ],
+        "official_source_url": "https://download.openmmlab.com/mmdetection3d/v1.1.0_models/second/second_hv_secfpn_8xb6-80e_kitti-3d-3class/second_hv_secfpn_8xb6-80e_kitti-3d-3class-b086d0a3.pth",
+        "matching_config_file": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/3d-detection/benchmarks/mmdetection3d/configs/models/second_kitti_pretrained_eval_aghri.py",
+        "absolute_local_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/kitti_pretrained/second_hv_secfpn_8xb6-80e_kitti-3d-3class-b086d0a3.pth",
+        "file_size": 23098237,
+        "sha256": "b086d0a369d0b955b3ff45b6849a4370c46dea2b95445671837a989839eb2bbd",
+        "download_date": "2026-07-09T09:26:54.742830+00:00",
+        "mmdetection3d_generation": "MMDetection3D v1.1.0 model zoo",
+        "intended_use": "generic SECOND LiDAR baseline",
+        "status": "present"
+      },
+      "torch_summary": {
+        "path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/kitti_pretrained/second_hv_secfpn_8xb6-80e_kitti-3d-3class-b086d0a3.pth",
+        "readable": true,
+        "state_dict_key_count": 162,
+        "first_keys": [
+          "backbone.blocks.0.0.weight",
+          "backbone.blocks.0.1.weight",
+          "backbone.blocks.0.1.bias",
+          "backbone.blocks.0.1.running_mean",
+          "backbone.blocks.0.1.running_var",
+          "backbone.blocks.0.1.num_batches_tracked",
+          "backbone.blocks.0.3.weight",
+          "backbone.blocks.0.4.weight",
+          "backbone.blocks.0.4.bias",
+          "backbone.blocks.0.4.running_mean"
+        ],
+        "meta": {
+          "epoch": 40,
+          "iter": 6200,
+          "cfg": "voxel_size = [0.05, 0.05, 0.1]\nmodel = dict(\n    type='VoxelNet',\n    data_preprocessor=dict(\n        type='Det3DDataPreprocessor',\n        voxel=True,\n        voxel_layer=dict(\n            max_num_points=5,\n            point_cloud_range=[0, -40, -3, 70.4, 40, 1],\n            voxel_size=[0.05, 0.05, 0.1],\n            max_voxels=(16000, 40000))),\n    voxel_encoder=dict(type='HardSimpleVFE'),\n    middle_encoder=dict(\n        type='SparseEncoder',\n        in_channels=4,\n        sparse_shape=[41, 1600, 1408],\n        order=('conv', 'norm', 'act')),\n    backbone=dict(\n        type='SECOND',\n        in_channels=256,\n        layer_nums=[5, 5],\n        layer_strides=[1, 2],\n        out_channels=[128, 256]),\n    neck=dict(\n        type='SECONDFPN',\n        in_channels=[128, 256],\n        upsample_strides=[1, 2],\n        out_channels=[256, 256]),\n    bbox_head=dict(\n        type='Anchor3DHead',\n        num_classes=3,\n        in_channels=512,\n        feat_channels=512,\n        use_direction_classifier=True,\n        anchor_generator=dict(\n            type='Anchor3DRangeGenerator',\n            ranges=[[0, -40.0, -0.6, 70.4, 40.0, -0.6],\n                    [0, -40.0, -0.6, 70.4, 40.0, -0.6],\n                    [0, -40.0, -1.78, 70.4, 40.0, -1.78]],\n            sizes=[[0.8, 0.6, 1.73], [1.76, 0.6, 1.73], [3.9, 1.6, 1.56]],\n            rotations=[0, 1.57],\n            reshape_out=False),\n        diff_rad_by_sin=True,\n        bbox_coder=dict(type='DeltaXYZWLHRBBoxCoder'),\n        loss_cls=dict(\n            type='mmdet.FocalLoss',\n            use_sigmoid=True,\n            gamma=2.0,\n            alpha=0.25,\n            loss_weight=1.0),\n        loss_bbox=dict(\n            type='mmdet.SmoothL1Loss',\n            beta=0.1111111111111111,\n            loss_weight=2.0),\n        loss_dir=dict(\n            type='mmdet.CrossEntropyLoss', use_sigmoid=False,\n            loss_weight=0.2)),\n    train_cfg=dict(\n        assigner=[\n            dict(\n                type='Max3DIoUAssigner',\n                iou_calculator=dict(type='BboxOverlapsNearest3D'),\n                pos_iou_thr=0.35,\n                neg_iou_thr=0.2,\n                min_pos_iou=0.2,\n                ignore_iof_thr=-1),\n            dict(\n                type='Max3DIoUAssigner',\n                iou_calculator=dict(type='BboxOverlapsNearest3D'),\n                pos_iou_thr=0.35,\n                neg_iou_thr=0.2,\n                min_pos_iou=0.2,\n                ignore_iof_thr=-1),\n            dict(\n                type='Max3DIoUAssigner',\n                iou_calculator=dict(type='BboxOverlapsNearest3D'),\n                pos_iou_thr=0.6,\n                neg_iou_thr=0.45,\n                min_pos_iou=0.45,\n                ignore_iof_thr=-1)\n        ],\n        allowed_border=0,\n        pos_weight=-1,\n        debug=False),\n    test_cfg=dict(\n        use_rotate_nms=True,\n        nms_across_levels=False,\n        nms_thr=0.01,\n        score_thr=0.1,\n        min_bbox_size=0,\n        nms_pre=100,\n        max_num=50))\ndataset_type = 'KittiDataset'\ndata_root = 'data/kitti/'\nclass_names = ['Pedestrian', 'Cyclist', 'Car']\npoint_cloud_range = [0, -40, -3, 70.4, 40, 1]\ninput_modality = dict(use_lidar=True, use_camera=False)\nmetainfo = dict(classes=['Pedestrian', 'Cyclist', 'Car'])\nbackend_args = None\ndb_sampler = dict(\n    data_root='data/kitti/',\n    info_path='data/kitti/kitti_dbinfos_train.pkl',\n    rate=1.0,\n    prepare=dict(\n        filter_by_difficulty=[-1],\n        filter_by_min_points=dict(Car=5, Pedestrian=10, Cyclist=10)),\n    classes=['Pedestrian', 'Cyclist', 'Car'],\n    sample_groups=dict(Car=12, Pedestrian=6, Cyclist=6),\n    points_loader=dict(\n        type='LoadPointsFromFile',\n        coord_type='LIDAR',\n        load_dim=4,\n        use_dim=4,\n        backend_args=None),\n    backend_args=None)\ntrain_pipeline = [\n    dict(\n        type='LoadPointsFromFile',\n        coord_type='LIDAR',\n        load_dim=4,\n        use_dim=4,\n        backend_args=None),\n    dict(type='LoadAnnotations3D', with_bbox_3d=True, with_label_3d=True),\n    dict(\n        type='ObjectSample',\n        db_sampler=dict(\n            data_root='data/kitti/',\n            info_path='data/kitti/kitti_dbinfos_train.pkl',\n            rate=1.0,\n            prepare=dict(\n                filter_by_difficulty=[-1],\n                filter_by_min_points=dict(Car=5, Pedestrian=10, Cyclist=10)),\n            classes=['Pedestrian', 'Cyclist', 'Car'],\n            sample_groups=dict(Car=12, Pedestrian=6, Cyclist=6),\n            points_loader=dict(\n                type='LoadPointsFromFile',\n                coord_type='LIDAR',\n                load_dim=4,\n                use_dim=4,\n                backend_args=None),\n            backend_args=None)),\n    dict(\n        type='ObjectNoise',\n        num_try=100,\n        translation_std=[1.0, 1.0, 0.5],\n        global_rot_range=[0.0, 0.0],\n        rot_range=[-0.78539816, 0.78539816]),\n    dict(type='RandomFlip3D', flip_ratio_bev_horizontal=0.5),\n    dict(\n        type='GlobalRotScaleTrans',\n        rot_range=[-0.78539816, 0.78539816],\n        scale_ratio_range=[0.95, 1.05]),\n    dict(\n        type='PointsRangeFilter', point_cloud_range=[0, -40, -3, 70.4, 40, 1]),\n    dict(\n        type='ObjectRangeFilter', point_cloud_range=[0, -40, -3, 70.4, 40, 1]),\n    dict(type='PointShuffle'),\n    dict(\n        type='Pack3DDetInputs',\n        keys=['points', 'gt_bboxes_3d', 'gt_labels_3d'])\n]\ntest_pipeline = [\n    dict(\n        type='LoadPointsFromFile',\n        coord_type='LIDAR',\n        load_dim=4,\n        use_dim=4,\n        backend_args=None),\n    dict(\n        type='MultiScaleFlipAug3D',\n        img_scale=(1333, 800),\n        pts_scale_ratio=1,\n        flip=False,\n        transforms=[\n            dict(\n                type='GlobalRotScaleTrans',\n                rot_range=[0, 0],\n                scale_ratio_range=[1.0, 1.0],\n                translation_std=[0, 0, 0]),\n            dict(type='RandomFlip3D'),\n            dict(\n                type='PointsRangeFilter',\n                point_cloud_range=[0, -40, -3, 70.4, 40, 1])\n        ]),\n    dict(type='Pack3DDetInputs', keys=['points'])\n]\neval_pipeline = [\n    dict(\n        type='LoadPointsFromFile',\n        coord_type='LIDAR',\n        load_dim=4,\n        use_dim=4,\n        backend_args=None),\n    dict(type='Pack3DDetInputs', keys=['points'])\n]\ntrain_dataloader = dict(\n    batch_size=6,\n    num_workers=4,\n    persistent_workers=True,\n    sampler=dict(type='DefaultSampler', shuffle=True),\n    dataset=dict(\n        type='RepeatDataset',\n        times=2,\n        dataset=dict(\n            type='KittiDataset',\n            data_root='data/kitti/',\n            ann_file='kitti_infos_train.pkl',\n            data_prefix=dict(pts='training/velodyne_reduced'),\n            pipeline=[\n                dict(\n                    type='LoadPointsFromFile',\n                    coord_type='LIDAR',\n                    load_dim=4,\n                    use_dim=4,\n                    backend_args=None),\n                dict(\n                    type='LoadAnnotations3D',\n                    with_bbox_3d=True,\n                    with_label_3d=True),\n                dict(\n                    type='ObjectSample',\n                    db_sampler=dict(\n                        data_root='data/kitti/',\n                        info_path='data/kitti/kitti_dbinfos_train.pkl',\n                        rate=1.0,\n                        prepare=dict(\n                            filter_by_difficulty=[-1],\n                            filter_by_min_points=dict(\n                                Car=5, Pedestrian=10, Cyclist=10)),\n                        classes=['Pedestrian', 'Cyclist', 'Car'],\n                        sample_groups=dict(Car=12, Pedestrian=6, Cyclist=6),\n                        points_loader=dict(\n                            type='LoadPointsFromFile',\n                            coord_type='LIDAR',\n                            load_dim=4,\n                            use_dim=4,\n                            backend_args=None),\n                        backend_args=None)),\n                dict(\n                    type='ObjectNoise',\n                    num_try=100,\n                    translation_std=[1.0, 1.0, 0.5],\n                    global_rot_range=[0.0, 0.0],\n                    rot_range=[-0.78539816, 0.78539816]),\n                dict(type='RandomFlip3D', flip_ratio_bev_horizontal=0.5),\n                dict(\n                    type='GlobalRotScaleTrans',\n                    rot_range=[-0.78539816, 0.78539816],\n                    scale_ratio_range=[0.95, 1.05]),\n                dict(\n                    type='PointsRangeFilter',\n                    point_cloud_range=[0, -40, -3, 70.4, 40, 1]),\n                dict(\n                    type='ObjectRangeFilter',\n                    point_cloud_range=[0, -40, -3, 70.4, 40, 1]),\n                dict(type='PointShuffle'),\n                dict(\n                    type='Pack3DDetInputs',\n                    keys=['points', 'gt_bboxes_3d', 'gt_labels_3d'])\n            ],\n            modality=dict(use_lidar=True, use_camera=False),\n            test_mode=False,\n            metainfo=dict(classes=['Pedestrian', 'Cyclist', 'Car']),\n            box_type_3d='LiDAR',\n            backend_args=None)))\nval_dataloader = dict(\n    batch_size=1,\n    num_workers=1,\n    persistent_workers=True,\n    drop_last=False,\n    sampler=dict(type='DefaultSampler', shuffle=False),\n    dataset=dict(\n        type='KittiDataset',\n        data_root='data/kitti/',\n        data_prefix=dict(pts='training/velodyne_reduced'),\n        ann_file='kitti_infos_val.pkl',\n        pipeline=[\n            dict(\n                type='LoadPointsFromFile',\n                coord_type='LIDAR',\n                load_dim=4,\n                use_dim=4,\n                backend_args=None),\n            dict(\n                type='MultiScaleFlipAug3D',\n                img_scale=(1333, 800),\n                pts_scale_ratio=1,\n                flip=False,\n                transforms=[\n                    dict(\n                        type='GlobalRotScaleTrans',\n                        rot_range=[0, 0],\n                        scale_ratio_range=[1.0, 1.0],\n                        translation_std=[0, 0, 0]),\n                    dict(type='RandomFlip3D'),\n                    dict(\n                        type='PointsRangeFilter',\n                        point_cloud_range=[0, -40, -3, 70.4, 40, 1])\n                ]),\n            dict(type='Pack3DDetInputs', keys=['points'])\n        ],\n        modality=dict(use_lidar=True, use_camera=False),\n        test_mode=True,\n        metainfo=dict(classes=['Pedestrian', 'Cyclist', 'Car']),\n        box_type_3d='LiDAR',\n        backend_args=None))\ntest_dataloader = dict(\n    batch_size=1,\n    num_workers=1,\n    persistent_workers=True,\n    drop_last=False,\n    sampler=dict(type='DefaultSampler', shuffle=False),\n    dataset=dict(\n        type='KittiDataset',\n        data_root='data/kitti/',\n        data_prefix=dict(pts='training/velodyne_reduced'),\n        ann_file='kitti_infos_val.pkl',\n        pipeline=[\n            dict(\n                type='LoadPointsFromFile',\n                coord_type='LIDAR',\n                load_dim=4,\n                use_dim=4,\n                backend_args=None),\n            dict(\n                type='MultiScaleFlipAug3D',\n                img_scale=(1333, 800),\n                pts_scale_ratio=1,\n                flip=False,\n                transforms=[\n                    dict(\n                        type='GlobalRotScaleTrans',\n                        rot_range=[0, 0],\n                        scale_ratio_range=[1.0, 1.0],\n                        translation_std=[0, 0, 0]),\n                    dict(type='RandomFlip3D'),\n                    dict(\n                        type='PointsRangeFilter',\n                        point_cloud_range=[0, -40, -3, 70.4, 40, 1])\n                ]),\n            dict(type='Pack3DDetInputs', keys=['points'])\n        ],\n        modality=dict(use_lidar=True, use_camera=False),\n        test_mode=True,\n        metainfo=dict(classes=['Pedestrian', 'Cyclist', 'Car']),\n        box_type_3d='LiDAR',\n        backend_args=None))\nval_evaluator = dict(\n    type='KittiMetric',\n    ann_file='data/kitti/kitti_infos_val.pkl',\n    metric='bbox',\n    backend_args=None)\ntest_evaluator = dict(\n    type='KittiMetric',\n    ann_file='data/kitti/kitti_infos_val.pkl',\n    metric='bbox',\n    backend_args=None)\nvis_backends = [dict(type='LocalVisBackend')]\nvisualizer = dict(\n    type='Det3DLocalVisualizer',\n    vis_backends=[dict(type='LocalVisBackend')],\n    name='visualizer')\nlr = 0.0018\noptim_wrapper = dict(\n    type='OptimWrapper',\n    optimizer=dict(\n        type='AdamW', lr=0.0018, betas=(0.95, 0.99), weight_decay=0.01),\n    clip_grad=dict(max_norm=10, norm_type=2))\nparam_scheduler = [\n    dict(\n        type='CosineAnnealingLR',\n        T_max=16,\n        eta_min=0.018,\n        begin=0,\n        end=16,\n        by_epoch=True,\n        convert_to_iter_based=True),\n    dict(\n        type='CosineAnnealingLR',\n        T_max=24,\n        eta_min=1.8e-07,\n        begin=16,\n        end=40,\n        by_epoch=True,\n        convert_to_iter_based=True),\n    dict(\n        type='CosineAnnealingMomentum',\n        T_max=16,\n        eta_min=0.8947368421052632,\n        begin=0,\n        end=16,\n        by_epoch=True,\n        convert_to_iter_based=True),\n    dict(\n        type='CosineAnnealingMomentum',\n        T_max=24,\n        eta_min=1,\n        begin=16,\n        end=40,\n        by_epoch=True,\n        convert_to_iter_based=True)\n]\ntrain_cfg = dict(by_epoch=True, max_epochs=40, val_interval=1)\nval_cfg = dict()\ntest_cfg = dict()\nauto_scale_lr = dict(enable=False, base_batch_size=48)\ndefault_scope = 'mmdet3d'\ndefault_hooks = dict(\n    timer=dict(type='IterTimerHook'),\n    logger=dict(type='LoggerHook', interval=50),\n    param_scheduler=dict(type='ParamSchedulerHook'),\n    checkpoint=dict(type='CheckpointHook', interval=-1),\n    sampler_seed=dict(type='DistSamplerSeedHook'),\n    visualization=dict(type='Det3DVisualizationHook'))\nenv_cfg = dict(\n    cudnn_benchmark=False,\n    mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0),\n    dist_cfg=dict(backend='nccl'))\nlog_processor = dict(type='LogProcessor', window_size=50, by_epoch=True)\nlog_level = 'INFO'\nload_from = None\nresume = False\nlauncher = 'slurm'\nwork_dir = 'logs/second_3class'\n",
+          "seed": 2079213868,
+          "experiment_name": "second_hv_secfpn_8xb6-80e_kitti-3d-3class_20230420_221130",
+          "time": "20230421_010843",
+          "mmengine_version": "0.7.23603925490a2d4c8282dc63b2106d5d1b7d64064",
+          "dataset_meta": {
+            "classes": [
+              "Pedestrian",
+              "Cyclist",
+              "Car"
+            ],
+            "categories": {
+              "Pedestrian": 0,
+              "Cyclist": 1,
+              "Car": 2,
+              "Van": 3,
+              "Truck": 4,
+              "Person_sitting": 5,
+              "Tram": 6,
+              "Misc": 7,
+              "DontCare": -1
+            },
+            "dataset": "kitti",
+            "info_version": "1.1"
+          }
+        }
+      },
+      "mmdet3d_load": {
+        "config": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/3d-detection/benchmarks/mmdetection3d/configs/models/second_kitti_pretrained_eval_aghri.py",
+        "checkpoint": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/kitti_pretrained/second_hv_secfpn_8xb6-80e_kitti-3d-3class-b086d0a3.pth",
+        "returncode": 0,
+        "stdout": "{\"ok\": false, \"error\": \"ModuleNotFoundError: No module named 'mmdet3d'\"}\n",
+        "stderr": ""
+      }
+    },
+    {
+      "record": {
+        "model_name": "hv_pointpillars_secfpn_6x8_160e_kitti_3d_3class",
+        "architecture": "PointPillars",
+        "training_dataset": "KITTI 3D 3-class",
+        "classes": [
+          "Pedestrian",
+          "Cyclist",
+          "Car"
+        ],
+        "official_source_url": "https://download.openmmlab.com/mmdetection3d/v1.0.0_models/pointpillars/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class_20220301_150306-37dc2420.pth",
+        "matching_config_file": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/3d-detection/benchmarks/mmdetection3d/configs/models/pointpillars_kitti_pretrained_eval_aghri.py",
+        "absolute_local_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/kitti_pretrained/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class_20220301_150306-37dc2420.pth",
+        "file_size": 19419845,
+        "sha256": "37dc242098f0d3dd7d870e0fe7cd4514f76fd85a04fb1377681279f963b3cbe5",
+        "download_date": "2026-07-09T09:26:54.754077+00:00",
+        "mmdetection3d_generation": "MMDetection3D v1.0.0 model zoo",
+        "intended_use": "downloaded PointPillars future baseline",
+        "status": "present"
+      },
+      "torch_summary": {
+        "path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/kitti_pretrained/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class_20220301_150306-37dc2420.pth",
+        "readable": true,
+        "state_dict_key_count": 126,
+        "first_keys": [
+          "backbone.blocks.0.0.weight",
+          "backbone.blocks.0.1.weight",
+          "backbone.blocks.0.1.bias",
+          "backbone.blocks.0.1.running_mean",
+          "backbone.blocks.0.1.running_var",
+          "backbone.blocks.0.1.num_batches_tracked",
+          "backbone.blocks.0.3.weight",
+          "backbone.blocks.0.4.weight",
+          "backbone.blocks.0.4.bias",
+          "backbone.blocks.0.4.running_mean"
+        ],
+        "meta": {
+          "mmdet_version": "2.19.0",
+          "mmseg_version": "0.20.0",
+          "mmdet3d_version": "0.17.3",
+          "config": "voxel_size = [0.16, 0.16, 4]\nmodel = dict(\n    type='VoxelNet',\n    voxel_layer=dict(\n        max_num_points=32,\n        point_cloud_range=[0, -39.68, -3, 69.12, 39.68, 1],\n        voxel_size=[0.16, 0.16, 4],\n        max_voxels=(16000, 40000)),\n    voxel_encoder=dict(\n        type='PillarFeatureNet',\n        in_channels=4,\n        feat_channels=[64],\n        with_distance=False,\n        voxel_size=[0.16, 0.16, 4],\n        point_cloud_range=[0, -39.68, -3, 69.12, 39.68, 1]),\n    middle_encoder=dict(\n        type='PointPillarsScatter', in_channels=64, output_shape=[496, 432]),\n    backbone=dict(\n        type='SECOND',\n        in_channels=64,\n        layer_nums=[3, 5, 5],\n        layer_strides=[2, 2, 2],\n        out_channels=[64, 128, 256]),\n    neck=dict(\n        type='SECONDFPN',\n        in_channels=[64, 128, 256],\n        upsample_strides=[1, 2, 4],\n        out_channels=[128, 128, 128]),\n    bbox_head=dict(\n        type='Anchor3DHead',\n        num_classes=3,\n        in_channels=384,\n        feat_channels=384,\n        use_direction_classifier=True,\n        assign_per_class=True,\n        anchor_generator=dict(\n            type='AlignedAnchor3DRangeGenerator',\n            ranges=[[0, -39.68, -0.6, 69.12, 39.68, -0.6],\n                    [0, -39.68, -0.6, 69.12, 39.68, -0.6],\n                    [0, -39.68, -1.78, 69.12, 39.68, -1.78]],\n            sizes=[[0.8, 0.6, 1.73], [1.76, 0.6, 1.73], [3.9, 1.6, 1.56]],\n            rotations=[0, 1.57],\n            reshape_out=False),\n        diff_rad_by_sin=True,\n        bbox_coder=dict(type='DeltaXYZWLHRBBoxCoder'),\n        loss_cls=dict(\n            type='FocalLoss',\n            use_sigmoid=True,\n            gamma=2.0,\n            alpha=0.25,\n            loss_weight=1.0),\n        loss_bbox=dict(\n            type='SmoothL1Loss', beta=0.1111111111111111, loss_weight=2.0),\n        loss_dir=dict(\n            type='CrossEntropyLoss', use_sigmoid=False, loss_weight=0.2)),\n    train_cfg=dict(\n        assigner=[\n            dict(\n                type='MaxIoUAssigner',\n                iou_calculator=dict(type='BboxOverlapsNearest3D'),\n                pos_iou_thr=0.5,\n                neg_iou_thr=0.35,\n                min_pos_iou=0.35,\n                ignore_iof_thr=-1),\n            dict(\n                type='MaxIoUAssigner',\n                iou_calculator=dict(type='BboxOverlapsNearest3D'),\n                pos_iou_thr=0.5,\n                neg_iou_thr=0.35,\n                min_pos_iou=0.35,\n                ignore_iof_thr=-1),\n            dict(\n                type='MaxIoUAssigner',\n                iou_calculator=dict(type='BboxOverlapsNearest3D'),\n                pos_iou_thr=0.6,\n                neg_iou_thr=0.45,\n                min_pos_iou=0.45,\n                ignore_iof_thr=-1)\n        ],\n        allowed_border=0,\n        pos_weight=-1,\n        debug=False),\n    test_cfg=dict(\n        use_rotate_nms=True,\n        nms_across_levels=False,\n        nms_thr=0.01,\n        score_thr=0.1,\n        min_bbox_size=0,\n        nms_pre=4096,\n        max_num=100))\ndataset_type = 'KittiDataset'\ndata_root = 'data/kitti_with_plane/'\nclass_names = ['Pedestrian', 'Cyclist', 'Car']\npoint_cloud_range = [0, -39.68, -3, 69.12, 39.68, 1]\ninput_modality = dict(use_lidar=True, use_camera=False)\ndb_sampler = dict(\n    data_root='data/kitti_with_plane/',\n    info_path='data/kitti_with_plane/kitti_dbinfos_train.pkl',\n    rate=1.0,\n    prepare=dict(\n        filter_by_difficulty=[-1],\n        filter_by_min_points=dict(Car=5, Pedestrian=5, Cyclist=5)),\n    classes=['Pedestrian', 'Cyclist', 'Car'],\n    sample_groups=dict(Car=15, Pedestrian=15, Cyclist=15))\nfile_client_args = dict(backend='disk')\ntrain_pipeline = [\n    dict(type='LoadPointsFromFile', coord_type='LIDAR', load_dim=4, use_dim=4),\n    dict(type='LoadAnnotations3D', with_bbox_3d=True, with_label_3d=True),\n    dict(\n        type='ObjectSample',\n        db_sampler=dict(\n            data_root='data/kitti_with_plane/',\n            info_path='data/kitti_with_plane/kitti_dbinfos_train.pkl',\n            rate=1.0,\n            prepare=dict(\n                filter_by_difficulty=[-1],\n                filter_by_min_points=dict(Car=5, Pedestrian=5, Cyclist=5)),\n            classes=['Pedestrian', 'Cyclist', 'Car'],\n            sample_groups=dict(Car=15, Pedestrian=15, Cyclist=15)),\n        use_ground_plane=True),\n    dict(type='RandomFlip3D', flip_ratio_bev_horizontal=0.5),\n    dict(\n        type='GlobalRotScaleTrans',\n        rot_range=[-0.78539816, 0.78539816],\n        scale_ratio_range=[0.95, 1.05]),\n    dict(\n        type='PointsRangeFilter',\n        point_cloud_range=[0, -39.68, -3, 69.12, 39.68, 1]),\n    dict(\n        type='ObjectRangeFilter',\n        point_cloud_range=[0, -39.68, -3, 69.12, 39.68, 1]),\n    dict(type='PointShuffle'),\n    dict(\n        type='DefaultFormatBundle3D',\n        class_names=['Pedestrian', 'Cyclist', 'Car']),\n    dict(type='Collect3D', keys=['points', 'gt_bboxes_3d', 'gt_labels_3d'])\n]\ntest_pipeline = [\n    dict(type='LoadPointsFromFile', coord_type='LIDAR', load_dim=4, use_dim=4),\n    dict(\n        type='MultiScaleFlipAug3D',\n        img_scale=(1333, 800),\n        pts_scale_ratio=1,\n        flip=False,\n        transforms=[\n            dict(\n                type='GlobalRotScaleTrans',\n                rot_range=[0, 0],\n                scale_ratio_range=[1.0, 1.0],\n                translation_std=[0, 0, 0]),\n            dict(type='RandomFlip3D'),\n            dict(\n                type='PointsRangeFilter',\n                point_cloud_range=[0, -39.68, -3, 69.12, 39.68, 1]),\n            dict(\n                type='DefaultFormatBundle3D',\n                class_names=['Pedestrian', 'Cyclist', 'Car'],\n                with_label=False),\n            dict(type='Collect3D', keys=['points'])\n        ])\n]\neval_pipeline = [\n    dict(\n        type='LoadPointsFromFile',\n        coord_type='LIDAR',\n        load_dim=4,\n        use_dim=4,\n        file_client_args=dict(backend='disk')),\n    dict(\n        type='DefaultFormatBundle3D',\n        class_names=['Pedestrian', 'Cyclist', 'Car'],\n        with_label=False),\n    dict(type='Collect3D', keys=['points'])\n]\ndata = dict(\n    samples_per_gpu=6,\n    workers_per_gpu=4,\n    train=dict(\n        type='RepeatDataset',\n        times=2,\n        dataset=dict(\n            type='KittiDataset',\n            data_root='data/kitti_with_plane/',\n            ann_file='data/kitti_with_plane/kitti_infos_train.pkl',\n            split='training',\n            pts_prefix='velodyne_reduced',\n            pipeline=[\n                dict(\n                    type='LoadPointsFromFile',\n                    coord_type='LIDAR',\n                    load_dim=4,\n                    use_dim=4),\n                dict(\n                    type='LoadAnnotations3D',\n                    with_bbox_3d=True,\n                    with_label_3d=True),\n                dict(\n                    type='ObjectSample',\n                    db_sampler=dict(\n                        data_root='data/kitti_with_plane/',\n                        info_path=\n                        'data/kitti_with_plane/kitti_dbinfos_train.pkl',\n                        rate=1.0,\n                        prepare=dict(\n                            filter_by_difficulty=[-1],\n                            filter_by_min_points=dict(\n                                Car=5, Pedestrian=5, Cyclist=5)),\n                        classes=['Pedestrian', 'Cyclist', 'Car'],\n                        sample_groups=dict(Car=15, Pedestrian=15, Cyclist=15)),\n                    use_ground_plane=True),\n                dict(type='RandomFlip3D', flip_ratio_bev_horizontal=0.5),\n                dict(\n                    type='GlobalRotScaleTrans',\n                    rot_range=[-0.78539816, 0.78539816],\n                    scale_ratio_range=[0.95, 1.05]),\n                dict(\n                    type='PointsRangeFilter',\n                    point_cloud_range=[0, -39.68, -3, 69.12, 39.68, 1]),\n                dict(\n                    type='ObjectRangeFilter',\n                    point_cloud_range=[0, -39.68, -3, 69.12, 39.68, 1]),\n                dict(type='PointShuffle'),\n                dict(\n                    type='DefaultFormatBundle3D',\n                    class_names=['Pedestrian', 'Cyclist', 'Car']),\n                dict(\n                    type='Collect3D',\n                    keys=['points', 'gt_bboxes_3d', 'gt_labels_3d'])\n            ],\n            modality=dict(use_lidar=True, use_camera=False),\n            classes=['Pedestrian', 'Cyclist', 'Car'],\n            test_mode=False,\n            box_type_3d='LiDAR')),\n    val=dict(\n        type='KittiDataset',\n        data_root='data/kitti_with_plane/',\n        ann_file='data/kitti_with_plane/kitti_infos_val.pkl',\n        split='training',\n        pts_prefix='velodyne_reduced',\n        pipeline=[\n            dict(\n                type='LoadPointsFromFile',\n                coord_type='LIDAR',\n                load_dim=4,\n                use_dim=4),\n            dict(\n                type='MultiScaleFlipAug3D',\n                img_scale=(1333, 800),\n                pts_scale_ratio=1,\n                flip=False,\n                transforms=[\n                    dict(\n                        type='GlobalRotScaleTrans',\n                        rot_range=[0, 0],\n                        scale_ratio_range=[1.0, 1.0],\n                        translation_std=[0, 0, 0]),\n                    dict(type='RandomFlip3D'),\n                    dict(\n                        type='PointsRangeFilter',\n                        point_cloud_range=[0, -39.68, -3, 69.12, 39.68, 1]),\n                    dict(\n                        type='DefaultFormatBundle3D',\n                        class_names=['Pedestrian', 'Cyclist', 'Car'],\n                        with_label=False),\n                    dict(type='Collect3D', keys=['points'])\n                ])\n        ],\n        modality=dict(use_lidar=True, use_camera=False),\n        classes=['Pedestrian', 'Cyclist', 'Car'],\n        test_mode=True,\n        box_type_3d='LiDAR'),\n    test=dict(\n        type='KittiDataset',\n        data_root='data/kitti_with_plane/',\n        ann_file='data/kitti_with_plane/kitti_infos_val.pkl',\n        split='training',\n        pts_prefix='velodyne_reduced',\n        pipeline=[\n            dict(\n                type='LoadPointsFromFile',\n                coord_type='LIDAR',\n                load_dim=4,\n                use_dim=4),\n            dict(\n                type='MultiScaleFlipAug3D',\n                img_scale=(1333, 800),\n                pts_scale_ratio=1,\n                flip=False,\n                transforms=[\n                    dict(\n                        type='GlobalRotScaleTrans',\n                        rot_range=[0, 0],\n                        scale_ratio_range=[1.0, 1.0],\n                        translation_std=[0, 0, 0]),\n                    dict(type='RandomFlip3D'),\n                    dict(\n                        type='PointsRangeFilter',\n                        point_cloud_range=[0, -39.68, -3, 69.12, 39.68, 1]),\n                    dict(\n                        type='DefaultFormatBundle3D',\n                        class_names=['Pedestrian', 'Cyclist', 'Car'],\n                        with_label=False),\n                    dict(type='Collect3D', keys=['points'])\n                ])\n        ],\n        modality=dict(use_lidar=True, use_camera=False),\n        classes=['Pedestrian', 'Cyclist', 'Car'],\n        test_mode=True,\n        box_type_3d='LiDAR'))\nevaluation = dict(\n    interval=1,\n    pipeline=[\n        dict(\n            type='LoadPointsFromFile',\n            coord_type='LIDAR',\n            load_dim=4,\n            use_dim=4,\n            file_client_args=dict(backend='disk')),\n        dict(\n            type='DefaultFormatBundle3D',\n            class_names=['Pedestrian', 'Cyclist', 'Car'],\n            with_label=False),\n        dict(type='Collect3D', keys=['points'])\n    ])\nlr = 0.001\noptimizer = dict(type='AdamW', lr=0.001, betas=(0.95, 0.99), weight_decay=0.01)\noptimizer_config = dict(grad_clip=dict(max_norm=35, norm_type=2))\nlr_config = dict(\n    policy='cyclic',\n    target_ratio=(10, 0.0001),\n    cyclic_times=1,\n    step_ratio_up=0.4)\nmomentum_config = dict(\n    policy='cyclic',\n    target_ratio=(0.8947368421052632, 1),\n    cyclic_times=1,\n    step_ratio_up=0.4)\nrunner = dict(type='EpochBasedRunner', max_epochs=80)\ncheckpoint_config = dict(interval=2)\nlog_config = dict(\n    interval=50,\n    hooks=[dict(type='TextLoggerHook'),\n           dict(type='TensorboardLoggerHook')])\ndist_params = dict(backend='nccl')\nlog_level = 'INFO'\nwork_dir = 'nfs/pp_kitti_3class'\nload_from = None\nresume_from = None\nworkflow = [('train', 1)]\ngpu_ids = range(0, 1)\n",
+          "CLASSES": [
+            "Pedestrian",
+            "Cyclist",
+            "Car"
+          ],
+          "PALETTE": null,
+          "env_info": "sys.platform: linux\nPython: 3.7.12 | packaged by conda-forge | (default, Oct 26 2021, 06:08:21) [GCC 9.4.0]\nCUDA available: True\nGPU 0,1,2,3,4,5,6,7: TITAN Xp\nCUDA_HOME: /mnt/lustre/share/polaris/dep/cuda-9.0-cudnn7.6.5\nNVCC: Cuda compilation tools, release 9.0, V9.0.176\nGCC: gcc (GCC) 5.4.0\nPyTorch: 1.5.0+cuda90_cudnn7.6.5_lms\nPyTorch compiling details: PyTorch built with:\n  - GCC 5.4\n  - C++ Version: 201402\n  - Intel(R) Math Kernel Library Version 2020.0.0 Product Build 20191122 for Intel(R) 64 architecture applications\n  - Intel(R) MKL-DNN v0.21.1 (Git Hash 7d2fd500bc78936d1d648ca713b901012f470dbc)\n  - OpenMP 201307 (a.k.a. OpenMP 4.0)\n  - NNPACK is enabled\n  - CPU capability usage: AVX2\n  - CUDA Runtime 9.0\n  - NVCC architecture flags: -gencode;arch=compute_52,code=sm_52;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70\n  - CuDNN 7.6.5\n  - Magma 2.5.0\n  - Build settings: BLAS=MKL, BUILD_TYPE=Release, CXX_FLAGS= -D_GLIBCXX_USE_CXX11_ABI=0 -Wno-deprecated -fvisibility-inlines-hidden -fopenmp -DNDEBUG -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DUSE_INTERNAL_THREADPOOL_IMPL -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, USE_CUDA=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, USE_STATIC_DISPATCH=OFF, \n\nTorchVision: 0.6.0\nOpenCV: 4.5.5\nMMCV: 1.4.2\nMMCV Compiler: GCC 5.4\nMMCV CUDA Compiler: 9.0\nMMDetection: 2.19.0\nMMSegmentation: 0.20.0\nMMDetection3D: 0.17.3+1465fde",
+          "seed": 0,
+          "exp_name": "hv_pointpillars_secfpn_6x8_160e_kitti-plane-3d-3class.py",
+          "epoch": 80,
+          "iter": 99040,
+          "mmcv_version": "1.4.2",
+          "time": "Wed Mar  2 20:04:33 2022",
+          "hook_msgs": {
+            "last_ckpt": "/mnt/lustre/zhuchenming.vendor/mmdetection3d/nfs/pp_kitti_3class/epoch_78.pth"
+          }
+        }
+      },
+      "mmdet3d_load": {
+        "config": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/3d-detection/benchmarks/mmdetection3d/configs/models/pointpillars_kitti_pretrained_eval_aghri.py",
+        "checkpoint": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/kitti_pretrained/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class_20220301_150306-37dc2420.pth",
+        "returncode": 0,
+        "stdout": "{\"ok\": false, \"error\": \"ModuleNotFoundError: No module named 'mmdet3d'\"}\n",
+        "stderr": ""
+      }
+    }
+  ]
+}

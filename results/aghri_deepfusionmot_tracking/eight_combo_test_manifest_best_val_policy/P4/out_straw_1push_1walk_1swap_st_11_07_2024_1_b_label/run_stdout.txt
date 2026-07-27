@@ -1,0 +1,8 @@
+recording=out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label
+combination_id=P4
+combination=FT YOLO + FT PointPillars
+frames=303
+tracked_3d_rows=808
+confirmed_tracks=17
+tracker_only_fps=2776.56
+output_dir=results/aghri_deepfusionmot_tracking/eight_combo_test_manifest_best_val_policy/P4/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label

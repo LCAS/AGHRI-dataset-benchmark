@@ -1,0 +1,9 @@
+stdin is not a terminal device. Keyboard handling disabled.[INFO] [1785090020.672202874] [rosbag2_storage]: Opened database '/home/prabuddhi/Desktop/Early_Fus/rosbags/aghri_test/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label_0.db3' for READ_ONLY.
+[INFO] [1785090020.672250537] [rosbag2_player]: Set rate to 2
+[INFO] [1785090020.673240244] [rosbag2_player]: Overriding QoS profile for topic /tf_static
+[INFO] [1785090020.675480343] [rosbag2_player]: Adding keyboard callbacks.
+[INFO] [1785090020.675498521] [rosbag2_player]: Press SPACE for Pause/Resume
+[INFO] [1785090020.675503604] [rosbag2_player]: Press CURSOR_RIGHT for Play Next Message
+[INFO] [1785090020.675507983] [rosbag2_player]: Press CURSOR_UP for Increase Rate 10%
+[INFO] [1785090020.675516381] [rosbag2_player]: Press CURSOR_DOWN for Decrease Rate 10%
+[INFO] [1785090020.675743973] [rosbag2_storage]: Opened database '/home/prabuddhi/Desktop/Early_Fus/rosbags/aghri_test/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label_0.db3' for READ_ONLY.

@@ -1,0 +1,77 @@
+{
+  "recording_name": "footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label",
+  "sample_id": "footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label/1731407186_709929023",
+  "image_path": "/media/prabuddhi/Backup2/Updated Dataset_PW/dataset_part1/footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label/sensor_data/cam_zed_rgb/1731407186_779812459.png",
+  "point_cloud_path": "/media/prabuddhi/Backup2/Updated Dataset_PW/dataset_part1/footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label/sensor_data/lidar/1731407186_709929023.pcd",
+  "image_timestamp": 1731407186.7798126,
+  "point_cloud_timestamp": 1731407186.709929,
+  "yolo_cache_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/results/aghri_pointpillars_detector_comparison/cache/yolo_finetuned/detections.csv",
+  "yolo_row_identifier": "footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label/1731407186_709929023",
+  "yolo_checkpoint_path": "/home/prabuddhi/Desktop/Early_Fus/checkpoints/aghri_yolo11s_finetune/cluster_run/weights/best.pt",
+  "yolo_checkpoint_sha256": "bbb267ba96e3b94b615ef4e78a0d5319b95c592e932879f2c2bfeedf54fa3110",
+  "pointpillars_cache_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/results/aghri_pointpillars_detector_comparison/cache/pointpillars_finetuned/detections.csv",
+  "pointpillars_row_identifier": "footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label/1731407186_709929023",
+  "pointpillars_checkpoint_path": "checkpoints/aghri_pointpillars_finetune/cluster_run/weights/best.pth",
+  "pointpillars_checkpoint_sha256": "50a0dde7c5650a46e50785050c632a405dedcc24a8513713e07371e3666d6847",
+  "calibration_source": "/media/prabuddhi/Backup2/Updated Dataset_PW/calibration.zip",
+  "calibration_matrix_values": {
+    "P": [
+      [
+        477.29998779296875,
+        0.0,
+        339.74749755859375,
+        0.0
+      ],
+      [
+        0.0,
+        477.4949951171875,
+        191.94400024414062,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ]
+    ],
+    "T_camera_from_lidar": [
+      [
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        -0.22
+      ],
+      [
+        2.220446049250313e-16,
+        0.0,
+        -1.0,
+        0.295
+      ],
+      [
+        1.0,
+        2.220446049250313e-16,
+        2.220446049250313e-16,
+        0.07499999999999993
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ]
+  },
+  "manifest_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/data_manifests/aghri_late_fusion_test_manifest.csv",
+  "manifest_sha256": "def1cd3c290d53cda470be153f6b4db54f5a86b7a444b316026d8089d46da440",
+  "fusion_threshold": 0.1,
+  "source_code_commit": "c91b12adb34b5fcb5916e1c46eb7131bb0edd21b",
+  "date_generated": "2026-07-13T21:20:50.252375+00:00",
+  "selection_reason": "The calibration audit already verified this real matched frame exactly; boundary clipping is retained and explained as part of the projection stage.",
+  "box_origin_correction": {
+    "cache_metadata_origin": "bottom_center",
+    "used_geometry_origin": "center",
+    "override_applied": true,
+    "reason": "The projected cuboid was vertically high when the cached PointPillars z value was treated as bottom-centre. Interpreting the same real detector box as centre-origin aligns the projected cuboid with the visible person. This is a box-origin convention correction, not a calibration change."
+  }
+}

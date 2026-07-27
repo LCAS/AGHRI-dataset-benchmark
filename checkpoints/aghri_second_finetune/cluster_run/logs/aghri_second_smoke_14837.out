@@ -1,0 +1,547 @@
+[WARN] Pyxis/Enroot modulefiles were not found; continuing because Slurm container options may already be enabled.
+[HOST] Hostname:  hpc-novel-gpu05
+[HOST] Root:      /work/users/pwariyapperuma/aghri_second_finetune
+[HOST] Container: /work/users/pwariyapperuma/bevfusion_final/docker/bevfusion_final.sqfs
+[HOST] Job ID:    14837
+[HOST] Generic SECOND checkpoint hash verified.
+[IN-CTR] Hostname: hpc-novel-gpu05
+[IN-CTR] PWD:      /work/users/pwariyapperuma/aghri_second_finetune/code/mmdetection3d
+[IN-CTR] Base Python: Python 3.8.20
+Sat Jul 11 18:17:57 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.43.02              KMD Version: 610.43.02     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          Off |   00000000:01:00.0 Off |                    0 |
+| N/A   31C    P0             57W /  400W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+[ENV] Creating a fresh persistent OpenMMLab environment.
+Collecting pip==23.3.2
+  Downloading pip-23.3.2-py3-none-any.whl (2.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 9.6 MB/s eta 0:00:00
+Collecting setuptools==68.2.2
+  Downloading setuptools-68.2.2-py3-none-any.whl (807 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 807.9/807.9 kB 8.5 MB/s eta 0:00:00
+Collecting wheel==0.41.3
+  Downloading wheel-0.41.3-py3-none-any.whl (65 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 65.8/65.8 kB 1.1 MB/s eta 0:00:00
+Installing collected packages: wheel, setuptools, pip
+  Attempting uninstall: wheel
+    Found existing installation: wheel 0.44.0
+    Not uninstalling wheel at /opt/conda/envs/bevfusion/lib/python3.8/site-packages, outside environment /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+    Can't uninstall 'wheel'. No files were found to uninstall.
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 56.0.0
+    Uninstalling setuptools-56.0.0:
+      Successfully uninstalled setuptools-56.0.0
+  Attempting uninstall: pip
+    Found existing installation: pip 23.0.1
+    Uninstalling pip-23.0.1:
+      Successfully uninstalled pip-23.0.1
+Successfully installed pip-23.3.2 setuptools-68.2.2 wheel-0.41.3
+Python: 3.8.20 (default, Oct  3 2024, 15:24:27) 
+[GCC 11.2.0]
+PyTorch: 1.10.1
+PyTorch CUDA: 11.3
+CUDA available: True
+GPU: NVIDIA A100-SXM4-80GB
+Collecting numpy==1.23.5
+  Downloading numpy-1.23.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.3 kB)
+Requirement already satisfied: scipy==1.10.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (1.10.1)
+Downloading numpy-1.23.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 17.1/17.1 MB 24.5 MB/s eta 0:00:00
+Installing collected packages: numpy
+  Attempting uninstall: numpy
+    Found existing installation: numpy 1.24.3
+    Not uninstalling numpy at /opt/conda/envs/bevfusion/lib/python3.8/site-packages, outside environment /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+    Can't uninstall 'numpy'. No files were found to uninstall.
+Successfully installed numpy-1.23.5
+Collecting mmengine==0.10.7
+  Downloading mmengine-0.10.7-py3-none-any.whl.metadata (20 kB)
+Requirement already satisfied: addict in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine==0.10.7) (2.4.0)
+Requirement already satisfied: matplotlib in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine==0.10.7) (3.5.3)
+Requirement already satisfied: numpy in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from mmengine==0.10.7) (1.23.5)
+Requirement already satisfied: pyyaml in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine==0.10.7) (6.0.2)
+Collecting rich (from mmengine==0.10.7)
+  Downloading rich-14.3.4-py3-none-any.whl.metadata (18 kB)
+Requirement already satisfied: termcolor in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine==0.10.7) (2.4.0)
+Requirement already satisfied: yapf in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine==0.10.7) (0.43.0)
+Requirement already satisfied: opencv-python>=3 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine==0.10.7) (4.12.0.88)
+Requirement already satisfied: cycler>=0.10 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine==0.10.7) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine==0.10.7) (4.57.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine==0.10.7) (1.4.7)
+Requirement already satisfied: packaging>=20.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine==0.10.7) (25.0)
+Requirement already satisfied: pillow>=6.2.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine==0.10.7) (8.4.0)
+Requirement already satisfied: pyparsing>=2.2.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine==0.10.7) (3.1.4)
+Requirement already satisfied: python-dateutil>=2.7 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine==0.10.7) (2.9.0.post0)
+Collecting markdown-it-py>=2.2.0 (from rich->mmengine==0.10.7)
+  Downloading markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich->mmengine==0.10.7)
+  Downloading pygments-2.19.2-py3-none-any.whl.metadata (2.5 kB)
+Requirement already satisfied: platformdirs>=3.5.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from yapf->mmengine==0.10.7) (4.3.6)
+Requirement already satisfied: tomli>=2.0.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from yapf->mmengine==0.10.7) (2.2.1)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->mmengine==0.10.7)
+  Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Requirement already satisfied: six>=1.5 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib->mmengine==0.10.7) (1.17.0)
+Downloading mmengine-0.10.7-py3-none-any.whl (452 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 452.7/452.7 kB 4.1 MB/s eta 0:00:00
+Downloading rich-14.3.4-py3-none-any.whl (310 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 310.5/310.5 kB 3.8 MB/s eta 0:00:00
+Downloading markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.5/87.5 kB 945.4 kB/s eta 0:00:00
+Downloading pygments-2.19.2-py3-none-any.whl (1.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 11.2 MB/s eta 0:00:00
+Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Installing collected packages: pygments, mdurl, markdown-it-py, rich, mmengine
+Successfully installed markdown-it-py-3.0.0 mdurl-0.1.2 mmengine-0.10.7 pygments-2.19.2 rich-14.3.4
+Looking in links: https://download.openmmlab.com/mmcv/dist/cu113/torch1.10.0/index.html
+Collecting mmcv==2.1.0
+  Downloading https://download.openmmlab.com/mmcv/dist/cu113/torch1.10.0/mmcv-2.1.0-cp38-cp38-manylinux1_x86_64.whl (86.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 86.2/86.2 MB 13.5 MB/s eta 0:00:00
+Requirement already satisfied: addict in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmcv==2.1.0) (2.4.0)
+Requirement already satisfied: mmengine>=0.3.0 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from mmcv==2.1.0) (0.10.7)
+Requirement already satisfied: numpy in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from mmcv==2.1.0) (1.23.5)
+Requirement already satisfied: packaging in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmcv==2.1.0) (25.0)
+Requirement already satisfied: Pillow in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmcv==2.1.0) (8.4.0)
+Requirement already satisfied: pyyaml in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmcv==2.1.0) (6.0.2)
+Requirement already satisfied: yapf in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmcv==2.1.0) (0.43.0)
+Requirement already satisfied: opencv-python>=3 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmcv==2.1.0) (4.12.0.88)
+Requirement already satisfied: matplotlib in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine>=0.3.0->mmcv==2.1.0) (3.5.3)
+Requirement already satisfied: rich in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from mmengine>=0.3.0->mmcv==2.1.0) (14.3.4)
+Requirement already satisfied: termcolor in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine>=0.3.0->mmcv==2.1.0) (2.4.0)
+Requirement already satisfied: platformdirs>=3.5.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from yapf->mmcv==2.1.0) (4.3.6)
+Requirement already satisfied: tomli>=2.0.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from yapf->mmcv==2.1.0) (2.2.1)
+Requirement already satisfied: cycler>=0.10 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine>=0.3.0->mmcv==2.1.0) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine>=0.3.0->mmcv==2.1.0) (4.57.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine>=0.3.0->mmcv==2.1.0) (1.4.7)
+Requirement already satisfied: pyparsing>=2.2.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine>=0.3.0->mmcv==2.1.0) (3.1.4)
+Requirement already satisfied: python-dateutil>=2.7 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine>=0.3.0->mmcv==2.1.0) (2.9.0.post0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from rich->mmengine>=0.3.0->mmcv==2.1.0) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from rich->mmengine>=0.3.0->mmcv==2.1.0) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from markdown-it-py>=2.2.0->rich->mmengine>=0.3.0->mmcv==2.1.0) (0.1.2)
+Requirement already satisfied: six>=1.5 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib->mmengine>=0.3.0->mmcv==2.1.0) (1.17.0)
+Installing collected packages: mmcv
+  Attempting uninstall: mmcv
+    Found existing installation: mmcv 1.4.0
+    Not uninstalling mmcv at /opt/conda/envs/bevfusion/lib/python3.8/site-packages, outside environment /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+    Can't uninstall 'mmcv'. No files were found to uninstall.
+Successfully installed mmcv-2.1.0
+Collecting mmdet==3.3.0
+  Downloading mmdet-3.3.0-py3-none-any.whl.metadata (29 kB)
+Requirement already satisfied: matplotlib in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet==3.3.0) (3.5.3)
+Requirement already satisfied: numpy in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from mmdet==3.3.0) (1.23.5)
+Requirement already satisfied: pycocotools in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet==3.3.0) (2.0.7)
+Requirement already satisfied: scipy in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet==3.3.0) (1.10.1)
+Requirement already satisfied: shapely in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet==3.3.0) (1.8.5.post1)
+Requirement already satisfied: six in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet==3.3.0) (1.17.0)
+Requirement already satisfied: terminaltables in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet==3.3.0) (3.1.10)
+Requirement already satisfied: tqdm in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet==3.3.0) (4.67.1)
+Requirement already satisfied: cycler>=0.10 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmdet==3.3.0) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmdet==3.3.0) (4.57.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmdet==3.3.0) (1.4.7)
+Requirement already satisfied: packaging>=20.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmdet==3.3.0) (25.0)
+Requirement already satisfied: pillow>=6.2.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmdet==3.3.0) (8.4.0)
+Requirement already satisfied: pyparsing>=2.2.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmdet==3.3.0) (3.1.4)
+Requirement already satisfied: python-dateutil>=2.7 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmdet==3.3.0) (2.9.0.post0)
+Downloading mmdet-3.3.0-py3-none-any.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 13.9 MB/s eta 0:00:00
+Installing collected packages: mmdet
+  Attempting uninstall: mmdet
+    Found existing installation: mmdet 2.20.0
+    Not uninstalling mmdet at /opt/conda/envs/bevfusion/lib/python3.8/site-packages, outside environment /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+    Can't uninstall 'mmdet'. No files were found to uninstall.
+Successfully installed mmdet-3.3.0
+Collecting mmdet3d==1.4.0
+  Downloading mmdet3d-1.4.0-py3-none-any.whl.metadata (28 kB)
+Collecting lyft-dataset-sdk (from mmdet3d==1.4.0)
+  Downloading lyft_dataset_sdk-0.0.8-py2.py3-none-any.whl.metadata (3.6 kB)
+Collecting networkx>=2.5 (from mmdet3d==1.4.0)
+  Downloading networkx-3.1-py3-none-any.whl.metadata (5.3 kB)
+Requirement already satisfied: numba in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet3d==1.4.0) (0.48.0)
+Requirement already satisfied: numpy in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from mmdet3d==1.4.0) (1.23.5)
+Requirement already satisfied: nuscenes-devkit in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet3d==1.4.0) (1.1.11)
+Collecting open3d (from mmdet3d==1.4.0)
+  Downloading open3d-0.19.0-cp38-cp38-manylinux_2_31_x86_64.whl.metadata (4.3 kB)
+Collecting plyfile (from mmdet3d==1.4.0)
+  Downloading plyfile-1.0.3-py3-none-any.whl.metadata (2.1 kB)
+Collecting scikit-image (from mmdet3d==1.4.0)
+  Downloading scikit_image-0.21.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (14 kB)
+Requirement already satisfied: tensorboard in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet3d==1.4.0) (2.14.0)
+Collecting trimesh (from mmdet3d==1.4.0)
+  Downloading trimesh-4.12.2-py3-none-any.whl.metadata (13 kB)
+Collecting flake8 (from lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading flake8-7.1.2-py2.py3-none-any.whl.metadata (3.8 kB)
+Requirement already satisfied: opencv-python>=3.4.2.17 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (4.12.0.88)
+Requirement already satisfied: Pillow>=5.2.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (8.4.0)
+Requirement already satisfied: pyquaternion>=0.9.5 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (0.9.9)
+Requirement already satisfied: scikit-learn>=0.19.2 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (1.3.2)
+Requirement already satisfied: tqdm>=4.25.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (4.67.1)
+Requirement already satisfied: scipy>=1.1.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (1.10.1)
+Requirement already satisfied: cachetools>=3.1.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (5.5.2)
+Requirement already satisfied: Shapely>=1.6.4.post2 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (1.8.5.post1)
+Requirement already satisfied: fire in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (0.7.0)
+Collecting pytest (from lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading pytest-8.3.5-py3-none-any.whl.metadata (7.6 kB)
+Collecting black (from lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading black-24.8.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (78 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.2/78.2 kB 814.3 kB/s eta 0:00:00
+Requirement already satisfied: matplotlib in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (3.5.3)
+Collecting pandas (from lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+Collecting plotly (from lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading plotly-6.9.0-py3-none-any.whl.metadata (9.0 kB)
+Requirement already satisfied: llvmlite<0.32.0,>=0.31.0dev0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from numba->mmdet3d==1.4.0) (0.31.0)
+Requirement already satisfied: setuptools in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from numba->mmdet3d==1.4.0) (68.2.2)
+Requirement already satisfied: descartes in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from nuscenes-devkit->mmdet3d==1.4.0) (1.1.0)
+Requirement already satisfied: pycocotools>=2.0.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from nuscenes-devkit->mmdet3d==1.4.0) (2.0.7)
+Collecting dash>=2.6.0 (from open3d->mmdet3d==1.4.0)
+  Downloading dash-4.3.0-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: werkzeug>=3.0.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from open3d->mmdet3d==1.4.0) (3.0.6)
+Collecting flask>=3.0.0 (from open3d->mmdet3d==1.4.0)
+  Downloading flask-3.0.3-py3-none-any.whl.metadata (3.2 kB)
+Collecting nbformat>=5.7.0 (from open3d->mmdet3d==1.4.0)
+  Downloading nbformat-5.10.4-py3-none-any.whl.metadata (3.6 kB)
+Collecting configargparse (from open3d->mmdet3d==1.4.0)
+  Downloading configargparse-1.7.5-py3-none-any.whl.metadata (23 kB)
+Collecting ipywidgets>=8.0.4 (from open3d->mmdet3d==1.4.0)
+  Downloading ipywidgets-8.1.8-py3-none-any.whl.metadata (2.4 kB)
+Requirement already satisfied: addict in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from open3d->mmdet3d==1.4.0) (2.4.0)
+Collecting Pillow>=5.2.0 (from lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading pillow-10.4.0-cp38-cp38-manylinux_2_28_x86_64.whl.metadata (9.2 kB)
+Requirement already satisfied: pyyaml>=5.4.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from open3d->mmdet3d==1.4.0) (6.0.2)
+Collecting imageio>=2.27 (from scikit-image->mmdet3d==1.4.0)
+  Downloading imageio-2.35.1-py3-none-any.whl.metadata (4.9 kB)
+Collecting tifffile>=2022.8.12 (from scikit-image->mmdet3d==1.4.0)
+  Downloading tifffile-2023.7.10-py3-none-any.whl.metadata (31 kB)
+Collecting PyWavelets>=1.1.1 (from scikit-image->mmdet3d==1.4.0)
+  Downloading PyWavelets-1.4.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.9 kB)
+Requirement already satisfied: packaging>=21 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from scikit-image->mmdet3d==1.4.0) (25.0)
+Collecting lazy_loader>=0.2 (from scikit-image->mmdet3d==1.4.0)
+  Downloading lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+Requirement already satisfied: absl-py>=0.4 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (2.3.1)
+Requirement already satisfied: grpcio>=1.48.2 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (1.70.0)
+Requirement already satisfied: google-auth<3,>=1.6.3 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (2.40.3)
+Requirement already satisfied: google-auth-oauthlib<1.1,>=0.5 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (1.0.0)
+Requirement already satisfied: markdown>=2.6.8 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (3.7)
+Requirement already satisfied: protobuf>=3.19.6 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (5.29.5)
+Requirement already satisfied: requests<3,>=2.21.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (2.32.4)
+Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (0.7.2)
+Requirement already satisfied: wheel>=0.26 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (0.41.3)
+Requirement already satisfied: importlib-metadata in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from dash>=2.6.0->open3d->mmdet3d==1.4.0) (8.5.0)
+Requirement already satisfied: typing_extensions>=4.1.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from dash>=2.6.0->open3d->mmdet3d==1.4.0) (4.11.0)
+Collecting retrying (from dash>=2.6.0->open3d->mmdet3d==1.4.0)
+  Downloading retrying-1.4.2-py3-none-any.whl.metadata (5.5 kB)
+Collecting nest-asyncio (from dash>=2.6.0->open3d->mmdet3d==1.4.0)
+  Downloading nest_asyncio-1.6.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting janus>=1.0.0 (from dash>=2.6.0->open3d->mmdet3d==1.4.0)
+  Downloading janus-1.0.0-py3-none-any.whl.metadata (4.5 kB)
+Collecting pydantic>=2.10 (from dash>=2.6.0->open3d->mmdet3d==1.4.0)
+  Downloading pydantic-2.10.6-py3-none-any.whl.metadata (30 kB)
+Collecting Jinja2>=3.1.2 (from flask>=3.0.0->open3d->mmdet3d==1.4.0)
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting itsdangerous>=2.1.2 (from flask>=3.0.0->open3d->mmdet3d==1.4.0)
+  Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting click>=8.1.3 (from flask>=3.0.0->open3d->mmdet3d==1.4.0)
+  Downloading click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+Collecting blinker>=1.6.2 (from flask>=3.0.0->open3d->mmdet3d==1.4.0)
+  Downloading blinker-1.8.2-py3-none-any.whl.metadata (1.6 kB)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from google-auth<3,>=1.6.3->tensorboard->mmdet3d==1.4.0) (0.4.2)
+Requirement already satisfied: rsa<5,>=3.1.4 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from google-auth<3,>=1.6.3->tensorboard->mmdet3d==1.4.0) (4.9.1)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from google-auth-oauthlib<1.1,>=0.5->tensorboard->mmdet3d==1.4.0) (2.0.0)
+Collecting comm>=0.1.3 (from ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading comm-0.2.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting ipython>=6.1.0 (from ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading ipython-8.12.3-py3-none-any.whl.metadata (5.7 kB)
+Collecting traitlets>=4.3.1 (from ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading traitlets-5.14.3-py3-none-any.whl.metadata (10 kB)
+Collecting widgetsnbextension~=4.0.14 (from ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading widgetsnbextension-4.0.15-py3-none-any.whl.metadata (1.6 kB)
+Collecting jupyterlab_widgets~=3.0.15 (from ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading jupyterlab_widgets-3.0.16-py3-none-any.whl.metadata (20 kB)
+Requirement already satisfied: cycler>=0.10 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->lyft-dataset-sdk->mmdet3d==1.4.0) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->lyft-dataset-sdk->mmdet3d==1.4.0) (4.57.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->lyft-dataset-sdk->mmdet3d==1.4.0) (1.4.7)
+Requirement already satisfied: pyparsing>=2.2.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->lyft-dataset-sdk->mmdet3d==1.4.0) (3.1.4)
+Requirement already satisfied: python-dateutil>=2.7 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->lyft-dataset-sdk->mmdet3d==1.4.0) (2.9.0.post0)
+Collecting fastjsonschema>=2.15 (from nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Downloading fastjsonschema-2.21.2-py3-none-any.whl.metadata (2.3 kB)
+Collecting jsonschema>=2.6 (from nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Downloading jsonschema-4.23.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting jupyter-core!=5.0.*,>=4.12 (from nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Downloading jupyter_core-5.8.1-py3-none-any.whl.metadata (1.6 kB)
+Collecting pytz>=2020.1 (from pandas->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading pytz-2026.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.1 (from pandas->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading tzdata-2026.3-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting narwhals>=1.15.1 (from plotly->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading narwhals-1.42.1-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: charset_normalizer<4,>=2 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard->mmdet3d==1.4.0) (3.4.2)
+Requirement already satisfied: idna<4,>=2.5 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard->mmdet3d==1.4.0) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard->mmdet3d==1.4.0) (2.2.3)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard->mmdet3d==1.4.0) (2025.7.14)
+Requirement already satisfied: joblib>=1.1.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from scikit-learn>=0.19.2->lyft-dataset-sdk->mmdet3d==1.4.0) (1.4.2)
+Requirement already satisfied: threadpoolctl>=2.0.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from scikit-learn>=0.19.2->lyft-dataset-sdk->mmdet3d==1.4.0) (3.5.0)
+Requirement already satisfied: MarkupSafe>=2.1.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from werkzeug>=3.0.0->open3d->mmdet3d==1.4.0) (2.1.5)
+Collecting mypy-extensions>=0.4.3 (from black->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading mypy_extensions-1.1.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting pathspec>=0.9.0 (from black->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
+Requirement already satisfied: platformdirs>=2 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from black->lyft-dataset-sdk->mmdet3d==1.4.0) (4.3.6)
+Requirement already satisfied: tomli>=1.1.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from black->lyft-dataset-sdk->mmdet3d==1.4.0) (2.2.1)
+Requirement already satisfied: termcolor in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from fire->lyft-dataset-sdk->mmdet3d==1.4.0) (2.4.0)
+Collecting mccabe<0.8.0,>=0.7.0 (from flake8->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+Collecting pycodestyle<2.13.0,>=2.12.0 (from flake8->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading pycodestyle-2.12.1-py2.py3-none-any.whl.metadata (4.5 kB)
+Collecting pyflakes<3.3.0,>=3.2.0 (from flake8->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading pyflakes-3.2.0-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting exceptiongroup>=1.0.0rc8 (from pytest->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading exceptiongroup-1.3.1-py3-none-any.whl.metadata (6.7 kB)
+Collecting iniconfig (from pytest->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading iniconfig-2.1.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting pluggy<2,>=1.5 (from pytest->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Downloading pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Requirement already satisfied: zipp>=3.20 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from importlib-metadata->dash>=2.6.0->open3d->mmdet3d==1.4.0) (3.20.2)
+Collecting backcall (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading backcall-0.2.0-py2.py3-none-any.whl.metadata (2.0 kB)
+Collecting decorator (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading decorator-5.3.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting jedi>=0.16 (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading jedi-0.19.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting matplotlib-inline (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading matplotlib_inline-0.1.7-py3-none-any.whl.metadata (3.9 kB)
+Collecting pickleshare (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading pickleshare-0.7.5-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting prompt-toolkit!=3.0.37,<3.1.0,>=3.0.30 (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading prompt_toolkit-3.0.52-py3-none-any.whl.metadata (6.4 kB)
+Requirement already satisfied: pygments>=2.4.0 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0) (2.19.2)
+Collecting stack-data (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading stack_data-0.6.3-py3-none-any.whl.metadata (18 kB)
+Collecting pexpect>4.3 (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading pexpect-4.9.0-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting attrs>=22.2.0 (from jsonschema>=2.6->nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Downloading attrs-25.3.0-py3-none-any.whl.metadata (10 kB)
+Collecting importlib-resources>=1.4.0 (from jsonschema>=2.6->nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Downloading importlib_resources-6.4.5-py3-none-any.whl.metadata (4.0 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=2.6->nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Downloading jsonschema_specifications-2023.12.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting pkgutil-resolve-name>=1.3.10 (from jsonschema>=2.6->nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Downloading pkgutil_resolve_name-1.3.10-py3-none-any.whl.metadata (624 bytes)
+Collecting referencing>=0.28.4 (from jsonschema>=2.6->nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Downloading referencing-0.35.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.7.1 (from jsonschema>=2.6->nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Downloading rpds_py-0.20.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Requirement already satisfied: pyasn1<0.7.0,>=0.6.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from pyasn1-modules>=0.2.1->google-auth<3,>=1.6.3->tensorboard->mmdet3d==1.4.0) (0.6.1)
+Collecting annotated-types>=0.6.0 (from pydantic>=2.10->dash>=2.6.0->open3d->mmdet3d==1.4.0)
+  Downloading annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.27.2 (from pydantic>=2.10->dash>=2.6.0->open3d->mmdet3d==1.4.0)
+  Downloading pydantic_core-2.27.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Collecting typing_extensions>=4.1.1 (from dash>=2.6.0->open3d->mmdet3d==1.4.0)
+  Downloading typing_extensions-4.13.2-py3-none-any.whl.metadata (3.0 kB)
+Requirement already satisfied: six>=1.5 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib->lyft-dataset-sdk->mmdet3d==1.4.0) (1.17.0)
+Requirement already satisfied: oauthlib>=3.0.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<1.1,>=0.5->tensorboard->mmdet3d==1.4.0) (3.3.1)
+Collecting parso<0.9.0,>=0.8.4 (from jedi>=0.16->ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading parso-0.8.7-py2.py3-none-any.whl.metadata (8.2 kB)
+Collecting ptyprocess>=0.5 (from pexpect>4.3->ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading ptyprocess-0.7.0-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting wcwidth (from prompt-toolkit!=3.0.37,<3.1.0,>=3.0.30->ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading wcwidth-0.8.2-py3-none-any.whl.metadata (43 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.3/43.3 kB 444.6 kB/s eta 0:00:00
+Collecting executing>=1.2.0 (from stack-data->ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading executing-2.2.1-py2.py3-none-any.whl.metadata (8.9 kB)
+Collecting asttokens>=2.1.0 (from stack-data->ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading asttokens-3.0.1-py3-none-any.whl.metadata (4.9 kB)
+Collecting pure-eval (from stack-data->ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Downloading pure_eval-0.2.3-py3-none-any.whl.metadata (6.3 kB)
+Downloading mmdet3d-1.4.0-py3-none-any.whl (1.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.0/1.0 MB 8.2 MB/s eta 0:00:00
+Downloading networkx-3.1-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 5.9 MB/s eta 0:00:00
+Downloading lyft_dataset_sdk-0.0.8-py2.py3-none-any.whl (32 kB)
+Downloading open3d-0.19.0-cp38-cp38-manylinux_2_31_x86_64.whl (447.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 447.7/447.7 MB 5.7 MB/s eta 0:00:00
+Downloading plyfile-1.0.3-py3-none-any.whl (23 kB)
+Downloading scikit_image-0.21.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 13.9/13.9 MB 25.1 MB/s eta 0:00:00
+Downloading trimesh-4.12.2-py3-none-any.whl (741 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 741.0/741.0 kB 8.8 MB/s eta 0:00:00
+Downloading dash-4.3.0-py3-none-any.whl (8.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.4/8.4 MB 20.2 MB/s eta 0:00:00
+Downloading flask-3.0.3-py3-none-any.whl (101 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 101.7/101.7 kB 1.2 MB/s eta 0:00:00
+Downloading imageio-2.35.1-py3-none-any.whl (315 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 315.4/315.4 kB 3.6 MB/s eta 0:00:00
+Downloading ipywidgets-8.1.8-py3-none-any.whl (139 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 139.8/139.8 kB 1.8 MB/s eta 0:00:00
+Downloading lazy_loader-0.4-py3-none-any.whl (12 kB)
+Downloading nbformat-5.10.4-py3-none-any.whl (78 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 1.2 MB/s eta 0:00:00
+Downloading pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.4/12.4 MB 25.9 MB/s eta 0:00:00
+Downloading pillow-10.4.0-cp38-cp38-manylinux_2_28_x86_64.whl (4.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 18.0 MB/s eta 0:00:00
+Downloading plotly-6.9.0-py3-none-any.whl (9.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.9/9.9 MB 24.8 MB/s eta 0:00:00
+Downloading PyWavelets-1.4.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 24.6 MB/s eta 0:00:00
+Downloading tifffile-2023.7.10-py3-none-any.whl (220 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 220.9/220.9 kB 3.0 MB/s eta 0:00:00
+Downloading black-24.8.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (1.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 12.3 MB/s eta 0:00:00
+Downloading configargparse-1.7.5-py3-none-any.whl (27 kB)
+Downloading flake8-7.1.2-py2.py3-none-any.whl (57 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 57.7/57.7 kB 848.1 kB/s eta 0:00:00
+Downloading pytest-8.3.5-py3-none-any.whl (343 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 343.6/343.6 kB 4.1 MB/s eta 0:00:00
+Downloading blinker-1.8.2-py3-none-any.whl (9.5 kB)
+Downloading click-8.1.8-py3-none-any.whl (98 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 98.2/98.2 kB 1.2 MB/s eta 0:00:00
+Downloading comm-0.2.3-py3-none-any.whl (7.3 kB)
+Downloading exceptiongroup-1.3.1-py3-none-any.whl (16 kB)
+Downloading fastjsonschema-2.21.2-py3-none-any.whl (24 kB)
+Downloading ipython-8.12.3-py3-none-any.whl (798 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 798.3/798.3 kB 8.8 MB/s eta 0:00:00
+Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Downloading janus-1.0.0-py3-none-any.whl (6.9 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 1.8 MB/s eta 0:00:00
+Downloading jsonschema-4.23.0-py3-none-any.whl (88 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 88.5/88.5 kB 1.3 MB/s eta 0:00:00
+Downloading jupyter_core-5.8.1-py3-none-any.whl (28 kB)
+Downloading jupyterlab_widgets-3.0.16-py3-none-any.whl (914 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 914.9/914.9 kB 8.7 MB/s eta 0:00:00
+Downloading mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+Downloading mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)
+Downloading narwhals-1.42.1-py3-none-any.whl (359 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 359.9/359.9 kB 3.8 MB/s eta 0:00:00
+Downloading pathspec-0.12.1-py3-none-any.whl (31 kB)
+Downloading pluggy-1.5.0-py3-none-any.whl (20 kB)
+Downloading pycodestyle-2.12.1-py2.py3-none-any.whl (31 kB)
+Downloading pydantic-2.10.6-py3-none-any.whl (431 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 431.7/431.7 kB 3.1 MB/s eta 0:00:00
+Downloading pydantic_core-2.27.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 12.0 MB/s eta 0:00:00
+Downloading pyflakes-3.2.0-py2.py3-none-any.whl (62 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.7/62.7 kB 771.0 kB/s eta 0:00:00
+Downloading pytz-2026.2-py2.py3-none-any.whl (510 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 510.1/510.1 kB 6.5 MB/s eta 0:00:00
+Downloading traitlets-5.14.3-py3-none-any.whl (85 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 85.4/85.4 kB 1.1 MB/s eta 0:00:00
+Downloading typing_extensions-4.13.2-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.8/45.8 kB 622.6 kB/s eta 0:00:00
+Downloading tzdata-2026.3-py2.py3-none-any.whl (348 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 348.2/348.2 kB 4.1 MB/s eta 0:00:00
+Downloading widgetsnbextension-4.0.15-py3-none-any.whl (2.2 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.2/2.2 MB 14.0 MB/s eta 0:00:00
+Downloading iniconfig-2.1.0-py3-none-any.whl (6.0 kB)
+Downloading nest_asyncio-1.6.0-py3-none-any.whl (5.2 kB)
+Downloading retrying-1.4.2-py3-none-any.whl (10 kB)
+Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.8/63.8 kB 551.8 kB/s eta 0:00:00
+Downloading importlib_resources-6.4.5-py3-none-any.whl (36 kB)
+Downloading jedi-0.19.2-py2.py3-none-any.whl (1.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 11.0 MB/s eta 0:00:00
+Downloading jsonschema_specifications-2023.12.1-py3-none-any.whl (18 kB)
+Downloading pexpect-4.9.0-py2.py3-none-any.whl (63 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.8/63.8 kB 703.7 kB/s eta 0:00:00
+Downloading pkgutil_resolve_name-1.3.10-py3-none-any.whl (4.7 kB)
+Downloading prompt_toolkit-3.0.52-py3-none-any.whl (391 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 391.4/391.4 kB 3.5 MB/s eta 0:00:00
+Downloading referencing-0.35.1-py3-none-any.whl (26 kB)
+Downloading rpds_py-0.20.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (360 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 360.8/360.8 kB 4.1 MB/s eta 0:00:00
+Downloading backcall-0.2.0-py2.py3-none-any.whl (11 kB)
+Downloading decorator-5.3.1-py3-none-any.whl (10 kB)
+Downloading matplotlib_inline-0.1.7-py3-none-any.whl (9.9 kB)
+Downloading pickleshare-0.7.5-py2.py3-none-any.whl (6.9 kB)
+Downloading stack_data-0.6.3-py3-none-any.whl (24 kB)
+Downloading asttokens-3.0.1-py3-none-any.whl (27 kB)
+Downloading executing-2.2.1-py2.py3-none-any.whl (28 kB)
+Downloading parso-0.8.7-py2.py3-none-any.whl (107 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 107.0/107.0 kB 1.2 MB/s eta 0:00:00
+Downloading ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+Downloading pure_eval-0.2.3-py3-none-any.whl (11 kB)
+Downloading wcwidth-0.8.2-py3-none-any.whl (323 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 323.2/323.2 kB 3.9 MB/s eta 0:00:00
+Installing collected packages: pytz, pure-eval, ptyprocess, pickleshare, fastjsonschema, backcall, widgetsnbextension, wcwidth, tzdata, typing_extensions, trimesh, traitlets, tifffile, rpds-py, retrying, PyWavelets, pyflakes, pycodestyle, plyfile, pluggy, pkgutil-resolve-name, Pillow, pexpect, pathspec, parso, networkx, nest-asyncio, narwhals, mypy-extensions, mccabe, lazy_loader, jupyterlab_widgets, Jinja2, itsdangerous, iniconfig, importlib-resources, executing, decorator, configargparse, comm, click, blinker, attrs, asttokens, stack-data, referencing, pydantic-core, prompt-toolkit, plotly, pandas, matplotlib-inline, jupyter-core, jedi, janus, imageio, flask, flake8, exceptiongroup, black, annotated-types, scikit-image, pytest, pydantic, jsonschema-specifications, ipython, lyft-dataset-sdk, jsonschema, ipywidgets, dash, nbformat, open3d, mmdet3d
+  Attempting uninstall: typing_extensions
+    Found existing installation: typing_extensions 4.11.0
+    Not uninstalling typing-extensions at /opt/conda/envs/bevfusion/lib/python3.8/site-packages, outside environment /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+    Can't uninstall 'typing_extensions'. No files were found to uninstall.
+  Attempting uninstall: Pillow
+    Found existing installation: Pillow 8.4.0
+    Not uninstalling pillow at /opt/conda/envs/bevfusion/lib/python3.8/site-packages, outside environment /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+    Can't uninstall 'Pillow'. No files were found to uninstall.
+Successfully installed Jinja2-3.1.6 Pillow-10.4.0 PyWavelets-1.4.1 annotated-types-0.7.0 asttokens-3.0.1 attrs-25.3.0 backcall-0.2.0 black-24.8.0 blinker-1.8.2 click-8.1.8 comm-0.2.3 configargparse-1.7.5 dash-4.3.0 decorator-5.3.1 exceptiongroup-1.3.1 executing-2.2.1 fastjsonschema-2.21.2 flake8-7.1.2 flask-3.0.3 imageio-2.35.1 importlib-resources-6.4.5 iniconfig-2.1.0 ipython-8.12.3 ipywidgets-8.1.8 itsdangerous-2.2.0 janus-1.0.0 jedi-0.19.2 jsonschema-4.23.0 jsonschema-specifications-2023.12.1 jupyter-core-5.8.1 jupyterlab_widgets-3.0.16 lazy_loader-0.4 lyft-dataset-sdk-0.0.8 matplotlib-inline-0.1.7 mccabe-0.7.0 mmdet3d-1.4.0 mypy-extensions-1.1.0 narwhals-1.42.1 nbformat-5.10.4 nest-asyncio-1.6.0 networkx-3.1 open3d-0.19.0 pandas-2.0.3 parso-0.8.7 pathspec-0.12.1 pexpect-4.9.0 pickleshare-0.7.5 pkgutil-resolve-name-1.3.10 plotly-6.9.0 pluggy-1.5.0 plyfile-1.0.3 prompt-toolkit-3.0.52 ptyprocess-0.7.0 pure-eval-0.2.3 pycodestyle-2.12.1 pydantic-2.10.6 pydantic-core-2.27.2 pyflakes-3.2.0 pytest-8.3.5 pytz-2026.2 referencing-0.35.1 retrying-1.4.2 rpds-py-0.20.1 scikit-image-0.21.0 stack-data-0.6.3 tifffile-2023.7.10 traitlets-5.14.3 trimesh-4.12.2 typing_extensions-4.13.2 tzdata-2026.3 wcwidth-0.8.2 widgetsnbextension-4.0.15
+Collecting spconv-cu113==2.3.6
+  Downloading spconv_cu113-2.3.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+Collecting pccm>=0.4.0 (from spconv-cu113==2.3.6)
+  Downloading pccm-0.4.16-py3-none-any.whl.metadata (1.1 kB)
+Collecting ccimport>=0.4.0 (from spconv-cu113==2.3.6)
+  Downloading ccimport-0.4.4-py3-none-any.whl.metadata (1.4 kB)
+Collecting pybind11>=2.6.0 (from spconv-cu113==2.3.6)
+  Downloading pybind11-3.0.4-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: fire in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from spconv-cu113==2.3.6) (0.7.0)
+Requirement already satisfied: numpy in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from spconv-cu113==2.3.6) (1.23.5)
+Collecting cumm-cu113<0.5.0,>=0.4.5 (from spconv-cu113==2.3.6)
+  Downloading cumm_cu113-0.4.11-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.3 kB)
+Collecting ninja (from ccimport>=0.4.0->spconv-cu113==2.3.6)
+  Downloading ninja-1.13.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.1 kB)
+Requirement already satisfied: requests in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from ccimport>=0.4.0->spconv-cu113==2.3.6) (2.32.4)
+Collecting lark>=1.0.0 (from pccm>=0.4.0->spconv-cu113==2.3.6)
+  Downloading lark-1.3.1-py3-none-any.whl.metadata (1.8 kB)
+Collecting portalocker>=2.3.2 (from pccm>=0.4.0->spconv-cu113==2.3.6)
+  Downloading portalocker-3.0.0-py3-none-any.whl.metadata (8.5 kB)
+Requirement already satisfied: termcolor in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from fire->spconv-cu113==2.3.6) (2.4.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests->ccimport>=0.4.0->spconv-cu113==2.3.6) (3.4.2)
+Requirement already satisfied: idna<4,>=2.5 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests->ccimport>=0.4.0->spconv-cu113==2.3.6) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests->ccimport>=0.4.0->spconv-cu113==2.3.6) (2.2.3)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests->ccimport>=0.4.0->spconv-cu113==2.3.6) (2025.7.14)
+Downloading spconv_cu113-2.3.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (70.5 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 70.5/70.5 MB 5.6 MB/s eta 0:00:00
+Downloading ccimport-0.4.4-py3-none-any.whl (27 kB)
+Downloading cumm_cu113-0.4.11-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (22.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 22.6/22.6 MB 8.1 MB/s eta 0:00:00
+Downloading pccm-0.4.16-py3-none-any.whl (73 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.7/73.7 kB 761.9 kB/s eta 0:00:00
+Downloading pybind11-3.0.4-py3-none-any.whl (314 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 314.2/314.2 kB 3.0 MB/s eta 0:00:00
+Downloading lark-1.3.1-py3-none-any.whl (113 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 113.2/113.2 kB 1.4 MB/s eta 0:00:00
+Downloading portalocker-3.0.0-py3-none-any.whl (19 kB)
+Downloading ninja-1.13.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (180 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 180.7/180.7 kB 1.3 MB/s eta 0:00:00
+Installing collected packages: pybind11, portalocker, ninja, lark, ccimport, pccm, cumm-cu113, spconv-cu113
+Successfully installed ccimport-0.4.4 cumm-cu113-0.4.11 lark-1.3.1 ninja-1.13.0 pccm-0.4.16 portalocker-3.0.0 pybind11-3.0.4 spconv-cu113-2.3.6
+torch: 1.10.1
+torch CUDA: 11.3
+mmcv: 2.1.0
+mmengine: 0.10.7
+mmdet: 3.3.0
+mmdet3d: 1.4.0
+spconv: 2.3.6
+MMCV compiled ops import: OK
+spconv.pytorch import: OK
+GPU: NVIDIA A100-SXM4-80GB
+[ENV] OpenMMLab environment created and verified.
+Verified environment:
+  torch: 1.10.1
+  torch CUDA: 11.3
+  mmcv: 2.1.0
+  mmengine: 0.10.7
+  mmdet: 3.3.0
+  mmdet3d: 1.4.0
+  GPU: NVIDIA A100-SXM4-80GB

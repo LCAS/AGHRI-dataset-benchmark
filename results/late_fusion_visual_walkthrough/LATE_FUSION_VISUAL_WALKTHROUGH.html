@@ -1,0 +1,248 @@
+<html><head><meta charset='utf-8'>
+<style>
+body{font-family:DejaVu Sans,Arial,sans-serif;max-width:1050px;margin:32px auto;color:#14213d;}
+img{max-width:1000px;border:1px solid #e5e7eb;}
+pre{background:#f4f4f4;padding:10px;white-space:pre-wrap;}
+table{border-collapse:collapse;}td,th{border:1px solid #ccc;padding:4px;font-size:9pt;}
+p,li{font-size:16px;line-height:1.45;}
+</style></head><body>
+<h1>AGHRI Late-Fusion Visual Walkthrough</h1>
+<br>
+<h2>Objective</h2>
+<br>
+<p>This report follows one real AGHRI camera-LiDAR frame through the complete generic late-fusion pipeline. It mirrors the early-fusion weekly-report style, but the late-fusion object is a complete detector-generated 3D cuboid rather than an estimated centre from raw projected LiDAR points.</p>
+<br>
+<h2>Selected Real Frame</h2>
+<br>
+<p>Recording: `footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label`  </p>
+<p>Sample ID: `footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label/1731407186_709929023`  </p>
+<p>Frame choice: original calibration-audit frame. Reason: The calibration audit already verified this real matched frame exactly; boundary clipping is retained and explained as part of the projection stage.</p>
+<br>
+<h2>Sensor Inputs</h2>
+<br>
+<p>The ZED RGB image and Livox point cloud are the paired sensor inputs. The camera frame is `front_left_camera_optical_frame` and the LiDAR frame is `front_lidar_link`.</p>
+<br>
+<figure><img src='figures/01_raw_zed_rgb_image.png'><figcaption>01_raw_zed_rgb_image.png</figcaption></figure>
+<br>
+<figure><img src='figures/02_raw_lidar_pointcloud.png'><figcaption>02_raw_lidar_pointcloud.png</figcaption></figure>
+<br>
+<figure><img src='figures/03_yolo_detection.png'><figcaption>03_yolo_detection.png</figcaption></figure>
+<br>
+<br>
+<br>
+<h2>YOLO Detection</h2>
+<br>
+<p>The camera detector output is the real fine-tuned YOLO person detection:</p>
+<br>
+<pre>
+box xyxy = [277.7835693359375, 106.77847290039062, 346.9267883300781, 252.9573516845703]
+confidence = 0.916218101978302
+</pre>
+<br>
+<figure><img src='figures/03_yolo_detection.png'><figcaption>03_yolo_detection.png</figcaption></figure>
+<br>
+<h2>PointPillars Detection</h2>
+<br>
+<p>The LiDAR detector output is the real fine-tuned PointPillars 3D prediction:</p>
+<br>
+<pre>
+[x, y, z, length, width, height, yaw] = [5.315617561340332, 0.20094463229179382, 0.2806103229522705, 0.4411206543445587, 0.619935154914856, 1.5118756294250488, -0.0062798261642456055]
+score = 0.7171115279197693
+cache metadata box origin = bottom_center
+geometry origin used = center
+</pre>
+<br>
+<p>The projected cuboid was vertically high when the cached PointPillars z value was treated as bottom-centre. Interpreting the same real detector box as centre-origin aligns the projected cuboid with the visible person. This is a box-origin convention correction, not a calibration change.</p>
+<br>
+<figure><img src='figures/04_pointpillars_3d_detection.png'><figcaption>04_pointpillars_3d_detection.png</figcaption></figure>
+<br>
+<h2>Calibration</h2>
+<br>
+<p>Both early and late fusion use the same physical calibration. The live ROS path uses CameraInfo/TF and the offline audit path uses the calibration ZIP JSON, which agree numerically for this representative bag.</p>
+<br>
+<pre>
+T_C&lt;-L = [[2.220446049250313e-16, -1.0, 0.0, -0.22], [2.220446049250313e-16, 0.0, -1.0, 0.295], [1.0, 2.220446049250313e-16, 2.220446049250313e-16, 0.07499999999999993], [0.0, 0.0, 0.0, 1.0]]
+P = [[477.29998779296875, 0.0, 339.74749755859375, 0.0], [0.0, 477.4949951171875, 191.94400024414062, 0.0], [0.0, 0.0, 1.0, 0.0]]
+</pre>
+<br>
+<figure><img src='figures/07_lidar_to_camera_transformation.png'><figcaption>07_lidar_to_camera_transformation.png</figcaption></figure>
+<br>
+<h2>3D-Box Corner Construction</h2>
+<br>
+<p>The eight corners follow the ordering in `late_fusion_pkg/projection.py`: lower face first, then upper face.</p>
+<br>
+<figure><img src='figures/05_box_origin_convention.png'><figcaption>05_box_origin_convention.png</figcaption></figure>
+<br>
+<figure><img src='figures/06_eight_lidar_box_corners.png'><figcaption>06_eight_lidar_box_corners.png</figcaption></figure>
+<br>
+<table>
+<tr><th>corner</th><th>LiDAR-frame coordinate</th><th>camera-frame coordinate</th><th>projected pixel</th></tr>
+<tr><td>L1/C1</td><td>[5.093115, -0.107632, -0.475327]</td><td>[-0.112368, 0.770327, 5.168115]</td><td>[329.369757, 263.116472]</td></tr>
+<tr><td>L2/C2</td><td>[5.534227, -0.110402, -0.475327]</td><td>[-0.109598, 0.770327, 5.609227]</td><td>[330.421583, 257.519439]</td></tr>
+<tr><td>L3/C3</td><td>[5.538120, 0.509521, -0.475327]</td><td>[-0.729521, 0.770327, 5.613120]</td><td>[277.714195, 257.473958]</td></tr>
+<tr><td>L4/C4</td><td>[5.097008, 0.512291, -0.475327]</td><td>[-0.732291, 0.770327, 5.172008]</td><td>[272.167834, 263.062899]</td></tr>
+<tr><td>L5/C5</td><td>[5.093115, -0.107632, 1.036548]</td><td>[-0.112368, -0.741548, 5.168115]</td><td>[329.369757, 123.430525]</td></tr>
+<tr><td>L6/C6</td><td>[5.534227, -0.110402, 1.036548]</td><td>[-0.109598, -0.741548, 5.609227]</td><td>[330.421583, 128.818453]</td></tr>
+<tr><td>L7/C7</td><td>[5.538120, 0.509521, 1.036548]</td><td>[-0.729521, -0.741548, 5.613120]</td><td>[277.714195, 128.862235]</td></tr>
+<tr><td>L8/C8</td><td>[5.097008, 0.512291, 1.036548]</td><td>[-0.732291, -0.741548, 5.172008]</td><td>[272.167834, 123.482096]</td></tr>
+</table>
+<br>
+<h2>LiDAR-to-Camera Transformation</h2>
+<br>
+<p>Each LiDAR corner is multiplied by `T_C&lt;-L` to obtain the camera-frame corner. Corners with `Z_camera &lt;= 0` would be rejected before image projection; all selected-frame corners are projectable.</p>
+<br>
+<h2>Camera Projection</h2>
+<br>
+<p>The camera projection uses the verified `CameraInfo.P` matrix. Projected corner pixels are shown below.</p>
+<br>
+<figure><img src='figures/08_projected_cuboid_corners.png'><figcaption>08_projected_cuboid_corners.png</figcaption></figure>
+<br>
+<h2>Projected Rectangle</h2>
+<br>
+<p>The projected cuboid is converted to an image-space envelope. This selected frame touches the upper-left image boundary, so the unclipped envelope is clipped to the actual image extent.</p>
+<br>
+<pre>
+unclipped = [272.1678344001285, 123.43052469077153, 330.4215834005085, 263.1164718533429]
+clipped = [272.1678344001285, 123.43052469077153, 330.4215834005085, 263.1164718533429]
+</pre>
+<br>
+<figure><img src='figures/09_projected_3d_cuboid.png'><figcaption>09_projected_3d_cuboid.png</figcaption></figure>
+<br>
+<figure><img src='figures/10_projected_lidar_rectangle.png'><figcaption>10_projected_lidar_rectangle.png</figcaption></figure>
+<br>
+<h2>IoU</h2>
+<br>
+<p>The late-fusion association compares the YOLO rectangle with the projected LiDAR envelope using 2D image IoU.</p>
+<br>
+<pre>
+intersection = [277.7835693359375, 123.43052469077153, 330.4215834005085, 252.9573516845703]
+YOLO area = 10107.278228092473
+projected LiDAR area = 8137.23010488877
+intersection area = 6818.034941038834
+union area = 11426.47339194241
+IoU = 0.5966875961787735
+frozen cached association IoU = 0.5966875961787724
+</pre>
+<br>
+<p>Cached association IoU already matches the explicit origin-corrected geometry.</p>
+<br>
+<figure><img src='figures/11_iou_intersection.png'><figcaption>11_iou_intersection.png</figcaption></figure>
+<br>
+<figure><img src='figures/12_iou_calculation.png'><figcaption>12_iou_calculation.png</figcaption></figure>
+<br>
+<h2>Association</h2>
+<br>
+<pre>
+IoU = 0.5966875962
+threshold = 0.10
+decision = MATCHED
+</pre>
+<br>
+<p>Ground truth is not used to decide the camera-LiDAR match.</p>
+<br>
+<figure><img src='figures/13_match_decision.png'><figcaption>13_match_decision.png</figcaption></figure>
+<br>
+<h2>Final Fused Outputs</h2>
+<br>
+<p>For this selected pair, the YOLO detection is matched and the PointPillars box is matched. The fused output preserves the PointPillars 3D geometry and LiDAR confidence.</p>
+<br>
+<pre>
+matched 3D = 1
+unmatched camera = 0
+unmatched LiDAR = 0
+ALL3D/final 3D = 1
+</pre>
+<br>
+<figure><img src='figures/14_fusion_outputs.png'><figcaption>14_fusion_outputs.png</figcaption></figure>
+<br>
+<figure><img src='figures/15_final_fused_image.png'><figcaption>15_final_fused_image.png</figcaption></figure>
+<br>
+<figure><img src='figures/16_final_3d_fused_view.png'><figcaption>16_final_3d_fused_view.png</figcaption></figure>
+<br>
+<h2>Same-Frame DeepFusionMOT Continuation</h2>
+<br>
+<p>The DeepFusionMOT layer starts after the matched/unmatched/ALL3D fusion outputs.</p>
+<p>The figures below continue the same report frame into the tracking part of the</p>
+<p>framework. For this real selected frame, there is one matched 3D detection and</p>
+<p>zero unmatched camera or unmatched LiDAR detections, so the unmatched branches</p>
+<p>are shown as empty/inactive rather than inventing extra people.</p>
+<br>
+<figure><img src='figures/22_tracker_input_routing.png'><figcaption>22_tracker_input_routing.png</figcaption></figure>
+<br>
+<p>The matched 3D stream is active. The unmatched camera and unmatched LiDAR streams</p>
+<p>are empty for this frame, but the visual still shows where those detections would</p>
+<p>go in later frames.</p>
+<br>
+<figure><img src='figures/23_matched_unmatched_routing_policy.png'><figcaption>23_matched_unmatched_routing_policy.png</figcaption></figure>
+<br>
+<p>The matched 3D cuboid is consumed first by the DeepFusionMOT association cascade.</p>
+<p>If a compatible 3D track already exists, the cuboid updates that track. If no</p>
+<p>track matches, it starts a new tentative 3D track.</p>
+<br>
+<figure><img src='figures/24_deepfusionmot_association_on_frame.png'><figcaption>24_deepfusionmot_association_on_frame.png</figcaption></figure>
+<br>
+<p>The tracker adds temporal identity and lifecycle state. It does not reshape the</p>
+<p>PointPillars cuboid. In strict DeepFusionMOT mode, 3D track IDs are even, tracks</p>
+<p>become confirmed after enough hits, and stale confirmed tracks can survive for a</p>
+<p>limited number of missed frames.</p>
+<br>
+<figure><img src='figures/25_tracker_state_after_update.png'><figcaption>25_tracker_state_after_update.png</figcaption></figure>
+<br>
+<p>The next frame starts from the previous track state. Kalman prediction advances</p>
+<p>the state, optional AGHRI odometry moves it into the current LiDAR frame, and the</p>
+<p>new frame&#x27;s matched/unmatched detections are associated back to the predicted</p>
+<p>track state.</p>
+<br>
+<figure><img src='figures/26_next_frame_tracking_memory.png'><figcaption>26_next_frame_tracking_memory.png</figcaption></figure>
+<br>
+<p>The complete same-frame flow is summarised below.</p>
+<br>
+<figure><img src='figures/27_complete_same_frame_tracking_flow.png'><figcaption>27_complete_same_frame_tracking_flow.png</figcaption></figure>
+<br>
+<h2>Ground-Truth Evaluation</h2>
+<br>
+<p>A valid 3D annotation was found for the selected frame. BEV IoU=0.575607, approximate 3D IoU=0.247801, centre error=0.065888 m.</p>
+<br>
+<p>Ground truth is used for evaluation after fusion. It is not used to decide the camera-LiDAR match. The fusion IoU above is a 2D image IoU, not BEV IoU or 3D IoU.</p>
+<br>
+<figure><img src='figures/17_prediction_vs_ground_truth.png'><figcaption>17_prediction_vs_ground_truth.png</figcaption></figure>
+<br>
+<h2>Early Fusion and Late Fusion Using the Same Calibration</h2>
+<br>
+<p>Both methods use the same physical calibration, but they fuse different objects. Early fusion projects raw LiDAR points into the YOLO box, filters candidate points, and estimates one 3D centre. Late fusion projects a complete LiDAR detector cuboid, compares its projected envelope with the YOLO box, and preserves or rejects the complete 3D detection.</p>
+<br>
+<figure><img src='figures/21_early_vs_late_fusion.png'><figcaption>21_early_vs_late_fusion.png</figcaption></figure>
+<br>
+<h2>Offline Evaluation Workflow</h2>
+<br>
+<p>Offline evaluation uses dataset files, frozen detector caches, late fusion, and metric scripts. It is separated from live ROS deployment.</p>
+<br>
+<figure><img src='figures/19_offline_evaluation_workflow.png'><figcaption>19_offline_evaluation_workflow.png</figcaption></figure>
+<br>
+<h2>Fully Online ROS Workflow</h2>
+<br>
+<p>The online ROS 2 implementation consumes image and point-cloud topics, runs live detectors, performs projection/association online, and publishes fused topics for image visualisation and RViz. Cached ROS replay remains the reproducible path for metric-linked visual checks, while the online launch path is the deployment-style path.</p>
+<br>
+<p>For AGHRI live mode, the LiDAR worker runs under the isolated `aghri-mmdet3d` Conda Python and resolves fine-tuned SECOND/PointPillars base configs from the local benchmark checkout. A 2026-07-15 PointPillars probe confirmed live LiDAR detections, matched 3D markers, and the fused projection image after this base-config path fix.</p>
+<br>
+<figure><img src='figures/20_online_ros2_workflow.png'><figcaption>20_online_ros2_workflow.png</figcaption></figure>
+<br>
+<h2>Complete Numerical Calculation</h2>
+<br>
+<p>The full numerical calculation is available in `late_fusion_worked_calculation.md` and `late_fusion_worked_calculation.json`.</p>
+<br>
+<figure><img src='figures/18_late_fusion_pipeline_flowchart.png'><figcaption>18_late_fusion_pipeline_flowchart.png</figcaption></figure>
+<br>
+<figure><img src='figures/late_fusion_pipeline_diagram.png'><figcaption>late_fusion_pipeline_diagram.png</figcaption></figure>
+<br>
+<figure><img src='figures/late_fusion_complete_workflow.png'><figcaption>late_fusion_complete_workflow.png</figcaption></figure>
+<br>
+<h2>Key Points To Remember</h2>
+<br>
+<p>- Same physical calibration, different fusion representation.</p>
+<p>- Early fusion estimates a 3D centre from raw projected LiDAR points.</p>
+<p>- Late fusion preserves a learned 3D cuboid from PointPillars or SECOND.</p>
+<p>- The association decision uses projected 2D envelope IoU with the YOLO box.</p>
+<p>- DeepFusionMOT starts after matched/unmatched/ALL3D fusion outputs and adds temporal track identity/state.</p>
+<p>- Ground truth is evaluation-only and is not used for association.</p>
+</body></html>

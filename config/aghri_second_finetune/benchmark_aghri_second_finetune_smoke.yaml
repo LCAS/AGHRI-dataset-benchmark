@@ -1,0 +1,24 @@
+device: 0
+seed: 42
+benchmark_fixed_input: false
+benchmark_warmup: 2
+benchmark_iters: 5
+summary_primary_mode: bev
+summary_primary_iou: 0.50
+prefer_best_checkpoint: true
+save_best_metric: aghri/bev_ap_mean
+save_best_rule: greater
+max_keep_ckpts: 1
+project: /work/users/pwariyapperuma/aghri_second_finetune/outputs
+name: second_aghri_seed42_smoke
+cfg_options:
+  train_cfg.max_epochs: 1
+  train_cfg.val_interval: 1
+  default_hooks.checkpoint.interval: 1
+models:
+  - name: second_aghri_finetuned_seed42_smoke
+    config: /work/users/pwariyapperuma/aghri_second_finetune/configs/second_aghri_finetune_seed42.py
+    train: true
+    checkpoint: /work/users/pwariyapperuma/aghri_second_finetune/checkpoints/generic/second_hv_secfpn_8xb6-80e_kitti-3d-3class-b086d0a3.pth
+    work_dir: /work/users/pwariyapperuma/aghri_second_finetune/outputs/second_aghri_seed42/smoke
+notes: "One-epoch smoke training and validation for AGHRI SECOND fine-tuning."

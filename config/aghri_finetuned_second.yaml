@@ -1,0 +1,10 @@
+aghri_second_detector:
+  ros__parameters:
+    points_topic: "/dataset/lidar/points"
+    detections_topic: "/detector/lidar/detections"
+    config: "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_second_finetune/cluster_run/configs/second_aghri_finetune_seed42.py"
+    checkpoint: "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_second_finetune/cluster_run/weights/best.pth"
+    device: "cuda:0"
+    score_threshold: 0.0
+    pedestrian_class_id: 0
+    checkpoint_origin: "AGHRI fine-tuned SECOND; use only after held-out validation and import verification"
