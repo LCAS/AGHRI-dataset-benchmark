@@ -410,6 +410,7 @@ class SensorFusionNode(Node):
         self.declare_parameter('minimum_forward_distance', 2.0)
         self.declare_parameter('output_coordinate_mode', 'legacy_kitti')
         self.declare_parameter('coordinate_label_mode', 'xyz')
+        self.declare_parameter('draw_axes_legend', False)
         self.declare_parameter('association_method', 'legacy_box')
         self.declare_parameter('centre_statistic', 'mean')
         self.declare_parameter('depth_cluster_gap_m', 0.35)
@@ -683,6 +684,7 @@ class SensorFusionNode(Node):
             coordinate_label_mode=self.get_parameter(
                 'coordinate_label_mode',
             ).value,
+            draw_axes_legend=self.get_parameter('draw_axes_legend').value,
             association_method=self.get_parameter('association_method').value,
             centre_statistic=self.get_parameter('centre_statistic').value,
             depth_cluster_gap_m=self.get_parameter('depth_cluster_gap_m').value,

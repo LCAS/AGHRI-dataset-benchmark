@@ -1,0 +1,34 @@
+[
+  {
+    "model": "generic",
+    "bag": "out_vine_1push_3carry_st_ly_11_06_2024_1_label",
+    "playback_rate": 2.0,
+    "output_topic": "/camera_lidar_fusion/result",
+    "warmup_outputs": 5,
+    "outputs_total_seen": 73,
+    "outputs_measured": 68,
+    "measurement_duration_s": 3.630614041001536,
+    "live_output_fps": 18.454178616440725,
+    "pipeline_time_mean_ms": 16.105882352941176,
+    "pipeline_time_median_ms": 15.35,
+    "pipeline_time_p95_ms": 21.5,
+    "wall_runtime_s": 21.413706086001184,
+    "launch_log": "/home/prabuddhi/Desktop/Early_Fus/camera_lidar_humble/results/aghri_early_live_fps_benchmark_2x_all_bags/per_bag/out_vine_1push_3carry_st_ly_11_06_2024_1_label/generic_out_vine_1push_3carry_st_ly_11_06_2024_1_label/launch.log"
+  },
+  {
+    "model": "finetuned",
+    "bag": "out_vine_1push_3carry_st_ly_11_06_2024_1_label",
+    "playback_rate": 2.0,
+    "output_topic": "/camera_lidar_fusion/result",
+    "warmup_outputs": 5,
+    "outputs_total_seen": 78,
+    "outputs_measured": 73,
+    "measurement_duration_s": 3.8705455720046302,
+    "live_output_fps": 18.60202874777413,
+    "pipeline_time_mean_ms": 14.413698630136986,
+    "pipeline_time_median_ms": 14.3,
+    "pipeline_time_p95_ms": 18.22,
+    "wall_runtime_s": 21.37769386400032,
+    "launch_log": "/home/prabuddhi/Desktop/Early_Fus/camera_lidar_humble/results/aghri_early_live_fps_benchmark_2x_all_bags/per_bag/out_vine_1push_3carry_st_ly_11_06_2024_1_label/finetuned_out_vine_1push_3carry_st_ly_11_06_2024_1_label/launch.log"
+  }
+]

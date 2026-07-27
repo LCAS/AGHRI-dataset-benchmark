@@ -11,7 +11,7 @@ def generate_launch_description():
     config_file = os.path.join(
             get_package_share_directory("camera_lidar_fusion"),
             'config',
-            'config.yaml'
+            'aghri_zed_livox_yolo11s_finetuned.yaml'
             )
 
     params_file = LaunchConfiguration('params_file')

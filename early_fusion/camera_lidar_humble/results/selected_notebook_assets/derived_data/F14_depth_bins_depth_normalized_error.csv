@@ -1,0 +1,7 @@
+detector,depth_band,mean_relative_3d_error_percent_of_depth,valid_matched_count,visual_encoding,normalization
+Generic YOLO11s,near_lt_2m,25.074743,295,point_size_scales_with_valid_matched_count,100 * lidar_center_error / fused_camera_depth_z
+Generic YOLO11s,medium_2_5m,10.316265,1806,point_size_scales_with_valid_matched_count,100 * lidar_center_error / fused_camera_depth_z
+Generic YOLO11s,far_ge_5m,14.783652,460,point_size_scales_with_valid_matched_count,100 * lidar_center_error / fused_camera_depth_z
+AGHRI fine-tuned YOLO11s,near_lt_2m,22.951113,274,point_size_scales_with_valid_matched_count,100 * lidar_center_error / fused_camera_depth_z
+AGHRI fine-tuned YOLO11s,medium_2_5m,9.944234,1753,point_size_scales_with_valid_matched_count,100 * lidar_center_error / fused_camera_depth_z
+AGHRI fine-tuned YOLO11s,far_ge_5m,10.225331,406,point_size_scales_with_valid_matched_count,100 * lidar_center_error / fused_camera_depth_z
