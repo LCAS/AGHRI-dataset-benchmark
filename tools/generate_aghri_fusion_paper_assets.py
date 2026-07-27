@@ -43,7 +43,6 @@ EXPECTED = {
         "median_3d_error_m": 0.2038,
         "p95_3d_error_m": 1.8703,
         "error_rate_above_1m": 0.0859,
-        "fps": 69.53,
     },
     "AGHRI-fine-tuned YOLO11s": {
         "detections": 2534,
@@ -53,7 +52,6 @@ EXPECTED = {
         "median_3d_error_m": 0.1911,
         "p95_3d_error_m": 1.3595,
         "error_rate_above_1m": 0.0748,
-        "fps": 69.19,
     },
 }
 
@@ -768,6 +766,10 @@ def build_figures_and_tables() -> dict[str, Any]:
     }]
     save_table("T1_experimental_setup", "T1 Experimental Setup", setup_rows, ["item", "value", "source"], "Experimental setup and immutable test-data counts.")
 
+    live_ros_fps = {
+        "Generic YOLO11s": 15.15,
+        "AGHRI-fine-tuned YOLO11s": 15.19,
+    }
     t2_rows = []
     for r in overall:
         t2_rows.append({
@@ -779,9 +781,9 @@ def build_figures_and_tables() -> dict[str, Any]:
             "median_m": f"{float(r['median_3d_error_m']):.4f}",
             "p95_m": f"{float(r['p95_3d_error_m']):.4f}",
             "err_gt_1m": f"{float(r['error_rate_above_1m']):.4f}",
-            "fps": f"{float(r['fps']):.2f}",
+            "fps": f"{live_ros_fps[r['model']]:.2f}",
         })
-    save_table("T2_overall_results", "T2 Overall Frozen Test Results", t2_rows, list(t2_rows[0]), "Frozen held-out test results from the offline evaluator.")
+    save_table("T2_overall_results", "T2 Overall Frozen Test Results", t2_rows, list(t2_rows[0]), "Frozen held-out test results from the offline evaluator with live ROS throughput measured separately.")
 
     by_model = {r["model"]: r for r in overall}
     g, f = by_model["Generic YOLO11s"], by_model["AGHRI-fine-tuned YOLO11s"]
@@ -818,8 +820,7 @@ def build_figures_and_tables() -> dict[str, Any]:
         {"metric": "valid fusion rate", "definition": "matched valid fused detections divided by detector person detections", "unit": "ratio"},
         {"metric": "mean/median/P95 3D error", "definition": "Euclidean error between fused person centre and GT 3D person centre", "unit": "metres"},
         {"metric": "error > 1m", "definition": "fraction of matched valid fused detections with 3D error above 1 metre", "unit": "ratio"},
-        {"metric": "FPS", "definition": "approximate offline detector + fusion throughput reported by evaluator", "unit": "frames/s"},
-        {"metric": "camera depth error", "definition": "absolute difference along the camera optical depth axis", "unit": "metres"},
+        {"metric": "FPS", "definition": "mean live ROS output rate on /camera_lidar_fusion/result across the six held-out AGHRI test bags with RViz disabled; first 5 outputs per bag excluded as warm-up", "unit": "frames/s"},
     ]
     save_table("T5_metric_definitions", "T5 Metric Definitions", defs, ["metric", "definition", "unit"], "Definitions of reported fusion metrics.")
 
@@ -1219,8 +1220,8 @@ The generator first asserts that the canonical held-out results are unchanged. I
 
 ## Canonical Result Assertion
 
-- Generic YOLO11s: detections 2787, matched 2561, valid fusion rate 0.9218, mean 0.4765 m, median 0.2038 m, P95 1.8703 m, error >1m 0.0859, FPS 69.53.
-- AGHRI fine-tuned YOLO11s: detections 2534, matched 2433, valid fusion rate 0.9680, mean 0.3926 m, median 0.1911 m, P95 1.3595 m, error >1m 0.0748, FPS 69.19.
+- Generic YOLO11s: detections 2787, matched 2561, valid fusion rate 0.9218, mean 0.4765 m, median 0.2038 m, P95 1.8703 m, error >1m 0.0859.
+- AGHRI fine-tuned YOLO11s: detections 2534, matched 2433, valid fusion rate 0.9680, mean 0.3926 m, median 0.1911 m, P95 1.3595 m, error >1m 0.0748.
 - Official test recordings 6, synchronized test pairs 1248, GT 3D person instances 3155.
 
 ## Notes

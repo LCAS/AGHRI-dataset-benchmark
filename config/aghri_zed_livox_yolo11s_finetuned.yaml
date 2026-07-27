@@ -40,7 +40,8 @@ lidar_fusion:
     point_depth_filter_mode: "positive_camera_depth"
     minimum_forward_distance: 0.1
     output_coordinate_mode: "camera_xyz"
-    coordinate_label_mode: "depth"
+    coordinate_label_mode: "xz"
+    draw_axes_legend: True
     association_method: "legacy_box"
     centre_statistic: "mean"
     depth_cluster_gap_m: 0.35

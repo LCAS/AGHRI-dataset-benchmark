@@ -1,8 +1,10 @@
-# Camera-LiDAR Human Detection Fusion Workflow
+# Early Camera-LiDAR Human Detection Fusion Workflow
 
-This is the workflow for human detection with camera-guided LiDAR fusion in ROS 2 Humble. It covers the path from YOLO11s fine-tuning, numerical metric evaluation, ROS 2 bag conversion, replay, and RViz2 visualisation.
+This is the workflow for human detection with camera-guided LiDAR fusion. It covers the path from YOLO11s fine-tuning, numerical metric evaluation, ROS 2 bag conversion, replay, and qualitative visualisation.
 
-Numerical results come from the offline evaluator. ROS 2 bag replay and RViz2 are for qualitative inspection and end-to-end demonstration.
+Numerical results come from the offline evaluator. ROS 2 bag replay is used for qualitative inspection.
+
+This repository builds on two earlier camera-LiDAR fusion implementations. The original [`Vishalkagade/Camera-Lidar-Sensor-Fusion`](https://github.com/Vishalkagade/Camera-Lidar-Sensor-Fusion) repository implements early fusion by projecting LiDAR points into the camera image, keeping points inside YOLO detection boxes, and filtering outliers before estimating object distance. The [`LCAS/camera_lidar_humble`](https://github.com/LCAS/camera_lidar_humble) repository adapts that idea into a ROS 2 Humble package that consumes camera, calibration, and LiDAR topics and publishes an annotated image. This AGHRI version keeps the same early-fusion principle, but adapts the workflow for AGHRI ZED RGB and Livox data.
 
 ## 1. Overview
 
@@ -36,10 +38,9 @@ The held-out test manifest used for the local workflow is kept at:
 
 ## 3. Environment Requirements
 
-Use ROS 2 Humble with Conda deactivated:
+Use ROS 2 Humble:
 
 ```bash
-conda deactivate 2>/dev/null || true
 source /opt/ros/humble/setup.bash
 cd "${FUSION_WS}"
 colcon build --packages-select camera_lidar_fusion --symlink-install
@@ -142,10 +143,10 @@ Outputs:
 
 | Model | Detections | Matched/valid | Valid fusion rate | Mean 3D error | Median 3D error | P95 3D error | Error >1 m | FPS |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Generic YOLO11s | 2787 | 2561 | 0.9218 | 0.4765 m | 0.2038 m | 1.8703 m | 0.0859 | 69.53 |
-| AGHRI-fine-tuned YOLO11s | 2534 | 2433 | 0.9680 | 0.3926 m | 0.1911 m | 1.3595 m | 0.0748 | 69.19 |
+| Generic YOLO11s | 2787 | 2561 | 0.9218 | 0.4765 m | 0.2038 m | 1.8703 m | 0.0859 | 15.15 |
+| AGHRI-fine-tuned YOLO11s | 2534 | 2433 | 0.9680 | 0.3926 m | 0.1911 m | 1.3595 m | 0.0748 | 15.19 |
 
-These metrics are the final quantitative comparison. Do not replace them with ROS 2 playback observations.
+The accuracy and reliability metrics are the final offline quantitative comparison. FPS is the mean live ROS output rate on `/camera_lidar_fusion/result` across the six held-out AGHRI test bags with RViz disabled.
 
 ## 10. ROS 2 Test-Bag Conversion
 
@@ -250,7 +251,6 @@ The verifier checks that each full-topic dataset-tools bag opens, required topic
 Build and source first:
 
 ```bash
-conda deactivate 2>/dev/null || true
 source /opt/ros/humble/setup.bash
 cd "${FUSION_WS}"
 colcon build --packages-select camera_lidar_fusion --symlink-install
@@ -310,14 +310,6 @@ ros2 launch camera_lidar_fusion aghri_test_bag_fusion_rviz.launch.py \
   launch_rviz:=false
 ```
 
-Helper:
-
-```bash
-bash tools/run_aghri_ros2_demo.sh \
-  --bag "${ROSBAG_ROOT}/footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label" \
-  --checkpoint finetuned
-```
-
 ## 16. Topic Reference
 
 Input topics:
@@ -366,7 +358,7 @@ Output topics:
 | `/camera_lidar_fusion/result` | `sensor_msgs/msg/Image` | Annotated image with detector boxes, projected LiDAR points, and distance text when enabled |
 | `/camera_lidar_fusion/pred_bboxes` | `std_msgs/msg/String` | Detector boxes and associated 3D camera-frame values |
 
-For the AGHRI RViz configs, `coordinate_label_mode: "depth"` makes the image label show only the camera-frame depth, for example `person : 5.33m`. The full 3D camera coordinate remains available on `/camera_lidar_fusion/pred_bboxes`.
+For the AGHRI playback configs, `coordinate_label_mode: "xz"` makes each image label show the camera-frame forward depth and lateral offset, for example `person: Zc=5.33m, Xc=-0.33m`. Here `Zc` is the camera-frame forward depth and `Xc` is the horizontal camera-frame offset, with positive `Xc` to the right. The annotated image also includes a small camera-axis legend. The full 3D camera coordinate remains available on `/camera_lidar_fusion/pred_bboxes`.
 
 ## Results Notebook
 

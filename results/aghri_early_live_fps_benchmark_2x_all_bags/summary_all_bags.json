@@ -1,0 +1,18 @@
+[
+  {
+    "model": "generic",
+    "bags": 6,
+    "mean_live_output_fps": 15.150738358720407,
+    "std_live_output_fps": 4.344133514025177,
+    "pooled_live_output_fps": 14.724808188315397,
+    "mean_pipeline_time_ms": 15.306367500025157
+  },
+  {
+    "model": "finetuned",
+    "bags": 6,
+    "mean_live_output_fps": 15.194303948085864,
+    "std_live_output_fps": 4.489430662525834,
+    "pooled_live_output_fps": 14.768365292171799,
+    "mean_pipeline_time_ms": 15.038311728144844
+  }
+]
