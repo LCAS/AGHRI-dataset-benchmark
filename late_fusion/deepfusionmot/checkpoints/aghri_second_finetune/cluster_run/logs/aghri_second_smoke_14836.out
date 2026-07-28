@@ -1,0 +1,32 @@
+[WARN] Pyxis/Enroot modulefiles not found; continuing because Slurm container options may already be enabled.
+[HOST] Hostname:  hpc-novel-gpu05
+[HOST] Root:      /work/users/pwariyapperuma/aghri_second_finetune
+[HOST] Container: /work/users/pwariyapperuma/bevfusion_final/docker/bevfusion_final.sqfs
+[HOST] Job ID:    14836
+[IN-CTR] Hostname: hpc-novel-gpu05
+[IN-CTR] PWD:      /work/users/pwariyapperuma/aghri_second_finetune/code/mmdetection3d
+[IN-CTR] Python before bootstrap: Python 3.8.20
+Sat Jul 11 18:09:15 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.43.02              KMD Version: 610.43.02     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          Off |   00000000:01:00.0 Off |                    0 |
+| N/A   31C    P0             57W /  400W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+Requirement already satisfied: pip in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv/lib/python3.8/site-packages (25.0.1)
+Requirement already satisfied: wheel in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv/lib/python3.8/site-packages (0.45.1)
+Requirement already satisfied: setuptools in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv/lib/python3.8/site-packages (75.3.4)
+torch: 1.10.1

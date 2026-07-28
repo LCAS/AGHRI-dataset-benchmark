@@ -1,0 +1,9 @@
+combination_id,combination_label,recording,tracker_only_fps,cached_pipeline_fps,live_ros2_end_to_end_fps,yolo_latency_mean_ms,yolo_latency_p95_ms,lidar_latency_mean_ms,lidar_latency_p95_ms,tracking_latency_mean_ms,tracking_latency_p95_ms,live_processed_outputs,live_measurement_duration_s,live_status
+S1,G YOLO + G SECOND,COMBINED_TEST_SET_2X_PLAYBACK,,,12.726796,,,,,,,,,2x playback; 6/6 bag rows with live data
+S2,FT YOLO + G SECOND,COMBINED_TEST_SET_2X_PLAYBACK,,,12.271658,,,,,,,,,2x playback; 6/6 bag rows with live data
+S3,G YOLO + FT SECOND,COMBINED_TEST_SET_2X_PLAYBACK,,,12.691229,,,,,,,,,2x playback; 6/6 bag rows with live data
+S4,FT YOLO + FT SECOND,COMBINED_TEST_SET_2X_PLAYBACK,,,12.430685,,,,,,,,,2x playback; 6/6 bag rows with live data
+P1,G YOLO + G PointPillars,COMBINED_TEST_SET_2X_PLAYBACK,,,13.568925,,,,,,,,,2x playback; 6/6 bag rows with live data
+P2,FT YOLO + G PointPillars,COMBINED_TEST_SET_2X_PLAYBACK,,,13.375709,,,,,,,,,2x playback; 6/6 bag rows with live data
+P3,G YOLO + FT PointPillars,COMBINED_TEST_SET_2X_PLAYBACK,,,12.149849,,,,,,,,,2x playback; 6/6 bag rows with live data
+P4,FT YOLO + FT PointPillars,COMBINED_TEST_SET_2X_PLAYBACK,,,12.143274,,,,,,,,,2x playback; 6/6 bag rows with live data

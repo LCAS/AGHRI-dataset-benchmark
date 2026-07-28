@@ -1,0 +1,17 @@
+{
+  "torch": "2.1.2+cu118",
+  "torchvision": "0.16.2+cu118",
+  "mmcv": "2.1.0",
+  "mmengine": "0.10.7",
+  "mmdet": "3.3.0",
+  "mmdet3d": "1.4.0",
+  "numpy": "1.26.4",
+  "scipy": "1.15.3",
+  "spconv": "2.3.8",
+  "environment_name": "aghri-mmdet3d",
+  "python": "3.10.20 (main, Jun 11 2026, 15:17:37) [GCC 14.3.0]",
+  "executable": "/home/prabuddhi/miniconda3/envs/aghri-mmdet3d/bin/python",
+  "cuda_available": true,
+  "torch_cuda": "11.8",
+  "gpu_name": "NVIDIA GeForce RTX 4060 Laptop GPU"
+}

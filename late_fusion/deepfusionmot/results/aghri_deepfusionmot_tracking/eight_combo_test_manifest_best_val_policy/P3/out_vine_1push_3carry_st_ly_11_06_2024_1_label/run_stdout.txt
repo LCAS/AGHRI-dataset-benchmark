@@ -1,0 +1,8 @@
+recording=out_vine_1push_3carry_st_ly_11_06_2024_1_label
+combination_id=P3
+combination=G YOLO + FT PointPillars
+frames=131
+tracked_3d_rows=513
+confirmed_tracks=4
+tracker_only_fps=1634.99
+output_dir=results/aghri_deepfusionmot_tracking/eight_combo_test_manifest_best_val_policy/P3/out_vine_1push_3carry_st_ly_11_06_2024_1_label

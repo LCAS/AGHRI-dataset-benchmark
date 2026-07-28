@@ -1,0 +1,8 @@
+recording=in_straw_3pick_diff_st_10_24_2024_5_a_label
+combination_id=P3
+combination=G YOLO + FT PointPillars
+frames=122
+tracked_3d_rows=331
+confirmed_tracks=8
+tracker_only_fps=1898.65
+output_dir=results/aghri_deepfusionmot_tracking/eight_combo_test_manifest_best_val_policy/P3/in_straw_3pick_diff_st_10_24_2024_5_a_label

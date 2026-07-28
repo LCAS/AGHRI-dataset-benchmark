@@ -1,0 +1,38 @@
+[WARN] Pyxis/Enroot modulefiles were not found; continuing because Slurm container options may already be enabled.
+[HOST] Hostname:  hpc-novel-gpu05
+[HOST] Root:      /work/users/pwariyapperuma/aghri_second_finetune
+[HOST] Container: /work/users/pwariyapperuma/bevfusion_final/docker/bevfusion_final.sqfs
+[HOST] Job ID:    14838
+[HOST] Generic SECOND checkpoint hash verified.
+[IN-CTR] Hostname: hpc-novel-gpu05
+[IN-CTR] PWD:      /work/users/pwariyapperuma/aghri_second_finetune/code/mmdetection3d
+[IN-CTR] Base Python: Python 3.8.20
+Sat Jul 11 18:27:29 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.43.02              KMD Version: 610.43.02     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          Off |   00000000:01:00.0 Off |                    0 |
+| N/A   31C    P0             57W /  400W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+[ENV] Reusing verified environment: /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+Verified environment:
+  torch: 1.10.1
+  torch CUDA: 11.3
+  mmcv: 2.1.0
+  mmengine: 0.10.7
+  mmdet: 3.3.0
+  mmdet3d: 1.4.0
+  GPU: NVIDIA A100-SXM4-80GB

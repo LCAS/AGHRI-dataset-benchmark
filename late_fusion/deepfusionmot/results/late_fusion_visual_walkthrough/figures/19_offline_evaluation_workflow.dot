@@ -1,0 +1,11 @@
+
+digraph G {
+  graph [rankdir=LR, bgcolor="white"];
+  node [shape=box, style="rounded,filled", fillcolor="#f7f7f7", fontname="DejaVu Sans"];
+  dataset [label="AGHRI dataset files"];
+  infer [label="YOLO + PointPillars/SECOND inference"];
+  caches [label="frozen detection caches", fillcolor="#fff9c4"];
+  fusion [label="late fusion"];
+  metrics [label="AP / precision / recall / F1 / runtime"];
+  dataset -> infer -> caches -> fusion -> metrics;
+}

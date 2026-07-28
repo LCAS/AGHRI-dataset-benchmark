@@ -1,0 +1,25 @@
+
+digraph G {
+  graph [rankdir=LR, bgcolor="white"];
+  node [shape=box, style="rounded,filled", fillcolor="#f7f7f7", fontname="DejaVu Sans"];
+  subgraph cluster_early {
+    label="Early fusion";
+    style="rounded";
+    eyolo [label="YOLO box"];
+    eproj [label="project raw LiDAR points"];
+    eselect [label="select points inside box"];
+    efilter [label="outlier filtering"];
+    ecentre [label="estimated 3D centre", fillcolor="#e3f2fd"];
+    eyolo -> eproj -> eselect -> efilter -> ecentre;
+  }
+  subgraph cluster_late {
+    label="Late fusion";
+    style="rounded";
+    ldet [label="LiDAR detector\ncomplete 3D box"];
+    lcorners [label="project 8 box corners"];
+    lenv [label="2D envelope"];
+    liou [label="compare with YOLO box"];
+    lkeep [label="retain complete 3D cuboid", fillcolor="#e3f2fd"];
+    ldet -> lcorners -> lenv -> liou -> lkeep;
+  }
+}

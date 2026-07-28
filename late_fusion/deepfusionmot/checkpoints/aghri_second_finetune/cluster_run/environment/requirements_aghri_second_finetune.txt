@@ -1,0 +1,2 @@
+# Intentionally minimal. The container is expected to provide the CUDA/OpenMMLab stack.
+# Add only small missing runtime packages here after a smoke-job failure identifies them.

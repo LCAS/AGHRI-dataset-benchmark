@@ -1,0 +1,18 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# ROS 2 generated directories
+build/
+install/
+log/
+
+# Temporary/editor files
+.DS_Store
+*.swp
+*.swo
+*~

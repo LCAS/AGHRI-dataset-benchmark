@@ -1,0 +1,59 @@
+{
+  "bag_metadata": "Files:             footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label_0.db3\nBag size:          1.9 GiB\nStorage id:        sqlite3\nDuration:          32.752292853s\nStart:             Nov 12 2024 10:29:26.509315147 (1731407366.509315147)\nEnd:               Nov 12 2024 10:29:59.261608000 (1731407399.261608000)\nMessages:          8038\nTopic information: Topic: /dataset/cam_zed_rgb/camera_info | Type: sensor_msgs/msg/CameraInfo | Count: 316 | Serialization Format: cdr\n                   Topic: /dataset/cam_zed_rgb/image | Type: sensor_msgs/msg/Image | Count: 316 | Serialization Format: cdr\n                   Topic: /dataset/cam_fish_right/camera_info | Type: sensor_msgs/msg/CameraInfo | Count: 677 | Serialization Format: cdr\n                   Topic: /dataset/cam_fish_right/image | Type: sensor_msgs/msg/Image | Count: 677 | Serialization Format: cdr\n                   Topic: /tf_static | Type: tf2_msgs/msg/TFMessage | Count: 1 | Serialization Format: cdr\n                   Topic: /dataset/cam_fish_left/image | Type: sensor_msgs/msg/Image | Count: 677 | Serialization Format: cdr\n                   Topic: /dataset/labels/cam_fish_front | Type: vision_msgs/msg/Detection2DArray | Count: 644 | Serialization Format: cdr\n                   Topic: /dataset/cam_zed_depth/image | Type: sensor_msgs/msg/Image | Count: 309 | Serialization Format: cdr\n                   Topic: /tf | Type: tf2_msgs/msg/TFMessage | Count: 262 | Serialization Format: cdr\n                   Topic: /dataset/labels/cam_fish_left | Type: vision_msgs/msg/Detection2DArray | Count: 677 | Serialization Format: cdr\n                   Topic: /dataset/cam_fish_front/camera_info | Type: sensor_msgs/msg/CameraInfo | Count: 644 | Serialization Format: cdr\n                   Topic: /dataset/labels/cam_fish_right | Type: vision_msgs/msg/Detection2DArray | Count: 677 | Serialization Format: cdr\n                   Topic: /dataset/cam_fish_front/image | Type: sensor_msgs/msg/Image | Count: 644 | Serialization Format: cdr\n                   Topic: /dataset/labels/lidar | Type: vision_msgs/msg/Detection3DArray | Count: 262 | Serialization Format: cdr\n                   Topic: /dataset/labels/cam_zed_rgb | Type: vision_msgs/msg/Detection2DArray | Count: 316 | Serialization Format: cdr\n                   Topic: /dataset/cam_fish_left/camera_info | Type: sensor_msgs/msg/CameraInfo | Count: 677 | Serialization Format: cdr\n                   Topic: /dataset/lidar/points | Type: sensor_msgs/msg/PointCloud2 | Count: 262 | Serialization Format: cdr",
+  "bag_path": "/home/prabuddhi/Desktop/Early_Fus/rosbags/aghri_test/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label",
+  "conda_default_env": "base",
+  "cpu": "13th Gen Intel(R) Core(TM) i7-13650HX",
+  "cuda_version": "Build cuda_11.5.r11.5/compiler.30672275_0",
+  "generated_at": "2026-07-26T18:04:51.578829+00:00",
+  "git_commit": "c91b12adb34b5fcb5916e1c46eb7131bb0edd21b",
+  "git_status_short": "M README.md\n M package.xml\n M setup.py\n M test/test_copyright.py\n M test/test_flake8.py\n M test/test_pep257.py\n?? AGHRI_FINETUNED_POINTPILLARS_IMPLEMENTATION.md\n?? AGHRI_FINETUNED_SECOND_IMPLEMENTATION.md\n?? AGHRI_GENERIC_BASELINE_IMPLEMENTATION.md\n?? AGHRI_LATE_FUSION_INSPECTION.md\n?? AGHRI_POINTPILLARS_FINETUNE_WORKFLOW.md\n?? AGHRI_POINTPILLARS_GENERIC_IMPLEMENTATION.md\n?? DeepFusionMOT/\n?? KITTI_GENERIC_BASELINE_IMPLEMENTATION.md\n?? KITTI_OBJECT_GENERIC_BASELINE_IMPLEMENTATION.md\n?? LATE_FUSION_COMPLETE_TECHNICAL_STUDY_REPORT.md\n?? LATE_FUSION_FILE_AND_EXPERIMENT_INDEX.md\n?? ONLINE_ROS2_LATE_FUSION_IMPLEMENTATION.md\n?? aghri_pointpillars_smoke.slurm\n?? aghri_pointpillars_train.slurm\n?? aghri_second_smoke.slurm\n?? aghri_second_train.slurm\n?? build/\n?? checkpoints/\n?? config/aghri_finetuned_pointpillars.yaml\n?? config/aghri_finetuned_second.yaml\n?? config/aghri_generic_late_fusion.yaml\n?? config/aghri_generic_second.yaml\n?? config/aghri_generic_yolo11s.yaml\n?? config/aghri_pointpillars_finetune/\n?? config/aghri_second_finetune/\n?? config/aghri_visualization.yaml\n?? config/kitti_object_late_fusion.yaml\n?? config/kitti_object_visualization.yaml\n?? config/kitti_person_finetune/\n?? config/kitti_rosbag_qos.yaml\n?? config/kitti_tracking_late_fusion.yaml\n?? config/kitti_tracking_visualization.yaml\n?? data/\n?? data_manifests/\n?? environment/\n?? install/\n?? late_fusion_pkg/__pycache__/\n?? late_fusion_pkg/aghri_calibration.py\n?? late_fusion_pkg/aghri_deepfusionmot_tracker_node.py\n?? late_fusion_pkg/aghri_detector_profiles.py\n?? late_fusion_pkg/aghri_ego_motion.py\n?? late_fusion_pkg/aghri_late_fusion_node.py\n?? late_fusion_pkg/aghri_manifest.py\n?? late_fusion_pkg/aghri_mot_eval.py\n?? late_fusion_pkg/aghri_second_detector_node.py\n?? late_fusion_pkg/aghri_visualization_node.py\n?? late_fusion_pkg/aghri_yolo_detector_node.py\n?? late_fusion_pkg/cache_diagnostics_collector.py\n?? late_fusion_pkg/cache_replay.py\n?? late_fusion_pkg/cached_second_publisher.py\n?? late_fusion_pkg/cached_yolo_publisher.py\n?? late_fusion_pkg/checkpoints.py\n?? late_fusion_pkg/deepfusionmot_association.py\n?? late_fusion_pkg/deepfusionmot_io.py\n?? late_fusion_pkg/deepfusionmot_motion.py\n?? late_fusion_pkg/deepfusionmot_tracker.py\n?? late_fusion_pkg/detection_types.py\n?? late_fusion_pkg/fusion_core.py\n?? late_fusion_pkg/kitti_calibration.py\n?? late_fusion_pkg/kitti_detector_profiles.py\n?? late_fusion_pkg/kitti_labels.py\n?? late_fusion_pkg/kitti_manifest.py\n?? late_fusion_pkg/kitti_object_evaluation.py\n?? late_fusion_pkg/kitti_object_manifest.py\n?? late_fusion_pkg/live_conversions.py\n?? late_fusion_pkg/live_detector_profiles.py\n?? late_fusion_pkg/live_lidar_detector_node.py\n?? late_fusion_pkg/live_worker_protocol.py\n?? late_fusion_pkg/live_yolo_detector_node.py\n?? late_fusion_pkg/metrics.py\n?? late_fusion_pkg/mmdet3d_inference_worker.py\n?? late_fusion_pkg/mmdet3d_runner.py\n?? late_fusion_pkg/online_launch_modes.py\n?? late_fusion_pkg/online_performance_monitor.py\n?? late_fusion_pkg/online_ros_launch.py\n?? late_fusion_pkg/projection.py\n?? late_fusion_pkg/ros_adapters.py\n?? late_fusion_pkg/tracking_types.py\n?? late_fusion_pkg/visualization_utils.py\n?? late_fusion_pkg/yolo_runner.py\n?? launch/__pycache__/\n?? launch/aghri_generic_late_fusion.launch.py\n?? launch/aghri_online_late_fusion.launch.py\n?? launch/kitti_generic_late_fusion.launch.py\n?? launch/kitti_generic_late_fusion_rviz.launch.py\n?? launch/kitti_object_generic_late_fusion.launch.py\n?? launch/kitti_object_generic_late_fusion_rviz.launch.py\n?? launch/kitti_object_online_late_fusion.launch.py\n?? launch/kitti_online_late_fusion.launch.py\n?? log/\n?? pytest.ini\n?? results/\n?? rosbags/\n?? rviz/\n?? scripts/\n?? test/__pycache__/\n?? test/test_aghri_generic_baseline.py\n?? test/test_aghri_mot_eval.py\n?? test/test_aghri_second_finetune.py\n?? test/test_deepfusionmot_batch.py\n?? test/test_deepfusionmot_tracking.py\n?? test/test_kitti_support.py\n?? test/test_late_fusion_visual_walkthrough.py\n?? test/test_online_late_fusion.py\n?? tools/\n?? yolo11n.pt",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU, 550.144.03, 8188 MiB",
+  "memory": "MemTotal:       15983872 kB",
+  "profiles": {
+    "camera_finetuned": {
+      "checkpoint_path": "/home/prabuddhi/Desktop/Early_Fus/checkpoints/aghri_yolo11s_finetune/cluster_run/weights/best.pt",
+      "checkpoint_sha256": "bbb267ba96e3b94b615ef4e78a0d5319b95c592e932879f2c2bfeedf54fa3110"
+    },
+    "camera_generic": {
+      "checkpoint_path": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/early_fusion/camera_lidar_humble/checkpoints/generic/yolo11s.pt",
+      "checkpoint_sha256": "85a76fe86dd8afe384648546b56a7a78580c7cb7b404fc595f97969322d502d5"
+    },
+    "lidar_pointpillars_finetuned": {
+      "box_origin": "center",
+      "checkpoint_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/weights/best.pth",
+      "checkpoint_sha256": "50a0dde7c5650a46e50785050c632a405dedcc24a8513713e07371e3666d6847",
+      "config_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_pointpillars_finetune/cluster_run/configs/pointpillars_aghri_finetune_seed42.py",
+      "config_sha256": "b720e7993b25f9fa4b9edda80cc7999434e0a271fd3141dd7c3c3c3ec179b063",
+      "score_threshold": 0.0
+    },
+    "lidar_pointpillars_generic": {
+      "box_origin": "bottom_center",
+      "checkpoint_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/kitti_pretrained/hv_pointpillars_secfpn_6x8_160e_kitti-3d-3class_20220301_150306-37dc2420.pth",
+      "checkpoint_sha256": "37dc242098f0d3dd7d870e0fe7cd4514f76fd85a04fb1377681279f963b3cbe5",
+      "config_path": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/3d-detection/benchmarks/mmdetection3d/configs/models/pointpillars_kitti_pretrained_eval_aghri.py",
+      "config_sha256": "6d962edcb612f562a4099686edbc063ac5f6146ea15c5cb39885cd72ccb23604",
+      "score_threshold": 0.0
+    },
+    "lidar_second_finetuned": {
+      "box_origin": "center",
+      "checkpoint_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_second_finetune/cluster_run/weights/best.pth",
+      "checkpoint_sha256": "06e67ae24080f9eba67d745c71e8554ba950b2aa9d2886348ff260a257fe87ab",
+      "config_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/aghri_second_finetune/cluster_run/configs/second_aghri_finetune_seed42.py",
+      "config_sha256": "274895c162efc9e47b503ad996f6a1b74f6dd50dc901212dc6475b2cbced236c",
+      "score_threshold": 0.0
+    },
+    "lidar_second_generic": {
+      "box_origin": "bottom_center",
+      "checkpoint_path": "/home/prabuddhi/Desktop/late_fusion/deepfusionmot/checkpoints/kitti_pretrained/second_hv_secfpn_8xb6-80e_kitti-3d-3class-b086d0a3.pth",
+      "checkpoint_sha256": "b086d0a369d0b955b3ff45b6849a4370c46dea2b95445671837a989839eb2bbd",
+      "config_path": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/3d-detection/benchmarks/mmdetection3d/configs/models/second_kitti_pretrained_eval_aghri.py",
+      "config_sha256": "d06897d216519794aa4c7c504b8158a97e5d92e4421494736856410fe43fc08a",
+      "score_threshold": 0.0
+    }
+  },
+  "python_executable": "/usr/bin/python3",
+  "python_version": "3.10.12",
+  "qos_overrides": "/home/prabuddhi/Desktop/agri-human-dataset-benchmark/early_fusion/camera_lidar_humble/config/aghri_rosbag2_qos_overrides.yaml",
+  "ros_distro": "humble",
+  "worker_python": "/home/prabuddhi/miniconda3/envs/aghri-mmdet3d/bin/python"
+}

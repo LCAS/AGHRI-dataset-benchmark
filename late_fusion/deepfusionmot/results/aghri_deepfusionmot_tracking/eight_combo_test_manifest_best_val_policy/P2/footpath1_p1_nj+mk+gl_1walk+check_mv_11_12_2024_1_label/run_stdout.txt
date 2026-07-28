@@ -1,0 +1,8 @@
+recording=footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label
+combination_id=P2
+combination=FT YOLO + G PointPillars
+frames=249
+tracked_3d_rows=356
+confirmed_tracks=16
+tracker_only_fps=1516.29
+output_dir=results/aghri_deepfusionmot_tracking/eight_combo_test_manifest_best_val_policy/P2/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label

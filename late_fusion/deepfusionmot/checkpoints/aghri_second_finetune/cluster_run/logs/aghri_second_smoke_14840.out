@@ -1,0 +1,2060 @@
+[WARN] Pyxis/Enroot modulefiles were not found; continuing because Slurm container options may already be enabled.
+[HOST] Hostname:  hpc-novel-gpu05
+[HOST] Root:      /work/users/pwariyapperuma/aghri_second_finetune
+[HOST] Container: /work/users/pwariyapperuma/bevfusion_final/docker/bevfusion_final.sqfs
+[HOST] Job ID:    14840
+[HOST] Generic SECOND checkpoint hash verified.
+[IN-CTR] Hostname: hpc-novel-gpu05
+[IN-CTR] PWD:      /work/users/pwariyapperuma/aghri_second_finetune/code/mmdetection3d
+[IN-CTR] Base Python: Python 3.8.20
+Sat Jul 11 18:32:11 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 610.43.02              KMD Version: 610.43.02     CUDA UMD Version: 13.3     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          Off |   00000000:01:00.0 Off |                    0 |
+| N/A   31C    P0             57W /  400W |       0MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+[ENV] Creating a fresh persistent OpenMMLab environment.
+Collecting pip==23.3.2
+  Using cached pip-23.3.2-py3-none-any.whl (2.1 MB)
+Collecting setuptools==68.2.2
+  Using cached setuptools-68.2.2-py3-none-any.whl (807 kB)
+Collecting wheel==0.41.3
+  Using cached wheel-0.41.3-py3-none-any.whl (65 kB)
+Installing collected packages: wheel, setuptools, pip
+  Attempting uninstall: wheel
+    Found existing installation: wheel 0.44.0
+    Not uninstalling wheel at /opt/conda/envs/bevfusion/lib/python3.8/site-packages, outside environment /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+    Can't uninstall 'wheel'. No files were found to uninstall.
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 56.0.0
+    Uninstalling setuptools-56.0.0:
+      Successfully uninstalled setuptools-56.0.0
+  Attempting uninstall: pip
+    Found existing installation: pip 23.0.1
+    Uninstalling pip-23.0.1:
+      Successfully uninstalled pip-23.0.1
+Successfully installed pip-23.3.2 setuptools-68.2.2 wheel-0.41.3
+Python: 3.8.20 (default, Oct  3 2024, 15:24:27) 
+[GCC 11.2.0]
+PyTorch: 1.10.1
+PyTorch CUDA: 11.3
+CUDA available: True
+GPU: NVIDIA A100-SXM4-80GB
+Collecting numpy==1.23.5
+  Using cached numpy-1.23.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (2.3 kB)
+Requirement already satisfied: scipy==1.10.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (1.10.1)
+Using cached numpy-1.23.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.1 MB)
+Installing collected packages: numpy
+  Attempting uninstall: numpy
+    Found existing installation: numpy 1.24.3
+    Not uninstalling numpy at /opt/conda/envs/bevfusion/lib/python3.8/site-packages, outside environment /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+    Can't uninstall 'numpy'. No files were found to uninstall.
+Successfully installed numpy-1.23.5
+Collecting llvmlite==0.40.1
+  Downloading llvmlite-0.40.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.7 kB)
+Collecting numba==0.57.1
+  Downloading numba-0.57.1-cp38-cp38-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.7 kB)
+Requirement already satisfied: numpy<1.25,>=1.21 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from numba==0.57.1) (1.23.5)
+Requirement already satisfied: importlib-metadata in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from numba==0.57.1) (8.5.0)
+Requirement already satisfied: zipp>=3.20 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from importlib-metadata->numba==0.57.1) (3.20.2)
+Downloading llvmlite-0.40.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (42.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.1/42.1 MB 17.8 MB/s eta 0:00:00
+Downloading numba-0.57.1-cp38-cp38-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.6 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.6/3.6 MB 9.2 MB/s eta 0:00:00
+Installing collected packages: llvmlite, numba
+  Attempting uninstall: llvmlite
+    Found existing installation: llvmlite 0.31.0
+    Not uninstalling llvmlite at /opt/conda/envs/bevfusion/lib/python3.8/site-packages, outside environment /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+    Can't uninstall 'llvmlite'. No files were found to uninstall.
+  Attempting uninstall: numba
+    Found existing installation: numba 0.48.0
+    Not uninstalling numba at /opt/conda/envs/bevfusion/lib/python3.8/site-packages, outside environment /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+    Can't uninstall 'numba'. No files were found to uninstall.
+Successfully installed llvmlite-0.40.1 numba-0.57.1
+Collecting mmengine==0.10.7
+  Using cached mmengine-0.10.7-py3-none-any.whl.metadata (20 kB)
+Requirement already satisfied: addict in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine==0.10.7) (2.4.0)
+Requirement already satisfied: matplotlib in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine==0.10.7) (3.5.3)
+Requirement already satisfied: numpy in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from mmengine==0.10.7) (1.23.5)
+Requirement already satisfied: pyyaml in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine==0.10.7) (6.0.2)
+Collecting rich (from mmengine==0.10.7)
+  Using cached rich-14.3.4-py3-none-any.whl.metadata (18 kB)
+Requirement already satisfied: termcolor in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine==0.10.7) (2.4.0)
+Requirement already satisfied: yapf in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine==0.10.7) (0.43.0)
+Requirement already satisfied: opencv-python>=3 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine==0.10.7) (4.12.0.88)
+Requirement already satisfied: cycler>=0.10 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine==0.10.7) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine==0.10.7) (4.57.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine==0.10.7) (1.4.7)
+Requirement already satisfied: packaging>=20.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine==0.10.7) (25.0)
+Requirement already satisfied: pillow>=6.2.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine==0.10.7) (8.4.0)
+Requirement already satisfied: pyparsing>=2.2.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine==0.10.7) (3.1.4)
+Requirement already satisfied: python-dateutil>=2.7 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine==0.10.7) (2.9.0.post0)
+Collecting markdown-it-py>=2.2.0 (from rich->mmengine==0.10.7)
+  Using cached markdown_it_py-3.0.0-py3-none-any.whl.metadata (6.9 kB)
+Collecting pygments<3.0.0,>=2.13.0 (from rich->mmengine==0.10.7)
+  Using cached pygments-2.19.2-py3-none-any.whl.metadata (2.5 kB)
+Requirement already satisfied: platformdirs>=3.5.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from yapf->mmengine==0.10.7) (4.3.6)
+Requirement already satisfied: tomli>=2.0.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from yapf->mmengine==0.10.7) (2.2.1)
+Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->mmengine==0.10.7)
+  Using cached mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+Requirement already satisfied: six>=1.5 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib->mmengine==0.10.7) (1.17.0)
+Using cached mmengine-0.10.7-py3-none-any.whl (452 kB)
+Using cached rich-14.3.4-py3-none-any.whl (310 kB)
+Using cached markdown_it_py-3.0.0-py3-none-any.whl (87 kB)
+Using cached pygments-2.19.2-py3-none-any.whl (1.2 MB)
+Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Installing collected packages: pygments, mdurl, markdown-it-py, rich, mmengine
+Successfully installed markdown-it-py-3.0.0 mdurl-0.1.2 mmengine-0.10.7 pygments-2.19.2 rich-14.3.4
+Looking in links: https://download.openmmlab.com/mmcv/dist/cu113/torch1.10.0/index.html
+Collecting mmcv==2.1.0
+  Using cached https://download.openmmlab.com/mmcv/dist/cu113/torch1.10.0/mmcv-2.1.0-cp38-cp38-manylinux1_x86_64.whl (86.2 MB)
+Requirement already satisfied: addict in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmcv==2.1.0) (2.4.0)
+Requirement already satisfied: mmengine>=0.3.0 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from mmcv==2.1.0) (0.10.7)
+Requirement already satisfied: numpy in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from mmcv==2.1.0) (1.23.5)
+Requirement already satisfied: packaging in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmcv==2.1.0) (25.0)
+Requirement already satisfied: Pillow in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmcv==2.1.0) (8.4.0)
+Requirement already satisfied: pyyaml in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmcv==2.1.0) (6.0.2)
+Requirement already satisfied: yapf in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmcv==2.1.0) (0.43.0)
+Requirement already satisfied: opencv-python>=3 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmcv==2.1.0) (4.12.0.88)
+Requirement already satisfied: matplotlib in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine>=0.3.0->mmcv==2.1.0) (3.5.3)
+Requirement already satisfied: rich in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from mmengine>=0.3.0->mmcv==2.1.0) (14.3.4)
+Requirement already satisfied: termcolor in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmengine>=0.3.0->mmcv==2.1.0) (2.4.0)
+Requirement already satisfied: platformdirs>=3.5.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from yapf->mmcv==2.1.0) (4.3.6)
+Requirement already satisfied: tomli>=2.0.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from yapf->mmcv==2.1.0) (2.2.1)
+Requirement already satisfied: cycler>=0.10 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine>=0.3.0->mmcv==2.1.0) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine>=0.3.0->mmcv==2.1.0) (4.57.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine>=0.3.0->mmcv==2.1.0) (1.4.7)
+Requirement already satisfied: pyparsing>=2.2.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine>=0.3.0->mmcv==2.1.0) (3.1.4)
+Requirement already satisfied: python-dateutil>=2.7 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmengine>=0.3.0->mmcv==2.1.0) (2.9.0.post0)
+Requirement already satisfied: markdown-it-py>=2.2.0 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from rich->mmengine>=0.3.0->mmcv==2.1.0) (3.0.0)
+Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from rich->mmengine>=0.3.0->mmcv==2.1.0) (2.19.2)
+Requirement already satisfied: mdurl~=0.1 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from markdown-it-py>=2.2.0->rich->mmengine>=0.3.0->mmcv==2.1.0) (0.1.2)
+Requirement already satisfied: six>=1.5 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib->mmengine>=0.3.0->mmcv==2.1.0) (1.17.0)
+Installing collected packages: mmcv
+  Attempting uninstall: mmcv
+    Found existing installation: mmcv 1.4.0
+    Not uninstalling mmcv at /opt/conda/envs/bevfusion/lib/python3.8/site-packages, outside environment /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+    Can't uninstall 'mmcv'. No files were found to uninstall.
+Successfully installed mmcv-2.1.0
+Collecting mmdet==3.3.0
+  Using cached mmdet-3.3.0-py3-none-any.whl.metadata (29 kB)
+Requirement already satisfied: matplotlib in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet==3.3.0) (3.5.3)
+Requirement already satisfied: numpy in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from mmdet==3.3.0) (1.23.5)
+Requirement already satisfied: pycocotools in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet==3.3.0) (2.0.7)
+Requirement already satisfied: scipy in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet==3.3.0) (1.10.1)
+Requirement already satisfied: shapely in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet==3.3.0) (1.8.5.post1)
+Requirement already satisfied: six in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet==3.3.0) (1.17.0)
+Requirement already satisfied: terminaltables in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet==3.3.0) (3.1.10)
+Requirement already satisfied: tqdm in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet==3.3.0) (4.67.1)
+Requirement already satisfied: cycler>=0.10 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmdet==3.3.0) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmdet==3.3.0) (4.57.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmdet==3.3.0) (1.4.7)
+Requirement already satisfied: packaging>=20.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmdet==3.3.0) (25.0)
+Requirement already satisfied: pillow>=6.2.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmdet==3.3.0) (8.4.0)
+Requirement already satisfied: pyparsing>=2.2.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmdet==3.3.0) (3.1.4)
+Requirement already satisfied: python-dateutil>=2.7 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->mmdet==3.3.0) (2.9.0.post0)
+Using cached mmdet-3.3.0-py3-none-any.whl (2.2 MB)
+Installing collected packages: mmdet
+  Attempting uninstall: mmdet
+    Found existing installation: mmdet 2.20.0
+    Not uninstalling mmdet at /opt/conda/envs/bevfusion/lib/python3.8/site-packages, outside environment /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+    Can't uninstall 'mmdet'. No files were found to uninstall.
+Successfully installed mmdet-3.3.0
+Collecting mmdet3d==1.4.0
+  Using cached mmdet3d-1.4.0-py3-none-any.whl.metadata (28 kB)
+Collecting lyft-dataset-sdk (from mmdet3d==1.4.0)
+  Using cached lyft_dataset_sdk-0.0.8-py2.py3-none-any.whl.metadata (3.6 kB)
+Collecting networkx>=2.5 (from mmdet3d==1.4.0)
+  Using cached networkx-3.1-py3-none-any.whl.metadata (5.3 kB)
+Requirement already satisfied: numba in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from mmdet3d==1.4.0) (0.57.1)
+Requirement already satisfied: numpy in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from mmdet3d==1.4.0) (1.23.5)
+Requirement already satisfied: nuscenes-devkit in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet3d==1.4.0) (1.1.11)
+Collecting open3d (from mmdet3d==1.4.0)
+  Using cached open3d-0.19.0-cp38-cp38-manylinux_2_31_x86_64.whl.metadata (4.3 kB)
+Collecting plyfile (from mmdet3d==1.4.0)
+  Using cached plyfile-1.0.3-py3-none-any.whl.metadata (2.1 kB)
+Collecting scikit-image (from mmdet3d==1.4.0)
+  Using cached scikit_image-0.21.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (14 kB)
+Requirement already satisfied: tensorboard in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from mmdet3d==1.4.0) (2.14.0)
+Collecting trimesh (from mmdet3d==1.4.0)
+  Using cached trimesh-4.12.2-py3-none-any.whl.metadata (13 kB)
+Collecting flake8 (from lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached flake8-7.1.2-py2.py3-none-any.whl.metadata (3.8 kB)
+Requirement already satisfied: opencv-python>=3.4.2.17 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (4.12.0.88)
+Requirement already satisfied: Pillow>=5.2.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (8.4.0)
+Requirement already satisfied: pyquaternion>=0.9.5 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (0.9.9)
+Requirement already satisfied: scikit-learn>=0.19.2 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (1.3.2)
+Requirement already satisfied: tqdm>=4.25.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (4.67.1)
+Requirement already satisfied: scipy>=1.1.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (1.10.1)
+Requirement already satisfied: cachetools>=3.1.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (5.5.2)
+Requirement already satisfied: Shapely>=1.6.4.post2 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (1.8.5.post1)
+Requirement already satisfied: fire in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (0.7.0)
+Collecting pytest (from lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached pytest-8.3.5-py3-none-any.whl.metadata (7.6 kB)
+Collecting black (from lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached black-24.8.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl.metadata (78 kB)
+Requirement already satisfied: matplotlib in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from lyft-dataset-sdk->mmdet3d==1.4.0) (3.5.3)
+Collecting pandas (from lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (18 kB)
+Collecting plotly (from lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached plotly-6.9.0-py3-none-any.whl.metadata (9.0 kB)
+Requirement already satisfied: llvmlite<0.41,>=0.40.0dev0 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from numba->mmdet3d==1.4.0) (0.40.1)
+Requirement already satisfied: importlib-metadata in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from numba->mmdet3d==1.4.0) (8.5.0)
+Requirement already satisfied: descartes in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from nuscenes-devkit->mmdet3d==1.4.0) (1.1.0)
+Requirement already satisfied: pycocotools>=2.0.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from nuscenes-devkit->mmdet3d==1.4.0) (2.0.7)
+Collecting dash>=2.6.0 (from open3d->mmdet3d==1.4.0)
+  Using cached dash-4.3.0-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: werkzeug>=3.0.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from open3d->mmdet3d==1.4.0) (3.0.6)
+Collecting flask>=3.0.0 (from open3d->mmdet3d==1.4.0)
+  Using cached flask-3.0.3-py3-none-any.whl.metadata (3.2 kB)
+Collecting nbformat>=5.7.0 (from open3d->mmdet3d==1.4.0)
+  Using cached nbformat-5.10.4-py3-none-any.whl.metadata (3.6 kB)
+Collecting configargparse (from open3d->mmdet3d==1.4.0)
+  Using cached configargparse-1.7.5-py3-none-any.whl.metadata (23 kB)
+Collecting ipywidgets>=8.0.4 (from open3d->mmdet3d==1.4.0)
+  Using cached ipywidgets-8.1.8-py3-none-any.whl.metadata (2.4 kB)
+Requirement already satisfied: addict in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from open3d->mmdet3d==1.4.0) (2.4.0)
+Collecting Pillow>=5.2.0 (from lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached pillow-10.4.0-cp38-cp38-manylinux_2_28_x86_64.whl.metadata (9.2 kB)
+Requirement already satisfied: pyyaml>=5.4.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from open3d->mmdet3d==1.4.0) (6.0.2)
+Collecting imageio>=2.27 (from scikit-image->mmdet3d==1.4.0)
+  Using cached imageio-2.35.1-py3-none-any.whl.metadata (4.9 kB)
+Collecting tifffile>=2022.8.12 (from scikit-image->mmdet3d==1.4.0)
+  Using cached tifffile-2023.7.10-py3-none-any.whl.metadata (31 kB)
+Collecting PyWavelets>=1.1.1 (from scikit-image->mmdet3d==1.4.0)
+  Using cached PyWavelets-1.4.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (1.9 kB)
+Requirement already satisfied: packaging>=21 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from scikit-image->mmdet3d==1.4.0) (25.0)
+Collecting lazy_loader>=0.2 (from scikit-image->mmdet3d==1.4.0)
+  Using cached lazy_loader-0.4-py3-none-any.whl.metadata (7.6 kB)
+Requirement already satisfied: absl-py>=0.4 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (2.3.1)
+Requirement already satisfied: grpcio>=1.48.2 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (1.70.0)
+Requirement already satisfied: google-auth<3,>=1.6.3 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (2.40.3)
+Requirement already satisfied: google-auth-oauthlib<1.1,>=0.5 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (1.0.0)
+Requirement already satisfied: markdown>=2.6.8 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (3.7)
+Requirement already satisfied: protobuf>=3.19.6 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (5.29.5)
+Requirement already satisfied: requests<3,>=2.21.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (2.32.4)
+Requirement already satisfied: setuptools>=41.0.0 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (68.2.2)
+Requirement already satisfied: tensorboard-data-server<0.8.0,>=0.7.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (0.7.2)
+Requirement already satisfied: wheel>=0.26 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from tensorboard->mmdet3d==1.4.0) (0.41.3)
+Requirement already satisfied: typing_extensions>=4.1.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from dash>=2.6.0->open3d->mmdet3d==1.4.0) (4.11.0)
+Collecting retrying (from dash>=2.6.0->open3d->mmdet3d==1.4.0)
+  Using cached retrying-1.4.2-py3-none-any.whl.metadata (5.5 kB)
+Collecting nest-asyncio (from dash>=2.6.0->open3d->mmdet3d==1.4.0)
+  Using cached nest_asyncio-1.6.0-py3-none-any.whl.metadata (2.8 kB)
+Collecting janus>=1.0.0 (from dash>=2.6.0->open3d->mmdet3d==1.4.0)
+  Using cached janus-1.0.0-py3-none-any.whl.metadata (4.5 kB)
+Collecting pydantic>=2.10 (from dash>=2.6.0->open3d->mmdet3d==1.4.0)
+  Using cached pydantic-2.10.6-py3-none-any.whl.metadata (30 kB)
+Collecting Jinja2>=3.1.2 (from flask>=3.0.0->open3d->mmdet3d==1.4.0)
+  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting itsdangerous>=2.1.2 (from flask>=3.0.0->open3d->mmdet3d==1.4.0)
+  Using cached itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting click>=8.1.3 (from flask>=3.0.0->open3d->mmdet3d==1.4.0)
+  Using cached click-8.1.8-py3-none-any.whl.metadata (2.3 kB)
+Collecting blinker>=1.6.2 (from flask>=3.0.0->open3d->mmdet3d==1.4.0)
+  Using cached blinker-1.8.2-py3-none-any.whl.metadata (1.6 kB)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from google-auth<3,>=1.6.3->tensorboard->mmdet3d==1.4.0) (0.4.2)
+Requirement already satisfied: rsa<5,>=3.1.4 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from google-auth<3,>=1.6.3->tensorboard->mmdet3d==1.4.0) (4.9.1)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from google-auth-oauthlib<1.1,>=0.5->tensorboard->mmdet3d==1.4.0) (2.0.0)
+Requirement already satisfied: zipp>=3.20 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from importlib-metadata->numba->mmdet3d==1.4.0) (3.20.2)
+Collecting comm>=0.1.3 (from ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached comm-0.2.3-py3-none-any.whl.metadata (3.7 kB)
+Collecting ipython>=6.1.0 (from ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached ipython-8.12.3-py3-none-any.whl.metadata (5.7 kB)
+Collecting traitlets>=4.3.1 (from ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached traitlets-5.14.3-py3-none-any.whl.metadata (10 kB)
+Collecting widgetsnbextension~=4.0.14 (from ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached widgetsnbextension-4.0.15-py3-none-any.whl.metadata (1.6 kB)
+Collecting jupyterlab_widgets~=3.0.15 (from ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached jupyterlab_widgets-3.0.16-py3-none-any.whl.metadata (20 kB)
+Requirement already satisfied: cycler>=0.10 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->lyft-dataset-sdk->mmdet3d==1.4.0) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->lyft-dataset-sdk->mmdet3d==1.4.0) (4.57.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->lyft-dataset-sdk->mmdet3d==1.4.0) (1.4.7)
+Requirement already satisfied: pyparsing>=2.2.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->lyft-dataset-sdk->mmdet3d==1.4.0) (3.1.4)
+Requirement already satisfied: python-dateutil>=2.7 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from matplotlib->lyft-dataset-sdk->mmdet3d==1.4.0) (2.9.0.post0)
+Collecting fastjsonschema>=2.15 (from nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Using cached fastjsonschema-2.21.2-py3-none-any.whl.metadata (2.3 kB)
+Collecting jsonschema>=2.6 (from nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Using cached jsonschema-4.23.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting jupyter-core!=5.0.*,>=4.12 (from nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Using cached jupyter_core-5.8.1-py3-none-any.whl.metadata (1.6 kB)
+Collecting pytz>=2020.1 (from pandas->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached pytz-2026.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.1 (from pandas->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached tzdata-2026.3-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting narwhals>=1.15.1 (from plotly->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached narwhals-1.42.1-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: charset_normalizer<4,>=2 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard->mmdet3d==1.4.0) (3.4.2)
+Requirement already satisfied: idna<4,>=2.5 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard->mmdet3d==1.4.0) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard->mmdet3d==1.4.0) (2.2.3)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests<3,>=2.21.0->tensorboard->mmdet3d==1.4.0) (2025.7.14)
+Requirement already satisfied: joblib>=1.1.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from scikit-learn>=0.19.2->lyft-dataset-sdk->mmdet3d==1.4.0) (1.4.2)
+Requirement already satisfied: threadpoolctl>=2.0.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from scikit-learn>=0.19.2->lyft-dataset-sdk->mmdet3d==1.4.0) (3.5.0)
+Requirement already satisfied: MarkupSafe>=2.1.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from werkzeug>=3.0.0->open3d->mmdet3d==1.4.0) (2.1.5)
+Collecting mypy-extensions>=0.4.3 (from black->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached mypy_extensions-1.1.0-py3-none-any.whl.metadata (1.1 kB)
+Collecting pathspec>=0.9.0 (from black->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached pathspec-0.12.1-py3-none-any.whl.metadata (21 kB)
+Requirement already satisfied: platformdirs>=2 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from black->lyft-dataset-sdk->mmdet3d==1.4.0) (4.3.6)
+Requirement already satisfied: tomli>=1.1.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from black->lyft-dataset-sdk->mmdet3d==1.4.0) (2.2.1)
+Requirement already satisfied: termcolor in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from fire->lyft-dataset-sdk->mmdet3d==1.4.0) (2.4.0)
+Collecting mccabe<0.8.0,>=0.7.0 (from flake8->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached mccabe-0.7.0-py2.py3-none-any.whl.metadata (5.0 kB)
+Collecting pycodestyle<2.13.0,>=2.12.0 (from flake8->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached pycodestyle-2.12.1-py2.py3-none-any.whl.metadata (4.5 kB)
+Collecting pyflakes<3.3.0,>=3.2.0 (from flake8->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached pyflakes-3.2.0-py2.py3-none-any.whl.metadata (3.5 kB)
+Collecting exceptiongroup>=1.0.0rc8 (from pytest->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached exceptiongroup-1.3.1-py3-none-any.whl.metadata (6.7 kB)
+Collecting iniconfig (from pytest->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached iniconfig-2.1.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting pluggy<2,>=1.5 (from pytest->lyft-dataset-sdk->mmdet3d==1.4.0)
+  Using cached pluggy-1.5.0-py3-none-any.whl.metadata (4.8 kB)
+Collecting backcall (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached backcall-0.2.0-py2.py3-none-any.whl.metadata (2.0 kB)
+Collecting decorator (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached decorator-5.3.1-py3-none-any.whl.metadata (3.9 kB)
+Collecting jedi>=0.16 (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached jedi-0.19.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting matplotlib-inline (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached matplotlib_inline-0.1.7-py3-none-any.whl.metadata (3.9 kB)
+Collecting pickleshare (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached pickleshare-0.7.5-py2.py3-none-any.whl.metadata (1.5 kB)
+Collecting prompt-toolkit!=3.0.37,<3.1.0,>=3.0.30 (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached prompt_toolkit-3.0.52-py3-none-any.whl.metadata (6.4 kB)
+Requirement already satisfied: pygments>=2.4.0 in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0) (2.19.2)
+Collecting stack-data (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached stack_data-0.6.3-py3-none-any.whl.metadata (18 kB)
+Collecting pexpect>4.3 (from ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached pexpect-4.9.0-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting attrs>=22.2.0 (from jsonschema>=2.6->nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Using cached attrs-25.3.0-py3-none-any.whl.metadata (10 kB)
+Collecting importlib-resources>=1.4.0 (from jsonschema>=2.6->nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Using cached importlib_resources-6.4.5-py3-none-any.whl.metadata (4.0 kB)
+Collecting jsonschema-specifications>=2023.03.6 (from jsonschema>=2.6->nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Using cached jsonschema_specifications-2023.12.1-py3-none-any.whl.metadata (3.0 kB)
+Collecting pkgutil-resolve-name>=1.3.10 (from jsonschema>=2.6->nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Using cached pkgutil_resolve_name-1.3.10-py3-none-any.whl.metadata (624 bytes)
+Collecting referencing>=0.28.4 (from jsonschema>=2.6->nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Using cached referencing-0.35.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting rpds-py>=0.7.1 (from jsonschema>=2.6->nbformat>=5.7.0->open3d->mmdet3d==1.4.0)
+  Using cached rpds_py-0.20.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (4.2 kB)
+Requirement already satisfied: pyasn1<0.7.0,>=0.6.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from pyasn1-modules>=0.2.1->google-auth<3,>=1.6.3->tensorboard->mmdet3d==1.4.0) (0.6.1)
+Collecting annotated-types>=0.6.0 (from pydantic>=2.10->dash>=2.6.0->open3d->mmdet3d==1.4.0)
+  Using cached annotated_types-0.7.0-py3-none-any.whl.metadata (15 kB)
+Collecting pydantic-core==2.27.2 (from pydantic>=2.10->dash>=2.6.0->open3d->mmdet3d==1.4.0)
+  Using cached pydantic_core-2.27.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.6 kB)
+Collecting typing_extensions>=4.1.1 (from dash>=2.6.0->open3d->mmdet3d==1.4.0)
+  Using cached typing_extensions-4.13.2-py3-none-any.whl.metadata (3.0 kB)
+Requirement already satisfied: six>=1.5 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from python-dateutil>=2.7->matplotlib->lyft-dataset-sdk->mmdet3d==1.4.0) (1.17.0)
+Requirement already satisfied: oauthlib>=3.0.0 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<1.1,>=0.5->tensorboard->mmdet3d==1.4.0) (3.3.1)
+Collecting parso<0.9.0,>=0.8.4 (from jedi>=0.16->ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached parso-0.8.7-py2.py3-none-any.whl.metadata (8.2 kB)
+Collecting ptyprocess>=0.5 (from pexpect>4.3->ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached ptyprocess-0.7.0-py2.py3-none-any.whl.metadata (1.3 kB)
+Collecting wcwidth (from prompt-toolkit!=3.0.37,<3.1.0,>=3.0.30->ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached wcwidth-0.8.2-py3-none-any.whl.metadata (43 kB)
+Collecting executing>=1.2.0 (from stack-data->ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached executing-2.2.1-py2.py3-none-any.whl.metadata (8.9 kB)
+Collecting asttokens>=2.1.0 (from stack-data->ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached asttokens-3.0.1-py3-none-any.whl.metadata (4.9 kB)
+Collecting pure-eval (from stack-data->ipython>=6.1.0->ipywidgets>=8.0.4->open3d->mmdet3d==1.4.0)
+  Using cached pure_eval-0.2.3-py3-none-any.whl.metadata (6.3 kB)
+Using cached mmdet3d-1.4.0-py3-none-any.whl (1.0 MB)
+Using cached networkx-3.1-py3-none-any.whl (2.1 MB)
+Using cached lyft_dataset_sdk-0.0.8-py2.py3-none-any.whl (32 kB)
+Using cached open3d-0.19.0-cp38-cp38-manylinux_2_31_x86_64.whl (447.7 MB)
+Using cached plyfile-1.0.3-py3-none-any.whl (23 kB)
+Using cached scikit_image-0.21.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (13.9 MB)
+Using cached trimesh-4.12.2-py3-none-any.whl (741 kB)
+Using cached dash-4.3.0-py3-none-any.whl (8.4 MB)
+Using cached flask-3.0.3-py3-none-any.whl (101 kB)
+Using cached imageio-2.35.1-py3-none-any.whl (315 kB)
+Using cached ipywidgets-8.1.8-py3-none-any.whl (139 kB)
+Using cached lazy_loader-0.4-py3-none-any.whl (12 kB)
+Using cached nbformat-5.10.4-py3-none-any.whl (78 kB)
+Using cached pandas-2.0.3-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
+Using cached pillow-10.4.0-cp38-cp38-manylinux_2_28_x86_64.whl (4.5 MB)
+Using cached plotly-6.9.0-py3-none-any.whl (9.9 MB)
+Using cached PyWavelets-1.4.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (6.9 MB)
+Using cached tifffile-2023.7.10-py3-none-any.whl (220 kB)
+Using cached black-24.8.0-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.manylinux_2_28_x86_64.whl (1.7 MB)
+Using cached configargparse-1.7.5-py3-none-any.whl (27 kB)
+Using cached flake8-7.1.2-py2.py3-none-any.whl (57 kB)
+Using cached pytest-8.3.5-py3-none-any.whl (343 kB)
+Using cached blinker-1.8.2-py3-none-any.whl (9.5 kB)
+Using cached click-8.1.8-py3-none-any.whl (98 kB)
+Using cached comm-0.2.3-py3-none-any.whl (7.3 kB)
+Using cached exceptiongroup-1.3.1-py3-none-any.whl (16 kB)
+Using cached fastjsonschema-2.21.2-py3-none-any.whl (24 kB)
+Using cached ipython-8.12.3-py3-none-any.whl (798 kB)
+Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Using cached janus-1.0.0-py3-none-any.whl (6.9 kB)
+Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Using cached jsonschema-4.23.0-py3-none-any.whl (88 kB)
+Using cached jupyter_core-5.8.1-py3-none-any.whl (28 kB)
+Using cached jupyterlab_widgets-3.0.16-py3-none-any.whl (914 kB)
+Using cached mccabe-0.7.0-py2.py3-none-any.whl (7.3 kB)
+Using cached mypy_extensions-1.1.0-py3-none-any.whl (5.0 kB)
+Using cached narwhals-1.42.1-py3-none-any.whl (359 kB)
+Using cached pathspec-0.12.1-py3-none-any.whl (31 kB)
+Using cached pluggy-1.5.0-py3-none-any.whl (20 kB)
+Using cached pycodestyle-2.12.1-py2.py3-none-any.whl (31 kB)
+Using cached pydantic-2.10.6-py3-none-any.whl (431 kB)
+Using cached pydantic_core-2.27.2-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+Using cached pyflakes-3.2.0-py2.py3-none-any.whl (62 kB)
+Using cached pytz-2026.2-py2.py3-none-any.whl (510 kB)
+Using cached traitlets-5.14.3-py3-none-any.whl (85 kB)
+Using cached typing_extensions-4.13.2-py3-none-any.whl (45 kB)
+Using cached tzdata-2026.3-py2.py3-none-any.whl (348 kB)
+Using cached widgetsnbextension-4.0.15-py3-none-any.whl (2.2 MB)
+Using cached iniconfig-2.1.0-py3-none-any.whl (6.0 kB)
+Using cached nest_asyncio-1.6.0-py3-none-any.whl (5.2 kB)
+Using cached retrying-1.4.2-py3-none-any.whl (10 kB)
+Using cached annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Using cached attrs-25.3.0-py3-none-any.whl (63 kB)
+Using cached importlib_resources-6.4.5-py3-none-any.whl (36 kB)
+Using cached jedi-0.19.2-py2.py3-none-any.whl (1.6 MB)
+Using cached jsonschema_specifications-2023.12.1-py3-none-any.whl (18 kB)
+Using cached pexpect-4.9.0-py2.py3-none-any.whl (63 kB)
+Using cached pkgutil_resolve_name-1.3.10-py3-none-any.whl (4.7 kB)
+Using cached prompt_toolkit-3.0.52-py3-none-any.whl (391 kB)
+Using cached referencing-0.35.1-py3-none-any.whl (26 kB)
+Using cached rpds_py-0.20.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (360 kB)
+Using cached backcall-0.2.0-py2.py3-none-any.whl (11 kB)
+Using cached decorator-5.3.1-py3-none-any.whl (10 kB)
+Using cached matplotlib_inline-0.1.7-py3-none-any.whl (9.9 kB)
+Using cached pickleshare-0.7.5-py2.py3-none-any.whl (6.9 kB)
+Using cached stack_data-0.6.3-py3-none-any.whl (24 kB)
+Using cached asttokens-3.0.1-py3-none-any.whl (27 kB)
+Using cached executing-2.2.1-py2.py3-none-any.whl (28 kB)
+Using cached parso-0.8.7-py2.py3-none-any.whl (107 kB)
+Using cached ptyprocess-0.7.0-py2.py3-none-any.whl (13 kB)
+Using cached pure_eval-0.2.3-py3-none-any.whl (11 kB)
+Using cached wcwidth-0.8.2-py3-none-any.whl (323 kB)
+Installing collected packages: pytz, pure-eval, ptyprocess, pickleshare, fastjsonschema, backcall, widgetsnbextension, wcwidth, tzdata, typing_extensions, trimesh, traitlets, tifffile, rpds-py, retrying, PyWavelets, pyflakes, pycodestyle, plyfile, pluggy, pkgutil-resolve-name, Pillow, pexpect, pathspec, parso, networkx, nest-asyncio, narwhals, mypy-extensions, mccabe, lazy_loader, jupyterlab_widgets, Jinja2, itsdangerous, iniconfig, importlib-resources, executing, decorator, configargparse, comm, click, blinker, attrs, asttokens, stack-data, referencing, pydantic-core, prompt-toolkit, plotly, pandas, matplotlib-inline, jupyter-core, jedi, janus, imageio, flask, flake8, exceptiongroup, black, annotated-types, scikit-image, pytest, pydantic, jsonschema-specifications, ipython, lyft-dataset-sdk, jsonschema, ipywidgets, dash, nbformat, open3d, mmdet3d
+  Attempting uninstall: typing_extensions
+    Found existing installation: typing_extensions 4.11.0
+    Not uninstalling typing-extensions at /opt/conda/envs/bevfusion/lib/python3.8/site-packages, outside environment /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+    Can't uninstall 'typing_extensions'. No files were found to uninstall.
+  Attempting uninstall: Pillow
+    Found existing installation: Pillow 8.4.0
+    Not uninstalling pillow at /opt/conda/envs/bevfusion/lib/python3.8/site-packages, outside environment /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113
+    Can't uninstall 'Pillow'. No files were found to uninstall.
+Successfully installed Jinja2-3.1.6 Pillow-10.4.0 PyWavelets-1.4.1 annotated-types-0.7.0 asttokens-3.0.1 attrs-25.3.0 backcall-0.2.0 black-24.8.0 blinker-1.8.2 click-8.1.8 comm-0.2.3 configargparse-1.7.5 dash-4.3.0 decorator-5.3.1 exceptiongroup-1.3.1 executing-2.2.1 fastjsonschema-2.21.2 flake8-7.1.2 flask-3.0.3 imageio-2.35.1 importlib-resources-6.4.5 iniconfig-2.1.0 ipython-8.12.3 ipywidgets-8.1.8 itsdangerous-2.2.0 janus-1.0.0 jedi-0.19.2 jsonschema-4.23.0 jsonschema-specifications-2023.12.1 jupyter-core-5.8.1 jupyterlab_widgets-3.0.16 lazy_loader-0.4 lyft-dataset-sdk-0.0.8 matplotlib-inline-0.1.7 mccabe-0.7.0 mmdet3d-1.4.0 mypy-extensions-1.1.0 narwhals-1.42.1 nbformat-5.10.4 nest-asyncio-1.6.0 networkx-3.1 open3d-0.19.0 pandas-2.0.3 parso-0.8.7 pathspec-0.12.1 pexpect-4.9.0 pickleshare-0.7.5 pkgutil-resolve-name-1.3.10 plotly-6.9.0 pluggy-1.5.0 plyfile-1.0.3 prompt-toolkit-3.0.52 ptyprocess-0.7.0 pure-eval-0.2.3 pycodestyle-2.12.1 pydantic-2.10.6 pydantic-core-2.27.2 pyflakes-3.2.0 pytest-8.3.5 pytz-2026.2 referencing-0.35.1 retrying-1.4.2 rpds-py-0.20.1 scikit-image-0.21.0 stack-data-0.6.3 tifffile-2023.7.10 traitlets-5.14.3 trimesh-4.12.2 typing_extensions-4.13.2 tzdata-2026.3 wcwidth-0.8.2 widgetsnbextension-4.0.15
+Collecting spconv-cu113==2.3.6
+  Using cached spconv_cu113-2.3.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (12 kB)
+Collecting pccm>=0.4.0 (from spconv-cu113==2.3.6)
+  Using cached pccm-0.4.16-py3-none-any.whl.metadata (1.1 kB)
+Collecting ccimport>=0.4.0 (from spconv-cu113==2.3.6)
+  Using cached ccimport-0.4.4-py3-none-any.whl.metadata (1.4 kB)
+Collecting pybind11>=2.6.0 (from spconv-cu113==2.3.6)
+  Using cached pybind11-3.0.4-py3-none-any.whl.metadata (10 kB)
+Requirement already satisfied: fire in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from spconv-cu113==2.3.6) (0.7.0)
+Requirement already satisfied: numpy in /work/users/pwariyapperuma/aghri_second_finetune/environment/venv_openmmlab_py38_torch110_cu113/lib/python3.8/site-packages (from spconv-cu113==2.3.6) (1.23.5)
+Collecting cumm-cu113<0.5.0,>=0.4.5 (from spconv-cu113==2.3.6)
+  Using cached cumm_cu113-0.4.11-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (6.3 kB)
+Collecting ninja (from ccimport>=0.4.0->spconv-cu113==2.3.6)
+  Using cached ninja-1.13.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.1 kB)
+Requirement already satisfied: requests in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from ccimport>=0.4.0->spconv-cu113==2.3.6) (2.32.4)
+Collecting lark>=1.0.0 (from pccm>=0.4.0->spconv-cu113==2.3.6)
+  Using cached lark-1.3.1-py3-none-any.whl.metadata (1.8 kB)
+Collecting portalocker>=2.3.2 (from pccm>=0.4.0->spconv-cu113==2.3.6)
+  Using cached portalocker-3.0.0-py3-none-any.whl.metadata (8.5 kB)
+Requirement already satisfied: termcolor in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from fire->spconv-cu113==2.3.6) (2.4.0)
+Requirement already satisfied: charset_normalizer<4,>=2 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests->ccimport>=0.4.0->spconv-cu113==2.3.6) (3.4.2)
+Requirement already satisfied: idna<4,>=2.5 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests->ccimport>=0.4.0->spconv-cu113==2.3.6) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests->ccimport>=0.4.0->spconv-cu113==2.3.6) (2.2.3)
+Requirement already satisfied: certifi>=2017.4.17 in /opt/conda/envs/bevfusion/lib/python3.8/site-packages (from requests->ccimport>=0.4.0->spconv-cu113==2.3.6) (2025.7.14)
+Using cached spconv_cu113-2.3.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (70.5 MB)
+Using cached ccimport-0.4.4-py3-none-any.whl (27 kB)
+Using cached cumm_cu113-0.4.11-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (22.6 MB)
+Using cached pccm-0.4.16-py3-none-any.whl (73 kB)
+Using cached pybind11-3.0.4-py3-none-any.whl (314 kB)
+Using cached lark-1.3.1-py3-none-any.whl (113 kB)
+Using cached portalocker-3.0.0-py3-none-any.whl (19 kB)
+Using cached ninja-1.13.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (180 kB)
+Installing collected packages: pybind11, portalocker, ninja, lark, ccimport, pccm, cumm-cu113, spconv-cu113
+Successfully installed ccimport-0.4.4 cumm-cu113-0.4.11 lark-1.3.1 ninja-1.13.0 pccm-0.4.16 portalocker-3.0.0 pybind11-3.0.4 spconv-cu113-2.3.6
+torch: 1.10.1
+torch CUDA: 11.3
+mmcv: 2.1.0
+mmengine: 0.10.7
+mmdet: 3.3.0
+mmdet3d: 1.4.0
+numba: 0.57.1
+llvmlite: 0.40.1
+spconv: 2.3.6
+MMCV compiled ops import: OK
+Numba core import: OK
+MMDetection3D augmentation import: OK
+AGHRI custom module import: OK
+spconv.pytorch import: OK
+GPU: NVIDIA A100-SXM4-80GB
+[ENV] OpenMMLab environment created and verified.
+Verified environment:
+  torch: 1.10.1
+  torch CUDA: 11.3
+  mmcv: 2.1.0
+  mmengine: 0.10.7
+  mmdet: 3.3.0
+  mmdet3d: 1.4.0
+  numba: 0.57.1
+  llvmlite: 0.40.1
+  AGHRI custom module: import OK
+  GPU: NVIDIA A100-SXM4-80GB
+07/11 18:34:17 - mmengine - INFO - 
+------------------------------------------------------------
+System environment:
+    sys.platform: linux
+    Python: 3.8.20 (default, Oct  3 2024, 15:24:27) [GCC 11.2.0]
+    CUDA available: True
+    MUSA available: False
+    numpy_random_seed: 42
+    GPU 0: NVIDIA A100-SXM4-80GB
+    CUDA_HOME: /usr/local/cuda
+    NVCC: Cuda compilation tools, release 11.3, V11.3.109
+    GCC: gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0
+    PyTorch: 1.10.1
+    PyTorch compiling details: PyTorch built with:
+  - GCC 7.3
+  - C++ Version: 201402
+  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v2.2.3 (Git Hash 7336ca9f055cf1bfa13efb658fe15dc9b41f0740)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 11.3
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-gencode;arch=compute_37,code=compute_37
+  - CuDNN 8.2
+  - Magma 2.5.2
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.3, CUDNN_VERSION=8.2.0, CXX_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/c++, CXX_FLAGS= -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DEDGE_PROFILER_USE_KINETO -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.10.1, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, 
+
+    TorchVision: 0.11.2
+    OpenCV: 4.12.0
+    MMEngine: 0.10.7
+
+Runtime environment:
+    cudnn_benchmark: True
+    mp_cfg: {'mp_start_method': 'fork', 'opencv_num_threads': 0}
+    dist_cfg: {'backend': 'nccl'}
+    seed: 42
+    Distributed launcher: none
+    Distributed training: False
+    GPU number: 1
+------------------------------------------------------------
+
+07/11 18:34:18 - mmengine - INFO - Config:
+anchor_bottom_height = 0.33
+anchor_size = [
+    0.46,
+    0.57,
+    1.5,
+]
+auto_scale_lr = dict(base_batch_size=48, enable=False)
+backend_args = None
+class_names = [
+    'person',
+]
+custom_imports = dict(
+    allow_failed_imports=False, imports=[
+        'aghri3d',
+    ])
+data_root = '/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d'
+dataset_type = 'AghriLidarDataset'
+default_hooks = dict(
+    checkpoint=dict(
+        _scope_='mmdet3d',
+        interval=1,
+        max_keep_ckpts=1,
+        rule='greater',
+        save_best='aghri/bev_ap_mean',
+        type='CheckpointHook'),
+    logger=dict(_scope_='mmdet3d', interval=50, type='LoggerHook'),
+    param_scheduler=dict(_scope_='mmdet3d', type='ParamSchedulerHook'),
+    sampler_seed=dict(_scope_='mmdet3d', type='DistSamplerSeedHook'),
+    timer=dict(_scope_='mmdet3d', type='IterTimerHook'))
+default_scope = 'mmdet3d'
+device = 'cuda:0'
+env_cfg = dict(
+    cudnn_benchmark=True,
+    dist_cfg=dict(backend='nccl'),
+    mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0))
+epoch_num = 80
+eval_pipeline = [
+    dict(
+        backend_args=None,
+        coord_type='LIDAR',
+        load_dim=4,
+        type='LoadPointsFromFile',
+        use_dim=4),
+    dict(
+        point_cloud_range=[
+            -10.24,
+            -10.24,
+            -2.0,
+            25.6,
+            10.24,
+            3.0,
+        ],
+        type='PointsRangeFilter'),
+    dict(
+        keys=[
+            'points',
+        ],
+        meta_keys=(
+            'lidar_path',
+            'sample_idx',
+            'box_type_3d',
+            'box_mode_3d',
+        ),
+        type='Pack3DDetInputs'),
+]
+input_modality = dict(use_camera=False, use_lidar=True)
+launcher = 'none'
+load_from = '/work/users/pwariyapperuma/aghri_second_finetune/checkpoints/generic/second_hv_secfpn_8xb6-80e_kitti-3d-3class-b086d0a3.pth'
+log_level = 'INFO'
+log_processor = dict(
+    _scope_='mmdet3d', by_epoch=True, type='LogProcessor', window_size=50)
+lr = 0.0018
+metainfo = dict(classes=[
+    'person',
+])
+model = dict(
+    _scope_='mmdet3d',
+    backbone=dict(
+        in_channels=256,
+        layer_nums=[
+            5,
+            5,
+        ],
+        layer_strides=[
+            1,
+            2,
+        ],
+        out_channels=[
+            128,
+            256,
+        ],
+        type='SECOND'),
+    bbox_head=dict(
+        anchor_generator=dict(
+            ranges=[
+                [
+                    -10.24,
+                    -10.24,
+                    0.33,
+                    25.6,
+                    10.24,
+                    0.33,
+                ],
+            ],
+            reshape_out=False,
+            rotations=[
+                0,
+                1.57,
+            ],
+            sizes=[
+                [
+                    0.46,
+                    0.57,
+                    1.5,
+                ],
+            ],
+            type='Anchor3DRangeGenerator'),
+        bbox_coder=dict(type='DeltaXYZWLHRBBoxCoder'),
+        diff_rad_by_sin=True,
+        feat_channels=512,
+        in_channels=512,
+        loss_bbox=dict(
+            beta=0.1111111111111111,
+            loss_weight=2.0,
+            type='mmdet.SmoothL1Loss'),
+        loss_cls=dict(
+            alpha=0.25,
+            gamma=2.0,
+            loss_weight=1.0,
+            type='mmdet.FocalLoss',
+            use_sigmoid=True),
+        loss_dir=dict(
+            loss_weight=0.2, type='mmdet.CrossEntropyLoss', use_sigmoid=False),
+        num_classes=1,
+        type='Anchor3DHead',
+        use_direction_classifier=True),
+    data_preprocessor=dict(
+        type='Det3DDataPreprocessor',
+        voxel=True,
+        voxel_layer=dict(
+            max_num_points=10,
+            max_voxels=(
+                20000,
+                24000,
+            ),
+            point_cloud_range=[
+                -10.24,
+                -10.24,
+                -2.0,
+                25.6,
+                10.24,
+                3.0,
+            ],
+            voxel_size=[
+                0.08,
+                0.08,
+                0.1,
+            ])),
+    middle_encoder=dict(
+        in_channels=4,
+        order=(
+            'conv',
+            'norm',
+            'act',
+        ),
+        sparse_shape=[
+            51,
+            256,
+            448,
+        ],
+        type='SparseEncoder'),
+    neck=dict(
+        in_channels=[
+            128,
+            256,
+        ],
+        out_channels=[
+            256,
+            256,
+        ],
+        type='SECONDFPN',
+        upsample_strides=[
+            1,
+            2,
+        ]),
+    test_cfg=dict(
+        max_num=100,
+        min_bbox_size=0,
+        nms_across_levels=False,
+        nms_pre=1000,
+        nms_thr=0.01,
+        score_thr=0.05,
+        use_rotate_nms=True),
+    train_cfg=dict(
+        allowed_border=0,
+        assigner=[
+            dict(
+                ignore_iof_thr=-1,
+                iou_calculator=dict(type='BboxOverlapsNearest3D'),
+                min_pos_iou=0.35,
+                neg_iou_thr=0.35,
+                pos_iou_thr=0.5,
+                type='Max3DIoUAssigner'),
+        ],
+        debug=False,
+        pos_weight=-1),
+    type='VoxelNet',
+    voxel_encoder=dict(type='HardSimpleVFE'))
+optim_wrapper = dict(
+    _scope_='mmdet3d',
+    clip_grad=dict(max_norm=10, norm_type=2),
+    optimizer=dict(
+        betas=(
+            0.95,
+            0.99,
+        ), lr=0.0018, type='AdamW', weight_decay=0.01),
+    type='OptimWrapper')
+param_scheduler = [
+    dict(
+        T_max=16,
+        _scope_='mmdet3d',
+        begin=0,
+        by_epoch=True,
+        convert_to_iter_based=True,
+        end=16,
+        eta_min=0.018,
+        type='CosineAnnealingLR'),
+    dict(
+        T_max=24,
+        _scope_='mmdet3d',
+        begin=16,
+        by_epoch=True,
+        convert_to_iter_based=True,
+        end=40,
+        eta_min=1.8e-07,
+        type='CosineAnnealingLR'),
+    dict(
+        T_max=16,
+        _scope_='mmdet3d',
+        begin=0,
+        by_epoch=True,
+        convert_to_iter_based=True,
+        end=16,
+        eta_min=0.8947368421052632,
+        type='CosineAnnealingMomentum'),
+    dict(
+        T_max=24,
+        _scope_='mmdet3d',
+        begin=16,
+        by_epoch=True,
+        convert_to_iter_based=True,
+        end=40,
+        eta_min=1,
+        type='CosineAnnealingMomentum'),
+]
+point_cloud_range = [
+    -10.24,
+    -10.24,
+    -2.0,
+    25.6,
+    10.24,
+    3.0,
+]
+randomness = dict(seed=42)
+resume = False
+test_cfg = dict()
+test_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        ann_file='infos/agri_person_infos_val.pkl',
+        backend_args=None,
+        box_type_3d='LiDAR',
+        data_prefix=dict(pts=''),
+        data_root=
+        '/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d',
+        metainfo=dict(classes=[
+            'person',
+        ]),
+        modality=dict(use_camera=False, use_lidar=True),
+        pipeline=[
+            dict(
+                backend_args=None,
+                coord_type='LIDAR',
+                load_dim=4,
+                type='LoadPointsFromFile',
+                use_dim=4),
+            dict(
+                point_cloud_range=[
+                    -10.24,
+                    -10.24,
+                    -2.0,
+                    25.6,
+                    10.24,
+                    3.0,
+                ],
+                type='PointsRangeFilter'),
+            dict(
+                keys=[
+                    'points',
+                ],
+                meta_keys=(
+                    'lidar_path',
+                    'sample_idx',
+                    'box_type_3d',
+                    'box_mode_3d',
+                ),
+                type='Pack3DDetInputs'),
+        ],
+        test_mode=True,
+        type='AghriLidarDataset'),
+    drop_last=False,
+    num_workers=2,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+test_evaluator = dict(
+    ann_file=
+    '/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d/infos/agri_person_infos_val.pkl',
+    iou_thresholds=[
+        0.25,
+        0.5,
+        0.75,
+    ],
+    score_thr=0.0,
+    type='Aghri3DMetric')
+test_pipeline = [
+    dict(
+        backend_args=None,
+        coord_type='LIDAR',
+        load_dim=4,
+        type='LoadPointsFromFile',
+        use_dim=4),
+    dict(
+        point_cloud_range=[
+            -10.24,
+            -10.24,
+            -2.0,
+            25.6,
+            10.24,
+            3.0,
+        ],
+        type='PointsRangeFilter'),
+    dict(
+        keys=[
+            'points',
+        ],
+        meta_keys=(
+            'lidar_path',
+            'sample_idx',
+            'box_type_3d',
+            'box_mode_3d',
+        ),
+        type='Pack3DDetInputs'),
+]
+train_cfg = dict(by_epoch=True, max_epochs=1, val_interval=1)
+train_dataloader = dict(
+    batch_size=4,
+    dataset=dict(
+        ann_file='infos/agri_person_infos_train.pkl',
+        backend_args=None,
+        box_type_3d='LiDAR',
+        data_prefix=dict(pts=''),
+        data_root=
+        '/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d',
+        metainfo=dict(classes=[
+            'person',
+        ]),
+        modality=dict(use_camera=False, use_lidar=True),
+        pipeline=[
+            dict(
+                backend_args=None,
+                coord_type='LIDAR',
+                load_dim=4,
+                type='LoadPointsFromFile',
+                use_dim=4),
+            dict(
+                type='LoadAnnotations3D',
+                with_bbox_3d=True,
+                with_label_3d=True),
+            dict(flip_ratio_bev_horizontal=0.5, type='RandomFlip3D'),
+            dict(
+                rot_range=[
+                    -0.39269908,
+                    0.39269908,
+                ],
+                scale_ratio_range=[
+                    0.95,
+                    1.05,
+                ],
+                translation_std=[
+                    0.0,
+                    0.0,
+                    0.0,
+                ],
+                type='GlobalRotScaleTrans'),
+            dict(
+                point_cloud_range=[
+                    -10.24,
+                    -10.24,
+                    -2.0,
+                    25.6,
+                    10.24,
+                    3.0,
+                ],
+                type='PointsRangeFilter'),
+            dict(
+                point_cloud_range=[
+                    -10.24,
+                    -10.24,
+                    -2.0,
+                    25.6,
+                    10.24,
+                    3.0,
+                ],
+                type='ObjectRangeFilter'),
+            dict(classes=[
+                'person',
+            ], type='ObjectNameFilter'),
+            dict(type='PointShuffle'),
+            dict(
+                keys=[
+                    'points',
+                    'gt_bboxes_3d',
+                    'gt_labels_3d',
+                ],
+                meta_keys=(
+                    'lidar_path',
+                    'sample_idx',
+                    'box_type_3d',
+                    'box_mode_3d',
+                ),
+                type='Pack3DDetInputs'),
+        ],
+        test_mode=False,
+        type='AghriLidarDataset'),
+    num_workers=4,
+    persistent_workers=True,
+    sampler=dict(shuffle=True, type='DefaultSampler'))
+train_pipeline = [
+    dict(
+        backend_args=None,
+        coord_type='LIDAR',
+        load_dim=4,
+        type='LoadPointsFromFile',
+        use_dim=4),
+    dict(type='LoadAnnotations3D', with_bbox_3d=True, with_label_3d=True),
+    dict(flip_ratio_bev_horizontal=0.5, type='RandomFlip3D'),
+    dict(
+        rot_range=[
+            -0.39269908,
+            0.39269908,
+        ],
+        scale_ratio_range=[
+            0.95,
+            1.05,
+        ],
+        translation_std=[
+            0.0,
+            0.0,
+            0.0,
+        ],
+        type='GlobalRotScaleTrans'),
+    dict(
+        point_cloud_range=[
+            -10.24,
+            -10.24,
+            -2.0,
+            25.6,
+            10.24,
+            3.0,
+        ],
+        type='PointsRangeFilter'),
+    dict(
+        point_cloud_range=[
+            -10.24,
+            -10.24,
+            -2.0,
+            25.6,
+            10.24,
+            3.0,
+        ],
+        type='ObjectRangeFilter'),
+    dict(classes=[
+        'person',
+    ], type='ObjectNameFilter'),
+    dict(type='PointShuffle'),
+    dict(
+        keys=[
+            'points',
+            'gt_bboxes_3d',
+            'gt_labels_3d',
+        ],
+        meta_keys=(
+            'lidar_path',
+            'sample_idx',
+            'box_type_3d',
+            'box_mode_3d',
+        ),
+        type='Pack3DDetInputs'),
+]
+val_cfg = dict()
+val_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        ann_file='infos/agri_person_infos_val.pkl',
+        backend_args=None,
+        box_type_3d='LiDAR',
+        data_prefix=dict(pts=''),
+        data_root=
+        '/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d',
+        metainfo=dict(classes=[
+            'person',
+        ]),
+        modality=dict(use_camera=False, use_lidar=True),
+        pipeline=[
+            dict(
+                backend_args=None,
+                coord_type='LIDAR',
+                load_dim=4,
+                type='LoadPointsFromFile',
+                use_dim=4),
+            dict(
+                point_cloud_range=[
+                    -10.24,
+                    -10.24,
+                    -2.0,
+                    25.6,
+                    10.24,
+                    3.0,
+                ],
+                type='PointsRangeFilter'),
+            dict(
+                keys=[
+                    'points',
+                ],
+                meta_keys=(
+                    'lidar_path',
+                    'sample_idx',
+                    'box_type_3d',
+                    'box_mode_3d',
+                ),
+                type='Pack3DDetInputs'),
+        ],
+        test_mode=True,
+        type='AghriLidarDataset'),
+    drop_last=False,
+    num_workers=2,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+val_evaluator = dict(
+    ann_file=
+    '/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d/infos/agri_person_infos_val.pkl',
+    iou_thresholds=[
+        0.25,
+        0.5,
+        0.75,
+    ],
+    score_thr=0.0,
+    type='Aghri3DMetric')
+vis_backends = []
+visualizer = None
+voxel_size = [
+    0.08,
+    0.08,
+    0.1,
+]
+work_dir = '/work/users/pwariyapperuma/aghri_second_finetune/outputs/second_aghri_seed42/smoke'
+
+07/11 18:34:23 - mmengine - INFO - Distributed training is not used, all SyncBatchNorm (SyncBN) layers in the model will be automatically reverted to BatchNormXd layers if they are used.
+07/11 18:34:23 - mmengine - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+before_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DistSamplerSeedHook                
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) IterTimerHook                      
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_val_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_val_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_test_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_test_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_test_iter:
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_run:
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+07/11 18:34:24 - mmengine - INFO - ------------------------------
+07/11 18:34:24 - mmengine - INFO - The length of training dataset: 11411
+07/11 18:34:24 - mmengine - INFO - The number of instances per category in the dataset:
++----------+--------+
+| category | number |
++----------+--------+
+| person   | 21732  |
++----------+--------+
+07/11 18:34:24 - mmengine - INFO - ------------------------------
+07/11 18:34:24 - mmengine - INFO - The length of test dataset: 1201
+07/11 18:34:24 - mmengine - INFO - The number of instances per category in the dataset:
++----------+--------+
+| category | number |
++----------+--------+
+| person   | 2314   |
++----------+--------+
+Loads checkpoint by local backend from path: /work/users/pwariyapperuma/aghri_second_finetune/checkpoints/generic/second_hv_secfpn_8xb6-80e_kitti-3d-3class-b086d0a3.pth
+The model and loaded state dict do not match exactly
+
+size mismatch for bbox_head.conv_cls.weight: copying a param with shape torch.Size([18, 512, 1, 1]) from checkpoint, the shape in current model is torch.Size([2, 512, 1, 1]).
+size mismatch for bbox_head.conv_cls.bias: copying a param with shape torch.Size([18]) from checkpoint, the shape in current model is torch.Size([2]).
+size mismatch for bbox_head.conv_reg.weight: copying a param with shape torch.Size([42, 512, 1, 1]) from checkpoint, the shape in current model is torch.Size([14, 512, 1, 1]).
+size mismatch for bbox_head.conv_reg.bias: copying a param with shape torch.Size([42]) from checkpoint, the shape in current model is torch.Size([14]).
+size mismatch for bbox_head.conv_dir_cls.weight: copying a param with shape torch.Size([12, 512, 1, 1]) from checkpoint, the shape in current model is torch.Size([4, 512, 1, 1]).
+size mismatch for bbox_head.conv_dir_cls.bias: copying a param with shape torch.Size([12]) from checkpoint, the shape in current model is torch.Size([4]).
+07/11 18:34:25 - mmengine - INFO - Load checkpoint from /work/users/pwariyapperuma/aghri_second_finetune/checkpoints/generic/second_hv_secfpn_8xb6-80e_kitti-3d-3class-b086d0a3.pth
+07/11 18:34:25 - mmengine - WARNING - "FileClient" will be deprecated in future. Please use io functions in https://mmengine.readthedocs.io/en/latest/api/fileio.html#file-io
+07/11 18:34:25 - mmengine - WARNING - "HardDiskBackend" is the alias of "LocalBackend" and the former will be deprecated in future.
+07/11 18:34:25 - mmengine - INFO - Checkpoints will be saved to /work/users/pwariyapperuma/aghri_second_finetune/outputs/second_aghri_seed42/smoke.
+07/11 18:34:32 - mmengine - INFO - Epoch(train) [1][  50/2853]  lr: 1.8000e-03  eta: 0:06:17  time: 0.1346  data_time: 0.0181  memory: 1337  grad_norm: 2.2955  loss: 1.7281  loss_cls: 0.5726  loss_bbox: 1.1038  loss_dir: 0.0517
+07/11 18:34:35 - mmengine - INFO - Epoch(train) [1][ 100/2853]  lr: 1.8002e-03  eta: 0:04:26  time: 0.0590  data_time: 0.0033  memory: 379  grad_norm: 4.1876  loss: 1.6839  loss_cls: 0.4724  loss_bbox: 1.1989  loss_dir: 0.0125
+07/11 18:34:37 - mmengine - INFO - Epoch(train) [1][ 150/2853]  lr: 1.8004e-03  eta: 0:03:47  time: 0.0589  data_time: 0.0032  memory: 376  grad_norm: 5.0021  loss: 1.2279  loss_cls: 0.3415  loss_bbox: 0.8813  loss_dir: 0.0051
+07/11 18:34:40 - mmengine - INFO - Epoch(train) [1][ 200/2853]  lr: 1.8008e-03  eta: 0:03:26  time: 0.0586  data_time: 0.0033  memory: 384  grad_norm: 4.6254  loss: 1.0892  loss_cls: 0.2781  loss_bbox: 0.8102  loss_dir: 0.0008
+07/11 18:34:43 - mmengine - INFO - Epoch(train) [1][ 250/2853]  lr: 1.8012e-03  eta: 0:03:12  time: 0.0587  data_time: 0.0032  memory: 380  grad_norm: 4.7022  loss: 1.1199  loss_cls: 0.2516  loss_bbox: 0.8675  loss_dir: 0.0008
+07/11 18:34:46 - mmengine - INFO - Epoch(train) [1][ 300/2853]  lr: 1.8017e-03  eta: 0:03:02  time: 0.0592  data_time: 0.0032  memory: 382  grad_norm: 4.8605  loss: 1.0416  loss_cls: 0.2338  loss_bbox: 0.8073  loss_dir: 0.0004
+07/11 18:34:49 - mmengine - INFO - Epoch(train) [1][ 350/2853]  lr: 1.8023e-03  eta: 0:02:54  time: 0.0589  data_time: 0.0032  memory: 386  grad_norm: 5.0059  loss: 1.1536  loss_cls: 0.2160  loss_bbox: 0.9371  loss_dir: 0.0004
+07/11 18:34:52 - mmengine - INFO - Epoch(train) [1][ 400/2853]  lr: 1.8031e-03  eta: 0:02:48  time: 0.0612  data_time: 0.0054  memory: 374  grad_norm: 4.3641  loss: 0.9411  loss_cls: 0.2031  loss_bbox: 0.7324  loss_dir: 0.0056
+07/11 18:34:55 - mmengine - INFO - Epoch(train) [1][ 450/2853]  lr: 1.8039e-03  eta: 0:02:42  time: 0.0586  data_time: 0.0032  memory: 381  grad_norm: 4.5408  loss: 0.9662  loss_cls: 0.1845  loss_bbox: 0.7755  loss_dir: 0.0062
+07/11 18:34:58 - mmengine - INFO - Epoch(train) [1][ 500/2853]  lr: 1.8048e-03  eta: 0:02:36  time: 0.0587  data_time: 0.0032  memory: 388  grad_norm: 3.9167  loss: 0.8533  loss_cls: 0.1765  loss_bbox: 0.6698  loss_dir: 0.0070
+07/11 18:35:01 - mmengine - INFO - Epoch(train) [1][ 550/2853]  lr: 1.8058e-03  eta: 0:02:31  time: 0.0585  data_time: 0.0032  memory: 384  grad_norm: 4.2148  loss: 0.7742  loss_cls: 0.1484  loss_bbox: 0.6211  loss_dir: 0.0047
+07/11 18:35:04 - mmengine - INFO - Epoch(train) [1][ 600/2853]  lr: 1.8069e-03  eta: 0:02:27  time: 0.0591  data_time: 0.0032  memory: 376  grad_norm: 4.1859  loss: 0.9042  loss_cls: 0.1674  loss_bbox: 0.7360  loss_dir: 0.0007
+07/11 18:35:07 - mmengine - INFO - Epoch(train) [1][ 650/2853]  lr: 1.8081e-03  eta: 0:02:22  time: 0.0589  data_time: 0.0032  memory: 388  grad_norm: 4.1458  loss: 0.8467  loss_cls: 0.1559  loss_bbox: 0.6810  loss_dir: 0.0097
+07/11 18:35:10 - mmengine - INFO - Epoch(train) [1][ 700/2853]  lr: 1.8094e-03  eta: 0:02:18  time: 0.0592  data_time: 0.0032  memory: 377  grad_norm: 3.9828  loss: 0.8272  loss_cls: 0.1588  loss_bbox: 0.6654  loss_dir: 0.0030
+07/11 18:35:13 - mmengine - INFO - Epoch(train) [1][ 750/2853]  lr: 1.8108e-03  eta: 0:02:14  time: 0.0591  data_time: 0.0032  memory: 375  grad_norm: 3.9241  loss: 0.8543  loss_cls: 0.1502  loss_bbox: 0.7033  loss_dir: 0.0008
+07/11 18:35:16 - mmengine - INFO - Epoch(train) [1][ 800/2853]  lr: 1.8122e-03  eta: 0:02:11  time: 0.0611  data_time: 0.0043  memory: 384  grad_norm: 3.9689  loss: 0.8093  loss_cls: 0.1647  loss_bbox: 0.6409  loss_dir: 0.0038
+07/11 18:35:19 - mmengine - INFO - Epoch(train) [1][ 850/2853]  lr: 1.8138e-03  eta: 0:02:07  time: 0.0588  data_time: 0.0032  memory: 383  grad_norm: 3.6762  loss: 0.8286  loss_cls: 0.1695  loss_bbox: 0.6551  loss_dir: 0.0040
+07/11 18:35:22 - mmengine - INFO - Epoch(train) [1][ 900/2853]  lr: 1.8155e-03  eta: 0:02:03  time: 0.0601  data_time: 0.0033  memory: 393  grad_norm: 3.6808  loss: 0.8183  loss_cls: 0.1463  loss_bbox: 0.6715  loss_dir: 0.0006
+07/11 18:35:25 - mmengine - INFO - Epoch(train) [1][ 950/2853]  lr: 1.8173e-03  eta: 0:02:00  time: 0.0590  data_time: 0.0032  memory: 381  grad_norm: 3.9107  loss: 0.8304  loss_cls: 0.1502  loss_bbox: 0.6744  loss_dir: 0.0058
+07/11 18:35:28 - mmengine - INFO - Exp name: second_aghri_finetune_seed42_20260711_183417
+07/11 18:35:28 - mmengine - INFO - Epoch(train) [1][1000/2853]  lr: 1.8191e-03  eta: 0:01:56  time: 0.0591  data_time: 0.0032  memory: 384  grad_norm: 3.6703  loss: 0.8324  loss_cls: 0.1668  loss_bbox: 0.6651  loss_dir: 0.0005
+07/11 18:35:31 - mmengine - INFO - Epoch(train) [1][1050/2853]  lr: 1.8211e-03  eta: 0:01:53  time: 0.0585  data_time: 0.0032  memory: 375  grad_norm: 3.5059  loss: 0.7630  loss_cls: 0.1472  loss_bbox: 0.6062  loss_dir: 0.0096
+07/11 18:35:34 - mmengine - INFO - Epoch(train) [1][1100/2853]  lr: 1.8232e-03  eta: 0:01:49  time: 0.0588  data_time: 0.0032  memory: 385  grad_norm: 3.4619  loss: 0.7265  loss_cls: 0.1432  loss_bbox: 0.5829  loss_dir: 0.0004
+07/11 18:35:37 - mmengine - INFO - Epoch(train) [1][1150/2853]  lr: 1.8253e-03  eta: 0:01:46  time: 0.0580  data_time: 0.0032  memory: 382  grad_norm: 3.3367  loss: 0.6525  loss_cls: 0.1262  loss_bbox: 0.5204  loss_dir: 0.0059
+07/11 18:35:40 - mmengine - INFO - Epoch(train) [1][1200/2853]  lr: 1.8276e-03  eta: 0:01:42  time: 0.0587  data_time: 0.0032  memory: 382  grad_norm: 3.7344  loss: 0.8379  loss_cls: 0.1501  loss_bbox: 0.6872  loss_dir: 0.0006
+07/11 18:35:42 - mmengine - INFO - Epoch(train) [1][1250/2853]  lr: 1.8299e-03  eta: 0:01:39  time: 0.0587  data_time: 0.0032  memory: 385  grad_norm: 3.5757  loss: 0.7751  loss_cls: 0.1531  loss_bbox: 0.6215  loss_dir: 0.0005
+07/11 18:35:45 - mmengine - INFO - Epoch(train) [1][1300/2853]  lr: 1.8323e-03  eta: 0:01:36  time: 0.0582  data_time: 0.0032  memory: 381  grad_norm: 3.3939  loss: 0.7552  loss_cls: 0.1246  loss_bbox: 0.6303  loss_dir: 0.0003
+07/11 18:35:48 - mmengine - INFO - Epoch(train) [1][1350/2853]  lr: 1.8349e-03  eta: 0:01:32  time: 0.0582  data_time: 0.0032  memory: 388  grad_norm: 3.3267  loss: 0.7799  loss_cls: 0.1409  loss_bbox: 0.6387  loss_dir: 0.0003
+07/11 18:35:51 - mmengine - INFO - Epoch(train) [1][1400/2853]  lr: 1.8375e-03  eta: 0:01:29  time: 0.0595  data_time: 0.0032  memory: 389  grad_norm: 3.3080  loss: 0.7659  loss_cls: 0.1325  loss_bbox: 0.6290  loss_dir: 0.0043
+07/11 18:35:54 - mmengine - INFO - Epoch(train) [1][1450/2853]  lr: 1.8402e-03  eta: 0:01:26  time: 0.0587  data_time: 0.0032  memory: 383  grad_norm: 3.5475  loss: 0.8195  loss_cls: 0.1280  loss_bbox: 0.6865  loss_dir: 0.0050
+07/11 18:35:57 - mmengine - INFO - Epoch(train) [1][1500/2853]  lr: 1.8431e-03  eta: 0:01:23  time: 0.0587  data_time: 0.0032  memory: 385  grad_norm: 3.4707  loss: 0.8149  loss_cls: 0.1321  loss_bbox: 0.6776  loss_dir: 0.0052
+07/11 18:36:00 - mmengine - INFO - Epoch(train) [1][1550/2853]  lr: 1.8460e-03  eta: 0:01:20  time: 0.0587  data_time: 0.0032  memory: 385  grad_norm: 3.2969  loss: 0.7399  loss_cls: 0.1333  loss_bbox: 0.6062  loss_dir: 0.0004
+07/11 18:36:03 - mmengine - INFO - Epoch(train) [1][1600/2853]  lr: 1.8490e-03  eta: 0:01:16  time: 0.0587  data_time: 0.0032  memory: 377  grad_norm: 3.1508  loss: 0.7464  loss_cls: 0.1409  loss_bbox: 0.6052  loss_dir: 0.0003
+07/11 18:36:06 - mmengine - INFO - Epoch(train) [1][1650/2853]  lr: 1.8521e-03  eta: 0:01:13  time: 0.0584  data_time: 0.0032  memory: 387  grad_norm: 3.3896  loss: 0.8671  loss_cls: 0.1378  loss_bbox: 0.7046  loss_dir: 0.0247
+07/11 18:36:09 - mmengine - INFO - Epoch(train) [1][1700/2853]  lr: 1.8553e-03  eta: 0:01:10  time: 0.0590  data_time: 0.0032  memory: 384  grad_norm: 3.3267  loss: 0.7120  loss_cls: 0.1209  loss_bbox: 0.5907  loss_dir: 0.0004
+07/11 18:36:12 - mmengine - INFO - Epoch(train) [1][1750/2853]  lr: 1.8586e-03  eta: 0:01:07  time: 0.0585  data_time: 0.0032  memory: 380  grad_norm: 2.9382  loss: 0.7011  loss_cls: 0.1326  loss_bbox: 0.5567  loss_dir: 0.0118
+07/11 18:36:15 - mmengine - INFO - Epoch(train) [1][1800/2853]  lr: 1.8620e-03  eta: 0:01:04  time: 0.0586  data_time: 0.0032  memory: 378  grad_norm: 3.2015  loss: 0.7187  loss_cls: 0.1162  loss_bbox: 0.5978  loss_dir: 0.0046
+07/11 18:36:18 - mmengine - INFO - Epoch(train) [1][1850/2853]  lr: 1.8655e-03  eta: 0:01:01  time: 0.0590  data_time: 0.0033  memory: 386  grad_norm: 3.2491  loss: 0.8143  loss_cls: 0.1276  loss_bbox: 0.6861  loss_dir: 0.0007
+07/11 18:36:21 - mmengine - INFO - Epoch(train) [1][1900/2853]  lr: 1.8691e-03  eta: 0:00:58  time: 0.0588  data_time: 0.0034  memory: 388  grad_norm: 3.0565  loss: 0.6731  loss_cls: 0.1119  loss_bbox: 0.5555  loss_dir: 0.0057
+07/11 18:36:24 - mmengine - INFO - Epoch(train) [1][1950/2853]  lr: 1.8728e-03  eta: 0:00:54  time: 0.0592  data_time: 0.0034  memory: 389  grad_norm: 3.0798  loss: 0.7553  loss_cls: 0.1368  loss_bbox: 0.6177  loss_dir: 0.0008
+07/11 18:36:27 - mmengine - INFO - Exp name: second_aghri_finetune_seed42_20260711_183417
+07/11 18:36:27 - mmengine - INFO - Epoch(train) [1][2000/2853]  lr: 1.8765e-03  eta: 0:00:51  time: 0.0590  data_time: 0.0034  memory: 393  grad_norm: 3.1382  loss: 0.6932  loss_cls: 0.1032  loss_bbox: 0.5823  loss_dir: 0.0076
+07/11 18:36:29 - mmengine - INFO - Epoch(train) [1][2050/2853]  lr: 1.8804e-03  eta: 0:00:48  time: 0.0587  data_time: 0.0033  memory: 384  grad_norm: 2.9989  loss: 0.7417  loss_cls: 0.1237  loss_bbox: 0.6121  loss_dir: 0.0060
+07/11 18:36:32 - mmengine - INFO - Epoch(train) [1][2100/2853]  lr: 1.8844e-03  eta: 0:00:45  time: 0.0587  data_time: 0.0033  memory: 386  grad_norm: 3.1328  loss: 0.7252  loss_cls: 0.1274  loss_bbox: 0.5971  loss_dir: 0.0007
+07/11 18:36:35 - mmengine - INFO - Epoch(train) [1][2150/2853]  lr: 1.8884e-03  eta: 0:00:42  time: 0.0584  data_time: 0.0032  memory: 378  grad_norm: 2.9598  loss: 0.6347  loss_cls: 0.1227  loss_bbox: 0.5115  loss_dir: 0.0005
+07/11 18:36:38 - mmengine - INFO - Epoch(train) [1][2200/2853]  lr: 1.8926e-03  eta: 0:00:39  time: 0.0588  data_time: 0.0032  memory: 385  grad_norm: 2.8417  loss: 0.7518  loss_cls: 0.1300  loss_bbox: 0.6170  loss_dir: 0.0048
+07/11 18:36:41 - mmengine - INFO - Epoch(train) [1][2250/2853]  lr: 1.8968e-03  eta: 0:00:36  time: 0.0587  data_time: 0.0032  memory: 383  grad_norm: 3.0809  loss: 0.7545  loss_cls: 0.1499  loss_bbox: 0.6040  loss_dir: 0.0006
+07/11 18:36:44 - mmengine - INFO - Epoch(train) [1][2300/2853]  lr: 1.9012e-03  eta: 0:00:33  time: 0.0586  data_time: 0.0032  memory: 377  grad_norm: 2.9827  loss: 0.7281  loss_cls: 0.1330  loss_bbox: 0.5947  loss_dir: 0.0004
+07/11 18:36:47 - mmengine - INFO - Epoch(train) [1][2350/2853]  lr: 1.9056e-03  eta: 0:00:30  time: 0.0586  data_time: 0.0033  memory: 385  grad_norm: 2.8810  loss: 0.6451  loss_cls: 0.1125  loss_bbox: 0.5324  loss_dir: 0.0003
+07/11 18:36:50 - mmengine - INFO - Epoch(train) [1][2400/2853]  lr: 1.9102e-03  eta: 0:00:27  time: 0.0586  data_time: 0.0033  memory: 379  grad_norm: 3.0531  loss: 0.7311  loss_cls: 0.1110  loss_bbox: 0.6100  loss_dir: 0.0102
+07/11 18:36:53 - mmengine - INFO - Epoch(train) [1][2450/2853]  lr: 1.9148e-03  eta: 0:00:24  time: 0.0588  data_time: 0.0032  memory: 385  grad_norm: 3.0316  loss: 0.7259  loss_cls: 0.1102  loss_bbox: 0.6091  loss_dir: 0.0067
+07/11 18:36:56 - mmengine - INFO - Epoch(train) [1][2500/2853]  lr: 1.9195e-03  eta: 0:00:21  time: 0.0593  data_time: 0.0032  memory: 378  grad_norm: 2.8731  loss: 0.6223  loss_cls: 0.0975  loss_bbox: 0.5244  loss_dir: 0.0003
+07/11 18:36:59 - mmengine - INFO - Epoch(train) [1][2550/2853]  lr: 1.9243e-03  eta: 0:00:18  time: 0.0589  data_time: 0.0032  memory: 379  grad_norm: 3.0153  loss: 0.6999  loss_cls: 0.1279  loss_bbox: 0.5661  loss_dir: 0.0059
+07/11 18:37:02 - mmengine - INFO - Epoch(train) [1][2600/2853]  lr: 1.9292e-03  eta: 0:00:15  time: 0.0592  data_time: 0.0032  memory: 387  grad_norm: 2.9205  loss: 0.6516  loss_cls: 0.1130  loss_bbox: 0.5382  loss_dir: 0.0004
+07/11 18:37:05 - mmengine - INFO - Epoch(train) [1][2650/2853]  lr: 1.9342e-03  eta: 0:00:12  time: 0.0593  data_time: 0.0032  memory: 376  grad_norm: 3.1694  loss: 0.7951  loss_cls: 0.1257  loss_bbox: 0.6616  loss_dir: 0.0078
+07/11 18:37:08 - mmengine - INFO - Epoch(train) [1][2700/2853]  lr: 1.9393e-03  eta: 0:00:09  time: 0.0596  data_time: 0.0032  memory: 385  grad_norm: 2.8643  loss: 0.7197  loss_cls: 0.1281  loss_bbox: 0.5912  loss_dir: 0.0005
+07/11 18:37:11 - mmengine - INFO - Epoch(train) [1][2750/2853]  lr: 1.9445e-03  eta: 0:00:06  time: 0.0589  data_time: 0.0032  memory: 381  grad_norm: 2.7468  loss: 0.6408  loss_cls: 0.1070  loss_bbox: 0.5309  loss_dir: 0.0029
+07/11 18:37:14 - mmengine - INFO - Epoch(train) [1][2800/2853]  lr: 1.9498e-03  eta: 0:00:03  time: 0.0585  data_time: 0.0032  memory: 373  grad_norm: 2.6704  loss: 0.6225  loss_cls: 0.1175  loss_bbox: 0.5046  loss_dir: 0.0004
+07/11 18:37:17 - mmengine - INFO - Epoch(train) [1][2850/2853]  lr: 1.9552e-03  eta: 0:00:00  time: 0.0589  data_time: 0.0032  memory: 375  grad_norm: 2.9317  loss: 0.6745  loss_cls: 0.1130  loss_bbox: 0.5538  loss_dir: 0.0077
+07/11 18:37:17 - mmengine - INFO - Exp name: second_aghri_finetune_seed42_20260711_183417
+07/11 18:37:17 - mmengine - INFO - Saving checkpoint at 1 epochs
+07/11 18:37:18 - mmengine - INFO - Epoch(val) [1][  50/1201]    eta: 0:00:27  time: 0.0235  data_time: 0.0080  memory: 1304  
+07/11 18:37:19 - mmengine - INFO - Epoch(val) [1][ 100/1201]    eta: 0:00:21  time: 0.0149  data_time: 0.0007  memory: 97  
+07/11 18:37:20 - mmengine - INFO - Epoch(val) [1][ 150/1201]    eta: 0:00:18  time: 0.0148  data_time: 0.0007  memory: 96  
+07/11 18:37:21 - mmengine - INFO - Epoch(val) [1][ 200/1201]    eta: 0:00:17  time: 0.0150  data_time: 0.0007  memory: 96  
+07/11 18:37:21 - mmengine - INFO - Epoch(val) [1][ 250/1201]    eta: 0:00:15  time: 0.0151  data_time: 0.0007  memory: 93  
+07/11 18:37:22 - mmengine - INFO - Epoch(val) [1][ 300/1201]    eta: 0:00:14  time: 0.0152  data_time: 0.0009  memory: 93  
+07/11 18:37:23 - mmengine - INFO - Epoch(val) [1][ 350/1201]    eta: 0:00:13  time: 0.0150  data_time: 0.0007  memory: 94  
+07/11 18:37:24 - mmengine - INFO - Epoch(val) [1][ 400/1201]    eta: 0:00:12  time: 0.0148  data_time: 0.0007  memory: 95  
+07/11 18:37:24 - mmengine - INFO - Epoch(val) [1][ 450/1201]    eta: 0:00:11  time: 0.0145  data_time: 0.0007  memory: 96  
+07/11 18:37:25 - mmengine - INFO - Epoch(val) [1][ 500/1201]    eta: 0:00:11  time: 0.0146  data_time: 0.0007  memory: 95  
+07/11 18:37:26 - mmengine - INFO - Epoch(val) [1][ 550/1201]    eta: 0:00:10  time: 0.0150  data_time: 0.0007  memory: 97  
+07/11 18:37:27 - mmengine - INFO - Epoch(val) [1][ 600/1201]    eta: 0:00:09  time: 0.0148  data_time: 0.0007  memory: 99  
+07/11 18:37:27 - mmengine - INFO - Epoch(val) [1][ 650/1201]    eta: 0:00:08  time: 0.0146  data_time: 0.0008  memory: 98  
+07/11 18:37:28 - mmengine - INFO - Epoch(val) [1][ 700/1201]    eta: 0:00:07  time: 0.0144  data_time: 0.0007  memory: 96  
+07/11 18:37:29 - mmengine - INFO - Epoch(val) [1][ 750/1201]    eta: 0:00:06  time: 0.0144  data_time: 0.0007  memory: 96  
+07/11 18:37:30 - mmengine - INFO - Epoch(val) [1][ 800/1201]    eta: 0:00:06  time: 0.0146  data_time: 0.0007  memory: 97  
+07/11 18:37:30 - mmengine - INFO - Epoch(val) [1][ 850/1201]    eta: 0:00:05  time: 0.0152  data_time: 0.0008  memory: 100  
+07/11 18:37:31 - mmengine - INFO - Epoch(val) [1][ 900/1201]    eta: 0:00:04  time: 0.0158  data_time: 0.0007  memory: 100  
+07/11 18:37:32 - mmengine - INFO - Epoch(val) [1][ 950/1201]    eta: 0:00:03  time: 0.0159  data_time: 0.0007  memory: 100  
+07/11 18:37:33 - mmengine - INFO - Epoch(val) [1][1000/1201]    eta: 0:00:03  time: 0.0157  data_time: 0.0007  memory: 99  
+07/11 18:37:34 - mmengine - INFO - Epoch(val) [1][1050/1201]    eta: 0:00:02  time: 0.0155  data_time: 0.0008  memory: 96  
+07/11 18:37:34 - mmengine - INFO - Epoch(val) [1][1100/1201]    eta: 0:00:01  time: 0.0155  data_time: 0.0007  memory: 96  
+07/11 18:37:35 - mmengine - INFO - Epoch(val) [1][1150/1201]    eta: 0:00:00  time: 0.0155  data_time: 0.0008  memory: 99  
+07/11 18:37:36 - mmengine - INFO - Epoch(val) [1][1200/1201]    eta: 0:00:00  time: 0.0156  data_time: 0.0008  memory: 99  
+07/11 18:37:37 - mmengine - INFO - Epoch(val) [1][1201/1201]    aghri/num_predictions: 1201  aghri/num_pred_samples: 655  aghri/num_gt_samples: 1201  aghri/num_pred_sample_matches: 655  aghri/num_gt_instances: 2314  aghri/person_bev_ap_0.25: 0.3602  aghri/person_bev_precision_0.25: 0.7319  aghri/person_bev_recall_0.25: 0.3799  aghri/person_bev_f1_0.25: 0.5001  aghri/person_3d_ap_0.25: 0.3439  aghri/person_3d_precision_0.25: 0.7077  aghri/person_3d_recall_0.25: 0.3673  aghri/person_3d_f1_0.25: 0.4836  aghri/person_bev_ap_0.50: 0.1845  aghri/person_bev_precision_0.50: 0.4313  aghri/person_bev_recall_0.50: 0.2239  aghri/person_bev_f1_0.50: 0.2947  aghri/person_3d_ap_0.50: 0.1297  aghri/person_3d_precision_0.50: 0.3297  aghri/person_3d_recall_0.50: 0.1711  aghri/person_3d_f1_0.50: 0.2253  aghri/person_bev_ap_0.75: 0.0085  aghri/person_bev_precision_0.75: 0.0624  aghri/person_bev_recall_0.75: 0.0324  aghri/person_bev_f1_0.75: 0.0427  aghri/person_3d_ap_0.75: 0.0009  aghri/person_3d_precision_0.75: 0.0142  aghri/person_3d_recall_0.75: 0.0073  aghri/person_3d_f1_0.75: 0.0097  aghri/bev_ap_0.25: 0.3602  aghri/bev_precision_0.25: 0.7319  aghri/bev_recall_0.25: 0.3799  aghri/bev_f1_0.25: 0.5001  aghri/3d_ap_0.25: 0.3439  aghri/3d_precision_0.25: 0.7077  aghri/3d_recall_0.25: 0.3673  aghri/3d_f1_0.25: 0.4836  aghri/bev_ap_0.50: 0.1845  aghri/bev_precision_0.50: 0.4313  aghri/bev_recall_0.50: 0.2239  aghri/bev_f1_0.50: 0.2947  aghri/3d_ap_0.50: 0.1297  aghri/3d_precision_0.50: 0.3297  aghri/3d_recall_0.50: 0.1711  aghri/3d_f1_0.50: 0.2253  aghri/bev_ap_0.75: 0.0085  aghri/bev_precision_0.75: 0.0624  aghri/bev_recall_0.75: 0.0324  aghri/bev_f1_0.75: 0.0427  aghri/3d_ap_0.75: 0.0009  aghri/3d_precision_0.75: 0.0142  aghri/3d_recall_0.75: 0.0073  aghri/3d_f1_0.75: 0.0097  aghri/bev_ap_mean: 0.1844  aghri/bev_precision_mean: 0.4085  aghri/bev_recall_mean: 0.2120  aghri/bev_f1_mean: 0.2792  aghri/3d_ap_mean: 0.1581  aghri/3d_precision_mean: 0.3505  aghri/3d_recall_mean: 0.1819  aghri/3d_f1_mean: 0.2395  data_time: 0.0010  time: 0.0154
+07/11 18:37:37 - mmengine - INFO - The best checkpoint with 0.1844 aghri/bev_ap_mean at 1 epoch is saved to best_aghri_bev_ap_mean_epoch_1.pth.
+07/11 18:37:38 - mmengine - INFO - 
+------------------------------------------------------------
+System environment:
+    sys.platform: linux
+    Python: 3.8.20 (default, Oct  3 2024, 15:24:27) [GCC 11.2.0]
+    CUDA available: True
+    MUSA available: False
+    numpy_random_seed: 42
+    GPU 0: NVIDIA A100-SXM4-80GB
+    CUDA_HOME: /usr/local/cuda
+    NVCC: Cuda compilation tools, release 11.3, V11.3.109
+    GCC: gcc (Ubuntu 9.4.0-1ubuntu1~20.04.2) 9.4.0
+    PyTorch: 1.10.1
+    PyTorch compiling details: PyTorch built with:
+  - GCC 7.3
+  - C++ Version: 201402
+  - Intel(R) oneAPI Math Kernel Library Version 2023.1-Product Build 20230303 for Intel(R) 64 architecture applications
+  - Intel(R) MKL-DNN v2.2.3 (Git Hash 7336ca9f055cf1bfa13efb658fe15dc9b41f0740)
+  - OpenMP 201511 (a.k.a. OpenMP 4.5)
+  - LAPACK is enabled (usually provided by MKL)
+  - NNPACK is enabled
+  - CPU capability usage: AVX2
+  - CUDA Runtime 11.3
+  - NVCC architecture flags: -gencode;arch=compute_37,code=sm_37;-gencode;arch=compute_50,code=sm_50;-gencode;arch=compute_60,code=sm_60;-gencode;arch=compute_61,code=sm_61;-gencode;arch=compute_70,code=sm_70;-gencode;arch=compute_75,code=sm_75;-gencode;arch=compute_80,code=sm_80;-gencode;arch=compute_86,code=sm_86;-gencode;arch=compute_37,code=compute_37
+  - CuDNN 8.2
+  - Magma 2.5.2
+  - Build settings: BLAS_INFO=mkl, BUILD_TYPE=Release, CUDA_VERSION=11.3, CUDNN_VERSION=8.2.0, CXX_COMPILER=/opt/rh/devtoolset-7/root/usr/bin/c++, CXX_FLAGS= -Wno-deprecated -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -fopenmp -DNDEBUG -DUSE_KINETO -DUSE_FBGEMM -DUSE_QNNPACK -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -DEDGE_PROFILER_USE_KINETO -O2 -fPIC -Wno-narrowing -Wall -Wextra -Werror=return-type -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wno-unused-function -Wno-unused-result -Wno-unused-local-typedefs -Wno-strict-overflow -Wno-strict-aliasing -Wno-error=deprecated-declarations -Wno-stringop-overflow -Wno-psabi -Wno-error=pedantic -Wno-error=redundant-decls -Wno-error=old-style-cast -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow, LAPACK_INFO=mkl, PERF_WITH_AVX=1, PERF_WITH_AVX2=1, PERF_WITH_AVX512=1, TORCH_VERSION=1.10.1, USE_CUDA=ON, USE_CUDNN=ON, USE_EXCEPTION_PTR=1, USE_GFLAGS=OFF, USE_GLOG=OFF, USE_MKL=ON, USE_MKLDNN=ON, USE_MPI=OFF, USE_NCCL=ON, USE_NNPACK=ON, USE_OPENMP=ON, 
+
+    TorchVision: 0.11.2
+    OpenCV: 4.12.0
+    MMEngine: 0.10.7
+
+Runtime environment:
+    cudnn_benchmark: True
+    mp_cfg: {'mp_start_method': 'fork', 'opencv_num_threads': 0}
+    dist_cfg: {'backend': 'nccl'}
+    seed: 42
+    Distributed launcher: none
+    Distributed training: False
+    GPU number: 1
+------------------------------------------------------------
+
+07/11 18:37:38 - mmengine - INFO - Config:
+anchor_bottom_height = 0.33
+anchor_size = [
+    0.46,
+    0.57,
+    1.5,
+]
+auto_scale_lr = dict(base_batch_size=48, enable=False)
+backend_args = None
+class_names = [
+    'person',
+]
+custom_imports = dict(
+    allow_failed_imports=False, imports=[
+        'aghri3d',
+    ])
+data_root = '/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d'
+dataset_type = 'AghriLidarDataset'
+default_hooks = dict(
+    checkpoint=dict(
+        _scope_='mmdet3d',
+        interval=1,
+        max_keep_ckpts=1,
+        rule='greater',
+        save_best='aghri/bev_ap_mean',
+        type='CheckpointHook'),
+    logger=dict(_scope_='mmdet3d', interval=50, type='LoggerHook'),
+    param_scheduler=dict(_scope_='mmdet3d', type='ParamSchedulerHook'),
+    sampler_seed=dict(_scope_='mmdet3d', type='DistSamplerSeedHook'),
+    timer=dict(_scope_='mmdet3d', type='IterTimerHook'))
+default_scope = 'mmdet3d'
+device = 'cuda:0'
+env_cfg = dict(
+    cudnn_benchmark=True,
+    dist_cfg=dict(backend='nccl'),
+    mp_cfg=dict(mp_start_method='fork', opencv_num_threads=0))
+epoch_num = 80
+eval_pipeline = [
+    dict(
+        backend_args=None,
+        coord_type='LIDAR',
+        load_dim=4,
+        type='LoadPointsFromFile',
+        use_dim=4),
+    dict(
+        point_cloud_range=[
+            -10.24,
+            -10.24,
+            -2.0,
+            25.6,
+            10.24,
+            3.0,
+        ],
+        type='PointsRangeFilter'),
+    dict(
+        keys=[
+            'points',
+        ],
+        meta_keys=(
+            'lidar_path',
+            'sample_idx',
+            'box_type_3d',
+            'box_mode_3d',
+        ),
+        type='Pack3DDetInputs'),
+]
+input_modality = dict(use_camera=False, use_lidar=True)
+launcher = 'none'
+load_from = '/work/users/pwariyapperuma/aghri_second_finetune/outputs/second_aghri_seed42/smoke/best_aghri_bev_ap_mean_epoch_1.pth'
+log_level = 'INFO'
+log_processor = dict(
+    _scope_='mmdet3d', by_epoch=True, type='LogProcessor', window_size=50)
+lr = 0.0018
+metainfo = dict(classes=[
+    'person',
+])
+model = dict(
+    _scope_='mmdet3d',
+    backbone=dict(
+        in_channels=256,
+        layer_nums=[
+            5,
+            5,
+        ],
+        layer_strides=[
+            1,
+            2,
+        ],
+        out_channels=[
+            128,
+            256,
+        ],
+        type='SECOND'),
+    bbox_head=dict(
+        anchor_generator=dict(
+            ranges=[
+                [
+                    -10.24,
+                    -10.24,
+                    0.33,
+                    25.6,
+                    10.24,
+                    0.33,
+                ],
+            ],
+            reshape_out=False,
+            rotations=[
+                0,
+                1.57,
+            ],
+            sizes=[
+                [
+                    0.46,
+                    0.57,
+                    1.5,
+                ],
+            ],
+            type='Anchor3DRangeGenerator'),
+        bbox_coder=dict(type='DeltaXYZWLHRBBoxCoder'),
+        diff_rad_by_sin=True,
+        feat_channels=512,
+        in_channels=512,
+        loss_bbox=dict(
+            beta=0.1111111111111111,
+            loss_weight=2.0,
+            type='mmdet.SmoothL1Loss'),
+        loss_cls=dict(
+            alpha=0.25,
+            gamma=2.0,
+            loss_weight=1.0,
+            type='mmdet.FocalLoss',
+            use_sigmoid=True),
+        loss_dir=dict(
+            loss_weight=0.2, type='mmdet.CrossEntropyLoss', use_sigmoid=False),
+        num_classes=1,
+        type='Anchor3DHead',
+        use_direction_classifier=True),
+    data_preprocessor=dict(
+        type='Det3DDataPreprocessor',
+        voxel=True,
+        voxel_layer=dict(
+            max_num_points=10,
+            max_voxels=(
+                20000,
+                24000,
+            ),
+            point_cloud_range=[
+                -10.24,
+                -10.24,
+                -2.0,
+                25.6,
+                10.24,
+                3.0,
+            ],
+            voxel_size=[
+                0.08,
+                0.08,
+                0.1,
+            ])),
+    middle_encoder=dict(
+        in_channels=4,
+        order=(
+            'conv',
+            'norm',
+            'act',
+        ),
+        sparse_shape=[
+            51,
+            256,
+            448,
+        ],
+        type='SparseEncoder'),
+    neck=dict(
+        in_channels=[
+            128,
+            256,
+        ],
+        out_channels=[
+            256,
+            256,
+        ],
+        type='SECONDFPN',
+        upsample_strides=[
+            1,
+            2,
+        ]),
+    test_cfg=dict(
+        max_num=100,
+        min_bbox_size=0,
+        nms_across_levels=False,
+        nms_pre=1000,
+        nms_thr=0.01,
+        score_thr=0.05,
+        use_rotate_nms=True),
+    train_cfg=dict(
+        allowed_border=0,
+        assigner=[
+            dict(
+                ignore_iof_thr=-1,
+                iou_calculator=dict(type='BboxOverlapsNearest3D'),
+                min_pos_iou=0.35,
+                neg_iou_thr=0.35,
+                pos_iou_thr=0.5,
+                type='Max3DIoUAssigner'),
+        ],
+        debug=False,
+        pos_weight=-1),
+    type='VoxelNet',
+    voxel_encoder=dict(type='HardSimpleVFE'))
+optim_wrapper = dict(
+    _scope_='mmdet3d',
+    clip_grad=dict(max_norm=10, norm_type=2),
+    optimizer=dict(
+        betas=(
+            0.95,
+            0.99,
+        ), lr=0.0018, type='AdamW', weight_decay=0.01),
+    type='OptimWrapper')
+param_scheduler = [
+    dict(
+        T_max=16,
+        _scope_='mmdet3d',
+        begin=0,
+        by_epoch=True,
+        convert_to_iter_based=True,
+        end=16,
+        eta_min=0.018,
+        type='CosineAnnealingLR'),
+    dict(
+        T_max=24,
+        _scope_='mmdet3d',
+        begin=16,
+        by_epoch=True,
+        convert_to_iter_based=True,
+        end=40,
+        eta_min=1.8e-07,
+        type='CosineAnnealingLR'),
+    dict(
+        T_max=16,
+        _scope_='mmdet3d',
+        begin=0,
+        by_epoch=True,
+        convert_to_iter_based=True,
+        end=16,
+        eta_min=0.8947368421052632,
+        type='CosineAnnealingMomentum'),
+    dict(
+        T_max=24,
+        _scope_='mmdet3d',
+        begin=16,
+        by_epoch=True,
+        convert_to_iter_based=True,
+        end=40,
+        eta_min=1,
+        type='CosineAnnealingMomentum'),
+]
+point_cloud_range = [
+    -10.24,
+    -10.24,
+    -2.0,
+    25.6,
+    10.24,
+    3.0,
+]
+randomness = dict(seed=42)
+resume = False
+test_cfg = dict()
+test_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        ann_file='infos/agri_person_infos_val.pkl',
+        backend_args=None,
+        box_type_3d='LiDAR',
+        data_prefix=dict(pts=''),
+        data_root=
+        '/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d',
+        metainfo=dict(classes=[
+            'person',
+        ]),
+        modality=dict(use_camera=False, use_lidar=True),
+        pipeline=[
+            dict(
+                backend_args=None,
+                coord_type='LIDAR',
+                load_dim=4,
+                type='LoadPointsFromFile',
+                use_dim=4),
+            dict(
+                point_cloud_range=[
+                    -10.24,
+                    -10.24,
+                    -2.0,
+                    25.6,
+                    10.24,
+                    3.0,
+                ],
+                type='PointsRangeFilter'),
+            dict(
+                keys=[
+                    'points',
+                ],
+                meta_keys=(
+                    'lidar_path',
+                    'sample_idx',
+                    'box_type_3d',
+                    'box_mode_3d',
+                ),
+                type='Pack3DDetInputs'),
+        ],
+        test_mode=True,
+        type='AghriLidarDataset'),
+    drop_last=False,
+    num_workers=2,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+test_evaluator = dict(
+    ann_file=
+    '/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d/infos/agri_person_infos_val.pkl',
+    iou_thresholds=[
+        0.25,
+        0.5,
+        0.75,
+    ],
+    score_thr=0.0,
+    type='Aghri3DMetric')
+test_pipeline = [
+    dict(
+        backend_args=None,
+        coord_type='LIDAR',
+        load_dim=4,
+        type='LoadPointsFromFile',
+        use_dim=4),
+    dict(
+        point_cloud_range=[
+            -10.24,
+            -10.24,
+            -2.0,
+            25.6,
+            10.24,
+            3.0,
+        ],
+        type='PointsRangeFilter'),
+    dict(
+        keys=[
+            'points',
+        ],
+        meta_keys=(
+            'lidar_path',
+            'sample_idx',
+            'box_type_3d',
+            'box_mode_3d',
+        ),
+        type='Pack3DDetInputs'),
+]
+train_cfg = dict(by_epoch=True, max_epochs=1, val_interval=1)
+train_dataloader = dict(
+    batch_size=4,
+    dataset=dict(
+        ann_file='infos/agri_person_infos_train.pkl',
+        backend_args=None,
+        box_type_3d='LiDAR',
+        data_prefix=dict(pts=''),
+        data_root=
+        '/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d',
+        metainfo=dict(classes=[
+            'person',
+        ]),
+        modality=dict(use_camera=False, use_lidar=True),
+        pipeline=[
+            dict(
+                backend_args=None,
+                coord_type='LIDAR',
+                load_dim=4,
+                type='LoadPointsFromFile',
+                use_dim=4),
+            dict(
+                type='LoadAnnotations3D',
+                with_bbox_3d=True,
+                with_label_3d=True),
+            dict(flip_ratio_bev_horizontal=0.5, type='RandomFlip3D'),
+            dict(
+                rot_range=[
+                    -0.39269908,
+                    0.39269908,
+                ],
+                scale_ratio_range=[
+                    0.95,
+                    1.05,
+                ],
+                translation_std=[
+                    0.0,
+                    0.0,
+                    0.0,
+                ],
+                type='GlobalRotScaleTrans'),
+            dict(
+                point_cloud_range=[
+                    -10.24,
+                    -10.24,
+                    -2.0,
+                    25.6,
+                    10.24,
+                    3.0,
+                ],
+                type='PointsRangeFilter'),
+            dict(
+                point_cloud_range=[
+                    -10.24,
+                    -10.24,
+                    -2.0,
+                    25.6,
+                    10.24,
+                    3.0,
+                ],
+                type='ObjectRangeFilter'),
+            dict(classes=[
+                'person',
+            ], type='ObjectNameFilter'),
+            dict(type='PointShuffle'),
+            dict(
+                keys=[
+                    'points',
+                    'gt_bboxes_3d',
+                    'gt_labels_3d',
+                ],
+                meta_keys=(
+                    'lidar_path',
+                    'sample_idx',
+                    'box_type_3d',
+                    'box_mode_3d',
+                ),
+                type='Pack3DDetInputs'),
+        ],
+        test_mode=False,
+        type='AghriLidarDataset'),
+    num_workers=4,
+    persistent_workers=True,
+    sampler=dict(shuffle=True, type='DefaultSampler'))
+train_pipeline = [
+    dict(
+        backend_args=None,
+        coord_type='LIDAR',
+        load_dim=4,
+        type='LoadPointsFromFile',
+        use_dim=4),
+    dict(type='LoadAnnotations3D', with_bbox_3d=True, with_label_3d=True),
+    dict(flip_ratio_bev_horizontal=0.5, type='RandomFlip3D'),
+    dict(
+        rot_range=[
+            -0.39269908,
+            0.39269908,
+        ],
+        scale_ratio_range=[
+            0.95,
+            1.05,
+        ],
+        translation_std=[
+            0.0,
+            0.0,
+            0.0,
+        ],
+        type='GlobalRotScaleTrans'),
+    dict(
+        point_cloud_range=[
+            -10.24,
+            -10.24,
+            -2.0,
+            25.6,
+            10.24,
+            3.0,
+        ],
+        type='PointsRangeFilter'),
+    dict(
+        point_cloud_range=[
+            -10.24,
+            -10.24,
+            -2.0,
+            25.6,
+            10.24,
+            3.0,
+        ],
+        type='ObjectRangeFilter'),
+    dict(classes=[
+        'person',
+    ], type='ObjectNameFilter'),
+    dict(type='PointShuffle'),
+    dict(
+        keys=[
+            'points',
+            'gt_bboxes_3d',
+            'gt_labels_3d',
+        ],
+        meta_keys=(
+            'lidar_path',
+            'sample_idx',
+            'box_type_3d',
+            'box_mode_3d',
+        ),
+        type='Pack3DDetInputs'),
+]
+val_cfg = dict()
+val_dataloader = dict(
+    batch_size=1,
+    dataset=dict(
+        ann_file='infos/agri_person_infos_val.pkl',
+        backend_args=None,
+        box_type_3d='LiDAR',
+        data_prefix=dict(pts=''),
+        data_root=
+        '/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d',
+        metainfo=dict(classes=[
+            'person',
+        ]),
+        modality=dict(use_camera=False, use_lidar=True),
+        pipeline=[
+            dict(
+                backend_args=None,
+                coord_type='LIDAR',
+                load_dim=4,
+                type='LoadPointsFromFile',
+                use_dim=4),
+            dict(
+                point_cloud_range=[
+                    -10.24,
+                    -10.24,
+                    -2.0,
+                    25.6,
+                    10.24,
+                    3.0,
+                ],
+                type='PointsRangeFilter'),
+            dict(
+                keys=[
+                    'points',
+                ],
+                meta_keys=(
+                    'lidar_path',
+                    'sample_idx',
+                    'box_type_3d',
+                    'box_mode_3d',
+                ),
+                type='Pack3DDetInputs'),
+        ],
+        test_mode=True,
+        type='AghriLidarDataset'),
+    drop_last=False,
+    num_workers=2,
+    persistent_workers=True,
+    sampler=dict(shuffle=False, type='DefaultSampler'))
+val_evaluator = dict(
+    ann_file=
+    '/work/users/pwariyapperuma/aghri_second_finetune/data/aghri_mmdet3d/infos/agri_person_infos_val.pkl',
+    iou_thresholds=[
+        0.25,
+        0.5,
+        0.75,
+    ],
+    score_thr=0.0,
+    type='Aghri3DMetric')
+vis_backends = []
+visualizer = None
+voxel_size = [
+    0.08,
+    0.08,
+    0.1,
+]
+work_dir = '/work/users/pwariyapperuma/aghri_second_finetune/outputs/second_aghri_seed42/smoke'
+
+07/11 18:37:38 - mmengine - INFO - Distributed training is not used, all SyncBatchNorm (SyncBN) layers in the model will be automatically reverted to BatchNormXd layers if they are used.
+07/11 18:37:38 - mmengine - INFO - Hooks will be executed in the following order:
+before_run:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+before_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_train_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(NORMAL      ) DistSamplerSeedHook                
+ -------------------- 
+before_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_train_iter:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_train_epoch:
+(NORMAL      ) IterTimerHook                      
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_val_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_val_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_val_iter:
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_val_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+(LOW         ) ParamSchedulerHook                 
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+after_val:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_train:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(VERY_LOW    ) CheckpointHook                     
+ -------------------- 
+before_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+before_test_epoch:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+before_test_iter:
+(NORMAL      ) IterTimerHook                      
+ -------------------- 
+after_test_iter:
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test_epoch:
+(VERY_HIGH   ) RuntimeInfoHook                    
+(NORMAL      ) IterTimerHook                      
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+after_test:
+(VERY_HIGH   ) RuntimeInfoHook                    
+ -------------------- 
+after_run:
+(BELOW_NORMAL) LoggerHook                         
+ -------------------- 
+07/11 18:37:39 - mmengine - INFO - ------------------------------
+07/11 18:37:39 - mmengine - INFO - The length of test dataset: 1201
+07/11 18:37:39 - mmengine - INFO - The number of instances per category in the dataset:
++----------+--------+
+| category | number |
++----------+--------+
+| person   | 2314   |
++----------+--------+
+Loads checkpoint by local backend from path: /work/users/pwariyapperuma/aghri_second_finetune/outputs/second_aghri_seed42/smoke/best_aghri_bev_ap_mean_epoch_1.pth
+07/11 18:37:39 - mmengine - INFO - Load checkpoint from /work/users/pwariyapperuma/aghri_second_finetune/outputs/second_aghri_seed42/smoke/best_aghri_bev_ap_mean_epoch_1.pth
+07/11 18:37:40 - mmengine - INFO - Epoch(test) [  50/1201]    eta: 0:00:27  time: 0.0240  data_time: 0.0077  memory: 118  
+07/11 18:37:41 - mmengine - INFO - Epoch(test) [ 100/1201]    eta: 0:00:21  time: 0.0149  data_time: 0.0007  memory: 118  
+07/11 18:37:42 - mmengine - INFO - Epoch(test) [ 150/1201]    eta: 0:00:18  time: 0.0149  data_time: 0.0007  memory: 118  
+07/11 18:37:42 - mmengine - INFO - Epoch(test) [ 200/1201]    eta: 0:00:17  time: 0.0150  data_time: 0.0007  memory: 117  
+07/11 18:37:43 - mmengine - INFO - Epoch(test) [ 250/1201]    eta: 0:00:15  time: 0.0150  data_time: 0.0007  memory: 114  
+07/11 18:37:44 - mmengine - INFO - Epoch(test) [ 300/1201]    eta: 0:00:14  time: 0.0148  data_time: 0.0007  memory: 115  
+07/11 18:37:45 - mmengine - INFO - Epoch(test) [ 350/1201]    eta: 0:00:13  time: 0.0149  data_time: 0.0007  memory: 116  
+07/11 18:37:45 - mmengine - INFO - Epoch(test) [ 400/1201]    eta: 0:00:12  time: 0.0148  data_time: 0.0007  memory: 117  
+07/11 18:37:46 - mmengine - INFO - Epoch(test) [ 450/1201]    eta: 0:00:11  time: 0.0145  data_time: 0.0007  memory: 118  
+07/11 18:37:47 - mmengine - INFO - Epoch(test) [ 500/1201]    eta: 0:00:11  time: 0.0146  data_time: 0.0007  memory: 116  
+07/11 18:37:48 - mmengine - INFO - Epoch(test) [ 550/1201]    eta: 0:00:10  time: 0.0149  data_time: 0.0007  memory: 118  
+07/11 18:37:48 - mmengine - INFO - Epoch(test) [ 600/1201]    eta: 0:00:09  time: 0.0147  data_time: 0.0007  memory: 119  
+07/11 18:37:49 - mmengine - INFO - Epoch(test) [ 650/1201]    eta: 0:00:08  time: 0.0146  data_time: 0.0007  memory: 118  
+07/11 18:37:50 - mmengine - INFO - Epoch(test) [ 700/1201]    eta: 0:00:07  time: 0.0143  data_time: 0.0007  memory: 118  
+07/11 18:37:51 - mmengine - INFO - Epoch(test) [ 750/1201]    eta: 0:00:06  time: 0.0144  data_time: 0.0006  memory: 118  
+07/11 18:37:51 - mmengine - INFO - Epoch(test) [ 800/1201]    eta: 0:00:06  time: 0.0146  data_time: 0.0007  memory: 118  
+07/11 18:37:52 - mmengine - INFO - Epoch(test) [ 850/1201]    eta: 0:00:05  time: 0.0152  data_time: 0.0007  memory: 121  
+07/11 18:37:53 - mmengine - INFO - Epoch(test) [ 900/1201]    eta: 0:00:04  time: 0.0158  data_time: 0.0007  memory: 121  
+07/11 18:37:54 - mmengine - INFO - Epoch(test) [ 950/1201]    eta: 0:00:03  time: 0.0159  data_time: 0.0007  memory: 121  
+07/11 18:37:54 - mmengine - INFO - Epoch(test) [1000/1201]    eta: 0:00:03  time: 0.0157  data_time: 0.0007  memory: 121  
+07/11 18:37:55 - mmengine - INFO - Epoch(test) [1050/1201]    eta: 0:00:02  time: 0.0155  data_time: 0.0007  memory: 118  
+07/11 18:37:56 - mmengine - INFO - Epoch(test) [1100/1201]    eta: 0:00:01  time: 0.0154  data_time: 0.0007  memory: 118  
+07/11 18:37:57 - mmengine - INFO - Epoch(test) [1150/1201]    eta: 0:00:00  time: 0.0155  data_time: 0.0007  memory: 119  
+07/11 18:37:58 - mmengine - INFO - Epoch(test) [1200/1201]    eta: 0:00:00  time: 0.0155  data_time: 0.0007  memory: 121  
+07/11 18:37:59 - mmengine - INFO - Epoch(test) [1201/1201]    aghri/num_predictions: 1201  aghri/num_pred_samples: 655  aghri/num_gt_samples: 1201  aghri/num_pred_sample_matches: 655  aghri/num_gt_instances: 2314  aghri/person_bev_ap_0.25: 0.3602  aghri/person_bev_precision_0.25: 0.7319  aghri/person_bev_recall_0.25: 0.3799  aghri/person_bev_f1_0.25: 0.5001  aghri/person_3d_ap_0.25: 0.3439  aghri/person_3d_precision_0.25: 0.7077  aghri/person_3d_recall_0.25: 0.3673  aghri/person_3d_f1_0.25: 0.4836  aghri/person_bev_ap_0.50: 0.1845  aghri/person_bev_precision_0.50: 0.4313  aghri/person_bev_recall_0.50: 0.2239  aghri/person_bev_f1_0.50: 0.2947  aghri/person_3d_ap_0.50: 0.1297  aghri/person_3d_precision_0.50: 0.3297  aghri/person_3d_recall_0.50: 0.1711  aghri/person_3d_f1_0.50: 0.2253  aghri/person_bev_ap_0.75: 0.0085  aghri/person_bev_precision_0.75: 0.0624  aghri/person_bev_recall_0.75: 0.0324  aghri/person_bev_f1_0.75: 0.0427  aghri/person_3d_ap_0.75: 0.0009  aghri/person_3d_precision_0.75: 0.0142  aghri/person_3d_recall_0.75: 0.0073  aghri/person_3d_f1_0.75: 0.0097  aghri/bev_ap_0.25: 0.3602  aghri/bev_precision_0.25: 0.7319  aghri/bev_recall_0.25: 0.3799  aghri/bev_f1_0.25: 0.5001  aghri/3d_ap_0.25: 0.3439  aghri/3d_precision_0.25: 0.7077  aghri/3d_recall_0.25: 0.3673  aghri/3d_f1_0.25: 0.4836  aghri/bev_ap_0.50: 0.1845  aghri/bev_precision_0.50: 0.4313  aghri/bev_recall_0.50: 0.2239  aghri/bev_f1_0.50: 0.2947  aghri/3d_ap_0.50: 0.1297  aghri/3d_precision_0.50: 0.3297  aghri/3d_recall_0.50: 0.1711  aghri/3d_f1_0.50: 0.2253  aghri/bev_ap_0.75: 0.0085  aghri/bev_precision_0.75: 0.0624  aghri/bev_recall_0.75: 0.0324  aghri/bev_f1_0.75: 0.0427  aghri/3d_ap_0.75: 0.0009  aghri/3d_precision_0.75: 0.0142  aghri/3d_recall_0.75: 0.0073  aghri/3d_f1_0.75: 0.0097  aghri/bev_ap_mean: 0.1844  aghri/bev_precision_mean: 0.4085  aghri/bev_recall_mean: 0.2120  aghri/bev_f1_mean: 0.2792  aghri/3d_ap_mean: 0.1581  aghri/3d_precision_mean: 0.3505  aghri/3d_recall_mean: 0.1819  aghri/3d_f1_mean: 0.2395  data_time: 0.0010  time: 0.0154
+Wrote 1 rows to /work/users/pwariyapperuma/aghri_second_finetune/summaries/summary_aghri_second_finetune_smoke.csv
+Wrote JSON to /work/users/pwariyapperuma/aghri_second_finetune/summaries/summary_aghri_second_finetune_smoke.json
+[IN-CTR] Smoke benchmark completed successfully.
+[HOST] AGHRI SECOND smoke job finished successfully.
