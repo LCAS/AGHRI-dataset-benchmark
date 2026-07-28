@@ -347,12 +347,12 @@ gated_part_oclreid:    50 predictions, 50 evaluations, 50 inference MP4s
 The runs cover the six final-test bags:
 
 ```text
-dataset_part1/footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label
-dataset_part1/footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label
-dataset_part3/in_straw_3pick_diff_st_10_24_2024_5_a_label
-dataset_part3/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label
-dataset_part4/out_vine_1push_3carry_st_ly_11_06_2024_1_label
-dataset_part4/out_vine_4swap+walk_st_ly_11_06_2024_2_label
+footpath1_p1_nj+mk+gl_1walk+check_mv_11_12_2024_1_label
+footpath1_p1_oj+mk+gl_1walk+check_st_11_12_2024_1_label
+in_straw_3pick_diff_st_10_24_2024_5_a_label
+out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label
+out_vine_1push_3carry_st_ly_11_06_2024_1_label
+out_vine_4swap+walk_st_ly_11_06_2024_2_label
 ```
 
 The compact comparison outputs are kept in:
