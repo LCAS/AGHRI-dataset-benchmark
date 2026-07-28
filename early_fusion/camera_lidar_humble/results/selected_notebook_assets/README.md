@@ -8,6 +8,7 @@ Included figures:
 - Combined F1/F2/F3 overall summary row.
 - F9 representative-scenario mean error using one selected bag per scenario.
 - F14 depth-bin robustness summary.
+- ZED depth versus fused Zc consistency scatter plot.
 - F19 fine-tuning curves.
 - Q4 step-by-step association walkthrough.
 

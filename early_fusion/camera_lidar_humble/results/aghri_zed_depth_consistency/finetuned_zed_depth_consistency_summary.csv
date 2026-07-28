@@ -1,0 +1,2 @@
+detector,fusion_method,attempted_valid_fused_detections,valid_depth_roi_count,valid_depth_roi_rate,median_abs_z_diff_m,mean_abs_z_diff_m,p95_abs_z_diff_m,mean_signed_z_bias_m,median_relative_abs_z_diff_percent
+AGHRI fine-tuned YOLO11s,legacy_box,2453,2207,0.899715,0.116890,0.305651,1.113064,0.154823,3.961

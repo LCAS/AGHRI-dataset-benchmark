@@ -1,0 +1,291 @@
+[INFO] [launch]: All log files can be found below /home/prabuddhi/.ros/log/2026-07-26-19-01-56-556625-prabuddhi-ROG-Strix-G614JV-G614JV-223367
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [lidar_fusion-1]: process started with pid [223385]
+[lidar_fusion-1] [INFO] [1785088917.772162487] [lidar_fusion]: calibration_mode=ros_camera_info_tf, camera_info_topic=/dataset/cam_zed_rgb/camera_info, target=front_left_camera_optical_frame, source=front_lidar_link
+[lidar_fusion-1] [INFO] [1785088917.772959117] [lidar_fusion]: sync_mode=approximate, queue_size=30, slop_sec=0.1
+[lidar_fusion-1] [INFO] [1785088917.773133911] [lidar_fusion]: SensorFusionNode initialized and listening...
+[lidar_fusion-1] [INFO] [1785088917.773298784] [lidar_fusion]: pointcloud_mode=unorganised_xyz, output_coordinate_mode=camera_xyz
+[INFO] [aghri_bag_play-2]: process started with pid [223461]
+[aghri_bag_play-2] stdin is not a terminal device. Keyboard handling disabled.[INFO] [1785088919.738529806] [rosbag2_storage]: Opened database '/home/prabuddhi/Desktop/Early_Fus/rosbags/aghri_test/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label_0.db3' for READ_ONLY.
+[aghri_bag_play-2] [INFO] [1785088919.738568167] [rosbag2_player]: Set rate to 2
+[aghri_bag_play-2] [INFO] [1785088919.739272058] [rosbag2_player]: Overriding QoS profile for topic /tf_static
+[aghri_bag_play-2] [INFO] [1785088919.740808138] [rosbag2_player]: Adding keyboard callbacks.
+[aghri_bag_play-2] [INFO] [1785088919.740820097] [rosbag2_player]: Press SPACE for Pause/Resume
+[aghri_bag_play-2] [INFO] [1785088919.740824594] [rosbag2_player]: Press CURSOR_RIGHT for Play Next Message
+[aghri_bag_play-2] [INFO] [1785088919.740828320] [rosbag2_player]: Press CURSOR_UP for Increase Rate 10%
+[aghri_bag_play-2] [INFO] [1785088919.740831586] [rosbag2_player]: Press CURSOR_DOWN for Decrease Rate 10%
+[aghri_bag_play-2] [INFO] [1785088919.741017940] [rosbag2_storage]: Opened database '/home/prabuddhi/Desktop/Early_Fus/rosbags/aghri_test/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label/out_straw_1push_1walk_1swap_st_11_07_2024_1_b_label_0.db3' for READ_ONLY.
+[lidar_fusion-1] [INFO] [1785088921.088311859] [lidar_fusion]: device=cuda
+[lidar_fusion-1] [INFO] [1785088921.089507295] [lidar_fusion]: ROS-native calibration matched aghri_json fallback: max_projection_abs_diff=5.68434e-14, max_transform_abs_diff=1.66533e-16
+[lidar_fusion-1] [INFO] [1785088922.809829666] [lidar_fusion]: 1 objects detected in 1.7145 seconds
+[lidar_fusion-1] [INFO] [1785088922.824465620] [lidar_fusion]: 1 objects detected in 0.0101 seconds
+[lidar_fusion-1] [INFO] [1785088922.837167837] [lidar_fusion]: 1 objects detected in 0.0098 seconds
+[lidar_fusion-1] [INFO] [1785088922.849061436] [lidar_fusion]: 1 objects detected in 0.0095 seconds
+[lidar_fusion-1] [INFO] [1785088922.861074921] [lidar_fusion]: 1 objects detected in 0.0093 seconds
+[lidar_fusion-1] [INFO] [1785088922.872932086] [lidar_fusion]: 1 objects detected in 0.0094 seconds
+[lidar_fusion-1] [INFO] [1785088922.885262668] [lidar_fusion]: 1 objects detected in 0.0099 seconds
+[lidar_fusion-1] [INFO] [1785088922.897480315] [lidar_fusion]: 1 objects detected in 0.0096 seconds
+[lidar_fusion-1] [INFO] [1785088922.909314500] [lidar_fusion]: 1 objects detected in 0.0095 seconds
+[lidar_fusion-1] [INFO] [1785088922.921245019] [lidar_fusion]: 1 objects detected in 0.0094 seconds
+[lidar_fusion-1] [INFO] [1785088922.933969434] [lidar_fusion]: 1 objects detected in 0.0101 seconds
+[lidar_fusion-1] [INFO] [1785088922.955443019] [lidar_fusion]: 1 objects detected in 0.0105 seconds
+[lidar_fusion-1] [INFO] [1785088923.008229279] [lidar_fusion]: 2 objects detected in 0.0132 seconds
+[lidar_fusion-1] [INFO] [1785088923.062389975] [lidar_fusion]: 2 objects detected in 0.0159 seconds
+[lidar_fusion-1] [INFO] [1785088923.105959815] [lidar_fusion]: 2 objects detected in 0.0119 seconds
+[lidar_fusion-1] [INFO] [1785088923.160947338] [lidar_fusion]: 1 objects detected in 0.0149 seconds
+[lidar_fusion-1] [INFO] [1785088923.212202258] [lidar_fusion]: 4 objects detected in 0.0156 seconds
+[lidar_fusion-1] [INFO] [1785088923.266194096] [lidar_fusion]: 3 objects detected in 0.0154 seconds
+[lidar_fusion-1] [INFO] [1785088923.308040250] [lidar_fusion]: 2 objects detected in 0.0141 seconds
+[lidar_fusion-1] [INFO] [1785088923.359016402] [lidar_fusion]: 2 objects detected in 0.0145 seconds
+[lidar_fusion-1] [INFO] [1785088923.410029269] [lidar_fusion]: 4 objects detected in 0.0148 seconds
+[lidar_fusion-1] [INFO] [1785088923.461014057] [lidar_fusion]: 4 objects detected in 0.0157 seconds
+[lidar_fusion-1] [INFO] [1785088923.508834717] [lidar_fusion]: 4 objects detected in 0.0148 seconds
+[lidar_fusion-1] [INFO] [1785088923.557696089] [lidar_fusion]: 4 objects detected in 0.0131 seconds
+[lidar_fusion-1] [INFO] [1785088923.609614218] [lidar_fusion]: 3 objects detected in 0.0141 seconds
+[lidar_fusion-1] [INFO] [1785088923.661743547] [lidar_fusion]: 4 objects detected in 0.0161 seconds
+[lidar_fusion-1] [INFO] [1785088923.708583383] [lidar_fusion]: 3 objects detected in 0.0137 seconds
+[lidar_fusion-1] [INFO] [1785088923.762834786] [lidar_fusion]: 3 objects detected in 0.0159 seconds
+[lidar_fusion-1] [INFO] [1785088923.808273844] [lidar_fusion]: 3 objects detected in 0.0137 seconds
+[lidar_fusion-1] [INFO] [1785088923.858519947] [lidar_fusion]: 3 objects detected in 0.0138 seconds
+[lidar_fusion-1] [INFO] [1785088923.908822666] [lidar_fusion]: 3 objects detected in 0.0136 seconds
+[lidar_fusion-1] [INFO] [1785088923.963363476] [lidar_fusion]: 2 objects detected in 0.0161 seconds
+[lidar_fusion-1] [INFO] [1785088924.008860032] [lidar_fusion]: 3 objects detected in 0.0138 seconds
+[lidar_fusion-1] [INFO] [1785088924.063081977] [lidar_fusion]: 4 objects detected in 0.0172 seconds
+[lidar_fusion-1] [INFO] [1785088924.110015589] [lidar_fusion]: 3 objects detected in 0.0145 seconds
+[lidar_fusion-1] [INFO] [1785088924.163572146] [lidar_fusion]: 4 objects detected in 0.0156 seconds
+[lidar_fusion-1] [INFO] [1785088924.208812181] [lidar_fusion]: 3 objects detected in 0.0138 seconds
+[lidar_fusion-1] [INFO] [1785088924.261792316] [lidar_fusion]: 3 objects detected in 0.0157 seconds
+[lidar_fusion-1] [INFO] [1785088924.308287435] [lidar_fusion]: 2 objects detected in 0.0128 seconds
+[lidar_fusion-1] [INFO] [1785088924.416599090] [lidar_fusion]: 5 objects detected in 0.0195 seconds
+[lidar_fusion-1] [INFO] [1785088924.460868192] [lidar_fusion]: 3 objects detected in 0.0152 seconds
+[lidar_fusion-1] [INFO] [1785088924.511204838] [lidar_fusion]: 2 objects detected in 0.0143 seconds
+[lidar_fusion-1] [INFO] [1785088924.558244776] [lidar_fusion]: 2 objects detected in 0.0135 seconds
+[lidar_fusion-1] [INFO] [1785088924.610354871] [lidar_fusion]: 2 objects detected in 0.0144 seconds
+[lidar_fusion-1] [INFO] [1785088924.666271915] [lidar_fusion]: 2 objects detected in 0.0153 seconds
+[lidar_fusion-1] [INFO] [1785088924.711473302] [lidar_fusion]: 2 objects detected in 0.0138 seconds
+[lidar_fusion-1] [INFO] [1785088924.758792559] [lidar_fusion]: 2 objects detected in 0.0144 seconds
+[lidar_fusion-1] [INFO] [1785088924.809849166] [lidar_fusion]: 2 objects detected in 0.0140 seconds
+[lidar_fusion-1] [INFO] [1785088924.860230979] [lidar_fusion]: 3 objects detected in 0.0150 seconds
+[lidar_fusion-1] [INFO] [1785088924.911745376] [lidar_fusion]: 5 objects detected in 0.0159 seconds
+[lidar_fusion-1] [INFO] [1785088924.961947894] [lidar_fusion]: 3 objects detected in 0.0158 seconds
+[lidar_fusion-1] [INFO] [1785088925.009905665] [lidar_fusion]: 1 objects detected in 0.0135 seconds
+[lidar_fusion-1] [INFO] [1785088925.059841304] [lidar_fusion]: 1 objects detected in 0.0139 seconds
+[lidar_fusion-1] [INFO] [1785088925.109694215] [lidar_fusion]: 1 objects detected in 0.0134 seconds
+[lidar_fusion-1] [INFO] [1785088925.159945773] [lidar_fusion]: 1 objects detected in 0.0141 seconds
+[lidar_fusion-1] [INFO] [1785088925.210635835] [lidar_fusion]: 2 objects detected in 0.0146 seconds
+[lidar_fusion-1] [INFO] [1785088925.259050952] [lidar_fusion]: 2 objects detected in 0.0136 seconds
+[lidar_fusion-1] [INFO] [1785088925.305270562] [lidar_fusion]: 1 objects detected in 0.0109 seconds
+[lidar_fusion-1] [INFO] [1785088925.361346134] [lidar_fusion]: 1 objects detected in 0.0151 seconds
+[lidar_fusion-1] [INFO] [1785088925.410771599] [lidar_fusion]: 3 objects detected in 0.0147 seconds
+[lidar_fusion-1] [INFO] [1785088925.454652133] [lidar_fusion]: 2 objects detected in 0.0105 seconds
+[lidar_fusion-1] [INFO] [1785088925.509769633] [lidar_fusion]: 2 objects detected in 0.0141 seconds
+[lidar_fusion-1] [INFO] [1785088925.560843223] [lidar_fusion]: 2 objects detected in 0.0136 seconds
+[lidar_fusion-1] [INFO] [1785088925.611896366] [lidar_fusion]: 2 objects detected in 0.0139 seconds
+[lidar_fusion-1] [INFO] [1785088925.658304989] [lidar_fusion]: 2 objects detected in 0.0134 seconds
+[lidar_fusion-1] [INFO] [1785088925.709146944] [lidar_fusion]: 3 objects detected in 0.0142 seconds
+[lidar_fusion-1] [INFO] [1785088925.762931237] [lidar_fusion]: 2 objects detected in 0.0157 seconds
+[lidar_fusion-1] [INFO] [1785088925.809650829] [lidar_fusion]: 2 objects detected in 0.0140 seconds
+[lidar_fusion-1] [INFO] [1785088925.860602156] [lidar_fusion]: 2 objects detected in 0.0144 seconds
+[lidar_fusion-1] [INFO] [1785088925.908976863] [lidar_fusion]: 2 objects detected in 0.0136 seconds
+[lidar_fusion-1] [INFO] [1785088925.962214552] [lidar_fusion]: 2 objects detected in 0.0160 seconds
+[lidar_fusion-1] [INFO] [1785088926.010321134] [lidar_fusion]: 2 objects detected in 0.0142 seconds
+[lidar_fusion-1] [INFO] [1785088926.062573912] [lidar_fusion]: 2 objects detected in 0.0161 seconds
+[lidar_fusion-1] [INFO] [1785088926.104748614] [lidar_fusion]: 2 objects detected in 0.0110 seconds
+[lidar_fusion-1] [INFO] [1785088926.159359684] [lidar_fusion]: 2 objects detected in 0.0143 seconds
+[lidar_fusion-1] [INFO] [1785088926.211496142] [lidar_fusion]: 2 objects detected in 0.0153 seconds
+[lidar_fusion-1] [INFO] [1785088926.313217114] [lidar_fusion]: 2 objects detected in 0.0202 seconds
+[lidar_fusion-1] [INFO] [1785088926.357619617] [lidar_fusion]: 2 objects detected in 0.0132 seconds
+[lidar_fusion-1] [INFO] [1785088926.413669512] [lidar_fusion]: 2 objects detected in 0.0146 seconds
+[lidar_fusion-1] [INFO] [1785088926.460448165] [lidar_fusion]: 2 objects detected in 0.0146 seconds
+[lidar_fusion-1] [INFO] [1785088926.508182326] [lidar_fusion]: 2 objects detected in 0.0122 seconds
+[lidar_fusion-1] [INFO] [1785088926.564385781] [lidar_fusion]: 2 objects detected in 0.0180 seconds
+[lidar_fusion-1] [INFO] [1785088926.613009728] [lidar_fusion]: 2 objects detected in 0.0164 seconds
+[lidar_fusion-1] [INFO] [1785088926.657652381] [lidar_fusion]: 2 objects detected in 0.0128 seconds
+[lidar_fusion-1] [INFO] [1785088926.734225557] [lidar_fusion]: 1 objects detected in 0.0361 seconds
+[lidar_fusion-1] [INFO] [1785088926.763557360] [lidar_fusion]: 2 objects detected in 0.0164 seconds
+[lidar_fusion-1] [INFO] [1785088926.809840079] [lidar_fusion]: 2 objects detected in 0.0153 seconds
+[lidar_fusion-1] [INFO] [1785088926.867565478] [lidar_fusion]: 2 objects detected in 0.0181 seconds
+[lidar_fusion-1] [INFO] [1785088926.957879059] [lidar_fusion]: 2 objects detected in 0.0139 seconds
+[lidar_fusion-1] [INFO] [1785088927.009546057] [lidar_fusion]: 2 objects detected in 0.0145 seconds
+[lidar_fusion-1] [INFO] [1785088927.061411077] [lidar_fusion]: 2 objects detected in 0.0153 seconds
+[lidar_fusion-1] [INFO] [1785088927.107888928] [lidar_fusion]: 2 objects detected in 0.0133 seconds
+[lidar_fusion-1] [INFO] [1785088927.172401660] [lidar_fusion]: 2 objects detected in 0.0247 seconds
+[lidar_fusion-1] [INFO] [1785088927.210496679] [lidar_fusion]: 3 objects detected in 0.0144 seconds
+[lidar_fusion-1] [INFO] [1785088927.267150026] [lidar_fusion]: 1 objects detected in 0.0198 seconds
+[lidar_fusion-1] [INFO] [1785088927.311577339] [lidar_fusion]: 1 objects detected in 0.0160 seconds
+[lidar_fusion-1] [INFO] [1785088927.362385811] [lidar_fusion]: 1 objects detected in 0.0161 seconds
+[lidar_fusion-1] [INFO] [1785088927.407196737] [lidar_fusion]: 1 objects detected in 0.0123 seconds
+[lidar_fusion-1] [INFO] [1785088927.461897841] [lidar_fusion]: 1 objects detected in 0.0154 seconds
+[lidar_fusion-1] [INFO] [1785088927.519527191] [lidar_fusion]: 1 objects detected in 0.0228 seconds
+[lidar_fusion-1] [INFO] [1785088927.553912310] [lidar_fusion]: 1 objects detected in 0.0100 seconds
+[lidar_fusion-1] [INFO] [1785088927.617562833] [lidar_fusion]: 1 objects detected in 0.0207 seconds
+[lidar_fusion-1] [INFO] [1785088927.655975875] [lidar_fusion]: 1 objects detected in 0.0116 seconds
+[lidar_fusion-1] [INFO] [1785088927.706455260] [lidar_fusion]: 1 objects detected in 0.0119 seconds
+[lidar_fusion-1] [INFO] [1785088927.759321314] [lidar_fusion]: 1 objects detected in 0.0132 seconds
+[lidar_fusion-1] [INFO] [1785088927.812899874] [lidar_fusion]: 1 objects detected in 0.0134 seconds
+[lidar_fusion-1] [INFO] [1785088927.862444438] [lidar_fusion]: 1 objects detected in 0.0161 seconds
+[lidar_fusion-1] [INFO] [1785088927.909869269] [lidar_fusion]: 1 objects detected in 0.0134 seconds
+[lidar_fusion-1] [INFO] [1785088927.967636434] [lidar_fusion]: 1 objects detected in 0.0100 seconds
+[lidar_fusion-1] [INFO] [1785088928.007741857] [lidar_fusion]: 1 objects detected in 0.0125 seconds
+[lidar_fusion-1] [INFO] [1785088928.070495488] [lidar_fusion]: 1 objects detected in 0.0236 seconds
+[lidar_fusion-1] [INFO] [1785088928.117083098] [lidar_fusion]: 1 objects detected in 0.0208 seconds
+[lidar_fusion-1] [INFO] [1785088928.163890315] [lidar_fusion]: 1 objects detected in 0.0176 seconds
+[lidar_fusion-1] [INFO] [1785088928.211455404] [lidar_fusion]: 1 objects detected in 0.0150 seconds
+[lidar_fusion-1] [INFO] [1785088928.260355442] [lidar_fusion]: 1 objects detected in 0.0144 seconds
+[lidar_fusion-1] [INFO] [1785088928.311698215] [lidar_fusion]: 1 objects detected in 0.0155 seconds
+[lidar_fusion-1] [INFO] [1785088928.364212169] [lidar_fusion]: 1 objects detected in 0.0178 seconds
+[lidar_fusion-1] [INFO] [1785088928.410336368] [lidar_fusion]: 1 objects detected in 0.0148 seconds
+[lidar_fusion-1] [INFO] [1785088928.461314325] [lidar_fusion]: 1 objects detected in 0.0139 seconds
+[lidar_fusion-1] [INFO] [1785088928.514965718] [lidar_fusion]: 2 objects detected in 0.0174 seconds
+[lidar_fusion-1] [INFO] [1785088928.575500179] [lidar_fusion]: 2 objects detected in 0.0139 seconds
+[lidar_fusion-1] [INFO] [1785088928.608857740] [lidar_fusion]: 2 objects detected in 0.0123 seconds
+[lidar_fusion-1] [INFO] [1785088928.661530967] [lidar_fusion]: 2 objects detected in 0.0154 seconds
+[lidar_fusion-1] [INFO] [1785088928.712274064] [lidar_fusion]: 2 objects detected in 0.0144 seconds
+[lidar_fusion-1] [INFO] [1785088928.760136480] [lidar_fusion]: 1 objects detected in 0.0147 seconds
+[lidar_fusion-1] [INFO] [1785088928.814721793] [lidar_fusion]: 2 objects detected in 0.0163 seconds
+[lidar_fusion-1] [INFO] [1785088928.865805396] [lidar_fusion]: 2 objects detected in 0.0177 seconds
+[lidar_fusion-1] [INFO] [1785088928.904481146] [lidar_fusion]: 2 objects detected in 0.0110 seconds
+[lidar_fusion-1] [INFO] [1785088928.964931747] [lidar_fusion]: 2 objects detected in 0.0183 seconds
+[lidar_fusion-1] [INFO] [1785088929.011179561] [lidar_fusion]: 1 objects detected in 0.0132 seconds
+[lidar_fusion-1] [INFO] [1785088929.057010488] [lidar_fusion]: 1 objects detected in 0.0121 seconds
+[lidar_fusion-1] [INFO] [1785088929.114013783] [lidar_fusion]: 1 objects detected in 0.0149 seconds
+[lidar_fusion-1] [INFO] [1785088929.159575690] [lidar_fusion]: 1 objects detected in 0.0136 seconds
+[lidar_fusion-1] [INFO] [1785088929.215421705] [lidar_fusion]: 2 objects detected in 0.0189 seconds
+[lidar_fusion-1] [INFO] [1785088929.260916398] [lidar_fusion]: 1 objects detected in 0.0148 seconds
+[lidar_fusion-1] [INFO] [1785088929.315264859] [lidar_fusion]: 2 objects detected in 0.0161 seconds
+[lidar_fusion-1] [INFO] [1785088929.357917224] [lidar_fusion]: 2 objects detected in 0.0131 seconds
+[lidar_fusion-1] [INFO] [1785088929.416655873] [lidar_fusion]: 2 objects detected in 0.0177 seconds
+[lidar_fusion-1] [INFO] [1785088929.460927562] [lidar_fusion]: 2 objects detected in 0.0147 seconds
+[lidar_fusion-1] [INFO] [1785088929.511671919] [lidar_fusion]: 2 objects detected in 0.0142 seconds
+[lidar_fusion-1] [INFO] [1785088929.567869499] [lidar_fusion]: 4 objects detected in 0.0218 seconds
+[lidar_fusion-1] [INFO] [1785088929.611506077] [lidar_fusion]: 4 objects detected in 0.0153 seconds
+[lidar_fusion-1] [INFO] [1785088929.662181692] [lidar_fusion]: 3 objects detected in 0.0154 seconds
+[lidar_fusion-1] [INFO] [1785088929.706752118] [lidar_fusion]: 5 objects detected in 0.0126 seconds
+[lidar_fusion-1] [INFO] [1785088929.760679877] [lidar_fusion]: 5 objects detected in 0.0152 seconds
+[lidar_fusion-1] [INFO] [1785088929.815118751] [lidar_fusion]: 3 objects detected in 0.0152 seconds
+[lidar_fusion-1] [INFO] [1785088929.860296974] [lidar_fusion]: 4 objects detected in 0.0148 seconds
+[lidar_fusion-1] [INFO] [1785088929.915540372] [lidar_fusion]: 2 objects detected in 0.0144 seconds
+[lidar_fusion-1] [INFO] [1785088929.959598637] [lidar_fusion]: 3 objects detected in 0.0141 seconds
+[lidar_fusion-1] [INFO] [1785088930.013362365] [lidar_fusion]: 2 objects detected in 0.0141 seconds
+[lidar_fusion-1] [INFO] [1785088930.087137870] [lidar_fusion]: 2 objects detected in 0.0209 seconds
+[lidar_fusion-1] [INFO] [1785088930.105197438] [lidar_fusion]: 1 objects detected in 0.0115 seconds
+[lidar_fusion-1] [INFO] [1785088930.177498357] [lidar_fusion]: 1 objects detected in 0.0299 seconds
+[lidar_fusion-1] [INFO] [1785088930.211270793] [lidar_fusion]: 3 objects detected in 0.0168 seconds
+[lidar_fusion-1] [INFO] [1785088930.267568330] [lidar_fusion]: 2 objects detected in 0.0217 seconds
+[lidar_fusion-1] [INFO] [1785088930.318352363] [lidar_fusion]: 2 objects detected in 0.0204 seconds
+[lidar_fusion-1] [INFO] [1785088930.391171241] [lidar_fusion]: 2 objects detected in 0.0183 seconds
+[lidar_fusion-1] [INFO] [1785088930.405572659] [lidar_fusion]: 2 objects detected in 0.0115 seconds
+[lidar_fusion-1] [INFO] [1785088930.459242865] [lidar_fusion]: 2 objects detected in 0.0140 seconds
+[lidar_fusion-1] [INFO] [1785088930.513391340] [lidar_fusion]: 2 objects detected in 0.0143 seconds
+[lidar_fusion-1] [INFO] [1785088930.559454510] [lidar_fusion]: 2 objects detected in 0.0139 seconds
+[lidar_fusion-1] [INFO] [1785088930.615658348] [lidar_fusion]: 2 objects detected in 0.0192 seconds
+[lidar_fusion-1] [INFO] [1785088930.660446099] [lidar_fusion]: 3 objects detected in 0.0151 seconds
+[lidar_fusion-1] [INFO] [1785088930.710832214] [lidar_fusion]: 2 objects detected in 0.0155 seconds
+[lidar_fusion-1] [INFO] [1785088930.764824359] [lidar_fusion]: 3 objects detected in 0.0174 seconds
+[lidar_fusion-1] [INFO] [1785088930.818260331] [lidar_fusion]: 2 objects detected in 0.0212 seconds
+[lidar_fusion-1] [INFO] [1785088930.861028872] [lidar_fusion]: 2 objects detected in 0.0150 seconds
+[lidar_fusion-1] [INFO] [1785088930.910610143] [lidar_fusion]: 2 objects detected in 0.0156 seconds
+[lidar_fusion-1] [INFO] [1785088930.974972672] [lidar_fusion]: 2 objects detected in 0.0269 seconds
+[lidar_fusion-1] [INFO] [1785088931.015711094] [lidar_fusion]: 2 objects detected in 0.0209 seconds
+[lidar_fusion-1] [INFO] [1785088931.062963645] [lidar_fusion]: 2 objects detected in 0.0174 seconds
+[lidar_fusion-1] [INFO] [1785088931.114562739] [lidar_fusion]: 2 objects detected in 0.0186 seconds
+[lidar_fusion-1] [INFO] [1785088931.154769996] [lidar_fusion]: 2 objects detected in 0.0108 seconds
+[lidar_fusion-1] [INFO] [1785088931.215356395] [lidar_fusion]: 2 objects detected in 0.0201 seconds
+[lidar_fusion-1] [INFO] [1785088931.261596961] [lidar_fusion]: 2 objects detected in 0.0151 seconds
+[lidar_fusion-1] [INFO] [1785088931.316037406] [lidar_fusion]: 3 objects detected in 0.0148 seconds
+[lidar_fusion-1] [INFO] [1785088931.363286232] [lidar_fusion]: 3 objects detected in 0.0187 seconds
+[lidar_fusion-1] [INFO] [1785088931.414444841] [lidar_fusion]: 3 objects detected in 0.0176 seconds
+[lidar_fusion-1] [INFO] [1785088931.462081879] [lidar_fusion]: 3 objects detected in 0.0160 seconds
+[lidar_fusion-1] [INFO] [1785088931.521252593] [lidar_fusion]: 4 objects detected in 0.0264 seconds
+[lidar_fusion-1] [INFO] [1785088931.562128222] [lidar_fusion]: 4 objects detected in 0.0159 seconds
+[lidar_fusion-1] [INFO] [1785088931.612417067] [lidar_fusion]: 4 objects detected in 0.0167 seconds
+[lidar_fusion-1] [INFO] [1785088931.666177157] [lidar_fusion]: 3 objects detected in 0.0201 seconds
+[lidar_fusion-1] [INFO] [1785088931.716185994] [lidar_fusion]: 3 objects detected in 0.0194 seconds
+[lidar_fusion-1] [INFO] [1785088931.761443874] [lidar_fusion]: 4 objects detected in 0.0161 seconds
+[lidar_fusion-1] [INFO] [1785088931.810347252] [lidar_fusion]: 4 objects detected in 0.0122 seconds
+[lidar_fusion-1] [INFO] [1785088931.865006974] [lidar_fusion]: 7 objects detected in 0.0188 seconds
+[lidar_fusion-1] [INFO] [1785088931.912544360] [lidar_fusion]: 6 objects detected in 0.0173 seconds
+[lidar_fusion-1] [INFO] [1785088931.957179887] [lidar_fusion]: 3 objects detected in 0.0133 seconds
+[lidar_fusion-1] [INFO] [1785088932.014528174] [lidar_fusion]: 3 objects detected in 0.0180 seconds
+[lidar_fusion-1] [INFO] [1785088932.064503150] [lidar_fusion]: 2 objects detected in 0.0177 seconds
+[lidar_fusion-1] [INFO] [1785088932.115048758] [lidar_fusion]: 2 objects detected in 0.0185 seconds
+[lidar_fusion-1] [INFO] [1785088932.160563490] [lidar_fusion]: 2 objects detected in 0.0144 seconds
+[lidar_fusion-1] [INFO] [1785088932.221222949] [lidar_fusion]: 2 objects detected in 0.0176 seconds
+[lidar_fusion-1] [INFO] [1785088932.256709427] [lidar_fusion]: 3 objects detected in 0.0123 seconds
+[lidar_fusion-1] [INFO] [1785088932.318595992] [lidar_fusion]: 5 objects detected in 0.0220 seconds
+[lidar_fusion-1] [INFO] [1785088932.359684167] [lidar_fusion]: 3 objects detected in 0.0148 seconds
+[lidar_fusion-1] [INFO] [1785088932.411605305] [lidar_fusion]: 3 objects detected in 0.0162 seconds
+[lidar_fusion-1] [INFO] [1785088932.464386659] [lidar_fusion]: 3 objects detected in 0.0185 seconds
+[lidar_fusion-1] [INFO] [1785088932.518408136] [lidar_fusion]: 3 objects detected in 0.0222 seconds
+[lidar_fusion-1] [INFO] [1785088932.560923948] [lidar_fusion]: 3 objects detected in 0.0150 seconds
+[lidar_fusion-1] [INFO] [1785088932.612556706] [lidar_fusion]: 3 objects detected in 0.0159 seconds
+[lidar_fusion-1] [INFO] [1785088932.663838388] [lidar_fusion]: 3 objects detected in 0.0169 seconds
+[lidar_fusion-1] [INFO] [1785088932.721610305] [lidar_fusion]: 4 objects detected in 0.0248 seconds
+[lidar_fusion-1] [INFO] [1785088932.759118411] [lidar_fusion]: 2 objects detected in 0.0134 seconds
+[lidar_fusion-1] [INFO] [1785088932.816498786] [lidar_fusion]: 2 objects detected in 0.0201 seconds
+[lidar_fusion-1] [INFO] [1785088932.860986144] [lidar_fusion]: 2 objects detected in 0.0146 seconds
+[lidar_fusion-1] [INFO] [1785088932.913747200] [lidar_fusion]: 3 objects detected in 0.0170 seconds
+[lidar_fusion-1] [INFO] [1785088932.962120550] [lidar_fusion]: 5 objects detected in 0.0165 seconds
+[lidar_fusion-1] [INFO] [1785088933.027020840] [lidar_fusion]: 3 objects detected in 0.0190 seconds
+[lidar_fusion-1] [INFO] [1785088933.057359478] [lidar_fusion]: 6 objects detected in 0.0128 seconds
+[lidar_fusion-1] [INFO] [1785088933.109990155] [lidar_fusion]: 3 objects detected in 0.0147 seconds
+[lidar_fusion-1] [INFO] [1785088933.168203752] [lidar_fusion]: 2 objects detected in 0.0213 seconds
+[lidar_fusion-1] [INFO] [1785088933.211903127] [lidar_fusion]: 2 objects detected in 0.0158 seconds
+[lidar_fusion-1] [INFO] [1785088933.256030993] [lidar_fusion]: 4 objects detected in 0.0120 seconds
+[lidar_fusion-1] [INFO] [1785088933.563680475] [lidar_fusion]: 2 objects detected in 0.0176 seconds
+[lidar_fusion-1] [INFO] [1785088933.623725941] [lidar_fusion]: 2 objects detected in 0.0259 seconds
+[lidar_fusion-1] [INFO] [1785088933.655509637] [lidar_fusion]: 2 objects detected in 0.0112 seconds
+[lidar_fusion-1] [INFO] [1785088933.711067015] [lidar_fusion]: 1 objects detected in 0.0142 seconds
+[lidar_fusion-1] [INFO] [1785088933.787423557] [lidar_fusion]: 1 objects detected in 0.0150 seconds
+[lidar_fusion-1] [INFO] [1785088933.814992093] [lidar_fusion]: 1 objects detected in 0.0127 seconds
+[lidar_fusion-1] [INFO] [1785088933.856780875] [lidar_fusion]: 1 objects detected in 0.0116 seconds
+[lidar_fusion-1] [INFO] [1785088933.910836921] [lidar_fusion]: 1 objects detected in 0.0145 seconds
+[lidar_fusion-1] [INFO] [1785088933.957427277] [lidar_fusion]: 1 objects detected in 0.0124 seconds
+[lidar_fusion-1] [INFO] [1785088934.008672843] [lidar_fusion]: 1 objects detected in 0.0128 seconds
+[lidar_fusion-1] [INFO] [1785088934.115718796] [lidar_fusion]: 1 objects detected in 0.0193 seconds
+[lidar_fusion-1] [INFO] [1785088934.153010266] [lidar_fusion]: 1 objects detected in 0.0097 seconds
+[lidar_fusion-1] [INFO] [1785088934.262338785] [lidar_fusion]: 1 objects detected in 0.0158 seconds
+[lidar_fusion-1] [INFO] [1785088934.310552294] [lidar_fusion]: 1 objects detected in 0.0146 seconds
+[lidar_fusion-1] [INFO] [1785088934.358866187] [lidar_fusion]: 1 objects detected in 0.0128 seconds
+[lidar_fusion-1] [INFO] [1785088934.460745322] [lidar_fusion]: 1 objects detected in 0.0204 seconds
+[lidar_fusion-1] [INFO] [1785088934.478947611] [lidar_fusion]: 1 objects detected in 0.0101 seconds
+[lidar_fusion-1] [INFO] [1785088934.515614507] [lidar_fusion]: 1 objects detected in 0.0116 seconds
+[lidar_fusion-1] [INFO] [1785088934.557449421] [lidar_fusion]: 1 objects detected in 0.0122 seconds
+[lidar_fusion-1] [INFO] [1785088934.611601356] [lidar_fusion]: 1 objects detected in 0.0153 seconds
+[lidar_fusion-1] [INFO] [1785088934.658581970] [lidar_fusion]: 1 objects detected in 0.0133 seconds
+[lidar_fusion-1] [INFO] [1785088934.712904617] [lidar_fusion]: 1 objects detected in 0.0163 seconds
+[lidar_fusion-1] [INFO] [1785088934.757895235] [lidar_fusion]: 1 objects detected in 0.0126 seconds
+[lidar_fusion-1] [INFO] [1785088934.811163744] [lidar_fusion]: 1 objects detected in 0.0148 seconds
+[lidar_fusion-1] [INFO] [1785088934.860964369] [lidar_fusion]: 1 objects detected in 0.0145 seconds
+[lidar_fusion-1] [INFO] [1785088934.910773376] [lidar_fusion]: 1 objects detected in 0.0142 seconds
+[lidar_fusion-1] [INFO] [1785088934.959786645] [lidar_fusion]: 1 objects detected in 0.0135 seconds
+[lidar_fusion-1] [INFO] [1785088935.056346266] [lidar_fusion]: 1 objects detected in 0.0160 seconds
+[lidar_fusion-1] [INFO] [1785088935.068494419] [lidar_fusion]: 1 objects detected in 0.0097 seconds
+[lidar_fusion-1] [INFO] [1785088935.104875453] [lidar_fusion]: 1 objects detected in 0.0110 seconds
+[lidar_fusion-1] [INFO] [1785088935.161146328] [lidar_fusion]: 1 objects detected in 0.0147 seconds
+[lidar_fusion-1] [INFO] [1785088935.208458111] [lidar_fusion]: 1 objects detected in 0.0129 seconds
+[lidar_fusion-1] [INFO] [1785088935.259798409] [lidar_fusion]: 1 objects detected in 0.0138 seconds
+[lidar_fusion-1] [INFO] [1785088935.308155055] [lidar_fusion]: 1 objects detected in 0.0127 seconds
+[lidar_fusion-1] [INFO] [1785088935.359142243] [lidar_fusion]: 1 objects detected in 0.0131 seconds
+[lidar_fusion-1] [INFO] [1785088935.494613450] [lidar_fusion]: 1 objects detected in 0.0193 seconds
+[lidar_fusion-1] [INFO] [1785088935.513395430] [lidar_fusion]: 1 objects detected in 0.0103 seconds
+[lidar_fusion-1] [INFO] [1785088935.556396818] [lidar_fusion]: 1 objects detected in 0.0117 seconds
+[lidar_fusion-1] [INFO] [1785088935.610710820] [lidar_fusion]: 1 objects detected in 0.0146 seconds
+[lidar_fusion-1] [INFO] [1785088935.659238910] [lidar_fusion]: 1 objects detected in 0.0141 seconds
+[lidar_fusion-1] [INFO] [1785088935.794338636] [lidar_fusion]: 1 objects detected in 0.0200 seconds
+[INFO] [aghri_bag_play-2]: process has finished cleanly [pid 223461]
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [lidar_fusion-1]: sending signal 'SIGINT' to process[lidar_fusion-1]
+[lidar_fusion-1] Traceback (most recent call last):
+[lidar_fusion-1]   File "/home/prabuddhi/Desktop/Early_Fus/install/camera_lidar_fusion/lib/camera_lidar_fusion/lidar_fusion", line 33, in <module>
+[lidar_fusion-1]     sys.exit(load_entry_point('camera-lidar-fusion', 'console_scripts', 'lidar_fusion')())
+[lidar_fusion-1]   File "/home/prabuddhi/Desktop/Early_Fus/build/camera_lidar_fusion/camera_lidar_fusion/lidar_fusion.py", line 823, in main
+[lidar_fusion-1]     node.destroy_node()
+[lidar_fusion-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1679, in destroy_node
+[lidar_fusion-1]     self.destroy_publisher(self._publishers[0])
+[lidar_fusion-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/node.py", line 1559, in destroy_publisher
+[lidar_fusion-1]     publisher.destroy()
+[lidar_fusion-1]   File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/publisher.py", line 93, in destroy
+[lidar_fusion-1]     self.__publisher.destroy_when_not_in_use()
+[lidar_fusion-1] KeyboardInterrupt
+[ERROR] [lidar_fusion-1]: process has died [pid 223385, exit code -2, cmd '/home/prabuddhi/Desktop/Early_Fus/install/camera_lidar_fusion/lib/camera_lidar_fusion/lidar_fusion --ros-args --params-file /home/prabuddhi/Desktop/Early_Fus/camera_lidar_humble/config/aghri_zed_livox.yaml -p use_sim_time:=true'].

@@ -1,3 +1,3 @@
 model,detections,matched,valid_rate,mean_m,median_m,p95_m,err_gt_1m,fps
-Generic YOLO11s,2787,2561,0.9218,0.4765,0.2038,1.8703,0.0859,69.53
-AGHRI fine-tuned,2534,2433,0.9680,0.3926,0.1911,1.3595,0.0748,69.19
+Generic YOLO11s,2787,2561,0.9218,0.4765,0.2038,1.8703,0.0859,15.15
+AGHRI fine-tuned,2534,2433,0.9680,0.3926,0.1911,1.3595,0.0748,15.19

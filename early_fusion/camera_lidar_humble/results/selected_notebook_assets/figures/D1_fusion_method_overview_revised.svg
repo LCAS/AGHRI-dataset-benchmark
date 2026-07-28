@@ -1,6 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="1040" viewBox="0 0 1180 1040">
-<defs><marker id="a" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#384252"/></marker></defs><rect width="1180" height="1040" fill="white"/>
-<text x="50" y="50" font-size="28" font-weight="700" fill="#20242b">D1. Revised camera-guided LiDAR fusion flow</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="975" viewBox="0 65 1180 975">
+<defs><marker id="a" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><path d="M0,0 L10,4 L0,8 z" fill="#384252"/></marker></defs><rect y="65" width="1180" height="975" fill="white"/>
 <rect x="80" y="100" width="210" height="60" rx="7" fill="#edf6ff" stroke="#56616f"/><text x="185.0" y="124" text-anchor="middle" font-size="14" fill="#20242b">ZED RGB image</text>
 <rect x="80" y="220" width="210" height="60" rx="7" fill="#eef8f1" stroke="#56616f"/><text x="185.0" y="244" text-anchor="middle" font-size="14" fill="#20242b">Livox point cloud</text>
 <rect x="420" y="155" width="260" height="70" rx="7" fill="#fff3e7" stroke="#56616f"/><text x="550.0" y="179" text-anchor="middle" font-size="14" fill="#20242b">ApproximateTimeSynchronizer</text>

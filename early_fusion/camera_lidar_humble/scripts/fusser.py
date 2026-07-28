@@ -295,6 +295,7 @@ class Fusser:
         hybrid_fallback_on_single_cluster=True,
         hybrid_fallback_on_sparse_candidates=True,
         coordinate_label_mode='xyz',
+        draw_axes_legend=False,
     ):
         """
         Initialize the Fusser.
@@ -316,6 +317,7 @@ class Fusser:
         self.minimum_forward_distance = float(minimum_forward_distance)
         self.output_coordinate_mode = output_coordinate_mode
         self.coordinate_label_mode = coordinate_label_mode
+        self.draw_axes_legend = bool(draw_axes_legend)
         association_config = validate_association_config(
             association_method,
             centre_statistic,
@@ -359,7 +361,7 @@ class Fusser:
             raise ValueError(
                 f"Unsupported output_coordinate_mode: {self.output_coordinate_mode}"
             )
-        if self.coordinate_label_mode not in {'xyz', 'depth'}:
+        if self.coordinate_label_mode not in {'xyz', 'depth', 'xz'}:
             raise ValueError(
                 f"Unsupported coordinate_label_mode: {self.coordinate_label_mode}"
             )
@@ -446,19 +448,145 @@ class Fusser:
 
         class_ = 'car' if int(box[5]) == 2 else 'person'
         if self.coordinate_label_mode == 'depth':
-            depth = x if self.output_coordinate_mode == 'lidar_xyz' else z
-            label = f"{class_} : {depth:.2f}m"
+            if self.output_coordinate_mode == 'lidar_xyz':
+                label = f"{class_}: X={x:.2f}m"
+            else:
+                label = f"{class_}: Zc={z:.2f}m"
+            self._draw_text_with_background(img, label, (x1, y1))
+        elif self.coordinate_label_mode == 'xz':
+            if self.output_coordinate_mode == 'lidar_xyz':
+                segments = [
+                    (f"{class_}: ", (35, 35, 35)),
+                    (f"X={x:.2f}m", (0, 0, 255)),
+                    (", ", (35, 35, 35)),
+                    (f"Z={z:.2f}m", (255, 0, 0)),
+                ]
+            else:
+                segments = [
+                    (f"{class_}: ", (35, 35, 35)),
+                    (f"Zc={z:.2f}m", (255, 0, 0)),
+                    (", ", (35, 35, 35)),
+                    (f"Xc={x:.2f}m", (0, 0, 255)),
+                ]
+            self._draw_text_segments_with_background(img, segments, (x1, y1))
         else:
-            label = f"{class_} : {x:.2f},{y:.2f},{z:.2f}m"
+            label = f"{class_}: {x:.2f},{y:.2f},{z:.2f}m"
+            self._draw_text_with_background(img, label, (x1, y1))
+
+    def _draw_text_with_background(self, img, text, origin):
+        """Draw a readable annotation label clipped to the image bounds."""
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        scale = 0.45
+        thickness = 1
+        margin = 4
+        text_size, baseline = cv2.getTextSize(text, font, scale, thickness)
+        text_w, text_h = text_size
+        x = max(0, min(int(origin[0]), img.shape[1] - text_w - 2 * margin))
+        y = max(text_h + 2 * margin, int(origin[1]))
+        y = min(y, img.shape[0] - baseline - margin)
+        top_left = (x, y - text_h - 2 * margin)
+        bottom_right = (x + text_w + 2 * margin, y + baseline)
+        cv2.rectangle(img, top_left, bottom_right, (255, 255, 255), -1)
+        cv2.rectangle(img, top_left, bottom_right, (0, 0, 255), 1)
         cv2.putText(
             img,
-            label,
-            (x1, y1),
-            cv2.FONT_HERSHEY_SIMPLEX,
-            0.5,
+            text,
+            (x + margin, y - margin),
+            font,
+            scale,
             (0, 0, 255),
-            1,
+            thickness,
             cv2.LINE_AA
+        )
+
+    def _draw_text_segments_with_background(self, img, segments, origin):
+        """Draw a clipped label whose text segments can use different colours."""
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        scale = 0.45
+        thickness = 1
+        margin = 4
+        sizes = [
+            cv2.getTextSize(text, font, scale, thickness)[0]
+            for text, _color in segments
+        ]
+        text_w = sum(width for width, _height in sizes)
+        text_h = max((height for _width, height in sizes), default=0)
+        _size, baseline = cv2.getTextSize("Ag", font, scale, thickness)
+        x = max(0, min(int(origin[0]), img.shape[1] - text_w - 2 * margin))
+        y = max(text_h + 2 * margin, int(origin[1]))
+        y = min(y, img.shape[0] - baseline - margin)
+        top_left = (x, y - text_h - 2 * margin)
+        bottom_right = (x + text_w + 2 * margin, y + baseline)
+        cv2.rectangle(img, top_left, bottom_right, (255, 255, 255), -1)
+        cv2.rectangle(img, top_left, bottom_right, (80, 80, 80), 1)
+
+        cursor = x + margin
+        for (text, color), (width, _height) in zip(segments, sizes):
+            cv2.putText(
+                img,
+                text,
+                (cursor, y - margin),
+                font,
+                scale,
+                color,
+                thickness,
+                cv2.LINE_AA,
+            )
+            cursor += width
+
+    def draw_camera_axes_legend(self, img):
+        """Draw a compact Xc/Zc camera-frame legend."""
+        if not self.draw_axes_legend:
+            return
+
+        panel_w, panel_h = 156, 58
+        panel_x = 8
+        panel_y = max(8, img.shape[0] - panel_h - 8)
+        blue = (255, 0, 0)
+        red = (0, 0, 255)
+        cv2.rectangle(
+            img,
+            (panel_x, panel_y),
+            (panel_x + panel_w, panel_y + panel_h),
+            (255, 255, 255),
+            -1,
+        )
+        cv2.rectangle(
+            img,
+            (panel_x, panel_y),
+            (panel_x + panel_w, panel_y + panel_h),
+            (40, 40, 40),
+            1,
+        )
+        cv2.circle(img, (panel_x + 25, panel_y + 22), 8, blue, 2)
+        cv2.circle(img, (panel_x + 25, panel_y + 22), 2, blue, -1)
+        cv2.putText(
+            img,
+            "+Zc forward",
+            (panel_x + 44, panel_y + 28),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.40,
+            blue,
+            1,
+            cv2.LINE_AA,
+        )
+        cv2.arrowedLine(
+            img,
+            (panel_x + 16, panel_y + 46),
+            (panel_x + 55, panel_y + 46),
+            red,
+            2,
+            tipLength=0.25,
+        )
+        cv2.putText(
+            img,
+            "+Xc right",
+            (panel_x + 64, panel_y + 51),
+            cv2.FONT_HERSHEY_SIMPLEX,
+            0.40,
+            red,
+            1,
+            cv2.LINE_AA,
         )
 
     def outlier_mask(self, points: torch.Tensor) -> torch.Tensor:
@@ -898,5 +1026,7 @@ class Fusser:
 
         if pred_bboxes.any():
             pred_bboxes = self.lidar_camera_fusion(pred_bboxes, image)
+
+        self.draw_camera_axes_legend(image)
 
         return pred_bboxes.cpu().numpy(), image
