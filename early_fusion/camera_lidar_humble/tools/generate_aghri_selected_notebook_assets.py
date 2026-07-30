@@ -423,7 +423,7 @@ def generate_f14_depth_bins_absolute_improvement() -> None:
     )
     x0, y0, x1, y1 = plot_box
     group_w = (x1 - x0) / len(labels)
-    center_step = group_w * 0.88
+    center_step = group_w * 1.06
     first_center = (x0 + x1) / 2 - center_step * (len(labels) - 1) / 2
     for ci, improvement in enumerate(improvements):
         cx = int(first_center + center_step * ci)
@@ -534,7 +534,9 @@ def generate_f14_depth_normalized_error() -> None:
         tw, _ = text_size(d, label, F10)
         d.text((cx - tw // 2, y1 + 9), label, fill=MUTED, font=F10)
 
-        for detector, color, dx in [("generic", BLUE, -20), ("finetuned", ORANGE, 20)]:
+        # Offset the two method markers within each depth band so large
+        # count-scaled circles remain visibly separated.
+        for detector, color, dx in [("generic", BLUE, -27), ("finetuned", ORANGE, 27)]:
             mean = means[(detector, band)] / 100.0
             n = counts[(detector, band)]
             px = cx + dx
