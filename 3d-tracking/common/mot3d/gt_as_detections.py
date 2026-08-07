@@ -22,19 +22,24 @@ Usage (standalone):
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 from pathlib import Path
 from typing import List, Optional, Tuple
 
 
-def _person_id_from_class(class_name: str) -> int:
-    """Stable integer track ID from a label like 'human3'."""
-    digits = "".join(c for c in class_name if c.isdigit())
-    if digits:
-        return int(digits)
-    digest = hashlib.sha1(class_name.encode("utf-8")).hexdigest()
-    return int(digest[:8], 16) % 100000
+def _person_id_from_class(raw_class: object) -> int:
+    """Convert a positive digit-only AGHRI identity into an integer track ID."""
+    if not isinstance(raw_class, str):
+        raise ValueError(
+            f"Invalid AGHRI person identity {raw_class!r}; expected a string such as '01'."
+        )
+    identity = raw_class.strip()
+    if not identity.isdigit() or int(identity) <= 0:
+        raise ValueError(
+            f"Invalid AGHRI person identity {raw_class!r}; expected a positive "
+            "digit-only Class value such as '01' or '10'."
+        )
+    return int(identity)
 
 
 def _parse_box(raw_box) -> Optional[List[float]]:
@@ -81,9 +86,7 @@ def convert_scene_to_detections(scene_dir: Path, out_dir: Path) -> int:
 
         detections = []
         for label in frame.get("Labels", []):
-            cls = str(label.get("Class", "")).lower()
-            if not cls.startswith("human"):
-                continue
+            _person_id_from_class(label.get("Class"))
             box = _parse_box(label.get("BoundingBoxes", []))
             if box is None:
                 continue
@@ -105,7 +108,7 @@ def convert_scene_to_gt_mot3d(scene_dir: Path, out_csv: Path) -> Tuple[int, int]
     """
     Write a GT MOT3D CSV from one scene's lidar_ann.json.
 
-    Identity IS preserved — class names like 'human1' become track_id=1.
+    Identity IS preserved — numeric Class values such as '01' become track_id=1.
     frame_id is the 1-indexed position in the timestamp-sorted frame list.
 
     Returns (frame_count, annotation_count).
@@ -131,16 +134,13 @@ def convert_scene_to_gt_mot3d(scene_dir: Path, out_csv: Path) -> Tuple[int, int]
         frame_id += 1
 
         for label in frame.get("Labels", []):
-            cls = str(label.get("Class", "")).lower()
-            if not cls.startswith("human"):
-                continue
+            track_id = _person_id_from_class(label.get("Class"))
             box = _parse_box(label.get("BoundingBoxes", []))
             if box is None:
                 continue
-            tid = _person_id_from_class(cls)
             x, y, z, l, w, h, yaw = box
             lines.append(
-                f"{frame_id},{tid},{x:.4f},{y:.4f},{z:.4f},"
+                f"{frame_id},{track_id},{x:.4f},{y:.4f},{z:.4f},"
                 f"{l:.4f},{w:.4f},{h:.4f},{yaw:.4f},1.0000\n"
             )
             total_anns += 1

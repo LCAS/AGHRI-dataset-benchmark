@@ -27,7 +27,7 @@ The converter expects the same frame-wise JSON style used elsewhere in the repos
     "File": "frame_000001.png",
     "Labels": [
       {
-        "Class": "person7",
+        "Class": "07",
         "BoundingBoxes": [100.0, 50.0, 80.0, 180.0]
       }
     ]
@@ -40,8 +40,11 @@ The converter expects the same frame-wise JSON style used elsewhere in the repos
 - read frame records in order
 - extract `Class` and `BoundingBoxes`
 - convert each box to MOT `frame,id,x,y,w,h,...`
-- derive a stable track id from numeric suffixes when present
-- fall back to a stable hash for non-numeric labels
+- require `Class` to be a positive digit-only AGHRI person identity
+- convert the identity to an integer MOT track ID (`"07"` becomes `7`)
+
+Non-numeric, empty, and zero-valued identities are rejected rather than mapped
+to fallback track IDs.
 
 ## Convert Ground Truth
 
