@@ -10,7 +10,7 @@ from typing import Dict, List
 import numpy as np
 
 
-CLASS_NAME = 'human'
+CLASS_NAME = 'person'
 
 
 @dataclass(frozen=True)
@@ -39,6 +39,21 @@ def _normalize_box(raw_box) -> List[float]:
     x, y, z, dx, dy, dz, rx, ry, rz = [float(v) for v in box]
     yaw = float(rz)
     return [x, y, z, dx, dy, dz, yaw]
+
+
+def _parse_person_identity(raw_class: object) -> int:
+    """Return a positive integer from a digit-only AGHRI Class value."""
+    if not isinstance(raw_class, str):
+        raise ValueError(
+            f'Invalid AGHRI person identity {raw_class!r}; expected a string such as "01".'
+        )
+    identity = raw_class.strip()
+    if not identity.isdigit() or int(identity) <= 0:
+        raise ValueError(
+            f'Invalid AGHRI person identity {raw_class!r}; expected a positive '
+            'digit-only Class value such as "01" or "10".'
+        )
+    return int(identity)
 
 
 def _parse_pcd(path: Path) -> np.ndarray:
@@ -183,9 +198,7 @@ def _frame_to_info(frame: SceneFrame) -> dict:
     )
 
     for raw_instance in frame.source_annotation.get('Labels', []):
-        category = str(raw_instance.get('Class', '')).lower()
-        if not category.startswith('human'):
-            continue
+        _parse_person_identity(raw_instance.get('Class'))
         info['instances'].append(
             dict(
                 bbox_3d=_normalize_box(raw_instance.get('BoundingBoxes', [])),

@@ -2,7 +2,7 @@
 Convert raw AGHRI LiDAR annotations to per-scene MOT3D CSV ground-truth files.
 
 Reads from the original labelled_dataset annotation JSONs to preserve per-person
-class names (e.g. 'human1', 'human2'), which serve as stable track IDs.
+numeric identities (for example, '01' and '10'), which serve as stable track IDs.
 
 Usage:
     python convert_gt_to_mot3d.py \\
@@ -14,7 +14,6 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -25,13 +24,19 @@ def _load_json(path: Path) -> list:
         return json.load(f)
 
 
-def _person_id_from_class(class_name: str) -> int:
-    """Derive a stable integer track ID from a class label like 'human3'."""
-    digits = "".join(c for c in class_name if c.isdigit())
-    if digits:
-        return int(digits)
-    digest = hashlib.sha1(class_name.encode("utf-8")).hexdigest()
-    return int(digest[:8], 16) % 100000
+def _person_id_from_class(raw_class: object) -> int:
+    """Convert a positive digit-only AGHRI identity into an integer track ID."""
+    if not isinstance(raw_class, str):
+        raise ValueError(
+            f"Invalid AGHRI person identity {raw_class!r}; expected a string such as '01'."
+        )
+    identity = raw_class.strip()
+    if not identity.isdigit() or int(identity) <= 0:
+        raise ValueError(
+            f"Invalid AGHRI person identity {raw_class!r}; expected a positive "
+            "digit-only Class value such as '01' or '10'."
+        )
+    return int(identity)
 
 
 def _normalize_box(raw_box) -> Optional[List[float]]:
@@ -102,17 +107,14 @@ def convert_scene(
 
         frame_id += 1
         for label in frame_ann.get("Labels", []):
-            cls = str(label.get("Class", "")).lower()
-            if not cls.startswith("human"):
-                continue
+            track_id = _person_id_from_class(label.get("Class"))
             raw_box = label.get("BoundingBoxes", [])
             box = _normalize_box(raw_box)
             if box is None:
                 continue
-            tid = _person_id_from_class(cls)
             x, y, z, l, w, h, yaw = box
             lines.append(
-                f"{frame_id},{tid},{x:.4f},{y:.4f},{z:.4f},"
+                f"{frame_id},{track_id},{x:.4f},{y:.4f},{z:.4f},"
                 f"{l:.4f},{w:.4f},{h:.4f},{yaw:.4f},1.0000\n"
             )
             total_anns += 1

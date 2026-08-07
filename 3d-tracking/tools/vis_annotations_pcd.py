@@ -13,7 +13,7 @@ Expected annotation format:
         "File": "1732099879_188289505.pcd",
         "Labels": [
           {
-            "Class": "human1",
+            "Class": "01",
             "BoundingBoxes": [x, y, z, l, w, h, roll, pitch, yaw]
           }
         ]
@@ -37,8 +37,7 @@ Open3D mouse controls:
 
 Notes:
     - PCD files are expected to be directly inside --pcd_dir.
-    - Colours are assigned from the annotation class label. In this project,
-      labels such as human1, human2, and human3 encode consistent GT identities.
+    - Colours are assigned from the numeric person identity in `Class`.
     - The visualisation background is white and the point cloud is rendered in black.
 
 Usage example:
@@ -82,7 +81,7 @@ def parse_args() -> argparse.Namespace:
         "--only-classes",
         nargs="*",
         default=None,
-        help="Optional class filter. Example: --only-classes human1 human2",
+        help="Optional identity filter. Example: --only-classes 01 02",
     )
     return parser.parse_args()
 
@@ -98,19 +97,27 @@ def class_to_color(name: str) -> Tuple[float, float, float]:
     """
     Map annotation labels to stable high-contrast colours.
 
-    The predefined mapping preserves colour consistency for project labels such as
-    human1, human2, and human3. For any additional label, a deterministic fallback
-    colour is generated from the label string.
+    The predefined mapping preserves colour consistency for released AGHRI person
+    identities. Any other positive numeric identity receives a deterministic colour.
     """
     predefined = {
-        "human1": (1.0, 0.0, 0.0),
-        "human2": (0.0, 0.60, 0.0),
-        "human3": (0.0, 0.35, 1.0),
-        "human4": (1.0, 0.55, 0.0),
-        "human5": (0.65, 0.0, 0.85),
-        "human6": (0.0, 0.75, 0.75),
+        "01": (1.0, 0.0, 0.0),
+        "02": (0.0, 0.60, 0.0),
+        "03": (0.0, 0.35, 1.0),
+        "04": (1.0, 0.55, 0.0),
+        "05": (0.65, 0.0, 0.85),
+        "06": (0.0, 0.75, 0.75),
+        "07": (0.85, 0.25, 0.25),
+        "08": (0.25, 0.65, 0.95),
+        "09": (0.70, 0.55, 0.10),
+        "10": (0.45, 0.20, 0.75),
     }
-    key = str(name).strip().lower()
+    key = str(name).strip()
+    if not key.isdigit() or int(key) <= 0:
+        raise ValueError(
+            f"Invalid AGHRI person identity {name!r}; expected a positive "
+            "digit-only Class value such as '01' or '10'."
+        )
     if key in predefined:
         return predefined[key]
 

@@ -8,7 +8,6 @@ Examples:
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 from pathlib import Path
 from typing import Any, Dict, Iterable, Tuple
@@ -24,7 +23,7 @@ def resolve_path(path: Path) -> Path:
     return (TRACKING_ROOT / path).resolve()
 
 
-def labels_iter(record: Dict[str, Any]) -> Iterable[Tuple[str, Tuple[float, float, float, float]]]:
+def labels_iter(record: Dict[str, Any]) -> Iterable[Tuple[object, Tuple[float, float, float, float]]]:
     """Yield `(class_name, xywh_box)` pairs from one annotation record."""
 
     # Ground-truth records follow the same File/Labels pattern as detector exports.
@@ -36,20 +35,23 @@ def labels_iter(record: Dict[str, Any]) -> Iterable[Tuple[str, Tuple[float, floa
         if class_name is None or bbox is None or len(bbox) != 4:
             continue
         x, y, w, h = map(float, bbox)
-        yield str(class_name), (x, y, w, h)
+        yield class_name, (x, y, w, h)
 
 
-def class_to_track_id(class_name: str) -> int:
-    """Convert semantic class labels into stable MOT track IDs for GT export."""
+def class_to_track_id(class_name: object) -> int:
+    """Convert a positive digit-only AGHRI identity into a MOT track ID."""
 
-    # Prefer explicit numeric suffixes such as "human7". Fall back to a stable
-    # hash so repeated runs keep the same IDs for non-numeric labels.
-    digits = "".join(char for char in class_name if char.isdigit())
-    if digits:
-        return int(digits)
-
-    digest = hashlib.sha1(class_name.encode("utf-8")).hexdigest()
-    return int(digest[:8], 16) % 100000
+    if not isinstance(class_name, str):
+        raise ValueError(
+            f"Invalid AGHRI person identity {class_name!r}; expected a string such as '01'."
+        )
+    identity = class_name.strip()
+    if not identity.isdigit() or int(identity) <= 0:
+        raise ValueError(
+            f"Invalid AGHRI person identity {class_name!r}; expected a positive "
+            "digit-only Class value such as '01' or '10'."
+        )
+    return int(identity)
 
 
 def convert_gt_to_mot(annotations_json: Path, output_path: Path) -> None:
