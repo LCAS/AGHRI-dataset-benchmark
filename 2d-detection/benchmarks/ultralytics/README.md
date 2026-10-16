@@ -29,6 +29,8 @@ python -m venv .venv
 python -m pip install -r requirements.txt
 ```
 
+For AGHRI `train_eval` runs, the dataset YAML `val` entry is used for checkpoint selection during `model.train()`. The benchmark configs set `eval_split: test` for the final `model.val()` call. Keep the YAML `val` and `test` entries distinct.
+
 ## Benchmark Modes
 
 `run_benchmark.py` accepts three benchmark modes through YAML:

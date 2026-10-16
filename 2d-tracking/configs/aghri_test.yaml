@@ -1,0 +1,15 @@
+# AGHRI 2D tracking test protocol and report selection.
+test_sequences: 6
+camera_streams: [zed_rgb, front_fisheye]
+detector_sources:
+  zed_rgb: [zed_yolov8s_pretrained, zed_yolo11s_pretrained]
+  front_fisheye: [fisheye_yolov8s_pretrained, fisheye_yolo11s_pretrained]
+paper_detector_family: yolov8s_pretrained
+checkpoint_selection_split: val
+detector_confidence_export_floor: 0.05
+detector_nms_iou: 0.70
+detector_image_size: 640
+norfair_input_confidence: 0.25
+evaluation_iou_threshold: 0.50
+motp: mean_matched_iou_higher_better
+results: reports/aghri_test/trackeval_summary_by_source.csv

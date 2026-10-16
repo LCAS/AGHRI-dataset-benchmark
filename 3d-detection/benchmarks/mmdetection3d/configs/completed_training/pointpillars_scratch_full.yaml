@@ -1,0 +1,18 @@
+device: 0
+seed: 42
+benchmark_fixed_input: true
+benchmark_warmup: 20
+benchmark_iters: 100
+summary_primary_mode: bev
+summary_primary_iou: 0.50
+prefer_best_checkpoint: true
+save_best_metric: aghri/bev_ap_mean
+save_best_rule: greater
+max_keep_ckpts: 3
+project: /work/users/pwariyapperuma/Dataset_paper/aghri_3d_scratch_stage5/outputs
+name: pointpillars_scratch
+models:
+  - name: pointpillars_aghri_scratch_seed42
+    config: /work/users/pwariyapperuma/Dataset_paper/aghri_second_finetune/code/mmdetection3d/configs/models/pointpillars_aghri.py
+    train: true
+    work_dir: /work/users/pwariyapperuma/Dataset_paper/aghri_3d_scratch_stage5/outputs/full/pointpillars_scratch

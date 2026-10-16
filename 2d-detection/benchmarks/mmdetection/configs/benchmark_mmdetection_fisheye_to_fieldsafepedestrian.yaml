@@ -11,5 +11,5 @@ models:
   - name: faster-rcnn_r50_fpn_fisheye_to_fieldsafepedestrian
     config: 2d-detection/benchmarks/mmdetection/configs/models/faster_rcnn_r50_fpn_fieldsafepedestrian.py
     train: false
-    checkpoint: /workspace/agri-human-dataset-benchmark/2d-detection/reports/benchmarks/mmdetection/runs/agri-human-detection/faster-rcnn_r50_fpn_fisheye/best_coco_bbox_mAP_epoch_10.pth
+    checkpoint: /work/users/pwariyapperuma/Dataset_paper/aghri_frcnn_stage4/work_dirs/full/fisheye_frcnn/best_coco_bbox_mAP_epoch_12.pth
 notes: "Transfer evaluation: fine-tuned on fisheye-coco, evaluated on fieldsafepedestrian-coco"

@@ -81,7 +81,7 @@ val_dataloader = dict(
     dataset=dict(
         type=dataset_type,
         data_root=data_root,
-        ann_file='infos/agri_person_infos_test.pkl',
+        ann_file='infos/agri_person_infos_val.pkl',
         data_prefix=dict(pts=''),
         pipeline=test_pipeline,
         modality=input_modality,
@@ -114,7 +114,7 @@ test_dataloader = dict(
 
 val_evaluator = dict(
     type='Aghri3DMetric',
-    ann_file=data_root + '/infos/agri_person_infos_test.pkl',
+    ann_file=data_root + '/infos/agri_person_infos_val.pkl',
     iou_thresholds=[0.25, 0.5, 0.75],
     score_thr=0.0,
 )

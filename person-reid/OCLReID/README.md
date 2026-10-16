@@ -1,4 +1,4 @@
-# Person Re-Identification Repository
+# Online Target-Person Re-identification for Robot Person Following Repository
 
 OCLReID refers to Online Continual Learning based Re-Identification for robot
 person following. It selects a target person in a video, follows that person

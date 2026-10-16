@@ -18,6 +18,8 @@ This module benchmarks MMDetection models, mainly Faster R-CNN variants, for agr
 - `requirements.txt`: pinned Python package requirements for this benchmark
 - `scripts/run_mmdetection_benchmark.sbatch`: cluster launcher and reference environment setup
 
+AGHRI training selects the best checkpoint on `instances_val.json`; final evaluation uses `instances_test.json`. The two splits must remain separate in the dataset export.
+
 ## Environment
 
 This module uses MMDetection as an external Python dependency. The current benchmark configuration is pinned to the standard `mmdet==3.3.0` package and compatible MMEngine/MMCV releases; there is no project-specific MMDetection fork required for the code currently in this repository.

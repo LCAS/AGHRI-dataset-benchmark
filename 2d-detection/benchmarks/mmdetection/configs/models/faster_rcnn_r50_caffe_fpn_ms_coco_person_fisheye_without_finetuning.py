@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 _base_ = 'mmdet::faster_rcnn/faster-rcnn_r50-caffe_fpn_ms-1x_coco-person.py'
 
 dataset_type = 'CocoDataset'
@@ -49,7 +51,7 @@ val_dataloader = dict(
         type=dataset_type,
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='annotations/instances_test.json',
+        ann_file='annotations/instances_val.json',
         data_prefix=dict(img=''),
         test_mode=True,
         pipeline=test_pipeline,
@@ -57,12 +59,14 @@ val_dataloader = dict(
 
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'annotations/instances_test.json',
+    ann_file=data_root + 'annotations/instances_val.json',
     metric='bbox',
     format_only=False,
     backend_args=backend_args)
 
-test_dataloader = val_dataloader
-test_evaluator = val_evaluator
+test_dataloader = deepcopy(val_dataloader)
+test_dataloader['dataset']['ann_file'] = 'annotations/instances_test.json'
+test_evaluator = deepcopy(val_evaluator)
+test_evaluator['ann_file'] = data_root + 'annotations/instances_test.json'
 
 load_from = 'https://download.openmmlab.com/mmdetection/v2.0/faster_rcnn/faster_rcnn_r50_fpn_1x_coco-person/faster_rcnn_r50_fpn_1x_coco-person_20201216_175929-d022e227.pth'

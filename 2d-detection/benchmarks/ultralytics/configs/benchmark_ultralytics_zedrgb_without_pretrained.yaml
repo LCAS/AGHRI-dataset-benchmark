@@ -21,4 +21,4 @@ models:
   source: yolov8s.yaml
 - name: yolo11s
   source: yolo11s.yaml
-notes: From-scratch training benchmark on zedrgb without pretrained weights
+notes: AGHRI training selects checkpoints on the dataset YAML val split; final evaluation uses the test split.

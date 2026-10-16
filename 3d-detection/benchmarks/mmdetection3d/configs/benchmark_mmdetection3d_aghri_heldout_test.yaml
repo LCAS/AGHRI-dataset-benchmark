@@ -1,0 +1,30 @@
+# Evaluate the four validation-selected AGHRI models without training.
+# AGHRI_3D_DATA_ROOT must point to the prepared six-sequence test export.
+device: 0
+seed: 42
+evaluation_split: test
+benchmark_fixed_input: true
+benchmark_warmup: 20
+benchmark_iters: 100
+summary_primary_mode: bev
+summary_primary_iou: 0.50
+prefer_best_checkpoint: false
+project: 3d-detection/reports/benchmarks/mmdetection3d/runs
+name: aghri-heldout-test
+models:
+  - name: pointpillars_scratch
+    config: 3d-detection/benchmarks/mmdetection3d/configs/models/pointpillars_aghri.py
+    train: false
+    checkpoint: /work/users/pwariyapperuma/Dataset_paper/aghri_3d_scratch_stage5/outputs/full/pointpillars_scratch/best_aghri_bev_ap_mean_epoch_108.pth
+  - name: second_scratch
+    config: 3d-detection/benchmarks/mmdetection3d/configs/models/second_aghri.py
+    train: false
+    checkpoint: /work/users/pwariyapperuma/Dataset_paper/aghri_3d_scratch_stage5/outputs/full/second_scratch/best_aghri_bev_ap_mean_epoch_36.pth
+  - name: pointpillars_finetuned
+    config: 3d-detection/benchmarks/mmdetection3d/configs/models/pointpillars_aghri.py
+    train: false
+    checkpoint: /work/users/pwariyapperuma/Dataset_paper/aghri_pointpillars_finetune/outputs/pointpillars_aghri_seed42/full/best_aghri_bev_ap_mean_epoch_126.pth
+  - name: second_finetuned
+    config: 3d-detection/benchmarks/mmdetection3d/configs/models/second_aghri.py
+    train: false
+    checkpoint: /work/users/pwariyapperuma/Dataset_paper/aghri_second_finetune/outputs/second_aghri_seed42/full/best_aghri_bev_ap_mean_epoch_2.pth

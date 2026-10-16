@@ -19,6 +19,6 @@ models:
 - name: yolo11s7
   source: /workspace/agri-human-dataset-benchmark/2d-detection/reports/benchmarks/ultralytics/runs/agri-human-detection/yolo11s7/weights/best.pt
 notes: 'Transfer evaluation: coco2017-filtered fine-tuned models evaluated on zedrgb
-  val. Measures out-of-domain generalisation (source=coco2017-filtered, target=zedrgb).
+  test. Measures out-of-domain generalisation (source=coco2017-filtered, target=zedrgb).
 
   '
