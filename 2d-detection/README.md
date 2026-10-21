@@ -23,6 +23,10 @@ The current configs already cover image domains such as `zedrgb`, `fisheye`, `fi
 - `reports/benchmarks`: committed benchmark summaries and selected run artifacts
 - `notebooks`: analysis notebooks for comparing experiment outputs
 
+## AGHRI split protocol
+
+For AGHRI, fine-tuned and scratch models use the validation split to select checkpoints and the held-out test split for final evaluation. Direct pretrained models are evaluated on the test split without training. MMDetection uses `instances_val.json` for validation and `instances_test.json` for testing. Ultralytics uses the dataset YAML `val` entry during training and `eval_split: test` for final evaluation. Benchmark results are in `reports/benchmarks/summary/`, and the paper figures are in `notebooks/figures/`.
+
 ## Detection Workflow
 
 1. Choose a benchmark framework.
@@ -54,7 +58,8 @@ Best fit for config-driven detector benchmarking and richer experiment control.
 
 - benchmark summaries live under `reports/benchmarks/summary/`
 - native framework run artifacts live under framework-specific subdirectories in `reports/benchmarks/`
-- exploratory comparison notebooks live under `notebooks/`
+- the comparison notebook lives under `notebooks/` and reads the committed summary CSV files
+- the four paper figures live under `notebooks/figures/`
 
 ## Cluster Entrypoints
 

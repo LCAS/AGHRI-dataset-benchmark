@@ -15,7 +15,7 @@ This module extends the repository benchmark pattern to LiDAR-based 3D person de
 - `src/run_benchmark.py`: train/evaluate configured models and export summaries
 - `configs/datasets/`: dataset and dataloader config
 - `configs/models/`: PointPillars and SECOND configs
-- `configs/benchmark_mmdetection3d_aghri.yaml`: benchmark manifest
+- `configs/benchmark_mmdetection3d_aghri_heldout_test.yaml`: frozen four-model test manifest
 - `aghri3d/`: custom dataset and metric
 - `scripts/*.sbatch`: cluster launchers
 
@@ -56,29 +56,30 @@ Install order and exact commands are documented in:
 - `scripts/prepare_aghri_lidar_dataset.sbatch`
 - `scripts/run_mmdetection3d_benchmark.sbatch`
 
-## Typical Workflow
+## AGHRI train/validation/test protocol
 
-1. Export the processed dataset root:
+The released sequence lists contain 52 training, seven validation, and six
+held-out test sequences. Training uses only the training split. The four
+AGHRI training manifests set `evaluation_split: val`, so checkpoint selection
+and the summary emitted by a training run use validation annotations. The
+checkpoint metric is `aghri/bev_ap_mean`, averaged across BEV IoU thresholds
+0.25, 0.50, and 0.75. The dataset config also points its validation
+loader/evaluator to `agri_person_infos_val.pkl`.
 
-```bash
-export AGHRI_3D_DATA_ROOT=/workspace/datasets/agri-human-sensing/mmdet3d_person
-```
+After selection, `configs/benchmark_mmdetection3d_aghri_heldout_test.yaml`
+loads the four frozen checkpoints with `train: false` and
+`evaluation_split: test`. `run_benchmark.py` sets both the test loader and
+metric annotation file to `agri_person_infos_test.pkl` and checks the split
+recorded in each summary. Set `AGHRI_3D_DATA_ROOT` to a processed dataset
+root containing the requested split before running. The saved cluster test
+export was intentionally separate from the train/validation export. The exact
+cluster evaluation launcher is retained in `scripts/aghri_3d_test_eval.slurm`.
 
-2. Run the benchmark:
-
-```bash
-python src/run_benchmark.py \
-  --config configs/benchmark_mmdetection3d_aghri.yaml \
-  --out ../../reports/benchmarks/summary/mmdetection3d/summary_mmdetection3d_aghri.csv
-```
-
-3. Optional: if you need to regenerate the processed dataset from raw labelled scenes, use:
-
-```bash
-python src/prepare_aghri_lidar_dataset.py \
-  --raw-root /workspace/datasets/agri-human-sensing/labelled_dataset \
-  --out-root /workspace/datasets/agri-human-sensing/mmdet3d_person
-```
+Saved validation-selection summaries are in
+[`reports/benchmarks/summary/mmdetection3d/aghri_validation_selection/`](../../reports/benchmarks/summary/mmdetection3d/aghri_validation_selection/).
+Copies of the completed cluster training configs are in `configs/completed_training/`.
+The completed held-out results and checkpoint hashes are in
+[`reports/benchmarks/summary/mmdetection3d/aghri_heldout_test/`](../../reports/benchmarks/summary/mmdetection3d/aghri_heldout_test/).
 
 ## Outputs
 
@@ -88,5 +89,5 @@ python src/prepare_aghri_lidar_dataset.py \
 ## Notes
 
 - The benchmark assumes a single processed detection class: `person`.
-- Scene-level splits are generated deterministically to avoid frame leakage across train, val, and test.
-- The converter decodes the PCD `rgb` field into a normalized intensity channel for MMDetection3D.
+- The completed runs use the released sequence-level split lists so that no released sequence crosses train, validation, and test. The older optional raw conversion script expects frame-level split files; the completed cluster exports used a sequence-aware converter.
+- The converter maps the PCD `rgb` field to a normalized RGB-derived scalar feature for MMDetection3D; this is not native LiDAR intensity.

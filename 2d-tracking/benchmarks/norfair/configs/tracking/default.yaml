@@ -15,6 +15,7 @@ distance_threshold: 0.75
 hit_counter_max: 15
 initialization_delay:
 detection_threshold: 0.0
+min_detection_confidence: 0.25
 
 # Rendering options for annotated outputs
 box_thickness: 2

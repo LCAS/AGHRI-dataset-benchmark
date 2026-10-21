@@ -18,7 +18,7 @@ Expected inputs
 1. --pcd_dir : raw scene PCD directory, e.g.
        D:/AOC/datasets/agri-human-sensing/labelled_dataset/<scene>/sensor_data/lidar/
 2. --tracks  : per-scene MOT3D CSV, e.g.
-       3d-tracking/reports/runs/ab3dmot/pointpillars_aghri/<scene>.csv
+       3d-tracking/reports/heldout/test/pointpillars_scratch/pointpillars_scratch/ab3dmot/predictions/<scene>.csv
 
 Controls
 --------
@@ -35,7 +35,7 @@ Open3D mouse controls:
     a) scenario 1 with ab3dmot:
     python 3d-tracking/tools/vis_tracks_pcd.py `
         --pcd_dir   "D:/AOC/datasets/agri-human-sensing/labelled_dataset/out_vine_4swap+walk_st_ly_11_06_2024_2_label/sensor_data/lidar" `
-        --tracks    "D:/AOC/agri-human-dataset-benchmark/3d-tracking/reports/runs/tracker_suite/ab3dmot/out_vine_4swap+walk_st_ly_11_06_2024_2_label.csv"
+        --tracks    "3d-tracking/reports/heldout/test/pointpillars_scratch/pointpillars_scratch/ab3dmot/predictions/out_vine_4swap+walk_st_ly_11_06_2024_2_label.csv"
 """
 
 import argparse
@@ -160,7 +160,7 @@ def main():
             "  python tools/vis_tracks_pcd.py \\\n"
             "    --pcd_dir D:/AOC/datasets/agri-human-sensing/labelled_dataset"
             "/<scene>/sensor_data/lidar \\\n"
-            "    --tracks  3d-tracking/reports/runs/ab3dmot/pointpillars_aghri/<scene>.csv"
+            "    --tracks  3d-tracking/reports/heldout/test/pointpillars_scratch/pointpillars_scratch/ab3dmot/predictions/<scene>.csv"
         ),
     )
     parser.add_argument("--pcd_dir", required=True, type=str,

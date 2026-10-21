@@ -10,13 +10,14 @@
 #       000001.json
 #       ...
 
-detections_dir: D:/AOC/datasets/agri-human-sensing/mmdet3d_lidar_aghri/detections/pointpillars_aghri
-mot_output_dir: 3d-tracking/reports/runs/centerpoint/pointpillars_aghri
-runtime_json:   3d-tracking/reports/runs/centerpoint/pointpillars_aghri_runtime.json
+detections_dir: 3d-detection/reports/detections/pointpillars_scratch
+mot_output_dir: 3d-tracking/reports/runs/centerpoint/pointpillars_scratch
+runtime_json:   3d-tracking/reports/runs/centerpoint/pointpillars_scratch_runtime.json
 
 # Minimum detection confidence to consider.
 score_threshold: 0.25
 
+# Paths may be overridden with runner command-line arguments.
 # Tracker hyper-parameters
 max_age:            2     # frames a track survives without a match before deletion
 min_hits:           3     # frames a track must be matched before it is reported

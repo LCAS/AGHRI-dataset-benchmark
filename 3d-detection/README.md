@@ -13,3 +13,6 @@ The current implementation targets the AGHRI LiDAR dataset and provides two benc
 - SECOND
 
 See [`benchmarks/mmdetection3d/README.md`](benchmarks/mmdetection3d/README.md) for the full workflow.
+
+The current AGHRI protocol selects checkpoints on validation and evaluates the frozen
+checkpoints on the held-out test sequences. See the [3D test results](reports/benchmarks/summary/mmdetection3d/aghri_heldout_test/README.md).

@@ -196,6 +196,29 @@ def _override_evaluator_ann_file(evaluator_cfg: Any, data_root: str) -> None:
     evaluator_cfg['ann_file'] = f'{data_root}/infos/{ann_name}'
 
 
+def _set_aghri_evaluation_split(cfg: Any, split: str) -> None:
+    """Make post-training evaluation use validation or frozen held-out test data."""
+    if split not in ('val', 'test'):
+        raise ValueError(f'AGHRI evaluation_split must be val or test, got {split!r}')
+    dataset_cfg = _unwrap_dataset(cfg.test_dataloader['dataset'])
+    data_root = dataset_cfg.get('data_root', cfg.get('data_root'))
+    if not data_root:
+        raise ValueError('AGHRI test dataloader has no data_root')
+    ann_name = f'agri_person_infos_{split}.pkl'
+    dataset_cfg['ann_file'] = f'infos/{ann_name}'
+    evaluator = cfg.get('test_evaluator')
+    if isinstance(evaluator, list):
+        evaluators = evaluator
+    elif isinstance(evaluator, dict):
+        evaluators = [evaluator]
+    else:
+        raise ValueError('AGHRI test_evaluator is missing')
+    for item in evaluators:
+        if item.get('type') != 'Aghri3DMetric':
+            raise ValueError(f'Unexpected AGHRI test evaluator: {item.get("type")!r}')
+        item['ann_file'] = str(Path(str(data_root)) / 'infos' / ann_name)
+
+
 def _apply_dataset_root_override(cfg: Any) -> None:
     data_root_override = (
         os.environ.get('AGHRI_3D_DATA_ROOT')
@@ -470,6 +493,13 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
         cfg.merge_from_dict(model_item['cfg_options'])
     _disable_visualization(cfg)
 
+    train_enabled = bool(model_item.get('train', True))
+    evaluation_split = model_item.get('evaluation_split', bench_cfg.get('evaluation_split'))
+    if evaluation_split is not None:
+        if train_enabled and evaluation_split != 'val':
+            raise ValueError('AGHRI training must select checkpoints on validation')
+        _set_aghri_evaluation_split(cfg, str(evaluation_split))
+
     seed = model_item.get('seed', bench_cfg.get('seed'))
     if seed is not None:
         cfg.randomness = dict(seed=int(seed))
@@ -490,7 +520,6 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
     bench_device = _device_to_mmdet_str(device_cfg)
     cfg.device = bench_device
 
-    train_enabled = bool(model_item.get('train', True))
     checkpoint = model_item.get('checkpoint')
     if checkpoint:
         cfg.load_from = _resolve_checkpoint_ref(checkpoint, repo_root)
@@ -535,6 +564,9 @@ def train_and_eval_model(model_item: Dict[str, Any], bench_cfg: Dict[str, Any], 
     metrics = _to_jsonable(eval_runner.test() or {})
 
     test_dataset_cfg = _unwrap_dataset(cfg.test_dataloader['dataset'])
+    actual_split = _infer_split_name(test_dataset_cfg.get('ann_file'))
+    if evaluation_split is not None and actual_split != evaluation_split:
+        raise RuntimeError(f'Evaluated {actual_split!r}, expected {evaluation_split!r}')
     metainfo = test_dataset_cfg.get('metainfo', cfg.get('metainfo', {}))
     classes = metainfo.get('classes') if isinstance(metainfo, dict) else None
     primary_mode = str(bench_cfg.get('summary_primary_mode', '3d')).lower()

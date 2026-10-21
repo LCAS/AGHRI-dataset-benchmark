@@ -20,17 +20,16 @@ Use `3d-tracking` to:
 - `benchmarks/centerpoint`: local CenterPoint implementation
 - `benchmarks/simpletrack`: local SimpleTrack implementation
 - `common/mot3d`: shared tools for preparing 3D tracking data, evaluating the tracks, and summarising the results
-- `reports`: tracker summaries and runtime results
-- `notebooks`: 3D tracking analysis notebook
+- `reports/heldout`: validation selection records, six-sequence test results, and tracker predictions
+- `notebooks/3d_tracking_paper_results.ipynb`: six-sequence paper tables and the five revised figures in manuscript order
 
 ## Tracking Workflow
 
-1. Start from AGHRI LiDAR ground-truth boxes or exported 3D detections.
-2. Run AB3DMOT, the CenterPoint, or SimpleTrack.
-3. Save the predicted tracks in MOT3D CSV format.
-4. Convert AGHRI 3D annotations into MOT3D ground truth.
-5. Match predictions and ground truth using oriented bird's-eye-view IoU.
-6. Compare tracking and identity metrics across trackers.
+1. Use the seven AGHRI validation sequences to select each detector checkpoint and tune SimpleTrack separately for each detector. AB3DMOT and CenterPoint use fixed tracker settings.
+2. Freeze those choices, then export scored detections for all six held-out test sequences. The detector export retains scores down to 0.05; each tracker applies its configured input threshold.
+3. Run AB3DMOT, CenterPoint, and SimpleTrack on both detector-based and ground-truth-based boxes. Ground-truth boxes have score 1.0 and their participant IDs are withheld from the trackers.
+4. Save predicted tracks in MOT3D CSV format and convert AGHRI annotations to identity-preserving MOT3D ground truth.
+5. Evaluate all six sequences using oriented bird's-eye-view IoU matching at 0.25 and calculate sequence, macro, and pooled results. Detector-based and ground-truth-based results remain separate.
 
 ## Common Detection Format
 
@@ -96,16 +95,22 @@ The main shared scripts are:
 
 ## Reports
 
-- `notebooks/3d_tracking_benchmark.ipynb`: analysis notebook
+The current held-out comparison covers six AGHRI test sequences (1,308 LiDAR frames). PointPillars scratch, selected at epoch 108 on AGHRI validation, is the detector used for the manuscript's main 3D tracking comparison. SECOND scratch, selected at epoch 36, is retained as a separate detector comparison. The held-out test split was not used to choose a checkpoint or tune SimpleTrack.
 
-The committed comparison includes:
+- `reports/heldout/test/<model>/summary.csv`: six tracker/input combinations, each with `macro` and `pooled` rows.
+- `reports/heldout/test/<model>/per_sequence.csv`: results for all six sequences, three trackers, and two input settings.
+- `reports/heldout/test/<model>/<input>/<tracker>/`: per-sequence metrics, runtime, and MOT3D prediction CSVs. `<input>` is `gt` or the detector model name.
+- `reports/heldout/val/<model>/`: seven-sequence validation summaries and the 18-candidate SimpleTrack tuning grid.
+- `reports/heldout/frozen/<model>/simpletrack.json`: validation-selected SimpleTrack thresholds and confirmation count. PointPillars uses score threshold 0.10, high-score threshold 0.50, and three hits; SECOND uses 0.05, 0.50, and one hit.
+- `reports/heldout/manifests/`: detector checkpoint hashes and sequence membership for validation and test.
+- `reports/heldout/split_lists/`: the exact validation and test sequence lists used by this evaluation.
+- `reports/heldout/workflow/`: archived cluster export and evaluation scripts used to produce these files. They expect the corresponding cluster-stage directory layout and dependencies.
 
-- AB3DMOT
-- CenterPoint tracking
-- SimpleTrack
-- ground-truth boxes as oracle detections
-- AGHRI PointPillars detections
-- three representative AGHRI scenes
+The `macro` row averages each sequence's MOTA, MOTP, IDF1, recall, HOTA, DetA, and AssA equally. The `pooled` row calculates CLEAR and identity metrics by combining the six sequence accumulators; it weights observations according to their contribution to the combined evaluation. HOTA, DetA, and AssA are only reported as equal-sequence means. Identity switches are summed over sequences for both summaries. The paper uses the `macro` rows. Tracker-update throughput is total processed frames divided by tracker-side update time and excludes detector inference.
+
+The evaluator computes MOTP as mean matched BEV IoU distance (`motp` in the per-sequence files). The `motp_iou` column is `1 - motp`, the mean matched BEV IoU; higher values indicate better localisation. The selected tracker predictions and ground truth are matched at oriented BEV IoU 0.25. HOTA-family values average thresholds from 0.05 to 0.95.
+
+Use `notebooks/3d_tracking_paper_results.ipynb` for the six-sequence paper tables and figures; its images are in `notebooks/figures/`.
 
 ## Visualisation
 

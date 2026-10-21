@@ -14,10 +14,10 @@ benchmark_iters: 200
 project: reports/benchmarks/ultralytics/runs
 name: agri-human-detection
 models:
-- name: yolov8s4
-  source: /workspace/agri-human-dataset-benchmark/2d-detection/reports/benchmarks/ultralytics/runs/agri-human-detection/yolov8s4/weights/best.pt
-- name: yolo11s4
-  source: /workspace/agri-human-dataset-benchmark/2d-detection/reports/benchmarks/ultralytics/runs/agri-human-detection/yolo11s4/weights/best.pt
+- name: yolov8s
+  source: /work/users/pwariyapperuma/Dataset_paper/aghri_yolo_stage3/checkpoints/full/fisheye_yolov8s_pretrained/weights/best.pt
+- name: yolo11s
+  source: /work/users/pwariyapperuma/Dataset_paper/aghri_fisheye_yolo11s_finetune/checkpoints/full/fisheye_yolo11s_seed42/yolo11s/weights/best.pt
 notes: 'Transfer evaluation: fisheye fine-tuned models evaluated on COCO val. Measures
   out-of-domain generalisation (source=fisheye, target=COCO).
 

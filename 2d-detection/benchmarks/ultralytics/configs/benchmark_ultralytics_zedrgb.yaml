@@ -21,4 +21,4 @@ models:
   source: yolov8s.pt
 - name: yolo11s
   source: yolo11s.pt
-notes: Baseline benchmark settings for YOLOv8 vs YOLOv11
+notes: AGHRI training selects checkpoints on the dataset YAML val split; final evaluation uses the test split.

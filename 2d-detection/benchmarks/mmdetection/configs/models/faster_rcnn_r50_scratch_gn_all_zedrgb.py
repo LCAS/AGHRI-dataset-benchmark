@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 _base_ = 'mmdet::scratch/faster-rcnn_r50-scratch_fpn_gn-all_6x_coco.py'
 
 dataset_type = 'CocoDataset'
@@ -51,20 +53,23 @@ val_dataloader = dict(
         type=dataset_type,
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='annotations/instances_test.json',
-        data_prefix=dict(img='images/test/'),
+        ann_file='annotations/instances_val.json',
+        data_prefix=dict(img='images/val/'),
         test_mode=True,
         pipeline=test_pipeline,
         backend_args=backend_args))
 
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'annotations/instances_test.json',
+    ann_file=data_root + 'annotations/instances_val.json',
     metric='bbox',
     format_only=False,
     backend_args=backend_args)
 
-test_dataloader = val_dataloader
-test_evaluator = val_evaluator
+test_dataloader = deepcopy(val_dataloader)
+test_dataloader['dataset']['ann_file'] = 'annotations/instances_test.json'
+test_dataloader['dataset']['data_prefix'] = dict(img='images/test/')
+test_evaluator = deepcopy(val_evaluator)
+test_evaluator['ann_file'] = data_root + 'annotations/instances_test.json'
 
 load_from = None

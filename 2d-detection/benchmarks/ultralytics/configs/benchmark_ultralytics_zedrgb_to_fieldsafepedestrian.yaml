@@ -14,10 +14,10 @@ benchmark_iters: 200
 project: reports/benchmarks/ultralytics/runs
 name: agri-human-detection
 models:
-- name: yolov8s5
-  source: /workspace/agri-human-dataset-benchmark/2d-detection/reports/benchmarks/ultralytics/runs/agri-human-detection/yolov8s5/weights/best.pt
-- name: yolo11s2
-  source: /workspace/agri-human-dataset-benchmark/2d-detection/reports/benchmarks/ultralytics/runs/agri-human-detection/yolo11s2/weights/best.pt
+- name: yolov8s
+  source: /work/users/pwariyapperuma/Dataset_paper/aghri_yolo_stage3/checkpoints/full/zed_yolov8s_pretrained/weights/best.pt
+- name: yolo11s
+  source: /work/users/pwariyapperuma/Dataset_paper/aghri_yolo11s_finetune/checkpoints/aghri_yolo11s_finetune/yolo11s_aghri_zedrgb_seed42/yolo11s/weights/best.pt
 notes: 'Transfer evaluation: zedrgb fine-tuned models evaluated on fieldsafepedestrian
   val. Measures out-of-domain generalisation (source=zedrgb, target=fieldsafepedestrian).
 

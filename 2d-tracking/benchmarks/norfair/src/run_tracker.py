@@ -43,6 +43,7 @@ class TrackerConfig:
     hit_counter_max: int = 15
     initialization_delay: Optional[int] = None
     detection_threshold: float = 0.0
+    min_detection_confidence: float = 0.25
     box_thickness: int = 2
     id_offset: int = 10
 
@@ -91,6 +92,7 @@ def load_config(path: Path) -> TrackerConfig:
         hit_counter_max=int(raw.get("hit_counter_max", 15)),
         initialization_delay=_optional_int(raw.get("initialization_delay")),
         detection_threshold=float(raw.get("detection_threshold", 0.0)),
+        min_detection_confidence=float(raw.get("min_detection_confidence", 0.25)),
         box_thickness=int(raw.get("box_thickness", 2)),
         id_offset=int(raw.get("id_offset", 10)),
     )
@@ -105,8 +107,8 @@ def _to_xyxy(box: Sequence[float]) -> Tuple[float, float, float, float]:
     return x, y, w, h
 
 
-def _labels_iter(labels_field: Any) -> Iterable[Tuple[str, Tuple[float, float, float, float]]]:
-    """Yield `(label, xyxy_box)` pairs from the supported detector JSON variants."""
+def _labels_iter(labels_field: Any) -> Iterable[Tuple[str, Tuple[float, float, float, float], float]]:
+    """Yield label, box, and original detector confidence."""
 
     # Accept the small set of record shapes that have appeared in this project so
     # the tracker can consume detector exports without one-off conversion steps.
@@ -126,7 +128,7 @@ def _labels_iter(labels_field: Any) -> Iterable[Tuple[str, Tuple[float, float, f
             or labels_field.get("box")
         )
         if label is not None and box is not None:
-            yield str(label), _to_xyxy(box)
+            yield str(label), _to_xyxy(box), float(labels_field.get("Confidence", 1.0))
         return
 
     if isinstance(labels_field, list):
@@ -142,19 +144,21 @@ def _labels_iter(labels_field: Any) -> Iterable[Tuple[str, Tuple[float, float, f
             box = item.get("BoundingBoxes") or item.get("bbox") or item.get("box")
             if label is None or box is None:
                 continue
-            yield str(label), _to_xyxy(box)
+            yield str(label), _to_xyxy(box), float(item.get("Confidence", 1.0))
         return
 
     return []
 
 
-def detections_from_json_record(record: Dict[str, Any]) -> List[Detection]:
+def detections_from_json_record(record: Dict[str, Any], min_confidence: float = 0.25) -> List[Detection]:
     """Adapt one project detection record into the Norfair `Detection` objects."""
 
     detections: List[Detection] = []
     dropped = 0
 
-    for label, (x1, y1, x2, y2) in _labels_iter(record.get("Labels")):
+    for label, (x1, y1, x2, y2), score in _labels_iter(record.get("Labels")):
+        if score < min_confidence:
+            continue
         if x2 <= x1 or y2 <= y1:
             dropped += 1
             continue
@@ -269,7 +273,7 @@ def run(cfg: TrackerConfig) -> None:
     for frame_idx, record in enumerate(records, start=1):
         # Convert the project JSON shape into Norfair detections for this frame.
         frame_start = time.perf_counter()
-        detections = detections_from_json_record(record)
+        detections = detections_from_json_record(record, cfg.min_detection_confidence)
         tracked_objects = tracker.update(detections)
         tracking_time_seconds += time.perf_counter() - frame_start
 

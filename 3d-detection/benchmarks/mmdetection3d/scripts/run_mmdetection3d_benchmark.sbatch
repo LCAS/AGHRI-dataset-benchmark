@@ -31,7 +31,7 @@ export DATA_ROOT=${DATA_ROOT:-/workspace/data/mmdet3d_lidar_aghri} # TODO: Chang
 export PREPARE_DATASET=${PREPARE_DATASET:-0}
 # TODO: Change default config and output file names as needed
 export CONFIG_FILE=${CONFIG_FILE:-benchmark_mmdetection3d_kitti_pretrained_aghri_second.yaml}
-export OUT_FILE=${OUT_FILE:-summary_mmdetection3d_kitti_pretrained_aghri_second.csv}
+export OUT_FILE=${OUT_FILE:-summary_mmdetection3d_aghri_validation_rerun.csv}
 
 srun bash -c "
     set -e

@@ -1,5 +1,6 @@
 device: 0
 seed: 42
+evaluation_split: val
 benchmark_fixed_input: true
 benchmark_warmup: 20
 benchmark_iters: 100
@@ -31,6 +32,6 @@ notes: >
   3-class checkpoint and then fine-tuned on AGHRI. The SparseEncoder backbone and
   SECONDFPN neck transfer fully (spatially agnostic sparse convolutions); only the
   anchor head is re-initialized. This is a more complete transfer than PointPillars
-  and is expected to show a larger pretraining benefit. Analogous to ImageNet
-  pretraining in 2D. Compare with benchmark_mmdetection3d_aghri_second (from scratch).
+  and provides a distinct initialization regime. Compare with
+  benchmark_mmdetection3d_aghri_second (from scratch) to measure its effect.
   Set AGHRI_3D_DATA_ROOT=/workspace/data/aghri-3d when submitting.

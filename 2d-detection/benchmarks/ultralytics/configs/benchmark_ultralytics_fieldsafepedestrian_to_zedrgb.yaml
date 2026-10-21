@@ -19,6 +19,6 @@ models:
 - name: yolo11s8
   source: /workspace/agri-human-dataset-benchmark/2d-detection/reports/benchmarks/ultralytics/runs/agri-human-detection/yolo11s8/weights/best.pt
 notes: 'Transfer evaluation: fieldsafepedestrian fine-tuned models evaluated on zedrgb
-  val. Measures out-of-domain generalisation (source=fieldsafepedestrian, target=zedrgb).
+  test. Measures out-of-domain generalisation (source=fieldsafepedestrian, target=zedrgb).
 
   '

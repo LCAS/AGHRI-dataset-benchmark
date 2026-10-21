@@ -1,5 +1,6 @@
 device: 0
 seed: 42
+evaluation_split: val
 benchmark_fixed_input: true
 benchmark_warmup: 20
 benchmark_iters: 100
@@ -31,5 +32,5 @@ notes: >
   feature extractor transfers fully; the anchor head is re-initialized (different
   number of classes and spatial range). Analogous to ImageNet pretraining in 2D.
   Compare with benchmark_mmdetection3d_aghri_pointpillars (from scratch) to
-  quantify the benefit of KITTI pretraining.
+  measure the effect of KITTI initialization.
   Set AGHRI_3D_DATA_ROOT=/workspace/data/aghri-3d when submitting.

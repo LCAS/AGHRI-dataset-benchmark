@@ -1,5 +1,6 @@
 device: 0
 seed: 42
+evaluation_split: val
 benchmark_fixed_input: true
 benchmark_warmup: 20
 benchmark_iters: 100

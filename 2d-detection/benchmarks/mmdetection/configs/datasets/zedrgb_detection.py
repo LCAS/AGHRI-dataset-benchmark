@@ -1,3 +1,5 @@
+from copy import deepcopy
+
 # dataset settings
 dataset_type = 'CocoDataset'
 data_root = '/workspace/data/zedrgb-coco/'
@@ -48,18 +50,22 @@ val_dataloader = dict(
         type=dataset_type,
         data_root=data_root,
         metainfo=metainfo,
-        ann_file='annotations/instances_test.json',
-        data_prefix=dict(img='images/test/'),
+        ann_file='annotations/instances_val.json',
+        data_prefix=dict(img='images/val/'),
         test_mode=True,
         pipeline=test_pipeline,
         backend_args=backend_args))
-test_dataloader = val_dataloader
+test_dataloader = deepcopy(val_dataloader)
+test_dataloader['dataset']['ann_file'] = 'annotations/instances_test.json'
+test_dataloader['dataset']['data_prefix'] = dict(img='images/test/')
+
 
 val_evaluator = dict(
     type='CocoMetric',
-    ann_file=data_root + 'annotations/instances_test.json',
+    ann_file=data_root + 'annotations/instances_val.json',
     metric='bbox',
     format_only=False,
     backend_args=backend_args)
 
-test_evaluator = val_evaluator
+test_evaluator = deepcopy(val_evaluator)
+test_evaluator['ann_file'] = data_root + 'annotations/instances_test.json'
